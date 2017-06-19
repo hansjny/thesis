@@ -1,0 +1,9 @@
+[0] Config.pm:343> INFO - This is Biber 2.5
+[0] Config.pm:346> INFO - Logfile is 'Oppgave.blg'
+[42] biber-darwin:290> INFO - === Mon Jun 19, 2017, 12:27:44
+[61] Biber.pm:351> INFO - Reading 'Oppgave.bcf'
+[147] Biber.pm:776> INFO - Found 0 citekeys in bib section 0
+[153] Utils.pm:149> WARN - The file 'Oppgave.bcf' does not contain any citations!
+[159] bbl.pm:526> INFO - Writing 'Oppgave.bbl' with encoding 'UTF-8'
+[159] bbl.pm:619> INFO - Output to Oppgave.bbl
+[159] Biber.pm:108> INFO - WARNINGS: 1
