@@ -22,11 +22,11 @@
 	\item Introduction to the wifi interference problem
 	\item Taking a step back and looking at other attempts on solving the problem
 	\item Begin presenting Torleiv and Magnus work, the idea, and maybe the p2p protocol.
-	\item End of by showing that there is a problem with creating, limiting and updating groups.
 \end{itemize}
 
 \section {Main thesis part}
-\subsection{The problem of data replicaton} 
+\subsection{Group allocation algorithm} 
+
 \begin{itemize} 
 	\item The problem.
 	\item Possible solutions? References.
@@ -84,7 +84,7 @@ have to discover suitable connected groups on its own. Moreover, when the group 
 all participants of the group has all the data required to perform channel allocation. It will also need a way to make sure that the image of the current group
 is consistent within all APs in the connected group. 
 \chapter{Connected groups}
-To enable collaborative channel allocation, it is paramount for every AP to know which other APs it is collaborating with.
+To enable collaborative channel allocation, it is important for every AP to know which other APs it is collaborating with.
 One way to share information about who collaborates with who, is to let the access points group together. Information relevant for channel
 allocation can then be shared freely within the group, between APs.
 
@@ -93,18 +93,32 @@ Hence, not only does the APs have to be imposed group membership, but they also 
 Later we will propose an algorithm to create groups, and then evaluate computed groups based on the algorithm.
 
 
-\section{Definition and criteria}
+\section{Definition}
 A connected group is a set of access points that are within close geographical range. The group should consist of APs that
-interfere with each other when their channels are overlapping, so that overlap can avoided with a channel allocation algorithm run within the group.
+interfere with each other when their channels are overlapping, so that overlap can be avoided with a channel allocation algorithm run within the group.
 Not all APs in the connected group will necessarily be able to hear each other on the radio directly,
 but all nodes should be able to hear each other through a transitive relation (neighbour of a neighbour, etc.).
 
-Some of the criteria for how groups should be created are imposed by the nature of P2P technology. For instance, the creation of groups could potentially
-be easier if a centralized entity had the full picture of APs and their radio readings. It could then combine geographical information along with
-AP readings to create consistent groups. However, we are going to be looking at how APs can organize themselves without a central coordinator.
+\section{Requirements and assumptions}
+We are going to be looking at how APs can organize themselves without a central coordinator,
+but it should be noted that the creation of groups could potentially be easier if a centralized entity had the full picture of APs and their radio readings.
+It could then combine geographical information along with AP readings to create consistent groups.
+We will consider the two options against each other later on, but proceeding ahead with P2P group creation as the main concern. 
+Essentially this means that an AP has no other knowledge of the world than the other APs it can hear on its radio.
+For the sake of creating and evaluationg a group creation algorithm, we will assume a number of things that will have to be in solved at a later point:
+\begin{enumerate}
+	\item All APs visible on any AP's radio also runs the group creation algorithm.
+	\item If an AP can see another AP on its radio, it also knows how to directly contact the AP (e.g. via TCP).
+	\item All APs in a group are completely synchronous, and always have an equal image of the state of the group. 
+\end{enumerate}
 
+\section{Proposing an algorithm} 
+The group should have a maximum amount of participants. If a group exceeds the maximum size, it has to kick out the members that influences the group the least. By influencing we are
+referring to how loud other members of the group can hear the AP in question. To prevent the group from oscillating between kicking out members and rejoining members, once it reaches
+its maximum size, it should be locked for further
+group memberships once it reaches its maximum size. An important requirement is that nodes that influences eachother strongly should always be a part of the same group, and not be
+split into two separate groups. 
 
-\section{The Group Algorithm} 
 
 
 \subsection{Simulation data}
