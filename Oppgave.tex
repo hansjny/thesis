@@ -16,8 +16,8 @@
   program={Informatikk: programmering og nettverk},
   long]
 
-\section{Disposition} 
-\subsection {Introduction part}
+\chapter{Disposition} 
+\section {Introduction part}
 \begin{itemize} 
 	\item Introduction to the wifi interference problem
 	\item Taking a step back and looking at other attempts on solving the problem
@@ -25,14 +25,14 @@
 	\item End of by showing that there is a problem with creating, limiting and updating groups.
 \end{itemize}
 
-\subsection {Main thesis part}
-\subsubsection{The problem of data replicaton} 
+\section {Main thesis part}
+\subsection{The problem of data replicaton} 
 \begin{itemize} 
 	\item The problem.
 	\item Possible solutions? References.
 	\item Complexity, out of scope for thesis. Assume problem is solved.
 \end{itemize} 
-\subsubsection{The algorithm itself} 
+\subsection{The algorithm itself} 
 \begin{itemize} 
 	\item Elaborating on the problem, introducing the first algorithm suggestion.
 	\item Explain simulation data creation with stochastic uniform distribution.
@@ -44,13 +44,13 @@
 	\item Introducing Wigle as data source. Show results on map?
 \end{itemize}
 
-\subsection {Concluding part}
+\section {Concluding part}
 \begin{itemize} 
 	\item Have we created a meaningful algorithm that can be implemented in hardware?
 \end{itemize}
 
 \clearpage
-
+\chapter{Introduction}
 \section{Channel allocation} 
 To deal with the problem of channel allocation we will think of an AP as a vertex in a graph. When an AP scans its radio
 it can hear the strength of all nearby wireless networks measured in dBm (decibel milliwatts). This decibel value will be
@@ -83,6 +83,26 @@ protocol is based on decentralized peer-to-peer technology, and no centralized s
 have to discover suitable connected groups on its own. Moreover, when the group is created the protocol will have to replicate data so that
 all participants of the group has all the data required to perform channel allocation. It will also need a way to make sure that the image of the current group
 is consistent within all APs in the connected group. 
+\chapter{Connected groups}
+To enable collaborative channel allocation, it is paramount for every AP to know which other APs it is collaborating with.
+One way to share information about who collaborates with who, is to let the access points group together. Information relevant for channel
+allocation can then be shared freely within the group, between APs.
+
+We will proceed by looking at some of the requirements for a group creation algorithm. It should work decentralized in a distributed fashion.
+Hence, not only does the APs have to be imposed group membership, but they also have to be able to create and definine meaningful groups on their own.
+Later we will propose an algorithm to create groups, and then evaluate computed groups based on the algorithm.
+
+
+\section{Definition and criteria}
+A connected group is a set of access points that are within close geographical range. The group should consist of APs that
+interfere with each other when their channels are overlapping, so that overlap can avoided with a channel allocation algorithm run within the group.
+Not all APs in the connected group will necessarily be able to hear each other on the radio directly,
+but all nodes should be able to hear each other through a transitive relation (neighbour of a neighbour, etc.).
+
+Some of the criteria for how groups should be created are imposed by the nature of P2P technology. For instance, the creation of groups could potentially
+be easier if a centralized entity had the full picture of APs and their radio readings. It could then combine geographical information along with
+AP readings to create consistent groups. However, we are going to be looking at how APs can organize themselves without a central coordinator.
+
 
 \section{The Group Algorithm} 
 
