@@ -1,12 +1,51 @@
 \documentclass[a4paper,UKenglish]{report}
 \usepackage[utf8]{inputenc}
+\usepackage{algorithm}
+\usepackage{amsmath}
+\usepackage[noend]{algpseudocode}
 \usepackage{babel,csquotes,duomasterforside}
+\usepackage{listings}
+\usepackage{wrapfig}
 \usepackage[backend=biber,
 	    style=numeric,
 	    citestyle=numeric]{biblatex}
 
 \addbibresource{references.bib}
 
+\usepackage{xcolor}
+
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+
+\lstdefinelanguage{json}{
+	basicstyle=\normalfont\ttfamily,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    backgroundcolor=\color{background},
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
 \title{Group creation in a collaborative P2P channel allocation protocol}
 \subtitle{Identifying connected groups of access points}
 \author{Hans Jørgen Furre Nygårdshaug}
@@ -16,6 +55,7 @@
   program={Informatikk: programmering og nettverk},
   long]
 
+\tableofcontents
 \chapter{Disposition} 
 \section {Introduction part}
 \begin{itemize} 
@@ -84,7 +124,7 @@ have to discover suitable connected groups on its own. Moreover, when the group 
 all participants of the group has all the data required to perform channel allocation. It will also need a way to make sure that the image of the current group
 is consistent within all APs in the connected group. 
 \chapter{Connected groups}
-To enable collaborative channel allocation, it is important for every AP to know which other APs it is collaborating with.
+To enable collaborative channel allocation, it is important for every AP to know which APs it is collaborating with.
 One way to share information about who collaborates with who, is to let the access points group together. Information relevant for channel
 allocation can then be shared freely within the group, between APs.
 
@@ -113,34 +153,139 @@ For the sake of creating and evaluationg a group creation algorithm, we will ass
 \end{enumerate}
 
 \section{Proposing an algorithm} 
-The group should have a maximum amount of participants. If a group exceeds the maximum size, it has to kick out the members that influences the group the least. By influencing we are
-referring to how loud other members of the group can hear the AP in question. To prevent the group from oscillating between kicking out members and rejoining members, once it reaches
-its maximum size, it should be locked for further
-group memberships once it reaches its maximum size. An important requirement is that nodes that influences eachother strongly should always be a part of the same group, and not be
-split into two separate groups. 
+With the definition of a connected group in place, and the assumptions and requirements accounted for, we can begin proposing an algorithm.
 
+Henceforth we will for the sake of simplicity be referring to APs that are running the group algorithm as \textit{nodes}.
 
+Each node begins by identifying itself as a member of a group that only contains itself. Let us call it group $a$. The node shares all of
+its radio readings with the rest of the members in group $a$. Group $a$ looks at all the radio readings of every member, and picks the node with the highest dBm value
+to contact. Of course in the beginning there is only one node in group $a$, so this node's radio readings alone will decide which group to merge with. 
 
-\subsection{Simulation data}
-Primarily, before beginning to implement and test the group creation algorithm, the task
-is to create usable data to perform testing on. . Additionally, each node should have a neighbour list,
-containing the respective interference measured in $-dBi$ for each neighbour. In addition,
+The neighbour node that has the highest dBm value is in group $b$, and this is the most crucial node to collaborate with. Hence the group $a$ merges its own group together
+with the group of neighbour $b$. This happens in the following way: the members of the two groups exchange information about all their member nodes and their radio readings.
+The data is now identical for all the members of both groups, and they can make identical choices, hence they are now in the same group. 
+
+If the number of members $n$ exceeds a predefined threshold $memberThresh$ after a merge, the group should begin kicking out members from the group, starting with the node
+that influences the rest of the group the least. 
+
+To prevent the group from oscillating between kicking out members and rejoining members, once it reaches
+its maximum size it should be locked for further merges. 
+
+\section{Simulation data}
+
+\subsection{Requirements for data creation}
+Before implementing and testing the group creation algorithm, we need to gather usable data to perform testing on.
+The data consists of the topology size, and where on the topology a node is located. There are two ways we can get this knowledge.
+
+The first way is creating our own data, and either assume the location of nodes,
+or randomly distribute them on a topology.
+
+The second way is getting real world data from a data source, where the topology would represent a section of a map, and the nodes would be APs,
+most likely located in the households of the map.
+Either way, the represenation of the topology should be the same. 
+
+The testing data should be a set of nodes that has two coordinates $x$ and $y$ on a two-dimensional grid. Henceforth we will call the grid 
+the node topology, or just the topology. When the nodes are placed on the
+grid, we can compute which nodes it can hear on the radio, and add these to the nodes neighbour list. This list contains the
+names of all the nodes it can hear, and how loud it is heard measured in $-dBi$. Additionally
 the following parameters should be variable depending on each test scenario:
-
 \begin{itemize}
-\item Map size (width of x- and y-axis).
-\item Number of nodes
-\item Minimum distance between nodes (in meters)
-\item Minimum measured $-dBi$ for a neighbour to consider it interfering
+	\item Topology size, variable width of x- and y-axis.
+	\item Number of nodes
+	\item Minimum distance between nodes (in meters)
+	\item Minimum loudness measured in $-dBi$ for a node to account another node as a neighbour
 \end{itemize}
 
-The program that generates the data is written in python, and can export the topology data to
-JSON-format so it can be visualized or used by other applications.
+\subsection{Program design}
+The topology generation program consists of two main functionalitites.
 
-The interference levels between APs is calculated by iterating through each node.
-For each node $N$ we record its x and y position, and then start a second iteration through the nodes.
-For each node in the second iteration $n$ we calculate the distance $d$ in
-meters between $N$ and $n$ using Euclidean distance.
+The first functionality is being  be able to create a topology and generate nodes which are uniformly
+and randomly positioned on the network topology. The size of the topology, the number of nodes and the minimum distance
+between nodes are properties that can be given as input arguments to the program. 
+
+The second functionality is computing which nodes can hear each other. We are assuming all nodes
+are transmitting with equal strength, and that the environment is flat and obstacle free. 
+All the neighbouring nodes that can be heard by a node, is added to its list of neighbours, and it stores the $-dBi$ value so it later can be shared with
+the group. 
+
+The resulting program, written in Python 3\cite{Python3}, contains an importable \textit{topology class}. This way, for further testing we can use different data sources to get the positions of nodes,
+and only let the topology class compute the list of neighbours. 
+
+The interference levels between APs is calculated by iterating through all the nodes. For each node $N$ we record its x and y position,
+and then start a second iteration through the nodes. For each node $n$ in the second iteration we calculate the distance $d$ in
+meters between $N$ and $n$ using Euclidean distance. Knowing the the distance between the nodes,  we can use the formula for free space path loss \cite{FSPL} to compute the $-dBI$ values.
+
+For the sake of cross compatibility with other applications, the result of the computation represented in json. A topology consists of as
+many JSON node-objects as there are nodes.
+
+
+\subsection{Data output and visual representation}
+The following illustrates the node structure, and is an example of how a node with two neighbours will look: 
+
+\begin{minipage}{\linewidth}
+	\begin{lstlisting}[language=json]
+	1: {
+		"posX": 100,
+		"posY": 100, 
+		"ssid": "NODE1",
+		"neighbourCount": 2, 
+		"neighbours": {
+			0: {
+				"ssid": NODE2,
+				"dbi": -77.23
+			},
+			1: {
+				"ssid": NODE3,
+				"dbi": -79.52
+			}
+		}
+	}
+	\end{lstlisting}
+\end{minipage}
+
+We can run the program in the following way
+\begin{verbatim}./GenerateTopology.py -n 200 -w 100 -h 100 --space 10 --dbi 85 \end{verbatim}
+Which instructs the program to create a topology with 200 nodes. 
+The topology should be 100 by 100 meters large, and there should be at least 10 meters
+between each node. The $dbi$ parameter makes sure that only nodes which can be
+heard with a $-dBi$-value of $-85$ or larger should be considered neighbours.
+
+The output is a 3.8 MB large file containing the resulting topology-data in JSON.
+
+By writing a simple JavaScript browser application meant to interpret the output, we can
+visually represent the nodes on a grid, and the result will look something like this:
+
+\section{Algorithm implementation}
+\subsection{Sequential or parallel?}
+\subsection{Results on uniformely distributed nodes}
+\subsection{Wigle as data source}
+\section{Evaluating the results} 
+
+
+
+%
+%\makeatletter
+%\def\BState{\State\hskip-\ALG@thistlm}
+%\makeatother
+%\subsection{Pseudocode}
+%\begin{algorithm}
+	%\caption{Connected group}\label{congroup}
+	%\begin{algorithmic}[1]
+	%\Procedure{MergeGroup}{}
+	%		\State $\textit{members} \gets \text{1}$
+	%		\State $i \gets \textit{patlen}$
+	%		\If {$i > \textit{stringlen}$} \Return false
+	%		\EndIf
+	%		\State $j \gets \textit{patlen}$
+%			\If {$\textit{string}(i) = \textit{path}(j)$}
+%			\State $j \gets j-1$.
+%			\State $i \gets i-1$.
+%			\EndIf
+%			\State $i \gets i+\max(\textit{delta}_1(\textit{string}(i)),\textit{delta}_2(j))$.
+%			\State \textbf{goto} \emph{top}.
+%		\EndProcedure
+%	\end{algorithmic}
+%\end{algorithm}
 
 
 

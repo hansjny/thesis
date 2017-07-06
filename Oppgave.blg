@@ -1,9 +1,15 @@
 [0] Config.pm:343> INFO - This is Biber 2.5
 [0] Config.pm:346> INFO - Logfile is 'Oppgave.blg'
-[50] biber-darwin:290> INFO - === Tue Jun 20, 2017, 15:24:00
-[70] Biber.pm:351> INFO - Reading 'Oppgave.bcf'
-[166] Biber.pm:776> INFO - Found 0 citekeys in bib section 0
-[172] Utils.pm:149> WARN - The file 'Oppgave.bcf' does not contain any citations!
-[178] bbl.pm:526> INFO - Writing 'Oppgave.bbl' with encoding 'UTF-8'
-[178] bbl.pm:619> INFO - Output to Oppgave.bbl
-[178] Biber.pm:108> INFO - WARNINGS: 1
+[53] biber-darwin:290> INFO - === Wed Jul  5, 2017, 21:39:46
+[76] Biber.pm:351> INFO - Reading 'Oppgave.bcf'
+[177] Biber.pm:776> INFO - Found 2 citekeys in bib section 0
+[189] Biber.pm:3493> INFO - Processing section 0
+[209] Biber.pm:3657> INFO - Looking for bibtex format file 'references.bib' for section 0
+[211] bibtex.pm:1187> INFO - Decoding LaTeX character macros into UTF-8
+[213] bibtex.pm:1048> INFO - Found BibTeX data source 'references.bib'
+[232] UCollate.pm:66> INFO - Overriding locale 'en-UK' defaults 'variable = shifted' with 'variable = non-ignorable'
+[232] UCollate.pm:66> INFO - Overriding locale 'en-UK' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[232] Biber.pm:3306> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'en-UK'
+[232] Biber.pm:3310> INFO - No sort tailoring available for locale 'en-UK'
+[234] bbl.pm:526> INFO - Writing 'Oppgave.bbl' with encoding 'UTF-8'
+[235] bbl.pm:619> INFO - Output to Oppgave.bbl

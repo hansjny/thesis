@@ -1,0 +1,45 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\select@language {UKenglish}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {1}Disposition}{2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.1}Introduction part}{2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.2}Main thesis part}{2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.2.1}Group allocation algorithm}{2}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.2.2}The algorithm itself}{2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.3}Concluding part}{3}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {2}Introduction}{4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.1}Channel allocation}{4}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {3}Connected groups}{6}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.1}Definition}{6}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.2}Requirements and assumptions}{6}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.3}Proposing an algorithm}{7}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.4}Simulation data}{7}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.4.1}Requirements for data creation}{7}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.4.2}Program design}{8}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.4.3}Data output and visual representation}{8}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.5}Algorithm implementation}{9}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.5.1}Sequential or parallel?}{9}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.5.2}Results on uniformely distributed nodes}{9}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.5.3}Wigle as data source}{9}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.6}Evaluating the results}{9}
