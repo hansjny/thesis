@@ -34,12 +34,16 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.4.3}Data output and visual representation}{8}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.5}Algorithm implementation}{9}
+\contentsline {section}{\numberline {3.5}Algorithm implementation}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.5.1}Sequential or parallel?}{9}
+\contentsline {section}{\numberline {3.6}Results}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.5.2}Results on uniformely distributed nodes}{9}
+\contentsline {subsection}{\numberline {3.6.1}Uniformely distributed nodes}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.5.3}Wigle as data source}{9}
+\contentsline {subsubsection}{Scenario 1}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.6}Evaluating the results}{9}
+\contentsline {subsubsection}{Scenario 2}{10}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.6.2}Wigle as data source}{11}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.7}Evaluating the results}{11}

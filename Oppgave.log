@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.25)  5 JUL 2017 21:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.25)  7 JUL 2017 16:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -831,6 +831,30 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 )
+(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen123
+\captionmargin@=\dimen124
+\captionwidth=\dimen125
+\caption@tempdima=\dimen126
+\caption@indent=\dimen127
+\caption@parindent=\dimen128
+\caption@hangindent=\dimen129
+)
+\c@ContinuedFloat=\count317
+Package caption Info: float package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: wrapfig package is loaded.
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2016/02/20 v1.1-142 Sub-captions (AR)
+\c@subfigure=\count318
+\c@subtable=\count319
+)
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
@@ -854,31 +878,31 @@ File: english.lbx 2016/05/14 v3.4 biblatex localization (PK/JW/AB)
 (./Oppgave.aux)
 \openout1 = `Oppgave.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
 
 (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count317
-\scratchdimen=\dimen123
+\scratchcounter=\count320
+\scratchdimen=\dimen130
 \scratchbox=\box33
-\nofMPsegments=\count318
-\nofMParguments=\count319
+\nofMPsegments=\count321
+\nofMParguments=\count322
 \everyMPshowfont=\toks28
-\MPscratchCnt=\count320
-\MPscratchDim=\dimen124
-\MPnumerator=\count321
-\makeMPintoPDFobject=\count322
+\MPscratchCnt=\count323
+\MPscratchDim=\dimen131
+\MPnumerator=\count324
+\makeMPintoPDFobject=\count325
 \everyMPtoPDFconversion=\toks29
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -898,7 +922,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count323
+\c@lstlisting=\count326
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
@@ -908,16 +932,18 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'Oppgave.bbl' found.
 
 (./Oppgave.bbl)
-Package biblatex Info: Reference section=0 on input line 53.
-Package biblatex Info: Reference segment=0 on input line 53.
-LaTeX Font Info:    Try loading font information for T1+phv on input line 56.
+Package biblatex Info: Reference section=0 on input line 56.
+Package biblatex Info: Reference segment=0 on input line 56.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 59.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
 <DUO_UiO_segl.png, id=1, 142.3719pt x 142.3719pt>
 File: DUO_UiO_segl.png Graphic file (type png)
  <use DUO_UiO_segl.png>
-Package pdftex.def Info: DUO_UiO_segl.png used on input line 56.
+Package pdftex.def Info: DUO_UiO_segl.png used on input line 59.
 (pdftex.def)             Requested size: 170.71652pt x 170.73027pt.
 
 [1
@@ -925,7 +951,7 @@ Package pdftex.def Info: DUO_UiO_segl.png used on input line 56.
 {/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./DUO_U
 iO_segl.png>] [1] [1]
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 56.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 59.
  [1] (./Oppgave.toc)
 \tf@toc=\write5
 \openout5 = `Oppgave.toc'.
@@ -946,21 +972,41 @@ Chapter 3.
 [6
 
 ] [7]
-LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 227
+LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 230
 .
-LaTeX Font Info:    No file OMScmtt.fd. on input line 227.
+LaTeX Font Info:    No file OMScmtt.fd. on input line 230.
 
 
 LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbraceleft' on input line 227.
+(Font)              for symbol `textbraceleft' on input line 230.
 
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 225--245
+Overfull \hbox (15.0pt too wide) in paragraph at lines 228--248
 []$[]$ 
  []
 
-[8] [9] [10
+[8] <Images/randomtopology.png, id=54, 513.92pt x 511.9125pt>
+File: Images/randomtopology.png Graphic file (type png)
+
+<use Images/randomtopology.png>
+Package pdftex.def Info: Images/randomtopology.png used on input line 263.
+(pdftex.def)             Requested size: 205.56435pt x 204.76137pt.
+ [9 <./Images/randomtopology.png>] [10]
+<Images/grouptest_1.jpg, id=64, 504.88625pt x 505.38812pt>
+File: Images/grouptest_1.jpg Graphic file (type jpg)
+
+<use Images/grouptest_1.jpg>
+Package pdftex.def Info: Images/grouptest_1.jpg used on input line 323.
+(pdftex.def)             Requested size: 227.1967pt x 227.42255pt.
+
+<Images/grouptest_2.jpg, id=65, 508.90125pt x 507.8975pt>
+File: Images/grouptest_2.jpg Graphic file (type jpg)
+
+<use Images/grouptest_2.jpg>
+Package pdftex.def Info: Images/grouptest_2.jpg used on input line 330.
+(pdftex.def)             Requested size: 229.00345pt x 228.55176pt.
+ [11 <./Images/grouptest_1.jpg>] [12 <./Images/grouptest_2.jpg>] [13
 
 ] (./Oppgave.aux)
 
@@ -971,13 +1017,13 @@ Package logreq Info: Writing requests to 'Oppgave.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 12378 strings out of 493014
- 196160 string characters out of 6133351
- 653826 words of memory out of 5000000
- 15730 multiletter control sequences out of 15000+600000
+ 13477 strings out of 493014
+ 216304 string characters out of 6133351
+ 674435 words of memory out of 5000000
+ 16816 multiletter control sequences out of 15000+600000
  20276 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 37i,6n,45p,817b,1439s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,7n,45p,817b,1439s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/te
 xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/tex
@@ -992,10 +1038,10 @@ texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/te
 xmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2016/texmf-dis
 t/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on Oppgave.pdf (14 pages, 207521 bytes).
+Output written on Oppgave.pdf (17 pages, 488882 bytes).
 PDF statistics:
- 106 PDF objects out of 1000 (max. 8388607)
- 74 compressed objects within 1 object stream
+ 119 PDF objects out of 1000 (max. 8388607)
+ 80 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

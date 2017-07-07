@@ -6,6 +6,7 @@
 \usepackage{babel,csquotes,duomasterforside}
 \usepackage{listings}
 \usepackage{wrapfig}
+\usepackage{graphicx}
 \usepackage[backend=biber,
 	    style=numeric,
 	    citestyle=numeric]{biblatex}
@@ -14,6 +15,8 @@
 
 \usepackage{xcolor}
 
+\usepackage{caption}
+\usepackage{subcaption}
 \colorlet{punct}{red!60!black}
 \definecolor{background}{HTML}{EEEEEE}
 \definecolor{delim}{RGB}{20,105,176}
@@ -152,7 +155,7 @@ For the sake of creating and evaluationg a group creation algorithm, we will ass
 	\item All APs in a group are completely synchronous, and always have an equal image of the state of the group. 
 \end{enumerate}
 
-\section{Proposing an algorithm} 
+\section{Proposing an algorithm}\label{algorithm}
 With the definition of a connected group in place, and the assumptions and requirements accounted for, we can begin proposing an algorithm.
 
 Henceforth we will for the sake of simplicity be referring to APs that are running the group algorithm as \textit{nodes}.
@@ -253,13 +256,108 @@ heard with a $-dBi$-value of $-85$ or larger should be considered neighbours.
 The output is a 3.8 MB large file containing the resulting topology-data in JSON.
 
 By writing a simple JavaScript browser application meant to interpret the output, we can
-visually represent the nodes on a grid, and the result will look something like this:
+visually represent the nodes on a grid, and the result will look like what can be seen in figure \ref{fig:randtop}
+
+\begin{figure}
+	\center
+	\includegraphics[scale=0.4]{Images/randomtopology.png}
+	\caption{Generated topology with random, uniform distribution}
+	\label{fig:randtop}
+\end{figure}
 
 \section{Algorithm implementation}
-\subsection{Sequential or parallel?}
-\subsection{Results on uniformely distributed nodes}
+The algorithm was implemented in Python 3 \cite{Python3}, designed to run on the output from 
+the data generation program.
+
+For this computation, we are assuming that all members of a group are precicely synchronized
+and the group members are consistent across all nodes. With that assumption, we can be sure
+all nodes will make the same decisions. 
+
+A group object can then be responsible for keeping track of current members,
+represented as node objects. The group object will also look through the radio readings
+of all its member nodes to find new member candidates, handle merges, locking the group and
+kicking out extraneous members, all according to the algorithm description in section
+\ref{algorithm}.
+   
+
+To make it easier to evaluate the results, the computation is done sequentially
+and in iterations. This is a simple way to make sure the same groups are created
+for the same topology every time, and it will make the evaluation process easier. 
+
+The group creation program outputs a JSON-file containing the groups and their members for every iteration. The first iteration being every node having a group for their own,
+and the last iteration is the resulting groups.
+\section{Results}
+\subsection{Uniformely distributed nodes}
+We will look at how groups were created in different topology scenarios. 
+All topologies presented in this section was created by the topology generation program,
+but with different input parameters. Groups are distinguished by node color, where nodes
+of the same color represents members of the same group. 
+\subsubsection{Scenario 1}
+Computed with 200 nodes with a maximum of 128 members in each group.
+
+As can be seen in figure \ref{fig:200_128} the algorithm divides the nodes in two
+sections. For clarity, a divisive line has been drawn around each group,
+in case colors are not available.
+When two major groups merged, the biggest groups surpasssed 128 members and began
+kicking out members. The excess members formed the black group at the bottom. 
+
+\subsubsection{Scenario 2}
+Computed with 200 nodes with a maximum of 10 members in each group.
+
+The result of this computation, seen in figure \ref{fig:200_10}, is a little less obvious.
+The groups are again distinguished by different color, but for clarity we add a gray connecting
+blob for nodes in the same group. Also blobs connected with a line are in the same group. 
+
+It is worthy to take notice that one group is especially scattered around the graph.
+At first eyesight, it looks like an algorithm deficiency, but the reason is quite simple:
+when nodes are kicked out of a group during a merge, they will connet to other nodes
+that belong in a group where $n$ has not yet reached $memberThresh$. When this have happened a couple of times, everyone has found a group except for the remaining few.
+These are typically straggler nodes or smaller clusters separated from the others.
+They are not big enough to reach the group $memberThresh$ on their own, so the merge with other
+nodes that are in unmaxed groups. So even though they have neighbours which influence them more,
+they can only merge with nodes further away, because that is the only unlocked group that remains.
+
+
+\begin{figure}
+	\center
+	\includegraphics[scale=0.45]{Images/grouptest_1.jpg}
+	\caption{200 nodes, $memberThresh=128$}
+	\label{fig:200_128}
+\end{figure}
+
+\begin{figure}
+	\center
+	\includegraphics[scale=0.45]{Images/grouptest_2.jpg}
+	\caption{200 nodes, $memberThresh=10$}
+	\label{fig:200_10}
+\end{figure}
+
+
+
+
+%
+%\begin{figure}
+	%\centering
+	%\begin{minipage}{.6\textwidth}
+	%	\center
+	%	\includegraphics[width=0.9\linewidth]{Images/grouptest_1.jpg}
+	%	\captionof{figure}{\newline200 nodes, $memberThresh=128$}
+	%	\label{fig:200_128}
+	%\end{minipage}%
+	%\begin{minipage}{.6\textwidth}
+	%	\center
+	%	\includegraphics[width=0.9\linewidth]{Images/grouptest_2.jpg}
+	%	\captionof{figure}{Another figure}
+	%	\label{fig:test2}
+	%\end{minipage}
+%\end{figure}
+
+
+
+
 \subsection{Wigle as data source}
 \section{Evaluating the results} 
+
 
 
 
