@@ -287,7 +287,7 @@ for the same topology every time, and it will make the evaluation process easier
 The group creation program outputs a JSON-file containing the groups and their members for every iteration. The first iteration being every node having a group for their own,
 and the last iteration is the resulting groups.
 \section{Results}
-\subsection{Uniformely distributed nodes}
+\subsection{Uniformly distributed nodes}
 We will look at how groups were created in different topology scenarios. 
 All topologies presented in this section was created by the topology generation program,
 but with different input parameters. Groups are distinguished by node color, where nodes
@@ -301,7 +301,15 @@ in case colors are not available.
 When two major groups merged, the biggest groups surpasssed 128 members and began
 kicking out members. The excess members formed the black group at the bottom. 
 
-\subsubsection{Scenario 2}
+\begin{figure}
+	\center
+	\includegraphics[scale=0.45]{Images/grouptest_1.jpg}
+	\caption{200 nodes, $memberThresh=128$, $size=200x200$}
+	\label{fig:200_128}
+\end{figure}
+
+
+\subsubsection{Scenario 2} \label{scen2}
 Computed with 200 nodes with a maximum of 10 members in each group.
 
 The result of this computation, seen in figure \ref{fig:200_10}, is a little less obvious.
@@ -314,23 +322,35 @@ when nodes are kicked out of a group during a merge, they will connet to other n
 that belong in a group where $n$ has not yet reached $memberThresh$. When this have happened a couple of times, everyone has found a group except for the remaining few.
 These are typically straggler nodes or smaller clusters separated from the others.
 They are not big enough to reach the group $memberThresh$ on their own, so the merge with other
-nodes that are in unmaxed groups. So even though they have neighbours which influence them more,
-they can only merge with nodes further away, because that is the only unlocked group that remains.
-
-
-\begin{figure}
-	\center
-	\includegraphics[scale=0.45]{Images/grouptest_1.jpg}
-	\caption{200 nodes, $memberThresh=128$}
-	\label{fig:200_128}
-\end{figure}
-
+nodes that are in unmaxed groups. Thus, even though they have neighbours which
+influence them more, they can only merge with nodes further away,
+because that is the only unlocked group that remains.
 \begin{figure}
 	\center
 	\includegraphics[scale=0.45]{Images/grouptest_2.jpg}
-	\caption{200 nodes, $memberThresh=10$}
+	\caption{200 nodes, $memberThresh=10$, $size=200x200$}
 	\label{fig:200_10}
 \end{figure}
+
+\subsubsection{Scenario 3}
+Computed with 5000 nodes, with a maximum for 64 members in each group. 
+
+Figure \ref{fig:2000_64} shows the result of the computation. Because of the quantity
+of nodes and the clear separation of groups, they are easily distinguished by color.
+This topology is much denser than the others, and can vaguely resemble the density of highly populated areas.
+
+We can clearly see that the overall tendency is that groups are formed
+in concentrated areas of nodes. However, some groups are scattered, sometimes
+all over the map. An example of a scattered group is highlighted
+in figure \ref{fig:2000_64}. Its  member nodes has a thicker black line around them. 
+\begin{figure}
+	\center
+	\includegraphics[scale=0.45]{Images/scenario3alt.png}
+	\caption{5000 nodes, $memberThresh=64$, $size=2000x2000$}
+	\label{fig:2000_64}
+\end{figure}
+
+
 
 
 
@@ -355,7 +375,14 @@ they can only merge with nodes further away, because that is the only unlocked g
 
 
 
-\subsection{Wigle as data source}
+\subsection{WiGLE as data source}
+WiGLE (Wireless Geographical Logging Engine) gathers user submitted data about
+wireless networks and stores it in a central database. A user can download an 
+Android app created by WiGLE and use it to  wardrive The most important
+data for us is the geographical location of the access points, but the data
+also contains SSID, channel, mac address, first seen, and last updated, amongst
+some other properties. 
+
 \section{Evaluating the results} 
 
 

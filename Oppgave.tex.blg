@@ -1,5 +1,5 @@
 [0] Config.pm:343> INFO - This is Biber 2.5
 [0] Config.pm:346> INFO - Logfile is 'Oppgave.tex.blg'
-[42] biber-darwin:290> INFO - === Wed Jun 28, 2017, 14:23:41
-[150] Utils.pm:165> ERROR - Cannot find control file 'Oppgave.tex.bcf'! - did you pass the "backend=biber" option to BibLaTeX?
-[150] Biber.pm:112> INFO - ERRORS: 1
+[44] biber-darwin:290> INFO - === Sun Jul  9, 2017, 10:37:38
+[151] Utils.pm:165> ERROR - Cannot find control file 'Oppgave.tex.bcf'! - did you pass the "backend=biber" option to BibLaTeX?
+[151] Biber.pm:112> INFO - ERRORS: 1
