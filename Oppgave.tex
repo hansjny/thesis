@@ -174,7 +174,7 @@ that influences the rest of the group the least.
 To prevent the group from oscillating between kicking out members and rejoining members, once it reaches
 its maximum size it should be locked for further merges. 
 
-\section{Simulation data}
+\section{Simulation data} \label{simdata}
 
 \subsection{Requirements for data creation}
 Before implementing and testing the group creation algorithm, we need to gather usable data to perform testing on.
@@ -222,7 +222,7 @@ For the sake of cross compatibility with other applications, the result of the c
 many JSON node-objects as there are nodes.
 
 
-\subsection{Data output and visual representation}
+\subsection{Data output and visual representation} \label{simulationrep}
 The following illustrates the node structure, and is an example of how a node with two neighbours will look: 
 
 \begin{minipage}{\linewidth}
@@ -375,14 +375,99 @@ in figure \ref{fig:2000_64}. Its  member nodes has a thicker black line around t
 
 
 
-\subsection{WiGLE as data source}
-WiGLE (Wireless Geographical Logging Engine) gathers user submitted data about
-wireless networks and stores it in a central database. A user can download an 
-Android app created by WiGLE and use it to  wardrive The most important
-data for us is the geographical location of the access points, but the data
-also contains SSID, channel, mac address, first seen, and last updated, amongst
-some other properties. 
+\section{WiGLE}
+WiGLE (Wireless Geographical Logging Engine) \cite{wigle} is a project started in 2001
+which purpose is to gather information about wireless networks. The data they have
+accumulated in their database is entirely user submitted. Anyone can download an 
+Android app  published by WiGLE, and then use the app for wardriving
+\footnote{Wardriving means tracking wireless networks using a laptop or a phone,
+and then store the information about each network \cite{Wardriving}.},
+then submit the data to WiGLE's centralized database. All the APs can be viewed on an interactive
+map provided on WiGLE's website. The data can also be accessed through an API call.
+Using their service is entirely free, but the amount of data
+that can be requested is throttled on a day-to-day basis. As they openly support
+research projects, they provided us with an account with a slightly higher daily data
+limit.
 
+To us this is interesting because we can use the location of APs to
+create more realistic network topologies, and see how well the algorithm 
+performs on these. 
+ 
+
+\subsection{REST API}
+Their REST API provides data presented in JSON, and offers different services,
+such as user profile operations, statistical information and network search.
+
+We only need to use the networks search part of the API for our purpose. 
+By passing it a request for nodes between two latitudes
+and longitudes, the API responds with the APs in that area.  
+A request will look something like this: 
+\begin{lstlisting}[breaklines]
+https://api.wigle.net/api/v2/network/search?first=0&latrange1=37.808469&latrange2=37.746744&longrange1=-122.539232&longrange2=-122.381355
+\end{lstlisting}
+The parameters $latrange1$ and $longrange1$ are the coordinates that marks the beginning 
+of the area we are interested in, where $latrange2$ and $longrange2$ marks the end. 
+As WiGLE at most returns information about 100 APs for every query, we need the $start$
+parameter to tell WiGLE at which index offset we want to begin fetching data from.
+A start value of $0$ means we fetch in the range $0-99$, a value of $100$ means in the
+range $100-199$ and so on. The JSON response for a succesful request for an AP,
+can be seen in figure \ref{fig:wigle}.
+
+\begin{figure}
+	\begin{minipage}{\linewidth}
+
+	\begin{lstlisting}[language=json]
+{
+	"userfound": false,
+	"qos": 0,
+	"comment": null,
+	"lastupdt": "2015-12-22T17:49:34.000Z",
+	"bcninterval": 0,
+	"dhcp": "?",
+	"lasttime": "2015-12-22T17:49:15.000Z",
+	"trilong": 10.82792618,
+	"netid": "5C:9E:FF:2B:54:84",
+	"freenet": "?",
+	"trilat": 62.2816925,
+	"name": null,
+	"firsttime": "2015-12-22T20:55:01.000Z",
+	"type": "infra",
+	"ssid": "NETGEAR23",
+	"paynet": "?",
+	"wep": "2",
+	"transid": "20151222-00207",
+	"channel": 52
+}
+
+	\end{lstlisting}
+
+\label{fig:wigle}
+	\end{minipage}
+	\caption{REST API response with AP data}
+\end{figure}
+
+We are primarily interested in the properties $trilong$ and $trilat$, which is
+the triangulated coordinates of the AP. 
+\subsection{Using the data}
+WiGLE provides data about the location of access points. However, to be able to
+use the data for our group computation, we have to translate the global coordinates
+to two dimensional coordinates on a plane. Euclidean geometry will then work,
+and we can place each AP on a topology with the same format as the
+generated topologies we created in section \ref{simdata}. This is necessary for two reasons.
+
+The first reason is that creating a group creation program that can operate
+on the longitudes and latitudes directly adds more complexity. Both with regards to
+group computation and visual representation. 
+
+The second reason is that the WiGLE data does not contain information about
+which neighbours each AP can hear, and with what $-dBi$ strengths they are heard.
+This will have to be computed like earlier, and by parsing it to the format
+we designed in section \ref{simulationrep} we can reuse the code to generate the neighbour lists.
+
+The haversine formula gives us the distance in meters between to coordinates. By calculating
+the distane between the latitude startpoint and the latitude endpoint, we can the size of one
+axis. By computing the distance between the longitude start and endpoint we get the size of the
+other axis. To place a node anywhere on this coordinate system, 
 \section{Evaluating the results} 
 
 

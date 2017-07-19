@@ -33,11 +33,30 @@
       \field{sortinithash}{c6a7d9913bbd7b20ea954441c0460b78}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{note}{Accessed July, 2017}
+      \field{note}{Online: accessed 05-July-2017}
       \field{title}{Python 3}
       \field{year}{2017}
       \verb{url}
       \verb http://python.org
+      \endverb
+    \endentry
+    \entry{wigle}{online}{}
+      \name{author}{1}{}{%
+        {{hash=91c684bbf7e3f9c26281aeac3326742d}{%
+           family={WiGLE},
+           family_i={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{91c684bbf7e3f9c26281aeac3326742d}
+      \strng{fullhash}{91c684bbf7e3f9c26281aeac3326742d}
+      \field{sortinit}{W}
+      \field{sortinithash}{99e3ba1b3f78bb6f073e7fa7ac11636b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{07}
+      \field{title}{WiGLE: Wireless Network Mapping}
+      \field{year}{2017}
+      \verb{url}
+      \verb https://wigle.net/
       \endverb
     \endentry
     \entry{FSPL}{misc}{}
@@ -59,7 +78,7 @@
       \verb http://en.wikipedia.org/w/index.php?title=Free-space%5C%20path%5C%20loss&oldid=765763753
       \endverb
     \endentry
-    \entry{Wardriving}{misc}{}
+    \entry{Wardriving}{online}{}
       \name{author}{1}{}{%
         {{hash=9c677286866aad38f8e9b660f5411814}{%
            family={Wikipedia},
@@ -71,10 +90,12 @@
       \field{sortinithash}{99e3ba1b3f78bb6f073e7fa7ac11636b}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{\texttt{http://en.wikipedia.org/w/index.php?title=Wardriving&oldid=788183563}}
-      \field{note}{[Online; accessed 09-July-2017]}
-      \field{title}{{Wardriving} --- {W}ikipedia{,} The Free Encyclopedia}
+      \field{note}{Online; accessed 09-July-2017}
+      \field{title}{Wardriving --- Wikipedia, The Free Encyclopedia}
       \field{year}{2017}
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Wardriving%5C&oldid=788183563
+      \endverb
     \endentry
   \endsortlist
 \endrefsection
