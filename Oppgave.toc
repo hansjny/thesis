@@ -52,4 +52,6 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.7.2}Using the data}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.8}Evaluating the results}{14}
+\contentsline {section}{\numberline {3.8}Results}{14}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.9}Evaluating the results}{14}

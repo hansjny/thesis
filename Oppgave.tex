@@ -448,12 +448,13 @@ can be seen in figure \ref{fig:wigle}.
 
 We are primarily interested in the properties $trilong$ and $trilat$, which is
 the triangulated coordinates of the AP. 
+
 \subsection{Using the data}
 WiGLE provides data about the location of access points. However, to be able to
-use the data for our group computation, we have to translate the global coordinates
-to two dimensional coordinates on a plane. Euclidean geometry will then work,
-and we can place each AP on a topology with the same format as the
-generated topologies we created in section \ref{simdata}. This is necessary for two reasons.
+use the data for our group computation, we must translate the global coordinates
+to two dimensional coordinates. We can then place each AP on a topology with the
+same format as the generated topologies we created in section \ref{simdata}.
+This is necessary for two reasons.
 
 The first reason is that creating a group creation program that can operate
 on the longitudes and latitudes directly adds more complexity. Both with regards to
@@ -464,11 +465,29 @@ which neighbours each AP can hear, and with what $-dBi$ strengths they are heard
 This will have to be computed like earlier, and by parsing it to the format
 we designed in section \ref{simulationrep} we can reuse the code to generate the neighbour lists.
 
-The haversine formula gives us the distance in meters between to coordinates. By calculating
-the distane between the latitude startpoint and the latitude endpoint, we can the size of one
-axis. By computing the distance between the longitude start and endpoint we get the size of the
-other axis. To place a node anywhere on this coordinate system, 
+The haversine formula [[ref or explain]] gives us the distance in meters between two coordinates. By calculating
+the distane between the latitude startpoint and the latitude endpoint, we can get the size of one
+axis in meters. By computing the distance between the longitude start and endpoint we get the size of the
+other axis. To place a node correctly in the coordinate system, we simply use the haversine formula on the
+origin coordinates to compute the distances between each axis. 
+
+All of this has been implemented in a python program. As input it takes both latitude and longitude start and end coordinates,
+then fetches all nodes within that range and inserts them on a plane. 
+
+\section{Results}
+Here we will present three scenarios where the group allocation data is based on actual AP-data, and the topology can be
+put on top of a map of the same area to give us some insight of what happens. 
+
+
 \section{Evaluating the results} 
+\begin{figure}
+	\center
+	\includegraphics[scale=0.45]{Images/scenario3alt.png}
+	\caption{5000 nodes, $memberThresh=64$, $size=2000x2000$}
+	\label{fig:2000_64}
+\end{figure}
+
+
 
 
 

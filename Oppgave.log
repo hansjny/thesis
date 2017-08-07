@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.25)  19 JUL 2017 23:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.25)  4 AUG 2017 11:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -611,4 +611,469 @@ Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
 Package etexcmds Info: Could not find \expanded.
 (etexcmds)             That can mean that you are not using pdfTeX 1.50 or
 (etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the lat
+(etexcmds)             In the latter case, load this package earlier.
+)))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/logreq/logreq.sty
+Package: logreq 2010/08/04 v1.0 xml request logger
+\lrq@indent=\count132
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/logreq/logreq.def
+File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
+))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/xstring/xstring.sty
+(/usr/local/texlive/2016/texmf-dist/tex/generic/xstring/xstring.tex
+\@xs@message=\write3
+\integerpart=\count133
+\decimalpart=\count134
+)
+Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
+)
+\c@tabx@nest=\count135
+\c@listtotal=\count136
+\c@listcount=\count137
+\c@liststart=\count138
+\c@liststop=\count139
+\c@citecount=\count140
+\c@citetotal=\count141
+\c@multicitecount=\count142
+\c@multicitetotal=\count143
+\c@instcount=\count144
+\c@maxnames=\count145
+\c@minnames=\count146
+\c@maxitems=\count147
+\c@minitems=\count148
+\c@citecounter=\count149
+\c@savedcitecounter=\count150
+\c@uniquelist=\count151
+\c@uniquename=\count152
+\c@refsection=\count153
+\c@refsegment=\count154
+\c@maxextratitle=\count155
+\c@maxextratitleyear=\count156
+\c@maxextrayear=\count157
+\c@maxextraalpha=\count158
+\c@abbrvpenalty=\count159
+\c@highnamepenalty=\count160
+\c@lownamepenalty=\count161
+\c@maxparens=\count162
+\c@parenlevel=\count163
+\blx@tempcnta=\count164
+\blx@tempcntb=\count165
+\blx@tempcntc=\count166
+\blx@maxsection=\count167
+\blx@maxsegment@0=\count168
+\blx@notetype=\count169
+\blx@parenlevel@text=\count170
+\blx@parenlevel@foot=\count171
+\blx@sectionciteorder@0=\count172
+\labelnumberwidth=\skip52
+\labelalphawidth=\skip53
+\biblabelsep=\skip54
+\bibitemsep=\skip55
+\bibnamesep=\skip56
+\bibinitsep=\skip57
+\bibparsep=\skip58
+\bibhang=\skip59
+\blx@bcfin=\read1
+\blx@bcfout=\write4
+\c@mincomprange=\count173
+\c@maxcomprange=\count174
+\c@mincompwidth=\count175
+Package biblatex Info: Trying to load biblatex default data model...
+Package biblatex Info: ... file 'blx-dm.def' found.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/biblatex/blx-dm.def)
+Package biblatex Info: Trying to load biblatex style data model...
+Package biblatex Info: ... file 'numeric.dbx' not found.
+Package biblatex Info: Trying to load biblatex custom data model...
+Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
+\c@afterword=\count176
+\c@savedafterword=\count177
+\c@annotator=\count178
+\c@savedannotator=\count179
+\c@author=\count180
+\c@savedauthor=\count181
+\c@bookauthor=\count182
+\c@savedbookauthor=\count183
+\c@commentator=\count184
+\c@savedcommentator=\count185
+\c@editor=\count186
+\c@savededitor=\count187
+\c@editora=\count188
+\c@savededitora=\count189
+\c@editorb=\count190
+\c@savededitorb=\count191
+\c@editorc=\count192
+\c@savededitorc=\count193
+\c@foreword=\count194
+\c@savedforeword=\count195
+\c@holder=\count196
+\c@savedholder=\count197
+\c@introduction=\count198
+\c@savedintroduction=\count199
+\c@namea=\count266
+\c@savednamea=\count267
+\c@nameb=\count268
+\c@savednameb=\count269
+\c@namec=\count270
+\c@savednamec=\count271
+\c@translator=\count272
+\c@savedtranslator=\count273
+\c@shortauthor=\count274
+\c@savedshortauthor=\count275
+\c@shorteditor=\count276
+\c@savedshorteditor=\count277
+\c@labelname=\count278
+\c@savedlabelname=\count279
+\c@institution=\count280
+\c@savedinstitution=\count281
+\c@lista=\count282
+\c@savedlista=\count283
+\c@listb=\count284
+\c@savedlistb=\count285
+\c@listc=\count286
+\c@savedlistc=\count287
+\c@listd=\count288
+\c@savedlistd=\count289
+\c@liste=\count290
+\c@savedliste=\count291
+\c@listf=\count292
+\c@savedlistf=\count293
+\c@location=\count294
+\c@savedlocation=\count295
+\c@organization=\count296
+\c@savedorganization=\count297
+\c@origlocation=\count298
+\c@savedoriglocation=\count299
+\c@origpublisher=\count300
+\c@savedorigpublisher=\count301
+\c@publisher=\count302
+\c@savedpublisher=\count303
+\c@language=\count304
+\c@savedlanguage=\count305
+\c@pageref=\count306
+\c@savedpageref=\count307
+\shorthandwidth=\skip60
+\shortjournalwidth=\skip61
+\shortserieswidth=\skip62
+\shorttitlewidth=\skip63
+\shortauthorwidth=\skip64
+\shorteditorwidth=\skip65
+Package biblatex Info: Trying to load compatibility code...
+Package biblatex Info: ... file 'blx-compat.def' found.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/biblatex/blx-compat.def
+File: blx-compat.def 2016/05/14 v3.4 biblatex compatibility (PK/JW/AB)
+)
+Package biblatex Info: Trying to load generic definitions...
+Package biblatex Info: ... file 'biblatex.def' found.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/biblatex/biblatex.def
+File: biblatex.def 2016/05/14 v3.4 biblatex compatibility (PK/JW/AB)
+\c@textcitecount=\count308
+\c@textcitetotal=\count309
+\c@textcitemaxnames=\count310
+\c@biburlnumpenalty=\count311
+\c@biburlucpenalty=\count312
+\c@biburllcpenalty=\count313
+\c@smartand=\count314
+)
+Package biblatex Info: Trying to load bibliography style 'numeric'...
+Package biblatex Info: ... file 'numeric.bbx' found.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
+File: numeric.bbx 2016/05/14 v3.4 biblatex bibliography style (PK/JW/AB)
+Package biblatex Info: Trying to load bibliography style 'standard'...
+Package biblatex Info: ... file 'standard.bbx' found.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
+File: standard.bbx 2016/05/14 v3.4 biblatex bibliography style (PK/JW/AB)
+\c@bbx:relatedcount=\count315
+\c@bbx:relatedtotal=\count316
+))
+Package biblatex Info: Trying to load citation style 'numeric'...
+Package biblatex Info: ... file 'numeric.cbx' found.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx
+File: numeric.cbx 2016/05/14 v3.4 biblatex citation style (PK/JW/AB)
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\supercite'.
+Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\textcites'.
+Package biblatex Info: Redefining '\cites'.
+Package biblatex Info: Redefining '\parencites'.
+Package biblatex Info: Redefining '\smartcites'.
+)
+Package biblatex Info: Trying to load configuration file...
+Package biblatex Info: ... file 'biblatex.cfg' found.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/biblatex/biblatex.cfg
+File: biblatex.cfg 
+))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen123
+\captionmargin@=\dimen124
+\captionwidth=\dimen125
+\caption@tempdima=\dimen126
+\caption@indent=\dimen127
+\caption@parindent=\dimen128
+\caption@hangindent=\dimen129
+)
+\c@ContinuedFloat=\count317
+Package caption Info: float package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: wrapfig package is loaded.
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2016/02/20 v1.1-142 Sub-captions (AR)
+\c@subfigure=\count318
+\c@subtable=\count319
+)
+Package csquotes Info: Checking for multilingual support...
+Package csquotes Info: ... found 'babel' package.
+Package csquotes Info: Adjusting default style.
+Package csquotes Info: Redefining alias 'default' -> 'UKenglish'.
+Package biblatex Info: Trying to load language 'UKenglish'...
+Package biblatex Info: ... file 'UKenglish.lbx' found.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/biblatex/lbx/UKenglish.lbx
+File: UKenglish.lbx 2016/05/14 v3.4 biblatex localization (PK/JW/AB)
+Package biblatex Info: Trying to load language 'british'...
+Package biblatex Info: ... file 'british.lbx' found.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/biblatex/lbx/british.lbx
+File: british.lbx 2016/05/14 v3.4 biblatex localization (PK/JW/AB)
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+File: english.lbx 2016/05/14 v3.4 biblatex localization (PK/JW/AB)
+)))
+(./Oppgave.aux
+
+LaTeX Warning: Label `fig:2000_64' multiply defined.
+
+)
+\openout1 = `Oppgave.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+ (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count320
+\scratchdimen=\dimen130
+\scratchbox=\box33
+\nofMPsegments=\count321
+\nofMParguments=\count322
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count323
+\MPscratchDim=\dimen131
+\MPnumerator=\count324
+\makeMPintoPDFobject=\count325
+\everyMPtoPDFconversion=\toks29
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+\c@lstlisting=\count326
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+\openout4 = `Oppgave.bcf'.
+
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'Oppgave.bbl' found.
+
+(./Oppgave.bbl)
+Package biblatex Info: Reference section=0 on input line 56.
+Package biblatex Info: Reference segment=0 on input line 56.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 59.
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/t1phv.fd
+File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
+)
+<DUO_UiO_segl.png, id=1, 142.3719pt x 142.3719pt>
+File: DUO_UiO_segl.png Graphic file (type png)
+ <use DUO_UiO_segl.png>
+Package pdftex.def Info: DUO_UiO_segl.png used on input line 59.
+(pdftex.def)             Requested size: 170.71652pt x 170.73027pt.
+
+[1
+
+{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./DUO_U
+iO_segl.png>] [1] [1]
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 59.
+ [1] (./Oppgave.toc)
+\tf@toc=\write5
+\openout5 = `Oppgave.toc'.
+
+ [1
+
+]
+Chapter 1.
+[2
+
+] [3]
+Chapter 2.
+[4
+
+
+] [5]
+Chapter 3.
+[6
+
+] [7]
+LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 230
+.
+LaTeX Font Info:    No file OMScmtt.fd. on input line 230.
+
+
+LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbraceleft' on input line 230.
+
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 228--248
+[]$[]$ 
+ []
+
+[8] <Images/randomtopology.png, id=54, 513.92pt x 511.9125pt>
+File: Images/randomtopology.png Graphic file (type png)
+
+<use Images/randomtopology.png>
+Package pdftex.def Info: Images/randomtopology.png used on input line 263.
+(pdftex.def)             Requested size: 205.56435pt x 204.76137pt.
+ [9 <./Images/randomtopology.png>]
+<Images/grouptest_1.jpg, id=61, 504.88625pt x 505.38812pt>
+File: Images/grouptest_1.jpg Graphic file (type jpg)
+
+<use Images/grouptest_1.jpg>
+Package pdftex.def Info: Images/grouptest_1.jpg used on input line 306.
+(pdftex.def)             Requested size: 227.1967pt x 227.42255pt.
+
+<Images/grouptest_2.jpg, id=62, 508.90125pt x 507.8975pt>
+File: Images/grouptest_2.jpg Graphic file (type jpg)
+
+<use Images/grouptest_2.jpg>
+Package pdftex.def Info: Images/grouptest_2.jpg used on input line 330.
+(pdftex.def)             Requested size: 229.00345pt x 228.55176pt.
+ [10]
+<Images/scenario3alt.png, id=66, 511.9125pt x 511.9125pt>
+File: Images/scenario3alt.png Graphic file (type png)
+
+<use Images/scenario3alt.png>
+Package pdftex.def Info: Images/scenario3alt.png used on input line 348.
+(pdftex.def)             Requested size: 230.35849pt x 230.35849pt.
+ [11 <./Images/grouptest_1.jpg>] [12 <./Images/grouptest_2.jpg> <./Images/scena
+rio3alt.png>]
+
+Package caption Warning: \label without proper reference on input line 444.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `fig:wigle' on page 13 undefined on input line 414.
+
+[13]
+File: Images/scenario3alt.png Graphic file (type png)
+ <use Images/scenario3alt.png>
+Package pdftex.def Info: Images/scenario3alt.png used on input line 485.
+(pdftex.def)             Requested size: 230.35849pt x 230.35849pt.
+ [14] [15] [16
+
+] (./Oppgave.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package logreq Info: Writing requests to 'Oppgave.run.xml'.
+\openout1 = `Oppgave.run.xml'.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 13506 strings out of 493014
+ 216773 string characters out of 6133351
+ 724620 words of memory out of 5000000
+ 16838 multiletter control sequences out of 15000+600000
+ 22547 words of font info for 47 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 37i,8n,45p,817b,1439s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
+exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/te
+xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/tex
+live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/tex
+live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texl
+ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texliv
+e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/
+2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/201
+6/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/local/texlive/2016/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/texmf-di
+st/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2016/texmf-dist/font
+s/type1/urw/helvetic/uhvro8a.pfb>
+Output written on Oppgave.pdf (20 pages, 677876 bytes).
+PDF statistics:
+ 139 PDF objects out of 1000 (max. 8388607)
+ 93 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+
