@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.25)  4 AUG 2017 11:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.25)  17 AUG 2017 13:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -875,11 +875,7 @@ Package biblatex Info: ... file 'english.lbx' found.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 File: english.lbx 2016/05/14 v3.4 biblatex localization (PK/JW/AB)
 )))
-(./Oppgave.aux
-
-LaTeX Warning: Label `fig:2000_64' multiply defined.
-
-)
+(./Oppgave.aux)
 \openout1 = `Oppgave.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
@@ -894,7 +890,8 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
 LaTeX Font Info:    ... okay on input line 56.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
 LaTeX Font Info:    ... okay on input line 56.
- (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+
+(/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count320
 \scratchdimen=\dimen130
@@ -1025,12 +1022,31 @@ See the caption package documentation for explanation.
 
 LaTeX Warning: Reference `fig:wigle' on page 13 undefined on input line 414.
 
-[13]
-File: Images/scenario3alt.png Graphic file (type png)
- <use Images/scenario3alt.png>
-Package pdftex.def Info: Images/scenario3alt.png used on input line 485.
-(pdftex.def)             Requested size: 230.35849pt x 230.35849pt.
- [14] [15] [16
+[13] <Images/cities/lillehammer_groups.jpg, id=79, 506.89375pt x 505.89pt>
+File: Images/cities/lillehammer_groups.jpg Graphic file (type jpg)
+
+<use Images/cities/lillehammer_groups.jpg>
+Package pdftex.def Info: Images/cities/lillehammer_groups.jpg used on input lin
+e 490.
+(pdftex.def)             Requested size: 233.17395pt x 232.71222pt.
+ [14]
+<Images/cities/tynset_groups.jpg, id=83, 508.90125pt x 507.8975pt>
+File: Images/cities/tynset_groups.jpg Graphic file (type jpg)
+
+<use Images/cities/tynset_groups.jpg>
+Package pdftex.def Info: Images/cities/tynset_groups.jpg used on input line 520
+.
+(pdftex.def)             Requested size: 234.09741pt x 233.63568pt.
+ [15 <./Images/cities/lillehammer_groups.jpg>] <Images/cities/forks_groups.jpg,
+ id=88, 504.38437pt x 502.37688pt>
+File: Images/cities/forks_groups.jpg Graphic file (type jpg)
+
+<use Images/cities/forks_groups.jpg>
+Package pdftex.def Info: Images/cities/forks_groups.jpg used on input line 541.
+
+(pdftex.def)             Requested size: 232.01962pt x 231.09616pt.
+ [16 <./Images/cities/tynset_groups.jpg>]
+[17 <./Images/cities/forks_groups.jpg>] [18
 
 ] (./Oppgave.aux)
 
@@ -1039,18 +1055,15 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
 Package logreq Info: Writing requests to 'Oppgave.run.xml'.
 \openout1 = `Oppgave.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 13506 strings out of 493014
- 216773 string characters out of 6133351
- 724620 words of memory out of 5000000
- 16838 multiletter control sequences out of 15000+600000
+ 13525 strings out of 493014
+ 217342 string characters out of 6133351
+ 724614 words of memory out of 5000000
+ 16853 multiletter control sequences out of 15000+600000
  22547 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  37i,8n,45p,817b,1439s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1070,10 +1083,10 @@ dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/texmf-di
 st/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2016/texmf-dist/font
 s/type1/urw/helvetic/uhvro8a.pfb>
-Output written on Oppgave.pdf (20 pages, 677876 bytes).
+Output written on Oppgave.pdf (22 pages, 1207644 bytes).
 PDF statistics:
- 139 PDF objects out of 1000 (max. 8388607)
- 93 compressed objects within 1 object stream
+ 148 PDF objects out of 1000 (max. 8388607)
+ 97 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -475,17 +475,76 @@ All of this has been implemented in a python program. As input it takes both lat
 then fetches all nodes within that range and inserts them on a plane. 
 
 \section{Results}
-Here we will present three scenarios where the group allocation data is based on actual AP-data, and the topology can be
-put on top of a map of the same area to give us some insight of what happens. 
+By running the scripts that parses data from Wigle on populated areas, we should get an idea 
+on how the algorithm performs in more realistic topologies. We will have a look at three
+scenarios where the group allocation data is based on AP-data. 
 
+Three suitable locations has been selected to perform the testing on Lillehammer (Norway)
+a smaller city, Tynset (Norway) a less densely populated area, 
+and Forks (Washington, United States). All tests were 
+ran with a maximum group size of 128, and a $-dBi$ threshold of $-80$. 
 
-\section{Evaluating the results} 
+\subsubsection{Lillehammer}
 \begin{figure}
 	\center
-	\includegraphics[scale=0.45]{Images/scenario3alt.png}
-	\caption{5000 nodes, $memberThresh=64$, $size=2000x2000$}
-	\label{fig:2000_64}
+	\includegraphics[scale=0.46]{Images/cities/lillehammer_groups.jpg}
+	\caption{Lillehammer}
+	\label{fig:lillehammer_topo}
 \end{figure}
+
+The computation results of Lillehammer can be seen in figure \ref{fig:lillehammer_topo}.
+The topology is of medium density, consisting of 4990 APs, and is 2572 meters high 
+and 8418 meters wide. From the tight clusters in the middle it is easy to make out the city centre.
+We can clearly see different groups with different sizes. Some of the smallest groups
+are highly likely so small because the distance to other nodes is too high for
+the group to hear. In the denser areas they are occasionally very
+entangeled, and it can be hard to make out the group borders.
+
+Another thing to notice is that APs are nearly always placed in straight lines.
+The straight lines are roads, and as Wigle collects data based on triangulation, the nodes
+that is only seen once will get the position they are observed in, and not an actual
+triangulated position. 
+\subsubsection{Tynset}
+	The computation results of Tynset can be seen in figure \ref{fig:tynset_topo}. 
+	The topology consists of 726 APs, is 1670 meters high and  6720 meters wide. 
+	Unsurprisingly it resembles Lillehammer on a smaller scale.
+	Again we see
+	some very clearly defined groups, but in the city centre there are groups
+	which overlaps. We can also see nodes that are alone in their group,
+	because they are too far away from anyone else.
+	Much like Lillehammer, this topology is also strongly affected by the weak
+	triangulation of the APs, so most APs seems to be placed on top of a road. 
+
+\begin{figure}
+	\center
+	\includegraphics[scale=0.46]{Images/cities/tynset_groups.jpg}
+	\caption{Tynset}
+	\label{fig:tynset_topo}
+\end{figure}
+
+\subsubsection{Forks}
+	
+ The computation results of Forks can be seen in figure \ref{fig:forks_topo}. 
+ The topology consists of 1715 nodes, and is 2122 meters high and 4495 meters wide. It
+ is important to include, because it is quite different from the other topologies and
+ represents a variation from the typical town and city structure of Norway.
+ The size of the groups are a little more uniform when comparing it to the others.
+ This can explained by the the smaller area the town is contained within. When a group
+ is not full, it will almost always hear someone that it can merge with.
+ We still have groups overlapping each other in the denser regions in Forks as well. 
+ What is worth noticing is that the APs are positioned more realistically as locations
+ of households. American towns looks more like a grid with roads in between households,
+ which makes triangulation easy and a lot more accurate. 
+
+\begin{figure}
+	\center
+	\includegraphics[scale=0.46]{Images/cities/forks_groups.jpg}
+	\caption{Forks}
+	\label{fig:forks_topo}
+\end{figure}
+
+
+
 
 
 
