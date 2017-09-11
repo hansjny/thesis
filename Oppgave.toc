@@ -2,60 +2,72 @@
 \defcounter {refsection}{0}\relax 
 \select@language {UKenglish}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {1}Disposition}{2}
+\contentsline {chapter}{\numberline {1}Introduction}{4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.1}Introduction part}{2}
+\contentsline {section}{\numberline {1.1}Problem definition}{4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.2}Main thesis part}{2}
+\contentsline {section}{\numberline {1.2}Motivation}{4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.2.1}Group allocation algorithm}{2}
+\contentsline {section}{\numberline {1.3}Method}{4}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.2.2}The algorithm itself}{2}
+\contentsline {section}{\numberline {1.4}Channel allocation}{4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1.3}Concluding part}{3}
+\contentsline {chapter}{\numberline {2}Background}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {2}Introduction}{4}
+\contentsline {section}{\numberline {2.1}Wireless technology}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.1}Channel allocation}{4}
+\contentsline {subsection}{\numberline {2.1.1}The hidden terminal problem}{6}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}Connected groups}{6}
+\contentsline {section}{\numberline {2.2}IEEE 802.11}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}Definition}{6}
+\contentsline {subsection}{\numberline {2.2.1}MAC Layer}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Requirements and assumptions}{6}
+\contentsline {subsection}{\numberline {2.2.2}PHY Layer}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}Proposing an algorithm}{7}
+\contentsline {section}{\numberline {2.3}Radio Frequency Interference}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.4}Simulation data}{7}
+\contentsline {section}{\numberline {2.4}Channel selection}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4.1}Requirements for data creation}{7}
+\contentsline {chapter}{\numberline {3}Related work}{8}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4.2}Program design}{8}
+\contentsline {chapter}{\numberline {4}Connected groups}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4.3}Data output and visual representation}{8}
+\contentsline {section}{\numberline {4.1}Definition}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.5}Algorithm implementation}{10}
+\contentsline {section}{\numberline {4.2}Requirements and assumptions}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.6}Results}{10}
+\contentsline {section}{\numberline {4.3}Proposing an algorithm}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.6.1}Uniformly distributed nodes}{10}
+\contentsline {section}{\numberline {4.4}Simulation data}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Scenario 1}{10}
+\contentsline {subsection}{\numberline {4.4.1}Requirements for data creation}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Scenario 2}{10}
+\contentsline {subsection}{\numberline {4.4.2}Program design}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Scenario 3}{11}
+\contentsline {subsection}{\numberline {4.4.3}Data output and visual representation}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.7}WiGLE}{11}
+\contentsline {section}{\numberline {4.5}Algorithm implementation}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.7.1}REST API}{13}
+\contentsline {section}{\numberline {4.6}Results}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.7.2}Using the data}{13}
+\contentsline {subsection}{\numberline {4.6.1}Uniformly distributed nodes}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.8}Results}{14}
+\contentsline {subsubsection}{Scenario 1}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Lillehammer}{15}
+\contentsline {subsubsection}{Scenario 2}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Tynset}{15}
+\contentsline {subsubsection}{Scenario 3}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Forks}{16}
+\contentsline {section}{\numberline {4.7}WiGLE}{14}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.7.1}REST API}{16}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.7.2}Using the data}{16}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.8}Results}{17}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Lillehammer}{18}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Tynset}{18}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Forks}{19}

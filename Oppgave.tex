@@ -57,43 +57,66 @@
 \duoforside[dept={Institutt for informatikk},
   program={Informatikk: programmering og nettverk},
   long]
-
-\tableofcontents
-\chapter{Disposition} 
-\section {Introduction part}
-\begin{itemize} 
-	\item Introduction to the wifi interference problem
-	\item Taking a step back and looking at other attempts on solving the problem
-	\item Begin presenting Torleiv and Magnus work, the idea, and maybe the p2p protocol.
-\end{itemize}
-
-\section {Main thesis part}
-\subsection{Group allocation algorithm} 
-
-\begin{itemize} 
-	\item The problem.
-	\item Possible solutions? References.
-	\item Complexity, out of scope for thesis. Assume problem is solved.
-\end{itemize} 
-\subsection{The algorithm itself} 
-\begin{itemize} 
-	\item Elaborating on the problem, introducing the first algorithm suggestion.
-	\item Explain simulation data creation with stochastic uniform distribution.
-	\item Show how the group creation algorith was created, design decisions (iterations etc).
-	\item Results with visualizations through the visualization tool. 
-	\item Evaluate results and consider improvements. How will this work in the wild?
-	\item Introduce SSB data, the data format and why it is relevant. How is the tool made.
-	\item Same procedure with result visualization and result evaluation. Do we still need improvements?
-	\item Introducing Wigle as data source. Show results on map?
-\end{itemize}
-
-\section {Concluding part}
-\begin{itemize} 
-	\item Have we created a meaningful algorithm that can be implemented in hardware?
-\end{itemize}
+\section*{Abstract}
 
 \clearpage
+\section*{List of acronyms}
+\begin{tabular}{ c c }
+	\textbf{AP} & Access Point\\ 
+	\textbf{CSMA/CA} & Carrier Sense Multiple Access / Collision Avoidance\\
+	\textbf{MAC} & Medium Access Control\\
+\end{tabular}
+\tableofcontents
+%\chapter{Disposition} 
+%\section {Introduction part}
+%\begin{itemize} 
+	%\item Introduction to the wifi interference problem
+	%\item Taking a step back and looking at other attempts on solving the problem
+	%\item Begin presenting Torleiv and Magnus work, the idea, and maybe the p2p protocol.
+%\end{itemize}
+
+%\section {Main thesis part}
+%\subsection{Group allocation algorithm} 
+
+%\begin{itemize} 
+	%\item The problem.
+	%\item Possible solutions? References.
+	%\item Complexity, out of scope for thesis. Assume problem is solved.
+%\end{itemize} 
+%\subsection{The algorithm itself} 
+%\begin{itemize} 
+	%\item Elaborating on the problem, introducing the first algorithm suggestion.
+	%\item Explain simulation data creation with stochastic uniform distribution.
+	%\item Show how the group creation algorith was created, design decisions (iterations etc).
+	%\item Results with visualizations through the visualization tool. 
+	%\item Evaluate results and consider improvements. How will this work in the wild?
+	%\item Introduce SSB data, the data format and why it is relevant. How is the tool made.
+	%\item Same procedure with result visualization and result evaluation. Do we still need improvements?
+	%\item Introducing Wigle as data source. Show results on map?
+%\end{itemize}
+
+%\section {Concluding part}
+%\begin{itemize} 
+	%\item Have we created a meaningful algorithm that can be implemented in hardware?
+%\end{itemize}
+
+%\clearpage
 \chapter{Introduction}
+- Expansion of WiFI
+- Densely populated Areas
+- Increased usage
+- Expectations of universal wifi
+- Congested networks because of intereference
+
+\section{Problem definition}
+The problem is that devices operating on the same channel in the same area interferes with one another.
+
+\section{Motivation}
+Wifi is deployed in almost all residencies, and the problem is especially prominent in densely populated areas. 
+
+\section{Method}
+Defining groups for running a channel allocation algorithm on
+
 \section{Channel allocation} 
 To deal with the problem of channel allocation we will think of an AP as a vertex in a graph. When an AP scans its radio
 it can hear the strength of all nearby wireless networks measured in dBm (decibel milliwatts). This decibel value will be
@@ -126,6 +149,61 @@ protocol is based on decentralized peer-to-peer technology, and no centralized s
 have to discover suitable connected groups on its own. Moreover, when the group is created the protocol will have to replicate data so that
 all participants of the group has all the data required to perform channel allocation. It will also need a way to make sure that the image of the current group
 is consistent within all APs in the connected group. 
+
+\chapter{Background}
+To be able to comprenhensively understand the issue at hand, we will briefly introduce the relevant areas wireless technology and the 802.11 standard.
+\section{Wireless technology}
+The basic goal of wireless technology is to transmit a signal from radio A to radio B without losing data.
+The main criteria that must be fulfilled reach this goal, is that radio B has to be within radio A's transmit range.
+When a wireless signal is transmitted it becomes subject of attenuation, which is a physical property of electromagnic waves 
+that weakens the signal the longer it has travelled through space (also called path loss). Attentuation limits
+the transmit range of a radio, and to transmit further it has to increase its transmission power.
+
+Collisions can also prevent the signal from being received correctly.
+If there are other nodes nearby that are within radio B's sensing range that sends at the same time as A, radio B experiences
+radio frequency interference, and thus may not be able to correctly decode the signal of A. In ethernet this
+is graciously handled by collision detection, but in wireless technolgy this not always possible because of the hidden terminal problem.
+
+\subsection{The hidden terminal problem}
+The hidden terminal problem is one of the major challenges for wireless technologies. In contrast to ethernet, a sender can not 
+simply listen for collisions on the channel while sending to guarentee that the receiver got the message properly.
+The perpatrator is the hidden terminal. When node A transmits a message to node B, it may not be able to sense what is going on
+on the opposite side of node B. If a node C transmits at the same time, this signal may not enter node A's sensing range, and
+hence go undetected by, even though a collision has happened near node B. In that case, both A and C will assume a succesful
+transfer, while B has not been able to decode any messages. 
+
+
+
+
+
+
+to as path loss, 
+- Sensing ranges
+- Difference between ethernet and wifi
+- Exposed terminal, hidden terminal
+\section{IEEE 802.11}
+\subsection{MAC Layer}
+To control access to the medium, the 802.11 standard uses the Carrier Sense Multiple Access / Collision Avoidance (CSMA/CA) protocol. Other MAC 
+protocols like Time-Division Multiple Access (TDMA) or Frequency-Division Multiple Access (FDMA) can utilize a centralized entity to control
+respectively a time slot, or a frequency for a station to transmit in. This is usually the way cellular networks controls medium access.
+In contrast, the CSMA/CA protocol operates in a distributed fashion, where all stations connected to a network operate on the same frequency without coordinated timeslots.
+- Clear Channel Assesment (Carrier Sense)
+- Random access scheme
+- Backoff
+
+\subsection{PHY Layer}
+- PLCP
+- PPDU
+
+\section{Radio Frequency Interference}
+
+
+
+\section{Channel selection} 
+
+
+\chapter{Related work}
+
 \chapter{Connected groups}
 To enable collaborative channel allocation, it is important for every AP to know which APs it is collaborating with.
 One way to share information about who collaborates with who, is to let the access points group together. Information relevant for channel

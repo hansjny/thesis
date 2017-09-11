@@ -1,15 +1,15 @@
 [0] Config.pm:343> INFO - This is Biber 2.5
 [0] Config.pm:346> INFO - Logfile is 'Oppgave.blg'
-[46] biber-darwin:290> INFO - === Thu Aug 17, 2017, 13:01:14
-[66] Biber.pm:351> INFO - Reading 'Oppgave.bcf'
-[168] Biber.pm:776> INFO - Found 4 citekeys in bib section 0
-[183] Biber.pm:3493> INFO - Processing section 0
-[200] Biber.pm:3657> INFO - Looking for bibtex format file 'references.bib' for section 0
-[203] bibtex.pm:1187> INFO - Decoding LaTeX character macros into UTF-8
-[204] bibtex.pm:1048> INFO - Found BibTeX data source 'references.bib'
-[226] UCollate.pm:66> INFO - Overriding locale 'en-UK' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[227] UCollate.pm:66> INFO - Overriding locale 'en-UK' defaults 'variable = shifted' with 'variable = non-ignorable'
-[227] Biber.pm:3306> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'en-UK'
-[227] Biber.pm:3310> INFO - No sort tailoring available for locale 'en-UK'
-[232] bbl.pm:526> INFO - Writing 'Oppgave.bbl' with encoding 'UTF-8'
-[233] bbl.pm:619> INFO - Output to Oppgave.bbl
+[53] biber-darwin:290> INFO - === Mon Sep 11, 2017, 13:45:40
+[78] Biber.pm:351> INFO - Reading 'Oppgave.bcf'
+[180] Biber.pm:776> INFO - Found 4 citekeys in bib section 0
+[194] Biber.pm:3493> INFO - Processing section 0
+[216] Biber.pm:3657> INFO - Looking for bibtex format file 'references.bib' for section 0
+[218] bibtex.pm:1187> INFO - Decoding LaTeX character macros into UTF-8
+[220] bibtex.pm:1048> INFO - Found BibTeX data source 'references.bib'
+[246] UCollate.pm:66> INFO - Overriding locale 'en-UK' defaults 'variable = shifted' with 'variable = non-ignorable'
+[246] UCollate.pm:66> INFO - Overriding locale 'en-UK' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[246] Biber.pm:3306> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'en-UK'
+[246] Biber.pm:3310> INFO - No sort tailoring available for locale 'en-UK'
+[251] bbl.pm:526> INFO - Writing 'Oppgave.bbl' with encoding 'UTF-8'
+[252] bbl.pm:619> INFO - Output to Oppgave.bbl

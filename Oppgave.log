@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.25)  17 AUG 2017 13:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.25)  11 SEP 2017 13:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -952,101 +952,106 @@ Package pdftex.def Info: DUO_UiO_segl.png used on input line 59.
 iO_segl.png>] [1] [1]
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 59.
- [1] (./Oppgave.toc)
+ [1] [1] [2
+
+] (./Oppgave.toc)
 \tf@toc=\write5
 \openout5 = `Oppgave.toc'.
 
- [1
+ [3
 
 ]
 Chapter 1.
-[2
-
-] [3]
-Chapter 2.
 [4
 
-
 ] [5]
-Chapter 3.
+Chapter 2.
 [6
 
 ] [7]
-LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 230
+Chapter 3.
+[8
+
+]
+Chapter 4.
+[9
+
+] [10]
+LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 308
 .
-LaTeX Font Info:    No file OMScmtt.fd. on input line 230.
+LaTeX Font Info:    No file OMScmtt.fd. on input line 308.
 
 
 LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbraceleft' on input line 230.
+(Font)              for symbol `textbraceleft' on input line 308.
 
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 228--248
+Overfull \hbox (15.0pt too wide) in paragraph at lines 306--326
 []$[]$ 
  []
 
-[8] <Images/randomtopology.png, id=54, 513.92pt x 511.9125pt>
+[11] <Images/randomtopology.png, id=64, 513.92pt x 511.9125pt>
 File: Images/randomtopology.png Graphic file (type png)
 
 <use Images/randomtopology.png>
-Package pdftex.def Info: Images/randomtopology.png used on input line 263.
+Package pdftex.def Info: Images/randomtopology.png used on input line 341.
 (pdftex.def)             Requested size: 205.56435pt x 204.76137pt.
- [9 <./Images/randomtopology.png>]
-<Images/grouptest_1.jpg, id=61, 504.88625pt x 505.38812pt>
+ [12 <./Images/randomtopology.png>]
+<Images/grouptest_1.jpg, id=70, 504.88625pt x 505.38812pt>
 File: Images/grouptest_1.jpg Graphic file (type jpg)
 
 <use Images/grouptest_1.jpg>
-Package pdftex.def Info: Images/grouptest_1.jpg used on input line 306.
+Package pdftex.def Info: Images/grouptest_1.jpg used on input line 384.
 (pdftex.def)             Requested size: 227.1967pt x 227.42255pt.
 
-<Images/grouptest_2.jpg, id=62, 508.90125pt x 507.8975pt>
+<Images/grouptest_2.jpg, id=71, 508.90125pt x 507.8975pt>
 File: Images/grouptest_2.jpg Graphic file (type jpg)
 
 <use Images/grouptest_2.jpg>
-Package pdftex.def Info: Images/grouptest_2.jpg used on input line 330.
+Package pdftex.def Info: Images/grouptest_2.jpg used on input line 408.
 (pdftex.def)             Requested size: 229.00345pt x 228.55176pt.
- [10]
-<Images/scenario3alt.png, id=66, 511.9125pt x 511.9125pt>
+ [13]
+<Images/scenario3alt.png, id=75, 511.9125pt x 511.9125pt>
 File: Images/scenario3alt.png Graphic file (type png)
 
 <use Images/scenario3alt.png>
-Package pdftex.def Info: Images/scenario3alt.png used on input line 348.
+Package pdftex.def Info: Images/scenario3alt.png used on input line 426.
 (pdftex.def)             Requested size: 230.35849pt x 230.35849pt.
- [11 <./Images/grouptest_1.jpg>] [12 <./Images/grouptest_2.jpg> <./Images/scena
+ [14 <./Images/grouptest_1.jpg>] [15 <./Images/grouptest_2.jpg> <./Images/scena
 rio3alt.png>]
 
-Package caption Warning: \label without proper reference on input line 444.
+Package caption Warning: \label without proper reference on input line 522.
 See the caption package documentation for explanation.
 
 
-LaTeX Warning: Reference `fig:wigle' on page 13 undefined on input line 414.
+LaTeX Warning: Reference `fig:wigle' on page 16 undefined on input line 492.
 
-[13] <Images/cities/lillehammer_groups.jpg, id=79, 506.89375pt x 505.89pt>
+[16] <Images/cities/lillehammer_groups.jpg, id=89, 506.89375pt x 505.89pt>
 File: Images/cities/lillehammer_groups.jpg Graphic file (type jpg)
 
 <use Images/cities/lillehammer_groups.jpg>
 Package pdftex.def Info: Images/cities/lillehammer_groups.jpg used on input lin
-e 490.
+e 568.
 (pdftex.def)             Requested size: 233.17395pt x 232.71222pt.
- [14]
-<Images/cities/tynset_groups.jpg, id=83, 508.90125pt x 507.8975pt>
+ [17]
+<Images/cities/tynset_groups.jpg, id=93, 508.90125pt x 507.8975pt>
 File: Images/cities/tynset_groups.jpg Graphic file (type jpg)
 
 <use Images/cities/tynset_groups.jpg>
-Package pdftex.def Info: Images/cities/tynset_groups.jpg used on input line 520
+Package pdftex.def Info: Images/cities/tynset_groups.jpg used on input line 598
 .
 (pdftex.def)             Requested size: 234.09741pt x 233.63568pt.
- [15 <./Images/cities/lillehammer_groups.jpg>] <Images/cities/forks_groups.jpg,
- id=88, 504.38437pt x 502.37688pt>
+ [18 <./Images/cities/lillehammer_groups.jpg>] <Images/cities/forks_groups.jpg,
+ id=97, 504.38437pt x 502.37688pt>
 File: Images/cities/forks_groups.jpg Graphic file (type jpg)
 
 <use Images/cities/forks_groups.jpg>
-Package pdftex.def Info: Images/cities/forks_groups.jpg used on input line 541.
+Package pdftex.def Info: Images/cities/forks_groups.jpg used on input line 619.
 
 (pdftex.def)             Requested size: 232.01962pt x 231.09616pt.
- [16 <./Images/cities/tynset_groups.jpg>]
-[17 <./Images/cities/forks_groups.jpg>] [18
+ [19 <./Images/cities/tynset_groups.jpg>]
+[20 <./Images/cities/forks_groups.jpg>] [21
 
 ] (./Oppgave.aux)
 
@@ -1062,11 +1067,11 @@ Package logreq Info: Writing requests to 'Oppgave.run.xml'.
 Here is how much of TeX's memory you used:
  13525 strings out of 493014
  217342 string characters out of 6133351
- 724614 words of memory out of 5000000
+ 724618 words of memory out of 5000000
  16853 multiletter control sequences out of 15000+600000
  22547 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 37i,8n,45p,817b,1439s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,8n,45p,817b,1422s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/te
 xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/tex
@@ -1083,10 +1088,10 @@ dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2016/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/texmf-di
 st/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2016/texmf-dist/font
 s/type1/urw/helvetic/uhvro8a.pfb>
-Output written on Oppgave.pdf (22 pages, 1207644 bytes).
+Output written on Oppgave.pdf (25 pages, 1214100 bytes).
 PDF statistics:
- 148 PDF objects out of 1000 (max. 8388607)
- 97 compressed objects within 1 object stream
+ 159 PDF objects out of 1000 (max. 8388607)
+ 104 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
