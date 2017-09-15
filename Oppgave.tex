@@ -65,6 +65,9 @@
 	\textbf{AP} & Access Point\\ 
 	\textbf{CSMA/CA} & Carrier Sense Multiple Access / Collision Avoidance\\
 	\textbf{MAC} & Medium Access Control\\
+	\textbf{CCA} & Clear Channel Assessment\\
+	\textbf{MAC} & Mandatory Access Control\\
+	\textbf{PHY} & Physical Layer\\
 \end{tabular}
 \tableofcontents
 %\chapter{Disposition} 
@@ -151,47 +154,102 @@ all participants of the group has all the data required to perform channel alloc
 is consistent within all APs in the connected group. 
 
 \chapter{Background}
-To be able to comprenhensively understand the issue at hand, we will briefly introduce the relevant areas wireless technology and the 802.11 standard.
+We will briefly introduce the relevant aspects of wireless technology and a selection of important
+concepts from the 802.11 standard, both on the link and physical layer.
+
 \section{Wireless technology}
-The basic goal of wireless technology is to transmit a signal from radio A to radio B without losing data.
-The main criteria that must be fulfilled reach this goal, is that radio B has to be within radio A's transmit range.
-When a wireless signal is transmitted it becomes subject of attenuation, which is a physical property of electromagnic waves 
-that weakens the signal the longer it has travelled through space (also called path loss). Attentuation limits
+There are some challenges with wireless technologies that are harder to overcome than in wired transmission technologies like Ethernet.
+
+The first step to achieve a succesful transmission is making sure radio B is within radio A's transmit range. The
+transmit range is decided by the power which the signal is transmitted at, the antenna gain, and the surrounding 
+environment. If there are a lot of solid obstacles, like walls and ceilings, the signal is likely to have a very compromised range.
+
+Even if the surrounding environment is mostly open space, the wireless signal becomes subject of attenuation,
+which is a physical property of electromagnic waves that weakens the signal the longer it has travelled through a
+medium. When this medium is air, we refer to the phenomenon as Free Space Path Loss (FSPL). Attentuation limits
 the transmit range of a radio, and to transmit further it has to increase its transmission power.
 
+\subsection{Collisions in wireless technology}
 Collisions can also prevent the signal from being received correctly.
-If there are other nodes nearby that are within radio B's sensing range that sends at the same time as A, radio B experiences
-radio frequency interference, and thus may not be able to correctly decode the signal of A. In ethernet this
-is graciously handled by collision detection, but in wireless technolgy this not always possible because of the hidden terminal problem.
+If there are other nodes nearby that are within radio B's sensing range that sends at the same time as A, 
+radio B experiences radio frequency interference, and thus may not be able to correctly decode the signal of A. In 802.3 Ethernet this
+is graciously handled by collision detection in the CSMA/CD protocol. As each node can hear everyone on else on a cabled medium,
+and listening while transmitting is generally not a problem, a node can retransmit if a collision is detected. In wireless techhnologies
+it is not equally easy to listen while transmitting, and collision detection may be impossible because of the hidden terminal problem.
 
-\subsection{The hidden terminal problem}
-The hidden terminal problem is one of the major challenges for wireless technologies. In contrast to ethernet, a sender can not 
-simply listen for collisions on the channel while sending to guarentee that the receiver got the message properly.
-The perpatrator is the hidden terminal. When node A transmits a message to node B, it may not be able to sense what is going on
+\subsubsection{The hidden terminal problem}
+The hidden terminal problem is one of the major challenges for wireless technologies. 
+When node A transmits a message to node B, it may not be able to sense what is going on
 on the opposite side of node B. If a node C transmits at the same time, this signal may not enter node A's sensing range, and
-hence go undetected by, even though a collision has happened near node B. In that case, both A and C will assume a succesful
-transfer, while B has not been able to decode any messages. 
+hence go undetected by, even though a collision has happened near node B. This is illustrated in figure \ref{fig:hiddenterminal} where
+both A and C has unknowingly sent messages at the same time, and B has not been able to decode any messages because of the colliding messages. 
 
+\begin{figure}
+	\center
+	\includegraphics[scale=0.3]{Images/Hiddenterminalfigure.jpg}
+	\caption{A and C sending to node B unknowingly at the same time, resulting in a collision}
+	\label{fig:hiddenterminal}
+\end{figure}
 
-
-
-
-
-to as path loss, 
-- Sensing ranges
-- Difference between ethernet and wifi
-- Exposed terminal, hidden terminal
 \section{IEEE 802.11}
-\subsection{MAC Layer}
-To control access to the medium, the 802.11 standard uses the Carrier Sense Multiple Access / Collision Avoidance (CSMA/CA) protocol. Other MAC 
-protocols like Time-Division Multiple Access (TDMA) or Frequency-Division Multiple Access (FDMA) can utilize a centralized entity to control
-respectively a time slot, or a frequency for a station to transmit in. This is usually the way cellular networks controls medium access.
-In contrast, the CSMA/CA protocol operates in a distributed fashion, where all stations connected to a network operate on the same frequency without coordinated timeslots.
-- Clear Channel Assesment (Carrier Sense)
-- Random access scheme
-- Backoff
+
+\subsection{CSMA/CA overview}
+The 802.11 MAC layer implements the Carrier Sense Multiple Access / Collision Avoidance (CSMA/CA) protocol to control access to the medium.
+The CSMA/CA protocol is designed to operate in an entirely distributed fashion, where all stations connected to the same BSS  operate on
+the same frequency without coordinated timeslots. As suggested by the name of the protocol, there are two basic operations in the CSMA/CA protocol:
+\textbf{Carrier Sensing (CS)} and \textbf{Collision Avoidance (CA)}. 
+
+\subsubsection{Carrier Sense}
+In 802.11, carrier sensing (CS) is done in two ways
+\begin{itemize}
+	\item \textbf{Physical carrier sensing} handled by the physical layer (PHY) as Clear Channel Assessment (CCA), which we will talk about in the PHY subsection.
+	\item \textbf{Virtual carrier sensing} is a MAC layer mechanism in place to limit the number of times
+		a node has to check the physical radio. When a valid 802.11 frame is decoded for a listening node, it can read the duration of
+		the transmission from the MAC header. The frame with a duration is called a Network Allocation Vector (NAV). When a NAV is received 
+		the channel is marked as busy and the node will back off for the duration of the NAV. 
+\end{itemize} 
+
+
+\subsubsection{Collision Avoidance}
+CSMA/CA attempts to avoid collisions in a network layout that includes hidden terminals. \textbf{Request To Send/Clear To Send} (RTS/CTS)
+is the function that allows CSMA/CA to some degree avoid the hidden terminal problem. By letting a node first ask the receiver if it is
+available for transmission (RTS), it prevents the node from sending the payload frame unless it receives Clear To Send (CTS) frame from the receiver first.
+The other mechanisms for collision avoidance are: 
+\begin{itemize}	
+	\item \textbf{Interframe spacing} (IFS) is the amount of time the channel has to be idle before a sender can compete for channel access. 
+		To give priority to certain frame types, different types of frames can have different types of interframe spacing. The type of IFS is usually 
+		prefixed with the letter of the frame type. Organized by relative interval length, the differents IFS are:
+		\begin{itemize} 
+			\item Short IFS (SIFS), before ACK, RTS, CTS.  
+			\item DCF Mode IFS (PIFS), before RTS frames (or DCF data frames if RTS/CTS is disabled)
+
+		\end{itemize}
+	\item \textbf{Exponential backoff} is what prevents two competing nodes from sending at the same time. When the channel is clear
+		for DIFS time, a node has to wait another  random number of milliseconds before transmitting. This is called backoff.
+		The amount of backoff is randomly chosen from a contention window (CW). The contention window has a low start size,
+		called $CW_{\text{min}}$. A node draws a backoff time in the range $(0, 2^n*CW_{\text{min}})$, where $n$ is the number 
+		of times the transmission has failed, beginning at $n=0$, and $CW_{\text{min}}<CW_{\text{max}}$.
+\end{itemize}
+
+\subsection{Distributed Coordination Function}
+The distributed coordination function is the main mode of operation in the 801.11 MAC layer, and is supposed to provide fair and reliable 
+transmission for all nodes on the same network. 
+
 
 \subsection{PHY Layer}
+The physical layer in 801.11 is also divided in two sublayers. The upper sublayer is the Physical Layer Convergence Protocol (PLCP), responsible for CCA and acting
+as a common interface for MAC layer drivers. The lower sublayer is the Physical Medium Dependent (PMD) which is responsible for modulation. 
+
+
+\subsubsection{Physical Layer Convergence Protocol}
+The purpose of clear channel assessment is to provide information to the MAC layer if the carrier is available for transmission. There
+are two ways the physical layer does CCA.
+\begin{itemize}
+	\item CCA-ED (CCA-Energy Detect) detects signals that can not be decoded as a 801.11 frame, but acts as a disturbing signal. If the CCA-ED value 
+		exceeds a threshold, for instance 20 dB, then the CCA shall be indicated as busy by issuing a \verb|CA.indication(BUSY)| to the MAC layer.  
+	\item CCA-CS
+\end{itemize}
+
 - PLCP
 - PPDU
 
