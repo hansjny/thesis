@@ -19,6 +19,34 @@
 
 \refsection{0}
   \sortlist[entry]{nty/global/}
+    \entry{DCFanalysis}{article}{}
+      \name{author}{1}{}{%
+        {{hash=dbb7b43c9a2fbadc84d00f92761e2676}{%
+           family={Bianchi},
+           family_i={B\bibinitperiod},
+           given={G.},
+           given_i={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{dbb7b43c9a2fbadc84d00f92761e2676}
+      \strng{fullhash}{dbb7b43c9a2fbadc84d00f92761e2676}
+      \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0733-8716}
+      \field{journaltitle}{IEEE Journal on Selected Areas in Communications}
+      \field{month}{03}
+      \field{number}{3}
+      \field{title}{Performance analysis of the IEEE 802.11 distributed coordination function}
+      \field{volume}{18}
+      \field{year}{2000}
+      \field{pages}{535\bibrangedash 547}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1109/49.840210
+      \endverb
+      \keyw{IEEE standards;carrier sense multiple access;packet radio networks;standardisation;telecommunication standards;wireless LAN;CSMA/CA;DCF;IEEE 802.11 distributed coordination function;IEEE 802.11 protocol;MAC;analytical model;binary slotted exponential backoff;carrier sense multiple access;collision avoidance;ideal channel conditions;medium access control;packet transmission;performance analysis;standardization;terminals;threshold;throughput performance evaluation;wireless local area networks;Access protocols;Analytical models;Collision avoidance;Media Access Protocol;Multiaccess communication;Performance analysis;Physical layer;Throughput;Wireless LAN;Wireless application protocol}
+    \endentry
     \entry{Python3}{misc}{}
       \name{author}{1}{}{%
         {{hash=e916da348163d73c23a44e14dd07cb27}{%

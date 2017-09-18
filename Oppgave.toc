@@ -20,64 +20,64 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{The hidden terminal problem}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.2}IEEE 802.11}{7}
+\contentsline {section}{\numberline {2.2}MAC Layer}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.1}CSMA/CA overview}{7}
+\contentsline {subsection}{\numberline {2.2.1}Carrier Sense}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Carrier Sense}{7}
+\contentsline {subsection}{\numberline {2.2.2}Collision Avoidance}{8}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Collision Avoidance}{8}
+\contentsline {subsection}{\numberline {2.2.3}Distributed Coordination Function}{8}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.2}Distributed Coordination Function}{8}
+\contentsline {section}{\numberline {2.3}PHY Layer}{8}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {2.2.3}PHY Layer}{8}
+\contentsline {subsection}{\numberline {2.3.1}Physical Layer Convergence Protocol}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Physical Layer Convergence Protocol}{8}
+\contentsline {subsubsection}{Clear channel assessment}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.3}Radio Frequency Interference}{9}
+\contentsline {section}{\numberline {2.4}Radio Frequency Interference}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.4}Channel selection}{9}
+\contentsline {section}{\numberline {2.5}Channel selection}{10}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}Related work}{10}
+\contentsline {chapter}{\numberline {3}Related work}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Connected groups}{11}
+\contentsline {chapter}{\numberline {4}Connected groups}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}Definition}{11}
+\contentsline {section}{\numberline {4.1}Definition}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Requirements and assumptions}{11}
+\contentsline {section}{\numberline {4.2}Requirements and assumptions}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}Proposing an algorithm}{12}
+\contentsline {section}{\numberline {4.3}Proposing an algorithm}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}Simulation data}{12}
+\contentsline {section}{\numberline {4.4}Simulation data}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.1}Requirements for data creation}{12}
+\contentsline {subsection}{\numberline {4.4.1}Requirements for data creation}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.2}Program design}{13}
+\contentsline {subsection}{\numberline {4.4.2}Program design}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.3}Data output and visual representation}{13}
+\contentsline {subsection}{\numberline {4.4.3}Data output and visual representation}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.5}Algorithm implementation}{15}
+\contentsline {section}{\numberline {4.5}Algorithm implementation}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.6}Results}{15}
+\contentsline {section}{\numberline {4.6}Results}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.6.1}Uniformly distributed nodes}{15}
+\contentsline {subsection}{\numberline {4.6.1}Uniformly distributed nodes}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Scenario 1}{15}
+\contentsline {subsubsection}{Scenario 1}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Scenario 2}{15}
+\contentsline {subsubsection}{Scenario 2}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Scenario 3}{16}
+\contentsline {subsubsection}{Scenario 3}{17}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.7}WiGLE}{16}
+\contentsline {section}{\numberline {4.7}WiGLE}{17}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.7.1}REST API}{18}
+\contentsline {subsection}{\numberline {4.7.1}REST API}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.7.2}Using the data}{18}
+\contentsline {subsection}{\numberline {4.7.2}Using the data}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.8}Results}{19}
+\contentsline {section}{\numberline {4.8}Results}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Lillehammer}{20}
+\contentsline {subsubsection}{Lillehammer}{21}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Tynset}{20}
+\contentsline {subsubsection}{Tynset}{21}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Forks}{21}
+\contentsline {subsubsection}{Forks}{22}

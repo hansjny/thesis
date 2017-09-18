@@ -191,15 +191,14 @@ both A and C has unknowingly sent messages at the same time, and B has not been 
 	\label{fig:hiddenterminal}
 \end{figure}
 
-\section{IEEE 802.11}
 
-\subsection{CSMA/CA overview}
+\section{MAC Layer}
 The 802.11 MAC layer implements the Carrier Sense Multiple Access / Collision Avoidance (CSMA/CA) protocol to control access to the medium.
 The CSMA/CA protocol is designed to operate in an entirely distributed fashion, where all stations connected to the same BSS  operate on
 the same frequency without coordinated timeslots. As suggested by the name of the protocol, there are two basic operations in the CSMA/CA protocol:
 \textbf{Carrier Sensing (CS)} and \textbf{Collision Avoidance (CA)}. 
 
-\subsubsection{Carrier Sense}
+\subsection{Carrier Sense}
 In 802.11, carrier sensing (CS) is done in two ways
 \begin{itemize}
 	\item \textbf{Physical carrier sensing} handled by the physical layer (PHY) as Clear Channel Assessment (CCA), which we will talk about in the PHY subsection.
@@ -210,7 +209,7 @@ In 802.11, carrier sensing (CS) is done in two ways
 \end{itemize} 
 
 
-\subsubsection{Collision Avoidance}
+\subsection{Collision Avoidance}
 CSMA/CA attempts to avoid collisions in a network layout that includes hidden terminals. \textbf{Request To Send/Clear To Send} (RTS/CTS)
 is the function that allows CSMA/CA to some degree avoid the hidden terminal problem. By letting a node first ask the receiver if it is
 available for transmission (RTS), it prevents the node from sending the payload frame unless it receives Clear To Send (CTS) frame from the receiver first.
@@ -233,21 +232,71 @@ The other mechanisms for collision avoidance are:
 
 \subsection{Distributed Coordination Function}
 The distributed coordination function is the main mode of operation in the 801.11 MAC layer, and is supposed to provide fair and reliable 
-transmission for all nodes on the same network. 
+transmission for all nodes on the same network. Figure \ref{fig:dcfmode} shows the 
+frame exchange that happens. The transmitter has to wait DIFS time, before drawing 
+a number from the contenion window and backing off that amount.
+As no other transmissions has begun during this time and the channel is
+still clear, the transmitter sends out an RTS frame. When received by the receiver
+it waits SIFS time before transmitting a CTS frame. The transmitter then sends his
+data frame, and waits for the ACK that indicates a succesful transmission. The 
+RTS/CTS mechanisms introduces extra overhead, and is sometimes turned off. The
+size of the payload and the number of stations on the network decides
+whether it is beneficial to have on or not \cite{DCFanalysis}.
 
 
-\subsection{PHY Layer}
+
+\begin{figure}
+	\center
+	\includegraphics[scale=0.35]{Images/DCF.jpg}
+	\caption{The timeline one frame transmission cycle in DCF mode}
+	\label{fig:dcfmode}
+\end{figure}
+
+
+
+\section{PHY Layer}
 The physical layer in 801.11 is also divided in two sublayers. The upper sublayer is the Physical Layer Convergence Protocol (PLCP), responsible for CCA and acting
 as a common interface for MAC layer drivers. The lower sublayer is the Physical Medium Dependent (PMD) which is responsible for modulation. 
 
+\subsection{Physical Layer Convergence Protocol}
 
-\subsubsection{Physical Layer Convergence Protocol}
+The physical layer convergence protocol creates PLCP Protocol Data Units (PPDUs), 
+that consists of 3 parts. The preamble, the header and the frame from the mac layer
+called MAC Service Data Unit (MSDU), see figure \ref{fig:PPDU}. The frame structure
+has a long and short format, and changes a little bit for High Rate DSSS (HR-DSSS),
+but contains mostly the same fields. As they are relevant for the thesis,
+we will briefly summarize the fields in the preamble and header:
+
+\begin{figure}
+	\center
+	\includegraphics[scale=0.5]{Images/PPDU.png}
+	\caption{DSSS PHY PPDU format from IEEE Std 802.11-2016  }
+	\label{fig:PPDU}
+\end{figure}
+
+
+\begin{itemize}
+	\item \textbf{Sync} bits are used to acquire the signal and synchronize timing. 
+	\item \textbf{SFD} stands for Start Frame Delimeter and is there to indicate the start of a frame.  
+	\item \textbf{Signal} the modulation type used to encode the MPDU and
+		the data rate it is sent with. 
+	\item \textbf{Service} Reserved for future use. 
+	\item \textbf{Length} 16-bit fields that indicates the amount of time (in
+		microseconds it will take to transmit the MPDU).
+	\item \textbf{CRC} is the cyclic redundancy check that protects
+		the fields signal, service and length. 
+\end{itemize}
+
+\subsubsection{Clear channel assessment}
 The purpose of clear channel assessment is to provide information to the MAC layer if the carrier is available for transmission. There
 are two ways the physical layer does CCA.
 \begin{itemize}
 	\item CCA-ED (CCA-Energy Detect) detects signals that can not be decoded as a 801.11 frame, but acts as a disturbing signal. If the CCA-ED value 
 		exceeds a threshold, for instance 20 dB, then the CCA shall be indicated as busy by issuing a \verb|CA.indication(BUSY)| to the MAC layer.  
-	\item CCA-CS
+	\item CCA-CS (CCA Carrier/Sense) detects a valid 801.11 frame and can
+		read the header fields. The channel
+		gets marked as busy for as long as the length field in the
+		PPDU header specifies. 
 \end{itemize}
 
 - PLCP
