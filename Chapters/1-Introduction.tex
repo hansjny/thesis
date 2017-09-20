@@ -1,0 +1,50 @@
+\chapter{Introduction}
+- Expansion of WiFI
+- Densely populated Areas
+- Increased usage
+- Expectations of universal wifi
+- Congested networks because of intereference
+
+\section{Problem definition}
+The problem is that devices operating on the same channel in the same area interferes with one another.
+
+\section{Motivation}
+Wifi is deployed in almost all residencies, and the problem is especially prominent in densely populated areas. 
+
+\section{Method}
+Defining groups for running a channel allocation algorithm on
+
+\section{Channel allocation} 
+To deal with the problem of channel allocation we will think of an AP as a vertex in a graph. When an AP scans its radio
+it can hear the strength of all nearby wireless networks measured in dBm (decibel milliwatts). This decibel value will be
+the value of the edge between one AP to another. With a graph expressing the wireless network topology, the problem
+of optimally distributing channels between APs boils down to a graph coloring problem. The number of colors in the color problem,
+   represents the number of non-overlapping channels in 802.11. Exactly how an algorithm can be designed to optimally distribute channels within the
+   interfering topology is out of the scope of this thesis. However we can define some invariants that has to be true
+   for such an algorithm to work:
+   \begin{enumerate} 
+   \item All APs has to run the same algorithm
+   \item All APs must run the algorithm on the same connected group
+   \item Because of the complexity of the problem the algorthm must solve, the number of APs in the connected group can not be too big
+   \end{enumerate}
+
+   Point 1 is trivial to solve or mitigate, as only APs running the algorithm will actively participate in the channel selection. A simple way to make sure that the
+   same algorithm is used, is by having a software version that is consistently checked with the other APs in the connected group.
+
+   Point 2 and point 3 is will be the main focus of the rest of the master thesis, as these are not so easily solved.
+
+   We can define a wireless topology graph as a set of wireless APs that are grouped together and share information about their neighbours and interference levels.
+   This set is what will now on be referred to as a \textit{connected group.} All members of the connected group will be considered when running the channel assignment algorithm.
+   For the connected group to have an actual impact on the quality of a network connection, it has to consist of nodes that normally disturbs each other substantially.
+
+   An ideal example of a connected group is an apartment builiding. The channel allocation protocol lets APs share information about who-disturbs-who the most in the building.
+   Then each AP can run the channel allocation algorithm. Because they run it on the same graph, every AP will find the same optimal channel distribution throughout the building,
+   and then switch to the correct channel. 
+
+   Even though an apartment building is most likely an optimal delimination of a connected group, in reality creating such a group is a bigger challenge. As the whole channel allocation
+   protocol is based on decentralized peer-to-peer technology, and no centralized server with access to demographical and geographical divisions exists, the protocol will
+   have to discover suitable connected groups on its own. Moreover, when the group is created the protocol will have to replicate data so that
+   all participants of the group has all the data required to perform channel allocation. It will also need a way to make sure that the image of the current group
+   is consistent within all APs in the connected group. 
+
+

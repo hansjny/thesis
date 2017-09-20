@@ -68,6 +68,58 @@
       \verb http://python.org
       \endverb
     \endentry
+    \entry{impactRF}{article}{}
+      \name{author}{4}{}{%
+        {{hash=c8a2ca98903d293782c28d9371d99adc}{%
+           family={Gummadi},
+           family_i={G\bibinitperiod},
+           given={Ramakrishna},
+           given_i={R\bibinitperiod}}}%
+        {{hash=ed3fc532903c051209e0750c2c89f2ac}{%
+           family={Wetherall},
+           family_i={W\bibinitperiod},
+           given={David},
+           given_i={D\bibinitperiod}}}%
+        {{hash=7860a04dc0eb9b2178d2e481455106de}{%
+           family={Greenstein},
+           family_i={G\bibinitperiod},
+           given={Ben},
+           given_i={B\bibinitperiod}}}%
+        {{hash=106c3fc06f6dbedec4b8814203e99827}{%
+           family={Seshan},
+           family_i={S\bibinitperiod},
+           given={Srinivasan},
+           given_i={S\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{4488db5b02fc45d64c639669de2cfc07}
+      \strng{fullhash}{539732771e6d36d59019373b393899d7}
+      \field{sortinit}{G}
+      \field{sortinithash}{1c854ef9177a91bf894e66485bdbd3ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0146-4833}
+      \field{journaltitle}{SIGCOMM Comput. Commun. Rev.}
+      \field{month}{08}
+      \field{number}{4}
+      \field{title}{Understanding and Mitigating the Impact of RF Interference on 802.11 Networks}
+      \field{volume}{37}
+      \field{year}{2007}
+      \field{pages}{385\bibrangedash 396}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1145/1282427.1282424
+      \endverb
+      \verb{url}
+      \verb http://doi.acm.org/10.1145/1282427.1282424
+      \endverb
+      \keyw{802.11,RF interference,SINR,channel hopping,jamming}
+    \endentry
     \entry{wigle}{online}{}
       \name{author}{1}{}{%
         {{hash=91c684bbf7e3f9c26281aeac3326742d}{%
