@@ -1,22 +1,53 @@
-\documentclass[12pt, a4paper,UKenglish, final]{report}
+\documentclass[12pt, a4paper, UKenglish, final]{report}
 \usepackage[utf8]{inputenc}
 \usepackage{algorithm}
 \usepackage{amsmath}
 \usepackage[noend]{algpseudocode}
-\usepackage{babel,csquotes,duomasterforside}
+\usepackage{babel,csquotes}
+\usepackage{ifimasterforside}
 \usepackage{listings}
 \usepackage{wrapfig}
 \usepackage{graphicx}
+\usepackage{fancyhdr}
 \usepackage[backend=biber,
 	    style=numeric,
 	    citestyle=numeric]{biblatex}
 
 \addbibresource{references.bib}
 
+
 \usepackage{xcolor}
 \usepackage{wrapfig}
 \usepackage{caption}
 \usepackage{subcaption}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[RO,LE]{\leftmark }
+\fancyfoot{}
+\fancyfoot[CO,RE]{\thepage}
+
+\makeatletter
+
+\newcommand\frontmatter{%
+	\cleardoublepage
+	%\@mainmatterfalse
+  \pagenumbering{roman}}
+
+\newcommand\mainmatter{%
+	\cleardoublepage
+	% \@mainmattertrue
+  \pagenumbering{arabic}}
+
+\newcommand\backmatter{%
+	\if@openright
+    \cleardoublepage
+  \else
+    \clearpage
+  \fi
+  % \@mainmatterfalse
+   }
+
+\makeatother
 \colorlet{punct}{red!60!black}
 \definecolor{background}{HTML}{EEEEEE}
 \definecolor{delim}{RGB}{20,105,176}
@@ -49,16 +80,17 @@
       {[}{{{\color{delim}{[}}}}{1}
       {]}{{{\color{delim}{]}}}}{1},
 }
+
 \title{Group creation in a collaborative P2P channel allocation protocol}
 \subtitle{Identifying connected groups of access points}
 \author{Hans Jørgen Furre Nygårdshaug}
 
 \begin{document}
-\duoforside[dept={Institutt for informatikk},
-  program={Informatikk: programmering og nettverk},
-  long]
-\section*{Abstract}
+\ififorside
+\maketitle{}
+\frontmatter
 
+\section*{Abstract}
 \clearpage
 \section*{List of acronyms}
 \begin{tabular}{ c c }
@@ -73,8 +105,11 @@
 \end{tabular}
 \tableofcontents
 \listoffigures
+
+\mainmatter
 \include{Chapters/1-Introduction}
 \include{Chapters/2-Background}
+\include{Chapters/4-ChannelAllocation}
 \include{Chapters/3-Related}
 \include{Chapters/4-Connected}
 
@@ -105,6 +140,6 @@
 %\end{algorithm}
 
 
-
+\backmatter
 \printbibliography
 \end{document}

@@ -2,7 +2,8 @@
 We will briefly introduce the relevant aspects of wireless technology and a selection of important
 concepts from the 802.11 standard, both on the link and physical layer.
 
-\section{Wireless technology}
+\section{
+\section{Common challenges}
 There are some challenges with wireless technologies that are harder to overcome than in wired transmission technologies like Ethernet.
 
 The first step to achieve a succesful transmission is making sure radio B is within radio A's transmit range. The
@@ -15,7 +16,6 @@ Even if the surrounding environment is mostly open space, the wireless signal be
      the transmit range of a radio, and to transmit further it has to increase its transmission power.
 
      \subsection{Collisions in wireless technology}
-     Collisions can also prevent the signal from being received correctly.
      If there are other nodes nearby that are within radio B's sensing range that sends at the same time as A, 
      radio B experiences radio frequency interference, and thus may not be able to correctly decode the signal of A. In 802.3 Ethernet this
      is graciously handled by collision detection in the CSMA/CD protocol. As each node can hear everyone on else on a cabled medium,
@@ -194,18 +194,19 @@ CSMA/CA attempts to avoid collisions in a network layout that includes hidden te
 	\end{itemize}
 	[[Fylle ut om de forskjellige]]
 
-	It is shown that the previous countermeasures only have limited
-	impact, while changing the channel of an AP remains the most effective
-	\cite{impactRF}. 
-	\section{Channels} 
-	802.11 b/g/n uses the range of frequencies from 2.400-2.500 GHz on the ISM band. The increasingly popular 801.11n/ac also uses the 5 GHz band which offers more frequencies and has higher attenuation, thus making it shorter reaching. Other than that the properties and challenges are ultimately the same. 
+
 
 	\begin{wrapfigure}{R}{0.25\textwidth}
-	\caption{\newline Channel/frequency\newline distribution \newline}
-	\label{fig:channels}
-	\includegraphics[width=1\linewidth]{Images/Channels80211.png}
+		\caption{\newline Channel/frequency\newline distribution \newline}
+		\label{fig:channels}
+		\includegraphics[width=1\linewidth]{Images/Channels80211.png}
 	\end{wrapfigure}
 
-	The distribution of the frequencies on the 2.4 GHz band to the different channels is illustrated by figure \ref{fig:channels}. The frequencies listed are the center frequencies of each channel. In practice this means that an AP that transmits on one channel will interfere with close channels in both directions. Two channels are entirely non-interfering if they send on two frequencies  $f_{1}$ and $f_{2}$ so that $|f_{1} - f_{2}| > 0.025$. This means that there are in total three completely non-overlapping channels, 1, 6 and 11.
 
+	It is shown that the previous countermeasures only have limited
+	impact, while changing the channel of an AP remains the most effective.
+	\cite{impactRF}. 
+	\section{Channels} 
+	802.11 b/g/n uses the range of frequencies from 2.400-2.500 GHz on the ISM band. The increasingly popular 801.11n/ac also uses the 5 GHz band which offers more frequencies and has higher attenuation, thus making it shorter reaching. Other than that the properties and challenges are ultimately the same.
+	The distribution of the frequencies on the 2.4 GHz band to the different channels is illustrated by figure \ref{fig:channels}. The frequencies listed are the center frequencies of each channel. In practice this means that an AP that transmits on one channel will interfere with close channels in both directions. Two channels are entirely non-interfering if they send on two frequencies  $f_{1}$ and $f_{2}$ so that $|f_{1} - f_{2}| > 0.025$. This means that there are in total three completely non-overlapping channels, 1, 6 and 11. The process of deciding which channel to transmit on is called channel allocation. 
 

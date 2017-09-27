@@ -19,6 +19,27 @@
 
 \refsection{0}
   \sortlist[entry]{nty/global/}
+    \entry{wifialliance}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=2549dfd8c3a4f17312bbaa9b7b7086e8}{%
+           family={Alliance},
+           family_i={A\bibinitperiod},
+           given={Wi-Fi},
+           given_i={W\bibinithyphendelim F\bibinitperiod}}}%
+      }
+      \strng{namehash}{2549dfd8c3a4f17312bbaa9b7b7086e8}
+      \strng{fullhash}{2549dfd8c3a4f17312bbaa9b7b7086e8}
+      \field{sortinit}{A}
+      \field{sortinithash}{b685c7856330eaee22789815b49de9bb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Online: accessed 26-September-2017}
+      \field{title}{Wi-Fi Alliance News Release}
+      \field{year}{2016}
+      \verb{url}
+      \verb https://www.wi-fi.org/news-events/newsroom/wi-fi-device-shipments-to-surpass-15-billion-by-end-of-2016
+      \endverb
+    \endentry
     \entry{DCFanalysis}{article}{}
       \name{author}{1}{}{%
         {{hash=dbb7b43c9a2fbadc84d00f92761e2676}{%
@@ -66,6 +87,25 @@
       \field{year}{2017}
       \verb{url}
       \verb http://python.org
+      \endverb
+    \endentry
+    \entry{Gartner}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=18bfab6309a4addeb7e1dae07d2a4b89}{%
+           family={Gartner},
+           family_i={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{18bfab6309a4addeb7e1dae07d2a4b89}
+      \strng{fullhash}{18bfab6309a4addeb7e1dae07d2a4b89}
+      \field{sortinit}{G}
+      \field{sortinithash}{1c854ef9177a91bf894e66485bdbd3ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Online: accessed 26-September-2017}
+      \field{title}{Gartner Press Release}
+      \field{year}{2017}
+      \verb{url}
+      \verb http://http://www.gartner.com/newsroom/id/3598917
       \endverb
     \endentry
     \entry{impactRF}{article}{}
