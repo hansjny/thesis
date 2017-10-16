@@ -1,31 +1,58 @@
 \chapter{Introduction}
-The presence of Wi-Fi is ever expanding, and by 2020 it is esitmated that we have 20 billion connected devices \cite{Gartner}.
+The presence of Wireless LANs is ever expanding, and by 2020 it is esitmated that we have 20 billion connected devices \cite{Gartner}.
 According to the Wi-Fi Alliance, households alone will be home to over 10 billion devices that are able to connect to
 the home router \cite{wifialliance}. 
 Even while introducing more and more devices to a home in the shape of smart TVs, lights, and audio systems, at the same time
-it is expected that the WiFi connection will deliver optimal speeds to meet our time's expectations of universal wireless access. 
-Not only is the number of devices growing, but our traffic patterns has changed from bursty transmission of text, images and occasional
-video footage, to continous streams of high bitrate video and audio. While fiber connections are growing in popularity to meet the 
-traffic demand, WiFi connections struggle under the heavy impact of neigbouring traffic intereference in densely populated areas. 
-
-\section{Problem definition}
-There are 3 non-overlapping channels on the 2.4GHz spectrum that 802.11 WiFi uses. The usual way of selecting a channel is done by
-letting an access point sense which channel has the least amount of interference. This can lead to excessive
-channel switching and an unstable environment with chain reactions. Ideally all access points would be configured so
-the channel allocation is optimal for an entire area. This can be realized with a centralized controller,
-but in residential WiFi networks there are by default no centralized controller. We will explore how wireless access points can
-organize themselves in confined groups that collaborate on selecting an optimal channel distribution for the entire group
-to maximize the efficiency of wireless networks.
+a user expects the Wireless LAN connection to deliver optimal speeds to meet our time's demand for universal wireless access. 
+Not only is the number of devices growing, but our traffic patterns has changed. In private homes
+continous streams of high bitrate video and audio is highly common, and it is not unusual that these flows happen
+simultaneously in a family home. Also as network-attached storage has become available to consumers,
+and the popularity of cloud storage is also increasing, the new traffic that is transmitted over Wireless LANs
+often also includes data transmissions and backups that may happen in a background process. 
+While the physical layer (PHY) traditionally has been upgraded to meet the new demands in bitrate (e.g. fiber over wire, 
+and 802.11ac) Wireless LAN connections struggle under the heavy impact traffic intereference which can not be solved by increasing
+the physical datarate capacity. 
 
 \section{Motivation}
-WiFi is deployed in almost all residencies in the western world, which makes the problem of interfering channels
-especially prominent in densely populated areas. When customers are subscribed to high data rate service level agreements,
-but can only receive a fraction of the announced data rate over wifi and is adviced to switch to cable, there is a need for improvement. 
+Wireless LAN is deployed in almost all corporate buildings and residencies in the western world, and increasingly also in the rest of the world.
+The use of these networks used to be limited to laptops that generated small amounts of data, but now the range of devices includes
+smart-phones, network storage devices, even in some cases servers. The deployment of Wireless LAN and the infrastructure has not 
+changed much over the years to match the new demands and increased traffic, and in most places coverage is still the main concern, while
+Quality of Service (QoS) comes second. There has been done much research on how centralized controllers can benefit the deployment
+of enterprise networks (\cite{Murty}, \cite{Murty2} and \cite{Suresh}),
+but in this thesis we will address the issues related to deployment to Wireless LANs in residiential areas. Customers who are subscribed
+to high data rate service level agreements often find they can only receive a comparable data rate over wired LAN. When the
+Wireless LAN networks in their home is constantly underperforming, it is not unusual for an unknowing customer to upgrade the
+data rate of their agreement - to no effect. This leads to customers being largely frustrated with their Internet service providers,
+even though they are not at fault. In many scenarios a customer service representative or a tech-savvy customer may manually
+switch the operating channel for a wireless access point. If this has no effect a customer might be encouraged to get a router
+which can transmit a more powerful signal. While this might prove to be a quick fix for the customer who was resourceful enough to deal with the problem,
+it in turn may trigger a chain reaction of even stronger interference levels for the rest of the inhabitants in the surrounding area.
+In this thesis we are going to look at a possible way for Wireless LAN access points in residential homes to organize themselves
+in groups and communicate with each other to collaborate on channel assignment.
+
+\section{Problem definition}
+There are 3 non-overlapping channels on the 2.4GHz spectrum that 802.11 Wireless LANs uses. One of the usual ways of selecting a channel
+is done by letting an access point sense which channel has the lowest interference levels. When channels are selected this
+selfishly it is very unlikely that the distribution of channels in a confined area (e.g. an apartment block) becomes optimal.  
+Ideally all access points would be configured so the channel allocation is optimal for an entire area.
+This can be realized with a centralized controller, but in residential WiFi networks there are by default no centralized controller.
+We will explore how wireless access points can organize themselves in confined groups that collaborate on selecting an optimal channel
+distribution for the entire group to maximize the efficiency of wireless networks.
 
 \section{Method}
-We will take a look on what has been done earlier in the research of finding a better way to allocate channels in 802.11. 
-Then we can do a number of assumptions to be able to propose an algorithm for group creation amongst unorganized access points,
-and then evaluate the algorithm by computing groups and clusters of access points.  
+To be able to see if we can form groups in a way that creates clusters of nearby nodes we need to get some data to perform
+calculation on. We will both create syntethic data and use real world location data of access points to evaluate the performance of the group creations. 
+Then we will take a look at possible solutions to let access points communicate with each other without any bootstrapping or 
+previous association. Then we will consider the problems and challenges that has to be overcome in the process of creating and deploying 
+an architecture as suggested in the thesis. 
+
+    %We will take a look on earlier algorithms in the research of finding a better way to allocate channels in 802.11. 
+    %Then we can do a number of assumptions to be able to propose an algorithm for group creation amongst unorganized access points,
+    %and then evaluate the algorithm by computing groups and clusters of access points.  
+
+
+
 
 %\section{Channel allocation} 
 %To deal with the problem of channel allocation we will think of an AP as a vertex in a graph. When an AP scans its radio

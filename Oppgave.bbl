@@ -21,20 +21,20 @@
   \sortlist[entry]{nty/global/}
     \entry{wifialliance}{misc}{}
       \name{author}{1}{}{%
-        {{hash=2549dfd8c3a4f17312bbaa9b7b7086e8}{%
+        {{hash=baaae33af641acca3c686df8b46de873}{%
            family={Alliance},
            family_i={A\bibinitperiod},
-           given={Wi-Fi},
-           given_i={W\bibinithyphendelim F\bibinitperiod}}}%
+           given={WiFi},
+           given_i={W\bibinitperiod}}}%
       }
-      \strng{namehash}{2549dfd8c3a4f17312bbaa9b7b7086e8}
-      \strng{fullhash}{2549dfd8c3a4f17312bbaa9b7b7086e8}
+      \strng{namehash}{baaae33af641acca3c686df8b46de873}
+      \strng{fullhash}{baaae33af641acca3c686df8b46de873}
       \field{sortinit}{A}
       \field{sortinithash}{b685c7856330eaee22789815b49de9bb}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{note}{Online: accessed 26-September-2017}
-      \field{title}{Wi-Fi Alliance News Release}
+      \field{title}{WiFi Alliance News Release}
       \field{year}{2016}
       \verb{url}
       \verb https://www.wi-fi.org/news-events/newsroom/wi-fi-device-shipments-to-surpass-15-billion-by-end-of-2016
@@ -159,6 +159,170 @@
       \verb http://doi.acm.org/10.1145/1282427.1282424
       \endverb
       \keyw{802.11,RF interference,SINR,channel hopping,jamming}
+    \endentry
+    \entry{5ghz}{article}{}
+      \field{sortinit}{I}
+      \field{sortinithash}{25e99d37ba90f7c4fb20baf4e310faf3}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Std 802.11j-2004}
+      \field{title}{IEEE Standard for Information Technology- Telecommunications and Information Exchange Between Systems- Local and Metropolitan Area Networks- Specific Requirements Part 11: Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications Amendment 7: 4.9 GHz-5 GHz Operation in Japan}
+      \field{year}{2004}
+      \field{pages}{1\bibrangedash 40}
+      \range{pages}{40}
+      \verb{doi}
+      \verb 10.1109/IEEESTD.2004.95388
+      \endverb
+    \endentry
+    \entry{Murty2}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=73ea88dc43731dfa0b7c9385c083156e}{%
+           family={Murty},
+           family_i={M\bibinitperiod},
+           given={Rohan},
+           given_i={R\bibinitperiod}}}%
+        {{hash=ff5f2ad1629acf52018ec470b61bf2c9}{%
+           family={Padhye},
+           family_i={P\bibinitperiod},
+           given={Jitendra},
+           given_i={J\bibinitperiod}}}%
+        {{hash=a5aac31ee830ae74984e06eb9cbff303}{%
+           family={Chandra},
+           family_i={C\bibinitperiod},
+           given={Ranveer},
+           given_i={R\bibinitperiod}}}%
+        {{hash=4b0db7d899a2a4c837e56231942c4cb1}{%
+           family={Wolman},
+           family_i={W\bibinitperiod},
+           given={Alec},
+           given_i={A\bibinitperiod}}}%
+        {{hash=48cd42b4b3b70a9312b0480bba46487c}{%
+           family={Zill},
+           family_i={Z\bibinitperiod},
+           given={Brian},
+           given_i={B\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {San Francisco, California}%
+      }
+      \list{publisher}{1}{%
+        {USENIX Association}%
+      }
+      \strng{namehash}{ba8d9109f63270494a17eeea6a13ac7e}
+      \strng{fullhash}{61701bb2a7467745f1a97e223fc1f4e2}
+      \field{sortinit}{M}
+      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 5th USENIX Symposium on Networked Systems Design and Implementation}
+      \field{isbn}{111-999-5555-22-1}
+      \field{series}{NSDI'08}
+      \field{title}{Designing High Performance Enterprise Wi-Fi Networks}
+      \field{year}{2008}
+      \field{pages}{73\bibrangedash 88}
+      \range{pages}{16}
+      \verb{url}
+      \verb http://dl.acm.org/citation.cfm?id=1387589.1387595
+      \endverb
+    \endentry
+    \entry{Murty}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=73ea88dc43731dfa0b7c9385c083156e}{%
+           family={Murty},
+           family_i={M\bibinitperiod},
+           given={Rohan},
+           given_i={R\bibinitperiod}}}%
+        {{hash=ff5f2ad1629acf52018ec470b61bf2c9}{%
+           family={Padhye},
+           family_i={P\bibinitperiod},
+           given={Jitendra},
+           given_i={J\bibinitperiod}}}%
+        {{hash=4b0db7d899a2a4c837e56231942c4cb1}{%
+           family={Wolman},
+           family_i={W\bibinitperiod},
+           given={Alec},
+           given_i={A\bibinitperiod}}}%
+        {{hash=076cf707817a3f8501c3ecc48b1b2268}{%
+           family={Welsh},
+           family_i={W\bibinitperiod},
+           given={Matt},
+           given_i={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Boston, MA}%
+      }
+      \list{publisher}{1}{%
+        {USENIX Association}%
+      }
+      \strng{namehash}{ba8d9109f63270494a17eeea6a13ac7e}
+      \strng{fullhash}{3609280f800c821108fffc5f9bee6c68}
+      \field{sortinit}{M}
+      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 2010 USENIX Conference on USENIX Annual Technical Conference}
+      \field{series}{USENIXATC'10}
+      \field{title}{Dyson: An Architecture for Extensible Wireless LANs}
+      \field{year}{2010}
+      \field{pages}{15\bibrangedash 15}
+      \range{pages}{1}
+      \verb{url}
+      \verb http://dl.acm.org/citation.cfm?id=1855840.1855855
+      \endverb
+    \endentry
+    \entry{Suresh}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=2a7e02b9b0aaeb02a7d2dd0f80ff5116}{%
+           family={Suresh},
+           family_i={S\bibinitperiod},
+           given={Lalith},
+           given_i={L\bibinitperiod}}}%
+        {{hash=cc18fa33e586dc6bf44bd7f0c82a4873}{%
+           family={Schulz-Zander},
+           family_i={S\bibinithyphendelim Z\bibinitperiod},
+           given={Julius},
+           given_i={J\bibinitperiod}}}%
+        {{hash=fd164a296339123ced07fb4ec0e1e5fa}{%
+           family={Merz},
+           family_i={M\bibinitperiod},
+           given={Ruben},
+           given_i={R\bibinitperiod}}}%
+        {{hash=a2f03739ecbec5fd41971c58f390f197}{%
+           family={Feldmann},
+           family_i={F\bibinitperiod},
+           given={Anja},
+           given_i={A\bibinitperiod}}}%
+        {{hash=cbb4d04a90491c7e8fa43e139129d300}{%
+           family={Vazao},
+           family_i={V\bibinitperiod},
+           given={Teresa},
+           given_i={T\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Helsinki, Finland}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{7632c303d30b4ce4e0b47a632c62f44e}
+      \strng{fullhash}{134c97e273ca5bb7fe17ad59042c1450}
+      \field{sortinit}{S}
+      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the First Workshop on Hot Topics in Software Defined Networks}
+      \field{isbn}{978-1-4503-1477-0}
+      \field{series}{HotSDN '12}
+      \field{title}{Towards Programmable Enterprise WLANS with Odin}
+      \field{year}{2012}
+      \field{pages}{115\bibrangedash 120}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1145/2342441.2342465
+      \endverb
+      \verb{url}
+      \verb http://doi.acm.org/10.1145/2342441.2342465
+      \endverb
+      \keyw{enterprise wlans,odin,openflow,sdn,virtualization}
     \endentry
     \entry{wigle}{online}{}
       \name{author}{1}{}{%

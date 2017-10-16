@@ -2,7 +2,6 @@
 We will briefly introduce the relevant aspects of wireless technology and a selection of important
 concepts from the 802.11 standard, both on the link and physical layer.
 
-\section{
 \section{Common challenges}
 There are some challenges with wireless technologies that are harder to overcome than in wired transmission technologies like Ethernet.
 
@@ -207,6 +206,17 @@ CSMA/CA attempts to avoid collisions in a network layout that includes hidden te
 	impact, while changing the channel of an AP remains the most effective.
 	\cite{impactRF}. 
 	\section{Channels} 
-	802.11 b/g/n uses the range of frequencies from 2.400-2.500 GHz on the ISM band. The increasingly popular 801.11n/ac also uses the 5 GHz band which offers more frequencies and has higher attenuation, thus making it shorter reaching. Other than that the properties and challenges are ultimately the same.
+	802.11 b/g/n uses the range of frequencies from 2.400-2.500 GHz on the Industrial,
+	Scientific and Medical (ISM) band.
+	The increasingly popular 801.11n/ac also uses a range of 5 GHz frequencies on the Unlicensed
+	National Information Infrastructure (UNII) band, which offers more frequencies \cite{5ghz}.
+	Other than that the properties and challenges for the different bands are ultimately the same.
 	The distribution of the frequencies on the 2.4 GHz band to the different channels is illustrated by figure \ref{fig:channels}. The frequencies listed are the center frequencies of each channel. In practice this means that an AP that transmits on one channel will interfere with close channels in both directions. Two channels are entirely non-interfering if they send on two frequencies  $f_{1}$ and $f_{2}$ so that $|f_{1} - f_{2}| > 0.025$. This means that there are in total three completely non-overlapping channels, 1, 6 and 11. The process of deciding which channel to transmit on is called channel allocation. 
+	\section{Overview of Channel Allocation Algorithms}
+	There exists many different channel allocation algorithms, and we'll introduce some relevant
+	here. 
+
+	\subsection{Least Congested Search}
+
+
 

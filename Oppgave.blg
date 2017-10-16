@@ -1,15 +1,23 @@
 [0] Config.pm:343> INFO - This is Biber 2.5
 [0] Config.pm:346> INFO - Logfile is 'Oppgave.blg'
-[49] biber-darwin:290> INFO - === Tue Sep 26, 2017, 14:31:20
-[68] Biber.pm:351> INFO - Reading 'Oppgave.bcf'
-[167] Biber.pm:776> INFO - Found 8 citekeys in bib section 0
-[181] Biber.pm:3493> INFO - Processing section 0
-[196] Biber.pm:3657> INFO - Looking for bibtex format file 'references.bib' for section 0
-[199] bibtex.pm:1187> INFO - Decoding LaTeX character macros into UTF-8
-[201] bibtex.pm:1048> INFO - Found BibTeX data source 'references.bib'
-[229] UCollate.pm:66> INFO - Overriding locale 'en-UK' defaults 'variable = shifted' with 'variable = non-ignorable'
-[229] UCollate.pm:66> INFO - Overriding locale 'en-UK' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[229] Biber.pm:3306> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'en-UK'
-[229] Biber.pm:3310> INFO - No sort tailoring available for locale 'en-UK'
-[239] bbl.pm:526> INFO - Writing 'Oppgave.bbl' with encoding 'UTF-8'
-[240] bbl.pm:619> INFO - Output to Oppgave.bbl
+[41] biber-darwin:290> INFO - === Mon Oct 16, 2017, 15:37:18
+[59] Biber.pm:351> INFO - Reading 'Oppgave.bcf'
+[150] Biber.pm:776> INFO - Found 12 citekeys in bib section 0
+[164] Biber.pm:3493> INFO - Processing section 0
+[179] Biber.pm:3657> INFO - Looking for bibtex format file 'references.bib' for section 0
+[183] bibtex.pm:1187> INFO - Decoding LaTeX character macros into UTF-8
+[185] bibtex.pm:1048> INFO - Found BibTeX data source 'references.bib'
+[212] Utils.pm:149> WARN - ISBN '111-999-5555-22-1' in entry 'Murty2' is invalid - run biber with '--validate_datamodel' for details.
+[220] Utils.pm:149> WARN - The field 'author' in entry '5ghz' cannot be null, deleting it
+[220] Utils.pm:149> WARN - The field 'issn' in entry '5ghz' cannot be null, deleting it
+[221] Utils.pm:149> WARN - The field 'keywords' in entry '5ghz' cannot be null, deleting it
+[221] Utils.pm:149> WARN - The field 'month' in entry '5ghz' cannot be null, deleting it
+[221] Utils.pm:149> WARN - The field 'number' in entry '5ghz' cannot be null, deleting it
+[221] Utils.pm:149> WARN - The field 'volume' in entry '5ghz' cannot be null, deleting it
+[243] UCollate.pm:66> INFO - Overriding locale 'en-UK' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[243] UCollate.pm:66> INFO - Overriding locale 'en-UK' defaults 'variable = shifted' with 'variable = non-ignorable'
+[243] Biber.pm:3306> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'en-UK'
+[243] Biber.pm:3310> INFO - No sort tailoring available for locale 'en-UK'
+[257] bbl.pm:526> INFO - Writing 'Oppgave.bbl' with encoding 'UTF-8'
+[259] bbl.pm:619> INFO - Output to Oppgave.bbl
+[260] Biber.pm:108> INFO - WARNINGS: 7
