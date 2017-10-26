@@ -62,30 +62,40 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.4.2}Using Wigle data}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Connected groups}{21}
+\contentsline {chapter}{\numberline {6}Access point clustering}{21}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.1}Definition}{21}
+\contentsline {section}{\numberline {6.1}Introduction}{21}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.2}Requirements and assumptions}{21}
+\contentsline {section}{\numberline {6.2}Problem overview}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.3}Proposing an algorithm}{22}
+\contentsline {subsection}{\numberline {6.2.1}Previous work}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.4}Algorithm implementation}{23}
+\contentsline {subsubsection}{SCIFI}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.5}Results}{23}
+\contentsline {subsection}{\numberline {6.2.2}Centralized model}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.5.1}Uniformly distributed nodes}{23}
+\contentsline {subsection}{\numberline {6.2.3}Distributed approach}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Scenario 1}{23}
+\contentsline {section}{\numberline {6.3}Requirements and assumptions}{24}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Scenario 2}{24}
+\contentsline {section}{\numberline {6.4}Proposing an algorithm}{24}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Scenario 3}{24}
+\contentsline {section}{\numberline {6.5}Algorithm implementation}{25}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.6}Results}{25}
+\contentsline {section}{\numberline {6.6}Results}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Lillehammer}{27}
+\contentsline {subsection}{\numberline {6.6.1}Uniformly distributed nodes}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Tynset}{27}
+\contentsline {subsubsection}{Scenario 1}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Forks}{27}
+\contentsline {subsubsection}{Scenario 2}{27}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Scenario 3}{27}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.7}Results}{28}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Lillehammer}{29}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Tynset}{29}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Forks}{30}

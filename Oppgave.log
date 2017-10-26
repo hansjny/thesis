@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.25)  16 OCT 2017 15:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.25)  26 OCT 2017 08:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1249,7 +1249,33 @@ Chapter 6.
 
 
 ]
-Overfull \hbox (4.32646pt too wide) in paragraph at lines 51--53
+Overfull \hbox (2.4153pt too wide) in paragraph at lines 48--51
+\T1/cmr/m/n/12 And while it shows that their cent-ral co-ordin-ator in fact im-
+proves the through-
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[22]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[23]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[24]
+Overfull \hbox (4.32646pt too wide) in paragraph at lines 119--121
 []\T1/cmr/m/n/12 If the num-ber of mem-bers $\OML/cmm/m/it/12 n$ \T1/cmr/m/n/12
  ex-ceeds a pre-defined threshold $\OML/cmm/m/it/12 memberThresh$
  []
@@ -1260,11 +1286,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[22] <Images/grouptest_1.jpg, id=158, 504.88625pt x 505.38812pt>
+[25] <Images/grouptest_1.jpg, id=168, 504.88625pt x 505.38812pt>
 File: Images/grouptest_1.jpg Graphic file (type jpg)
 
 <use Images/grouptest_1.jpg>
-Package pdftex.def Info: Images/grouptest_1.jpg used on input line 96.
+Package pdftex.def Info: Images/grouptest_1.jpg used on input line 164.
 (pdftex.def)             Requested size: 227.1967pt x 227.42255pt.
 
 
@@ -1273,11 +1299,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[23] <Images/grouptest_2.jpg, id=162, 508.90125pt x 507.8975pt>
+[26 <./Images/grouptest_1.jpg>]
+<Images/grouptest_2.jpg, id=172, 508.90125pt x 507.8975pt>
 File: Images/grouptest_2.jpg Graphic file (type jpg)
 
 <use Images/grouptest_2.jpg>
-Package pdftex.def Info: Images/grouptest_2.jpg used on input line 120.
+Package pdftex.def Info: Images/grouptest_2.jpg used on input line 188.
 (pdftex.def)             Requested size: 229.00345pt x 228.55176pt.
 
 
@@ -1286,20 +1313,20 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[24 <./Images/grouptest_1.jpg>]
-<Images/scenario3alt.png, id=167, 511.9125pt x 511.9125pt>
+[27 <./Images/grouptest_2.jpg>]
+<Images/scenario3alt.png, id=176, 511.9125pt x 511.9125pt>
 File: Images/scenario3alt.png Graphic file (type png)
 
 <use Images/scenario3alt.png>
-Package pdftex.def Info: Images/scenario3alt.png used on input line 138.
+Package pdftex.def Info: Images/scenario3alt.png used on input line 206.
 (pdftex.def)             Requested size: 230.35849pt x 230.35849pt.
 
-<Images/cities/lillehammer_groups.jpg, id=168, 506.89375pt x 505.89pt>
+<Images/cities/lillehammer_groups.jpg, id=177, 506.89375pt x 505.89pt>
 File: Images/cities/lillehammer_groups.jpg Graphic file (type jpg)
 
 <use Images/cities/lillehammer_groups.jpg>
 Package pdftex.def Info: Images/cities/lillehammer_groups.jpg used on input lin
-e 181.
+e 249.
 (pdftex.def)             Requested size: 233.17395pt x 232.71222pt.
 
 
@@ -1308,27 +1335,27 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[25 <./Images/grouptest_2.jpg>]
+[28 <./Images/scenario3alt.png>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[26 <./Images/scenario3alt.png> <./Images/cities/lillehammer_groups.jpg>]
-<Images/cities/tynset_groups.jpg, id=176, 508.90125pt x 507.8975pt>
+[29 <./Images/cities/lillehammer_groups.jpg>]
+<Images/cities/tynset_groups.jpg, id=185, 508.90125pt x 507.8975pt>
 File: Images/cities/tynset_groups.jpg Graphic file (type jpg)
 
 <use Images/cities/tynset_groups.jpg>
-Package pdftex.def Info: Images/cities/tynset_groups.jpg used on input line 211
+Package pdftex.def Info: Images/cities/tynset_groups.jpg used on input line 279
 .
 (pdftex.def)             Requested size: 234.09741pt x 233.63568pt.
 
-<Images/cities/forks_groups.jpg, id=177, 504.38437pt x 502.37688pt>
+<Images/cities/forks_groups.jpg, id=186, 504.38437pt x 502.37688pt>
 File: Images/cities/forks_groups.jpg Graphic file (type jpg)
 
 <use Images/cities/forks_groups.jpg>
-Package pdftex.def Info: Images/cities/forks_groups.jpg used on input line 232.
+Package pdftex.def Info: Images/cities/forks_groups.jpg used on input line 300.
 
 (pdftex.def)             Requested size: 232.01962pt x 231.09616pt.
 )
@@ -1338,20 +1365,20 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[27]
+[30 <./Images/cities/tynset_groups.jpg>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[28 <./Images/cities/tynset_groups.jpg> <./Images/cities/forks_groups.jpg>]
+[31 <./Images/cities/forks_groups.jpg>]
 Overfull \hbox (21.8727pt too wide) in paragraph at lines 186--186
 []\T1/cmr/m/n/12 WiFi Al-li-ance. \T1/cmr/m/it/12 WiFi Al-li-ance News Re-lease
 \T1/cmr/m/n/12 . On-line: ac-cessed 26-September-
  []
 
-[29
+[32
 
 
 
@@ -1362,7 +1389,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[30] (./Oppgave.aux (./Chapters/1-Introduction.aux)
+[33] (./Oppgave.aux (./Chapters/1-Introduction.aux)
 (./Chapters/2-Background.aux) (./Chapters/4-ChannelAllocation.aux)
 (./Chapters/3-Related.aux) (./Chapters/3-Data.aux) (./Chapters/4-Connected.aux)
 )
@@ -1374,13 +1401,13 @@ Package logreq Info: Writing requests to 'Oppgave.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 14517 strings out of 493014
- 231828 string characters out of 6133351
- 743716 words of memory out of 5000000
- 17756 multiletter control sequences out of 15000+600000
+ 14520 strings out of 493014
+ 232589 string characters out of 6133351
+ 743741 words of memory out of 5000000
+ 17759 multiletter control sequences out of 15000+600000
  29479 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,12n,45p,1432b,1639s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 39i,12n,45p,1434b,1639s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/tex
 live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texl
@@ -1405,10 +1432,10 @@ blic/txfonts/t1xbtt.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/
 txfonts/t1xtt.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/helvetic/
 uhvb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.
 pfb>
-Output written on Oppgave.pdf (37 pages, 6591772 bytes).
+Output written on Oppgave.pdf (40 pages, 6599815 bytes).
 PDF statistics:
- 266 PDF objects out of 1000 (max. 8388607)
- 167 compressed objects within 2 object streams
+ 275 PDF objects out of 1000 (max. 8388607)
+ 173 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

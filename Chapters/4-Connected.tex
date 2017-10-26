@@ -1,22 +1,90 @@
-\chapter{Connected groups}
-To enable collaborative channel allocation, it is
-important for every AP to know which APs it is collaborating with.
-One way to share information about who collaborates with who,
-is to let the access points group together. Information relevant for channel
-allocation can then be shared freely within the group, between APs.
+\chapter{Access point clustering}
+%To enable collaborative channel allocation, it is
+%important for every AP to know which APs it is collaborating with.
+%One way to share information about who collaborates with who,
+%is to let the access points group together. Information relevant for channel
+%allocation can then be shared freely within the group, between APs.
 
-We will proceed by looking at some of the requirements for a group creation algorithm.
-It should work decentralized in a distributed fashion. Hence, not only does the APs have to
-be imposed group membership, but they also have to be able to create and definine
-meaningful groups on their own. Later we will propose an algorithm to create groups,
-and then evaluate computed groups based on the algorithm.
+%We will proceed by looking at some of the requirements for a group creation algorithm.
+%It should work decentralized in a distributed fashion. Hence, not only does the APs have to
+%be imposed group membership, but they also have to be able to create and definine
+%meaningful groups on their own. Later we will propose an algorithm to create groups,
+%and then evaluate computed groups based on the algorithm.
 
 
-\section{Definition}
-A connected group is a set of access points that are within close geographical range.
-The group should consist of APs that interfere with each other when their channels are overlapping, so that overlap can be avoided with a channel allocation algorithm run within the group. Not all APs in
-the connected group will necessarily be able to hear each other on the radio directly, but all nodes
-should be able to hear each other through a transitive relation (neighbour of a neighbour, etc.).
+\section{Introduction}
+While it at first sounds incredibly desirable to let the entire population of for instance New York's access points organize themselves in an optimal channel-plan,
+at second thought the idea may prove to be a little ambitious. Being limited by the NP-complete nature of DSATUR or similar graph coloring algorithms
+we have to set some reasonable constraints on the size of the \textit{collaborating group}. The amount of nodes that will collaborate on the problem of finding an optimal channel distribution
+plan may not need to be very high.
+
+Let us for a moment look at an ideal example: a city that only consists of small apartment buildings that are entirely isolated from interference produced in external networks.
+How could we build a group in such a case? Turns out it is not that hard. Each access point would be able to collaborate with every other observable access point.
+When computing channel distribution there would be no risk of surpassing the viable amount of nodes to compute the distribution for, as the group is limited to the apartment building. Sadly for us the world is not ideal,
+and it is not impossible that every access point in New York can observe eachother through a transitive relation. This means the size of
+the collaborating group would be vast and completely unviable.  
+
+This does not mean that creating reasonably sized groups of access points is impossible, but it poses a more difficult challenge. 
+We need to filter out redundant nodes to create an approximated version of the ideal example.
+
+Having a picture of the typical cityscape in mind, we know that buildings are naturally
+separated by streets, bridges, parks, and so on. Rural areas are similar, but networks are spaced more unevenly
+and usually only affecting each other in one plane.
+
+Remembering attenuation, we know that RF-interference is also a property of distance. 
+These pieces of information tells us that RSSI readings between access points in two separated buildings should be lower than readings between access points in adjacent apartments.
+What we will be looking at in the following chapter is how we can utilize the RSSI readings between access points to build a clustering algorithm that creates reasonable groups
+of access points that discriminates between low-impact and high-impact nodes.  
+
+%The should consist of APs that interfere with each other when their channels are overlapping, so that overlap can be avoided with a channel allocation algorithm run within the group. Not all APs in
+%the connected group will necessarily be able to hear each other on the radio directly, but all nodes
+%should be able to hear each other through a transitive relation (neighbour of a neighbour, etc.).
+
+\section{Problem overview}
+The main problem we are dealing with is finding a way for access points to group together in clusters that are geographically close to each other. This can either be solved with a centralized
+coordinator or with a peer-to-peer distributed protocol. In this thesis we will be focusing on the distributed approach, but first we will take a look at the pros and cons of each approach, and
+the work that has already been done on the field.
+\subsection{Previous work}
+\subsubsection{SCIFI} SCIFI \cite{SCIFI} is a centralized channel allocation protocol for infrastructure Wireless LANs that improves the traditional graph-coloring algorith DSATUR. 
+And while it shows that their central coordinator in fact improves the throughput compared to Wireless LANs that are not configured by SCIFI, the algorithm is just an algorithm for setting 
+a channel in a preconfigured adminstrative domain. It does not deal with how the administrative domains (or collaborative groups as we call it) are defined. 
+
+\subsection{Centralized model}
+Let us briefly envision how a centralized model might look. As we want to propose a solution that works across private consumer networks as well as larger corporate networks,
+we can not assume that all networks are under the same administrative domain. This is where the centralized approach is limited, and why it may not be ideal.
+
+Just like the distributed version is, the centralized controller is also restricted by the NP-complete nature of all graph colouring algorithms.
+To be able to create a channel plan which is as optimal as possible, it has to identify groups of nodes that impacts each other severely. 
+
+The advantage of the centralized model is the ability to have the full picture of access points readily available. Let us assume the controller is placed at an ISP or a router manifacturer.
+The controller could potentially know exactly where in the world the access points are placed. Creating groups would
+be as simple as dividing within naturally separative geographical barriers like roads, streets and buildings. 
+
+For a central controller to be able to identify APs that are near eachother and compute the optimal channel distribution, APs need to report their radio readings to the controller. 
+The controller then needs to identify which of all the observed APs it can control, and which is not controllable and has to be treated as noise. There would be no requirement for
+communication in between nodes, which reduces complexity a lot.  
+
+A major drawback of the centralized approach is that nodes that are near eachother have to be under the same controller. If there are too many nodes around
+that can not be controlled by the controller, all nearby access points would be treated as noise and regular channel allocation schemes would have to be applied.
+Even though in there is a tendency for apartments in the same building to have the same ISP in Norway, there is no gurantee for that to always be the case.  
+
+\subsection{Distributed approach}
+Now that we have looked at how a centralized model might look, we can dive further into the main matter of the thesis. A simplistic way to portray the idea behind
+the distributed approach is: nodes only depend on their own radio RSSI readings to be able to create groups. When the group is formed, all of its members can
+compute a channel plan which is as optimal possible. In reality this idea has some major challenges that we have to overcome. Here are the most prominent ones: 
+\begin{itemize}
+	\item The communication channel. Nodes have to be able to communicate with eachother. The 802.11 standard describes no protocol for communication between access points that are not on the same extended service set. This communication would have to happen on the network layer, preferably over TCP. This communication channel would have to convey a messages that enables group creation,
+		most likely a custom protocol. 
+	\item The group creation itself. Based on only the RSSI-readings and the communication channel, nodes have to be able to organize themselves in a tight cluster of nodes that
+		includes all nodes that impacts each other most severely. This problem essentially boils down to a clustering problem. This is the main issue we will
+		try to find a reasonable solution for. 
+	\item Node state. As all nodes have to compute a channel plan for the group, they all need to have the same consistent information about the members of the groups
+		and every other node's RSSI-readings. 
+	\item Channel plan computation. Even though the centralized approach would have a similar problem, it can be more difficult to solve in a distributed fashion, as 
+		it is reasonable to assume that an access point has limited computational power. We will not discuss a solution for this in depth, as it is out of the scope
+		of the thesis, but there are already a couple of algorithms that treat channel allocation as a graph colouring problem. 
+\end{itemize}
+
 
 \section{Requirements and assumptions}
 We are going to be looking at how APs can organize themselves without a central coordinator,
