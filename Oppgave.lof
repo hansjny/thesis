@@ -16,30 +16,26 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Computing the interference between nodes\relax }}{14}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.2}{\ignorespaces JSON output structure\relax }}{15}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Generated topology with random, uniform distribution\relax }}{16}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Example of a Wigle API request\relax }}{17}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.5}{\ignorespaces REST API response with AP data\relax }}{18}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Computing the interference between nodes\relax }}{16}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces 200 nodes, $memberThresh=128$, $size=200x200$\relax }}{25}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.2}{\ignorespaces JSON output structure\relax }}{17}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces 200 nodes, $memberThresh=10$, $size=200x200$\relax }}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Generated topology with random, uniform distribution\relax }}{18}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces 5000 nodes, $memberThresh=64$, $size=2000x2000$\relax }}{27}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Example of a Wigle API request\relax }}{19}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Lillehammer\relax }}{28}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.5}{\ignorespaces REST API response with AP data\relax }}{20}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Tynset\relax }}{29}
 \defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.1}{\ignorespaces 200 nodes, $memberThresh=128$, $size=200x200$\relax }}{26}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.2}{\ignorespaces 200 nodes, $memberThresh=10$, $size=200x200$\relax }}{27}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.3}{\ignorespaces 5000 nodes, $memberThresh=64$, $size=2000x2000$\relax }}{28}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Lillehammer\relax }}{29}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Tynset\relax }}{30}
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Forks\relax }}{31}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Forks\relax }}{30}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.25)  26 OCT 2017 08:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.25)  26 OCT 2017 15:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -912,7 +912,6 @@ Package biblatex Info: ... file 'english.lbx' found.
 File: english.lbx 2016/05/14 v3.4 biblatex localization (PK/JW/AB)
 )))
 (./Oppgave.aux (./Chapters/1-Introduction.aux) (./Chapters/2-Background.aux)
-(./Chapters/4-ChannelAllocation.aux) (./Chapters/3-Related.aux)
 (./Chapters/3-Data.aux) (./Chapters/4-Connected.aux))
 \openout1 = `Oppgave.aux'.
 
@@ -1003,16 +1002,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [1
 
-]
+] (./Oppgave.toc [2
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[2
-
-] (./Oppgave.toc [3
 
 ])
 \tf@toc=\write5
@@ -1025,7 +1016,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[4] (./Oppgave.lof
+[3] (./Oppgave.lof
 Underfull \hbox (badness 10000) in paragraph at lines 15--15
  [][]  
  []
@@ -1034,7 +1025,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--15
 \tf@lof=\write6
 \openout6 = `Oppgave.lof'.
 
- [5
+ [4
 
 ]
 \openout2 = `Chapters/1-Introduction.aux'.
@@ -1068,7 +1059,7 @@ Chapter 2.
 
 
 
-] <Images/Hiddenterminalfigure.jpg, id=82, 1003.75pt x 477.785pt>
+] <Images/Hiddenterminalfigure.jpg, id=79, 1003.75pt x 477.785pt>
 File: Images/Hiddenterminalfigure.jpg Graphic file (type jpg)
 
 <use Images/Hiddenterminalfigure.jpg>
@@ -1092,7 +1083,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[6] <Images/DCF.jpg, id=92, 1003.75pt x 379.4175pt>
+[6] <Images/DCF.jpg, id=88, 1003.75pt x 379.4175pt>
 File: Images/DCF.jpg Graphic file (type jpg)
  <use Images/DCF.jpg>
 Package pdftex.def Info: Images/DCF.jpg used on input line 94.
@@ -1104,7 +1095,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[7 <./Images/DCF.jpg>] <Images/PPDU.png, id=97, 562.1pt x 209.78375pt>
+[7 <./Images/DCF.jpg>] <Images/PPDU.png, id=94, 562.1pt x 209.78375pt>
 File: Images/PPDU.png Graphic file (type png)
 
 <use Images/PPDU.png>
@@ -1129,7 +1120,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[9] <Images/Channels80211.png, id=107, 159.59625pt x 385.44pt>
+[9] <Images/Channels80211.png, id=104, 159.59625pt x 385.44pt>
 File: Images/Channels80211.png Graphic file (type png)
 
 <use Images/Channels80211.png>
@@ -1159,35 +1150,37 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [11 <./Images/Channels80211.png>]
-\openout2 = `Chapters/4-ChannelAllocation.aux'.
-
- (./Chapters/4-ChannelAllocation.tex
-Chapter 3.
-) [12
-
-
-
-]
-\openout2 = `Chapters/3-Related.aux'.
-
- (./Chapters/3-Related.tex
-Chapter 4.
-) [13
-
-
-
-]
 \openout2 = `Chapters/3-Data.aux'.
 
  (./Chapters/3-Data.tex
-Chapter 5.
-[14
+Chapter 3.
+[12
 
 
 
 ] (/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[13]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[14] <Images/randomtopology.png, id=126, 513.92pt x 511.9125pt>
+File: Images/randomtopology.png Graphic file (type png)
+
+<use Images/randomtopology.png>
+Package pdftex.def Info: Images/randomtopology.png used on input line 114.
+(pdftex.def)             Requested size: 205.56435pt x 204.76137pt.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1201,13 +1194,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[16] <Images/randomtopology.png, id=135, 513.92pt x 511.9125pt>
-File: Images/randomtopology.png Graphic file (type png)
+[16 <./Images/randomtopology.png>]
 
-<use Images/randomtopology.png>
-Package pdftex.def Info: Images/randomtopology.png used on input line 114.
-(pdftex.def)             Requested size: 205.56435pt x 204.76137pt.
+LaTeX Warning: Reference `simdata' on page 17 undefined on input line 198.
 
+)
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1221,18 +1212,16 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[18 <./Images/randomtopology.png>]
+[18]
+\openout2 = `Chapters/4-Connected.aux'.
 
-LaTeX Warning: Reference `simdata' on page 19 undefined on input line 198.
+ (./Chapters/4-Connected.tex
+Chapter 4.
+[19
 
-)
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
 
-[19]
+]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1240,18 +1229,15 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [20]
-\openout2 = `Chapters/4-Connected.aux'.
 
- (./Chapters/4-Connected.tex
-Chapter 6.
-[21
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
 
-
-
-]
-Overfull \hbox (2.4153pt too wide) in paragraph at lines 48--51
-\T1/cmr/m/n/12 And while it shows that their cent-ral co-ordin-ator in fact im-
-proves the through-
+[21]
+Overfull \hbox (8.15196pt too wide) in paragraph at lines 84--84
+[]\T1/cmr/bx/n/17.28 Computation as-sump-tions and re-quire-ments 
  []
 
 
@@ -1261,21 +1247,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [22]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[23]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[24]
-Overfull \hbox (4.32646pt too wide) in paragraph at lines 119--121
+Overfull \hbox (4.32646pt too wide) in paragraph at lines 113--115
 []\T1/cmr/m/n/12 If the num-ber of mem-bers $\OML/cmm/m/it/12 n$ \T1/cmr/m/n/12
  ex-ceeds a pre-defined threshold $\OML/cmm/m/it/12 memberThresh$
  []
@@ -1286,11 +1258,57 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[25] <Images/grouptest_1.jpg, id=168, 504.88625pt x 505.38812pt>
+[23]
+! Undefined control sequence.
+l.155 	\KwData
+              {this text}
+? 
+! Undefined control sequence.
+l.156 			\KwResult
+                  {how to write algorithm with \LaTeX2e }
+? 
+! Missing \endcsname inserted.
+<to be read again> 
+                   \ALG@currentblock@0 
+l.158 			\While
+               {not at end of this document}{
+? 
+! Extra \endcsname.
+\ALG@makebeginrepeat ...\ALG@thisblock \endcsname 
+                                                  \relax \def \ALG@thisblock...
+l.158 			\While
+               {not at end of this document}{
+? 
+
+! LaTeX Error: Lonely \item--perhaps a missing list environment.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.158 			\While
+               {not at end of this document}{
+? 
+
+Underfull \hbox (badness 10000) detected at line 158
+[][]
+ []
+
+! Undefined control sequence.
+l.160 			\eIf
+             {understand}{
+? 
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[24] <Images/grouptest_1.jpg, id=161, 504.88625pt x 505.38812pt>
 File: Images/grouptest_1.jpg Graphic file (type jpg)
 
 <use Images/grouptest_1.jpg>
-Package pdftex.def Info: Images/grouptest_1.jpg used on input line 164.
+Package pdftex.def Info: Images/grouptest_1.jpg used on input line 188.
 (pdftex.def)             Requested size: 227.1967pt x 227.42255pt.
 
 
@@ -1299,12 +1317,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[26 <./Images/grouptest_1.jpg>]
-<Images/grouptest_2.jpg, id=172, 508.90125pt x 507.8975pt>
+[25 <./Images/grouptest_1.jpg>]
+<Images/grouptest_2.jpg, id=166, 508.90125pt x 507.8975pt>
 File: Images/grouptest_2.jpg Graphic file (type jpg)
 
 <use Images/grouptest_2.jpg>
-Package pdftex.def Info: Images/grouptest_2.jpg used on input line 188.
+Package pdftex.def Info: Images/grouptest_2.jpg used on input line 212.
 (pdftex.def)             Requested size: 229.00345pt x 228.55176pt.
 
 
@@ -1313,20 +1331,20 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[27 <./Images/grouptest_2.jpg>]
-<Images/scenario3alt.png, id=176, 511.9125pt x 511.9125pt>
+[26 <./Images/grouptest_2.jpg>]
+<Images/scenario3alt.png, id=170, 511.9125pt x 511.9125pt>
 File: Images/scenario3alt.png Graphic file (type png)
 
 <use Images/scenario3alt.png>
-Package pdftex.def Info: Images/scenario3alt.png used on input line 206.
+Package pdftex.def Info: Images/scenario3alt.png used on input line 230.
 (pdftex.def)             Requested size: 230.35849pt x 230.35849pt.
 
-<Images/cities/lillehammer_groups.jpg, id=177, 506.89375pt x 505.89pt>
+<Images/cities/lillehammer_groups.jpg, id=171, 506.89375pt x 505.89pt>
 File: Images/cities/lillehammer_groups.jpg Graphic file (type jpg)
 
 <use Images/cities/lillehammer_groups.jpg>
 Package pdftex.def Info: Images/cities/lillehammer_groups.jpg used on input lin
-e 249.
+e 273.
 (pdftex.def)             Requested size: 233.17395pt x 232.71222pt.
 
 
@@ -1335,27 +1353,27 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[28 <./Images/scenario3alt.png>]
+[27 <./Images/scenario3alt.png>]
+<Images/cities/tynset_groups.jpg, id=176, 508.90125pt x 507.8975pt>
+File: Images/cities/tynset_groups.jpg Graphic file (type jpg)
+
+<use Images/cities/tynset_groups.jpg>
+Package pdftex.def Info: Images/cities/tynset_groups.jpg used on input line 303
+.
+(pdftex.def)             Requested size: 234.09741pt x 233.63568pt.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[29 <./Images/cities/lillehammer_groups.jpg>]
-<Images/cities/tynset_groups.jpg, id=185, 508.90125pt x 507.8975pt>
-File: Images/cities/tynset_groups.jpg Graphic file (type jpg)
-
-<use Images/cities/tynset_groups.jpg>
-Package pdftex.def Info: Images/cities/tynset_groups.jpg used on input line 279
-.
-(pdftex.def)             Requested size: 234.09741pt x 233.63568pt.
-
-<Images/cities/forks_groups.jpg, id=186, 504.38437pt x 502.37688pt>
+[28 <./Images/cities/lillehammer_groups.jpg>]
+<Images/cities/forks_groups.jpg, id=180, 504.38437pt x 502.37688pt>
 File: Images/cities/forks_groups.jpg Graphic file (type jpg)
 
 <use Images/cities/forks_groups.jpg>
-Package pdftex.def Info: Images/cities/forks_groups.jpg used on input line 300.
+Package pdftex.def Info: Images/cities/forks_groups.jpg used on input line 324.
 
 (pdftex.def)             Requested size: 232.01962pt x 231.09616pt.
 )
@@ -1365,20 +1383,20 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[30 <./Images/cities/tynset_groups.jpg>]
+[29 <./Images/cities/tynset_groups.jpg>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[31 <./Images/cities/forks_groups.jpg>]
+[30 <./Images/cities/forks_groups.jpg>]
 Overfull \hbox (21.8727pt too wide) in paragraph at lines 186--186
 []\T1/cmr/m/n/12 WiFi Al-li-ance. \T1/cmr/m/it/12 WiFi Al-li-ance News Re-lease
 \T1/cmr/m/n/12 . On-line: ac-cessed 26-September-
  []
 
-[32
+[31
 
 
 
@@ -1389,10 +1407,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[33] (./Oppgave.aux (./Chapters/1-Introduction.aux)
-(./Chapters/2-Background.aux) (./Chapters/4-ChannelAllocation.aux)
-(./Chapters/3-Related.aux) (./Chapters/3-Data.aux) (./Chapters/4-Connected.aux)
-)
+[32] (./Oppgave.aux (./Chapters/1-Introduction.aux)
+(./Chapters/2-Background.aux) (./Chapters/3-Data.aux)
+(./Chapters/4-Connected.aux))
 
 LaTeX Warning: There were undefined references.
 
@@ -1401,13 +1418,13 @@ Package logreq Info: Writing requests to 'Oppgave.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 14520 strings out of 493014
- 232589 string characters out of 6133351
- 743741 words of memory out of 5000000
- 17759 multiletter control sequences out of 15000+600000
+ 14511 strings out of 493014
+ 231566 string characters out of 6133351
+ 738757 words of memory out of 5000000
+ 17764 multiletter control sequences out of 15000+600000
  29479 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,12n,45p,1434b,1639s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 39i,12n,45p,1432b,1639s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/tex
 live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texl
@@ -1432,10 +1449,10 @@ blic/txfonts/t1xbtt.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/
 txfonts/t1xtt.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/helvetic/
 uhvb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.
 pfb>
-Output written on Oppgave.pdf (40 pages, 6599815 bytes).
+Output written on Oppgave.pdf (38 pages, 6598703 bytes).
 PDF statistics:
- 275 PDF objects out of 1000 (max. 8388607)
- 173 compressed objects within 2 object streams
+ 269 PDF objects out of 1000 (max. 8388607)
+ 169 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

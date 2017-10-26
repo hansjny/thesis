@@ -44,11 +44,6 @@ of access points that discriminates between low-impact and high-impact nodes.
 The main problem we are dealing with is finding a way for access points to group together in clusters that are geographically close to each other. This can either be solved with a centralized
 coordinator or with a peer-to-peer distributed protocol. In this thesis we will be focusing on the distributed approach, but first we will take a look at the pros and cons of each approach, and
 the work that has already been done on the field.
-\subsection{Previous work}
-\subsubsection{SCIFI} SCIFI \cite{SCIFI} is a centralized channel allocation protocol for infrastructure Wireless LANs that improves the traditional graph-coloring algorith DSATUR. 
-And while it shows that their central coordinator in fact improves the throughput compared to Wireless LANs that are not configured by SCIFI, the algorithm is just an algorithm for setting 
-a channel in a preconfigured adminstrative domain. It does not deal with how the administrative domains (or collaborative groups as we call it) are defined. 
-
 \subsection{Centralized model}
 Let us briefly envision how a centralized model might look. As we want to propose a solution that works across private consumer networks as well as larger corporate networks,
 we can not assume that all networks are under the same administrative domain. This is where the centralized approach is limited, and why it may not be ideal.
@@ -86,21 +81,20 @@ compute a channel plan which is as optimal possible. In reality this idea has so
 \end{itemize}
 
 
-\section{Requirements and assumptions}
-We are going to be looking at how APs can organize themselves without a central coordinator,
-but it should be noted that the creation of groups could potentially be easier if
-a centralized entity had the full picture of APs and their radio readings.
-It could then combine geographical information along with AP readings to create consistent groups.
-We will consider the two options against each other later on,
-but proceeding ahead with P2P group creation as the main concern. 
-Essentially this means that an AP has no other knowledge of the world than the other APs
-it can hear on its radio. For the sake of creating and evaluationg a group creation algorithm,
-we will assume a number of things that will have to be in solved at a later point:
+\section{Computation assumptions and requirements}
+Proceeding in the next chapters we will be looking at possible ways for nodes to organize themselves into groups in a peer-to-peer fashion.
+The data we will be using is the data we fetched in chapter \ref{dataacc} and structured in the JSON format described. The data provides
+a topology of nodes where all nodes have a list of neighbours that they can hear, with the appropriate RSSI-reading for how loud they can be heard.   
+This is the only information the nodes are given, and based on the RSSI-values of their neighbours they should be able to organize themselves. 
+To simplify the computation procedure and to reduce the workload for building the program we are going to to a number of assumptions. 
 
     \begin{enumerate}
-    \item All APs visible on any AP's radio also runs the group creation algorithm.
-    \item If an AP can see another AP on its radio, it also knows how to directly contact the AP (e.g. via TCP).
-    \item All APs in a group are completely synchronous, and always have an equal image of the state of the group. 
+    \item All APs visible on any AP's radio also runs the group creations algorithm. This is an assumption needed to be able to
+	see how well the group performs in an optimal condition. It can be interesting to add rogue nodes that does not take part in group creation at a later point
+	to see how well group creation works in a less optimal condition. 
+    \item If a node has another node in its neighbour list (meaning that they can hear each other on their radio), it also knows how to directly contact the node (e.g. via TCP).
+	 There is an underlying and working protocol that lets nodes communicate and exchange information about their RSSI-readings and group membership. 
+    \item All nodes in a group are completely synchronous, and always have an equal image of the state of the group at a given time. 
     \end{enumerate}
 
 \section{Proposing an algorithm}\label{algorithm}
@@ -122,27 +116,57 @@ that influences the rest of the group the least.
 To prevent the group from oscillating between kicking out members and rejoining members, once it reaches
 its maximum size it should be locked for further merges. 
 
-\section{Algorithm implementation}
-The algorithm was implemented in Python 3 \cite{Python3}, designed to run on the output from 
-the data generation program.
+\section{Program design}
+The program is designed so that it can be modified to accomodate different algorithm types, while still keeping the basic framework untouched.
+It is implemented in Python 3 \cite{Python3}, and is designed to run on the output from the data generation program. Seperating these programs is important,
+as group computation should be fast operation, while the data generation (or fetching) is a slow process and should only be done once every time a new data set is required. 
+A major design choice that had to be made early in the planning process  was whether or not the computation should be run in parallel or in sequence. 
 
-For this computation, we are assuming that all members of a group are precicely synchronized
-and the group members are consistent across all nodes. With that assumption, we can be sure
-all nodes will make the same decisions. 
+If the program was implemeneted in a way that computation ran in parallel, it could assign one thread to each node, and let the nodes interact through an interface to one another. Thus simulating a
+peer-to-peer protocol interface. Comparing with a sequential implementation, a parallel computation could arguably be a better representation of the real world,
+as the nodes act independely of each other and the order of events is to some degree random.
+It is exactly because of this chaotic nature of parallel computation that the program is designed to run in sequence.
+The benefit of this is consistent and recreateable results which for needs outweighs the benefits of a parallel implementation. It also reduces the complexity of doing operations
+on groups memberships since we don't get any race conditions. This particular point is also accounted for in the program assumptions, where we assume that all nodes have the exact same state.
+It has to be said that given a perfect algorithm that always find the best division of groups, the resulting groups should end up being the same whether or not it is done sequentially or in 
+parallel, but at this point we don't know what results to expect. 
 
-A group object can then be responsible for keeping track of current members,
-represented as node objects. The group object will also look through the radio readings
-of all its member nodes to find new member candidates, handle merges, locking the group and
-kicking out extraneous members, all according to the algorithm description in section
-\ref{algorithm}.
 
+The group framework consists of 3 classes with different responsibilities:
+\begin{itemize}
+	\item \textbf{Group}. An object of this class is an abstraction of all the nodes that belong to the same group. Because we have assumed that all nodes have equal
+	information about group membership and RSSI-readings, we can store all the members of each group in a list and let the group object act as a unified entity on
+	behalf of the entire group. All the interfaces and logic for forming groups is placed within this class. A method named \verb|iteration|
+	has the responsibility of triggering the appropriate action based on the state of the group. For instance adding node, removing a node or merging the group
+		with another. If an action was performed the method returns 1, else it returns 0. 
 
-To make it easier to evaluate the results, the computation is done sequentially
-and in iterations. This is a simple way to make sure the same groups are created 
-for the same topology every time, and it will make the evaluation process easier. 
+	\item \textbf{GroupCollection}. An object of this class should contain all the groups used in a simulation. Its main functional responsibility is looping through all the groups
+	and calling the \verb|iteration| method once. This is done in the GroupCollection's \verb|iterate| method. It accumulates the amount of changes done in all the groups,
+	by adding the return values of the Group object's \verb|iteration| method. It also handles the destruction of groups, and bootstrapping of newly created groups.
 
-The group creation program outputs a JSON-file containing the groups and their members for every iteration. The first iteration being every node having a group for their own,
-and the last iteration is the resulting groups.
+	\item \textbf{Simulation}. An object of this class handles the bootstrapping of groups, where all nodes (given in the input file) are parsed and
+	put in their own grown group. Consequently at the beginning of each computation the amount of groups is equal to the amount of nodes.
+	The Simulation class is also responsible for starting and stopping the simulation itself. After bootstrapping all the groups, the Simulation enters a loop
+	where it calls the \verb|iterate| method in the GroupCollections object once every run. All the groups have converged and reached a steady state 
+	once the amount of changes returned by the GroupCollection's \verb|iterate| method is equal to zero. The results are written to file.
+
+\end{itemize}
+\begin{algorithm}[H]
+	\KwData{this text}
+			\KwResult{how to write algorithm with \LaTeX2e }
+			initialization\;
+			\While{not at end of this document}{
+				read current\;
+			\eIf{understand}{
+				go to next section\;
+			current section becomes this one\;
+		}{
+			go back to the beginning of current section\;
+		}
+	}
+			\caption{How to write algorithms}
+\end{algorithm}
+
 \section{Results}
 
 \subsection{Uniformly distributed nodes}

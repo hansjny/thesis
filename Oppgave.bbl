@@ -40,62 +40,6 @@
       \verb https://www.wi-fi.org/news-events/newsroom/wi-fi-device-shipments-to-surpass-15-billion-by-end-of-2016
       \endverb
     \endentry
-    \entry{SCIFI}{inproceedings}{}
-      \name{author}{7}{}{%
-        {{hash=adcd2c0671be456b6ba3146fcde74040}{%
-           family={Balbi},
-           family_i={B\bibinitperiod},
-           given={H.},
-           given_i={H\bibinitperiod}}}%
-        {{hash=d79ffba8c165a3dcb65b95fa0c66496d}{%
-           family={Fernandes},
-           family_i={F\bibinitperiod},
-           given={N.},
-           given_i={N\bibinitperiod}}}%
-        {{hash=385aa0f35540a509b2a7fe436bed781b}{%
-           family={Souza},
-           family_i={S\bibinitperiod},
-           given={F.},
-           given_i={F\bibinitperiod}}}%
-        {{hash=919f2d59aa9f090f91ce5db43878fcb7}{%
-           family={Carrano},
-           family_i={C\bibinitperiod},
-           given={R.},
-           given_i={R\bibinitperiod}}}%
-        {{hash=10f347ee077d8fcb888bba674044f622}{%
-           family={Albuquerque},
-           family_i={A\bibinitperiod},
-           given={C.},
-           given_i={C\bibinitperiod}}}%
-        {{hash=c13c88d8ab0c5a59a83b597f23b8e0f1}{%
-           family={Muchaluat-Saade},
-           family_i={M\bibinithyphendelim S\bibinitperiod},
-           given={D.},
-           given_i={D\bibinitperiod}}}%
-        {{hash=35a06e1193d09f8b854bb2da8eb9a4e3}{%
-           family={Magalhaes},
-           family_i={M\bibinitperiod},
-           given={L.},
-           given_i={L\bibinitperiod}}}%
-      }
-      \strng{namehash}{dc2207eda89ec1d5b037980af10119cf}
-      \strng{fullhash}{31ec5718ef988297835bbe74b6212f77}
-      \field{sortinit}{B}
-      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{2012 Global Information Infrastructure and Networking Symposium (GIIS)}
-      \field{issn}{2150-3281}
-      \field{month}{12}
-      \field{title}{Centralized channel allocation algorithm for IEEE 802.11 networks}
-      \field{year}{2012}
-      \field{pages}{1\bibrangedash 7}
-      \range{pages}{7}
-      \verb{doi}
-      \verb 10.1109/GIIS.2012.6466657
-      \endverb
-      \keyw{channel allocation;communication complexity;interference (signal);packet radio networks;public domain software;radio spectrum management;telecommunication control;wireless LAN;aggregate performance;central controllers;centralized channel allocation algorithm;controlled access points;infrastructured IEEE 802.11 networks;interference;low complexity algorithm;low cost devices;low cost equipment;managed access points;network administrators;open source software;operating channels;packet transmission;unmanaged networks;wireless environment;wireless networks;wireless spectrum;Channel allocation;Heuristic algorithms;IEEE 802.11 Standards;Interference;Proposals;Throughput;Wireless networks}
-    \endentry
     \entry{DCFanalysis}{article}{}
       \name{author}{1}{}{%
         {{hash=dbb7b43c9a2fbadc84d00f92761e2676}{%

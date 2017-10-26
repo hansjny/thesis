@@ -2108,8 +2108,7 @@
     <bcf:citekey order="10">FSPL</bcf:citekey>
     <bcf:citekey order="11">wigle</bcf:citekey>
     <bcf:citekey order="12">Wardriving</bcf:citekey>
-    <bcf:citekey order="13">SCIFI</bcf:citekey>
-    <bcf:citekey order="14">Python3</bcf:citekey>
+    <bcf:citekey order="13">Python3</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nty/global/" type="entry" sortscheme="nty" sortnamekeyscheme="global" labelprefix="">
   <bcf:sorting>
