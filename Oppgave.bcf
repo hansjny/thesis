@@ -2104,11 +2104,14 @@
     <bcf:citekey order="6">DCFanalysis</bcf:citekey>
     <bcf:citekey order="7">impactRF</bcf:citekey>
     <bcf:citekey order="8">5ghz</bcf:citekey>
-    <bcf:citekey order="9">Python3</bcf:citekey>
-    <bcf:citekey order="10">FSPL</bcf:citekey>
-    <bcf:citekey order="11">wigle</bcf:citekey>
-    <bcf:citekey order="12">Wardriving</bcf:citekey>
-    <bcf:citekey order="13">Python3</bcf:citekey>
+    <bcf:citekey order="9">SCIFI</bcf:citekey>
+    <bcf:citekey order="10">Friis46</bcf:citekey>
+    <bcf:citekey order="11">FSPL</bcf:citekey>
+    <bcf:citekey order="12">Python3</bcf:citekey>
+    <bcf:citekey order="13">JSON</bcf:citekey>
+    <bcf:citekey order="14">wigle</bcf:citekey>
+    <bcf:citekey order="15">Wardriving</bcf:citekey>
+    <bcf:citekey order="16">Python3</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nty/global/" type="entry" sortscheme="nty" sortnamekeyscheme="global" labelprefix="">
   <bcf:sorting>

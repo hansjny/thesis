@@ -1,10 +1,10 @@
 \documentclass[12pt, a4paper, UKenglish, final]{report}
 \usepackage[utf8]{inputenc}
-\usepackage{algorithm}
-\usepackage[]{algorithm2e}
 \usepackage{amsmath}
-\usepackage[noend]{algpseudocode}
+\usepackage{algorithm2e}
+%\usepackage[noend]{algpseudocode}
 \usepackage{babel,csquotes}
+\usepackage{float}
 \usepackage{ifimasterforside}
 \usepackage{listings}
 \usepackage{wrapfig}
@@ -95,11 +95,11 @@ showstringspaces=false            %
 \colorlet{numb}{magenta!60!black}
 
 \lstdefinelanguage{json}{
-	basicstyle=\normalfont\ttfamily,
+	basicstyle=\small\ttfamily,
     numbers=left,
     numberstyle=\scriptsize,
     stepnumber=1,
-    numbersep=8pt,
+    numbersep=2pt,
     showstringspaces=false,
     breaklines=true,
     backgroundcolor=\color{background},
@@ -151,9 +151,10 @@ showstringspaces=false            %
 \include{Chapters/1-Introduction}
 \include{Chapters/2-Background}
 %\include{Chapters/4-ChannelAllocation}
-%\include{Chapters/3-Related}
+\include{Chapters/3-Related}
 \include{Chapters/3-Data}
 \include{Chapters/4-Connected}
+\include{Chapters/FutureWork}
 
 
 

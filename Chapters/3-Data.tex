@@ -1,46 +1,73 @@
 \chapter{Data acquisition and structure}\label{dataacc}
+%
+%Before implementing and testing any group creation algorithms, we need to gather usable data
+%to perform testing on. The data consists of the topology size, and where in the topology a node is located.
+%
+%For basic testing we can create our own data, and either assume the location of nodes, or randomly distribute them on a topology.
 
-Before implementing and testing any group creation algorithms, we need to gather usable data
-to perform testing on. The data consists of the topology size, and where in the topology a node is located.
+We don't have the time nor the resources to organize a large enough testbed to purposefully evaluate the algorithms and suggestions that we will look at in the 
+consecutive chapters. A sufficient testbed would require a large amount of routers (100-200 for a low scale test) in a small geographical area, preferably installed in 
+residential apartment buildings. Not only would the creation of such a testbed require a lot of physical equipment, but there is also a lot of logical challenges 
+that would have to be overcome, such as communication protocols and distributed consensus. These are problems we will address at a later point. Additionally, 
+we could argue that it never advisable to go directly from an idea to a testbed anyway, especially without having any empirical indication of which approaches have merit,
+and which is not worth the effort to implement. The risk is to waste a lot of time and resources to create a real life implementation that could have been identified as pointless 
+in an early calculation or simulation. 
 
-For basic testing we can create our own data, and either assume the location of nodes, or randomly distribute them on a topology.
-
-In a more reliable testing setup we should ideally get information from a real world data source. 
-The topology would then represent a section of the world, being either a city, town or neighbourhood, and the nodes would be APs most likely located in each household.
+In this chapter we will consider how we can develop a tool that generates and visualizes the layout of network topologies based on constructed, artificial data, or
+real-life location data of access points. 
 
 \section{Requirements}
-The testing data should be a set of nodes that has two coordinates $x$ and $y$ on a two-dimensional grid. Henceforth we will call refer to the populated grid as the topology. When the nodes are placed on the
-topology, we can compute which nodes it can hear on the radio and add these to the node's SSID-scan list.
+SSID, current channel frequency, radio power, physical data rate and supported 802.11 standards are just a few properties of a single real-life access point.
+We are going to represent such access points in our network topology, but the access points we are representing will not be in the transmission (CSMA/CA) state where
+most of theese properties are used. Our access points are in a state we can call the \textit{group discovery state}, where the goal is to find or create a group to be a part of
+so that a channel can be assigned before transmission happens. Hence, to perform our computations, we don't have to consider many of these properties.
+Actually, we will only store each access point's SSID, because this is a practical way to uniquely identify them \footnote{In the real world this is of course not the case,
+but we will enforce it in our computations. We could just as well call it a unique id.},  and the the list of other access points that can be seen through a WLAN scan with
+and their observed signal strength. These are the only metrics we require, but unfortunately there is no publicly available data source that contains the subjective radio scans
+of a large amount of access points in the same area.
+
+As a basis for our simulation we will represent nodes on a two-dimensional grid. Each dataset has to contain a set of nodes with two coordinates $x$ and $y$ so they can
+positioned on the grid. When the nodes are placed on the grid they represent a network topology
+and it will be possible to compute an estimation of which nodes can hear each other on the radio, and add these to each node's SSID-scan list.
 This list contains the names of all the nodes it can hear, and how loud it is heard measured in $-dBi$.
 Additionally the following parameters should be variable depending on each test scenario:
+
 \begin{itemize}
-\item Topology size, variable width of x- and y-axis.
-	\item Number of nodes
-\item Minimum distance between nodes (in meters)
+	\item Topology size with the possibility to give variable width of x- and y-axis as input arguments. These unit of the axes is meters.
+	\item Number of nodes to place on the topology
+	\item Minimum distance between nodes (in meters). This is only to avoid unlikely placement and extreme interference of nodes that are placed on top of each other. 
 	\item Minimum loudness measured in $-dBi$ for a node to account another node as a neighbour (e.g -100 is too low for anyone to hear).
-	\end{itemize}
+\end{itemize}
+
 
 	\section{Program design}
 	The topology generation program consists of two main functionalitites.
 
-	The first functionality is being  be able to create a topology and generate nodes which are uniformly
+	The first functionality is creating a topology and generate nodes which are uniformly
 	and randomly positioned on the network topology. The size of the topology, the number of nodes and the minimum distance
-	between nodes are properties that can be given as input arguments to the program. 
+	between nodes are properties that are passed as input arguments to the program.
 
-	The second functionality is computing which nodes can hear each other. We are assuming all nodes
-	are transmitting with equal strength, and that the environment is flat and obstacle free. 
+	The second functionality is performing the calculation of which nodes can actually hear each other over the radio.
+	We are assuming all nodes	are transmitting with equal strength, and that the environment is flat and obstacle free. 
 	All the neighbouring nodes that can be heard by a node, is added to its list of neighbours, and it stores the $-dBi$ value so it later can be shared with
-	the group. 
-
-	The resulting program, written in Python 3\cite{Python3}, contains an importable \textit{topology class}. This way, for further testing we can use different data sources to get the positions of nodes,
-	and only let the topology class compute the list of neighbours. 
-
-	The interference levels between APs is calculated by iterating through all the nodes. For each node $N$ we record its x and y position,
+	the group. The interference levels between access points are calculated by iterating through every access point. For each node $N$ we record its x and y position,
 	and then start a second iteration through the nodes. For each node $n$ in the second iteration we calculate the distance $d$ in
-	meters between $N$ and $n$ using Euclidean distance. Knowing the the distance between the nodes,  we can use the formula for free space path loss \cite{FSPL} to compute the $-dBI$ values. The code can be seen in figure \ref{fig:dbiCreation}.
+	meters between $N$ and $n$ using Euclidean distance. The formula for isotropic antennas is described by Friis \cite{Friis46}, and can be used to
+	derive the formula for free space path loss \cite{FSPL} that is as follows:
+\[
+	FSPL(dB) = 10\log_{10} \left( \frac{ (4 \pi f d)}{c} ^2 \right) 
+\]	
+	Where $d = distance$, $f = frequency$ and $c=constant$. The constant $c$ is used to account for different units. We will use the meters to denominate the distance,
+	and megahertz for the frequency. The resulting formula which will be implemented in the program is
+\[
+	FSPL(dB) = 20\log_{10}\left( f \right)  + 20\log_{10} \left(d\right) - 27.55
+\]	
+	As we have to compute the distance from all nodes to every other node, the topology generation program has $O(n^2)$ complexity. A simplified version of the code
+	can be seen in figure \ref{fig:dbiCreation}. 
 
-
-	For the sake of cross compatibility with other applications, the result of the computation represented in json. A topology consists of as many JSON node-objects as there are nodes.
+	The resulting program, written in Python 3\cite{Python3}, contains an importable \textit{topology class}. This way, for further testing we can use different data
+	sources to get the positions of nodes, and only let the topology class compute the list of neighbours. 
+	
 
 	\begin{figure}[H]
 	\begin{python}
@@ -70,26 +97,37 @@ def measureDbi(self, dist):
 			\caption{Computing the interference between nodes}
 			\label{fig:dbiCreation}
 			\end{figure}
+
 			\section{Data output and visual representation} \label{simulationrep}
-			Figure following illustrates the node structure, and is an example of how a node with two neighbours will look: 
+			The result of the topology generation is stored in a JSON\cite{JSON} data file. The data file contains the height and width of the the generated topology, as well
+			as the number of nodes. A \verb|nodes| object consists of as many JSON node-objects as there are nodes. Figure \ref{fig:nodeStruct} illustrates the node structure
+			and is an example of how a node with two neighbours will look.
 			\begin{figure}[H]
 			\begin{minipage}{\linewidth}
 			\begin{lstlisting}[language=json]
-1: {
- "posX": 100,
- "posY": 100, 
- "ssid": "NODE1",
- "neighbourCount": 2, 
- "neighbours": {
-    0: {
-     "ssid": NODE2,
-     "dbi": -77.23
-    },
+{
+  "mapWidth": 100,
+  "mapHeight": 100,
+  "nodeCount": 3,
+  "nodes": {
     1: {
-     "ssid": NODE3,
-     "dbi": -79.52
+    "posX": 50,
+    "posY": 50, 
+    "ssid": "NODE1", 
+    "neighbourCount": 2, 
+    "neighbours": {
+      0: {
+        "ssid": NODE2,
+        "dbi": -77.23
+        },
+      1: {
+        "ssid": NODE3,
+        "dbi": -79.52
+        }
+      }
     }
-  }
+  },
+...
 }
 \end{lstlisting}
 \end{minipage}
@@ -163,24 +201,24 @@ Android app  published by WiGLE, and then use the app for wardriving
 	\begin{lstlisting}[language=json]
 {
 	"userfound": false,
-		"qos": 0,
-		"comment": null,
-		"lastupdt": "2015-12-22T17:49:34.000Z",
-		"bcninterval": 0,
-		"dhcp": "?",
-		"lasttime": "2015-12-22T17:49:15.000Z",
-		"trilong": 10.82792618,
-		"netid": "5C:9E:FF:2B:54:84",
-		"freenet": "?",
-		"trilat": 62.2816925,
-		"name": null,
-		"firsttime": "2015-12-22T20:55:01.000Z",
-		"type": "infra",
-		"ssid": "NETGEAR23",
-		"paynet": "?",
-		"wep": "2",
-		"transid": "20151222-00207",
-		"channel": 52
+	"qos": 0,
+	"comment": null,
+	"lastupdt": "2015-12-22T17:49:34.000Z",
+	"bcninterval": 0,
+	"dhcp": "?",
+	"lasttime": "2015-12-22T17:49:15.000Z",
+	"trilong": 10.82792618,
+	"netid": "5C:9E:FF:2B:54:84",
+	"freenet": "?",
+	"trilat": 62.2816925,
+	"name": null,
+	"firsttime": "2015-12-22T20:55:01.000Z",
+	"type": "infra",
+	"ssid": "NETGEAR23",
+	"paynet": "?",
+	"wep": "2",
+	"transid": "20151222-00207",
+	"channel": 52
 }
 
 \end{lstlisting}

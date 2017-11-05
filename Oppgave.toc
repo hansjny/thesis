@@ -44,50 +44,80 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.6.1}Least Congested Search}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}Data acquisition and structure}{12}
+\contentsline {chapter}{\numberline {3}Related work}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}Requirements}{12}
+\contentsline {subsection}{\numberline {3.0.1}Software Defined Networking}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Program design}{13}
+\contentsline {subsection}{\numberline {3.0.2}Software Defined Radio}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}Data output and visual representation}{14}
+\contentsline {subsection}{\numberline {3.0.3}SCIFI}{12}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.4}WiGLE}{15}
+\contentsline {chapter}{\numberline {4}Data acquisition and structure}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4.1}REST API}{16}
+\contentsline {section}{\numberline {4.1}Requirements}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4.2}Using Wigle data}{17}
+\contentsline {section}{\numberline {4.2}Program design}{14}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Access point clustering}{19}
+\contentsline {section}{\numberline {4.3}Data output and visual representation}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}Introduction}{19}
+\contentsline {section}{\numberline {4.4}WiGLE}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Problem overview}{20}
+\contentsline {subsection}{\numberline {4.4.1}REST API}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.1}Centralized model}{20}
+\contentsline {subsection}{\numberline {4.4.2}Using Wigle data}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.2}Distributed approach}{21}
+\contentsline {chapter}{\numberline {5}Access point clustering}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}Computation assumptions and requirements}{22}
+\contentsline {section}{\numberline {5.1}Introduction}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}Proposing an algorithm}{22}
+\contentsline {section}{\numberline {5.2}Problem overview}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.5}Program design}{23}
+\contentsline {subsection}{\numberline {5.2.1}Centralized model}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.6}Results}{25}
+\contentsline {subsection}{\numberline {5.2.2}Distributed approach}{24}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.6.1}Uniformly distributed nodes}{25}
+\contentsline {section}{\numberline {5.3}Computation assumptions and requirements}{25}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Scenario 1}{25}
+\contentsline {section}{\numberline {5.4}Program design}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Scenario 2}{25}
+\contentsline {subsection}{\numberline {5.4.1}Design choices}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Scenario 3}{26}
+\contentsline {subsection}{\numberline {5.4.2}Group framework}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.7}Results}{27}
+\contentsline {subsection}{\numberline {5.4.3}Output file structure}{27}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Lillehammer}{27}
+\contentsline {section}{\numberline {5.5}Algorithms}{28}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Tynset}{28}
+\contentsline {subsection}{\numberline {5.5.1}Basic apprach}{29}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Forks}{29}
+\contentsline {subsubsection}{Procedure}{29}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Results}{30}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Results}{30}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Evaluation}{30}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.5.2}K-means clustering}{32}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.5.3}Minimum Cut}{32}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.5.4}Graph history}{32}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.6}Evaluation}{32}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.6.1}Acquired knowledge}{32}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.6.2}Weaknesses}{32}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Dimensionality}{32}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Volatility}{32}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Computed interference vs observed interference}{33}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {6}Future Work}{34}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.1}ResFi}{34}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.2}Raft}{34}
