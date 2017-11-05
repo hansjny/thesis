@@ -2110,8 +2110,7 @@
     <bcf:citekey order="12">Python3</bcf:citekey>
     <bcf:citekey order="13">JSON</bcf:citekey>
     <bcf:citekey order="14">wigle</bcf:citekey>
-    <bcf:citekey order="15">Wardriving</bcf:citekey>
-    <bcf:citekey order="16">Python3</bcf:citekey>
+    <bcf:citekey order="15">Python3</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nty/global/" type="entry" sortscheme="nty" sortnamekeyscheme="global" labelprefix="">
   <bcf:sorting>

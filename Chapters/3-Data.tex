@@ -135,42 +135,39 @@ def measureDbi(self, dist):
 \label{fig:nodeStruct}
 
 \end{figure}
-We can run the program in the following way
-\begin{verbatim}./GenerateTopology.py -n 200 -w 100 -h 100 --space 10 --dbi 85 \end{verbatim}
-Which instructs the program to create a topology with 200 nodes. 
-The topology should be 100 by 100 meters large, and there should be at least 10 meters
-between each node. The $dbi$ parameter makes sure that only nodes which can be
-heard with a $-dBi$-value of $-85$ or larger should be considered neighbours.
+The program can be run in the following way
+\begin{verbatim}./GenerateTopology.py -n 500 -w 100 -h 100 --space 10 --dbi 85 \end{verbatim}
+Which instructs the program to create a topology with 500 nodes. The topology should be 100 by 100 meters large, and there should be at least 10 meters
+between each node. The $dbi$ parameter makes sure that only nodes which can be heard with a $-dBi$-value of $-85$ or larger should appear in the neighbour list. 
+The output from this specific run is a 23.2 MB large file containing the resulting topology-data in JSON.
 
-The output is a 3.8 MB large file containing the resulting topology-data in JSON.
-
-By writing a simple JavaScript browser application meant to interpret the output, we can
-visually represent the nodes on a grid, and the result will look like what can be seen in figure \ref{fig:randtop}
+By writing a simple HTML and JavaScript browser application, we can parse the JSON and visually represent the nodes on a grid.
+The result will look like what can be seen in figure \ref{fig:randtop}
 
 \begin{figure}
 \center
-\includegraphics[scale=0.4]{Images/randomtopology.png}
-\caption{Generated topology with random, uniform distribution}
+\includegraphics[scale=0.35]{Images/interface.png}
+\caption{Generated topology with random, uniform distribution and}
 \label{fig:randtop}
 \end{figure}
 
 \section{WiGLE}
-WiGLE (Wireless Geographical Logging Engine) \cite{wigle} is a project started in 2001
-which purpose is to gather information about wireless networks. The data they have
-accumulated in their database is entirely user submitted. Anyone can download an 
-Android app  published by WiGLE, and then use the app for wardriving
-\footnote{Wardriving is the act of tracking wireless networks using a laptop or a phone,
-	and then store the information about each network \cite{Wardriving}.},
-	then submit the data to WiGLE's centralized database. All the APs can be viewed on an interactive
-	map provided on WiGLE's website. The data can also be accessed through an API call.
-	Using their service is entirely free, but the amount of data
-	that can be requested is throttled on a day-to-day basis. As they openly support
-	research projects, they provided us with an account with a slightly higher daily data
-	limit.
+WiGLE (Wireless Geographical Logging Engine) \cite{wigle} is a project started in 2001 which purpose is to gather information about wireless networks. All the information
+they collect is user submitted stored in their database. Anyone can download an Android app developed and published by WiGLE, and use the app for wardriving,
+\footnote{Wardriving is the act of tracking wireless networks using a laptop or a phone,	and then store the information about each network.},
+	then submit the data to WiGLE's centralized database. The APs discovered can be viewed on an interactive map provided on WiGLE's website. 
+	All the data can also be accessed through a public API which is especially interesting for us. Using their service is entirely free, but the
+	amount of data that can be requested is throttled on a day-to-day basis. In the FAQ section on the website its written that the project openly supports research projects, 
+	so after contacting them they upgraded the account we will be using for the data requests to a higher daily data quota.
 
-	To us this is interesting because we can use the location of APs to
-	create more realistic network topologies, and see how well the algorithm 
-	performs on these. 
+	As the physical location of each access point is estimated using weighted-centroid trilateration, 
+	we can fetch the estimated position of each access point. However, the location data is not necessarily always accurate: if the measurements of an access point signal
+	strength is done in multiple places (in a way that a line between the measurement locations surrounds the access point), the access point location becomes very precise. 
+	On the other hand, if the measurements are taken on only one side of the access point, the measurements are heavily shifted towards that side. {{figure?}} 
+	
+	Even though the data is not perfect, it is more suited to impersonate the layout of real-life network topologies and give us a better understanding of how what access point
+	clustering would look like in real-life. 
+
 
 
 	\subsection{REST API}
@@ -182,8 +179,9 @@ Android app  published by WiGLE, and then use the app for wardriving
 	and longitudes, the API responds with the APs in that area.  
 	A request will look something like what can be seen in figure \ref{fig:wigReq}
 	\begin{figure}
+	\scriptsize
 	\begin{lstlisting}[breaklines]
-	https://api.wigle.net/api/v2/network/search?first=0&latrange1=37.808469&latrange2=37.746744&longrange1=-122.539232&longrange2=-122.381355
+	 https://api.wigle.net/api/v2/network/search?first=0&latrange1=37.80846&latrange2=37.7467&longrange1=-122.5392&longrange2=-122.3813
 	\end{lstlisting}
 	\caption{Example of a Wigle API request}
 	\label{fig:wigReq}

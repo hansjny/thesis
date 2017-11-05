@@ -60,11 +60,11 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.3}Data output and visual representation}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}WiGLE}{18}
+\contentsline {section}{\numberline {4.4}WiGLE}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.1}REST API}{18}
+\contentsline {subsection}{\numberline {4.4.1}REST API}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.2}Using Wigle data}{19}
+\contentsline {subsection}{\numberline {4.4.2}Using Wigle data}{20}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {5}Access point clustering}{22}
 \defcounter {refsection}{0}\relax 
