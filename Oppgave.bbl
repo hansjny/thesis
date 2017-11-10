@@ -1,0 +1,499 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.7 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist[entry]{nty/global/}
+    \entry{wifialliance}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=baaae33af641acca3c686df8b46de873}{%
+           family={Alliance},
+           family_i={A\bibinitperiod},
+           given={WiFi},
+           given_i={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{baaae33af641acca3c686df8b46de873}
+      \strng{fullhash}{baaae33af641acca3c686df8b46de873}
+      \field{sortinit}{A}
+      \field{sortinithash}{b685c7856330eaee22789815b49de9bb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Online: accessed 26-September-2017}
+      \field{title}{WiFi Alliance News Release}
+      \field{year}{2016}
+      \verb{url}
+      \verb https://www.wi-fi.org/news-events/newsroom/wi-fi-device-shipments-to-surpass-15-billion-by-end-of-2016
+      \endverb
+    \endentry
+    \entry{SCIFI}{inproceedings}{}
+      \name{author}{7}{}{%
+        {{hash=adcd2c0671be456b6ba3146fcde74040}{%
+           family={Balbi},
+           family_i={B\bibinitperiod},
+           given={H.},
+           given_i={H\bibinitperiod}}}%
+        {{hash=d79ffba8c165a3dcb65b95fa0c66496d}{%
+           family={Fernandes},
+           family_i={F\bibinitperiod},
+           given={N.},
+           given_i={N\bibinitperiod}}}%
+        {{hash=385aa0f35540a509b2a7fe436bed781b}{%
+           family={Souza},
+           family_i={S\bibinitperiod},
+           given={F.},
+           given_i={F\bibinitperiod}}}%
+        {{hash=919f2d59aa9f090f91ce5db43878fcb7}{%
+           family={Carrano},
+           family_i={C\bibinitperiod},
+           given={R.},
+           given_i={R\bibinitperiod}}}%
+        {{hash=10f347ee077d8fcb888bba674044f622}{%
+           family={Albuquerque},
+           family_i={A\bibinitperiod},
+           given={C.},
+           given_i={C\bibinitperiod}}}%
+        {{hash=c13c88d8ab0c5a59a83b597f23b8e0f1}{%
+           family={Muchaluat-Saade},
+           family_i={M\bibinithyphendelim S\bibinitperiod},
+           given={D.},
+           given_i={D\bibinitperiod}}}%
+        {{hash=35a06e1193d09f8b854bb2da8eb9a4e3}{%
+           family={Magalhaes},
+           family_i={M\bibinitperiod},
+           given={L.},
+           given_i={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{dc2207eda89ec1d5b037980af10119cf}
+      \strng{fullhash}{31ec5718ef988297835bbe74b6212f77}
+      \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2012 Global Information Infrastructure and Networking Symposium (GIIS)}
+      \field{issn}{2150-3281}
+      \field{month}{12}
+      \field{title}{Centralized channel allocation algorithm for IEEE 802.11 networks}
+      \field{year}{2012}
+      \field{pages}{1\bibrangedash 7}
+      \range{pages}{7}
+      \verb{doi}
+      \verb 10.1109/GIIS.2012.6466657
+      \endverb
+      \keyw{channel allocation;communication complexity;interference (signal);packet radio networks;public domain software;radio spectrum management;telecommunication control;wireless LAN;aggregate performance;central controllers;centralized channel allocation algorithm;controlled access points;infrastructured IEEE 802.11 networks;interference;low complexity algorithm;low cost devices;low cost equipment;managed access points;network administrators;open source software;operating channels;packet transmission;unmanaged networks;wireless environment;wireless networks;wireless spectrum;Channel allocation;Heuristic algorithms;IEEE 802.11 Standards;Interference;Proposals;Throughput;Wireless networks}
+    \endentry
+    \entry{DCFanalysis}{article}{}
+      \name{author}{1}{}{%
+        {{hash=dbb7b43c9a2fbadc84d00f92761e2676}{%
+           family={Bianchi},
+           family_i={B\bibinitperiod},
+           given={G.},
+           given_i={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{dbb7b43c9a2fbadc84d00f92761e2676}
+      \strng{fullhash}{dbb7b43c9a2fbadc84d00f92761e2676}
+      \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0733-8716}
+      \field{journaltitle}{IEEE Journal on Selected Areas in Communications}
+      \field{month}{03}
+      \field{number}{3}
+      \field{title}{Performance analysis of the IEEE 802.11 distributed coordination function}
+      \field{volume}{18}
+      \field{year}{2000}
+      \field{pages}{535\bibrangedash 547}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1109/49.840210
+      \endverb
+      \keyw{IEEE standards;carrier sense multiple access;packet radio networks;standardisation;telecommunication standards;wireless LAN;CSMA/CA;DCF;IEEE 802.11 distributed coordination function;IEEE 802.11 protocol;MAC;analytical model;binary slotted exponential backoff;carrier sense multiple access;collision avoidance;ideal channel conditions;medium access control;packet transmission;performance analysis;standardization;terminals;threshold;throughput performance evaluation;wireless local area networks;Access protocols;Analytical models;Collision avoidance;Media Access Protocol;Multiaccess communication;Performance analysis;Physical layer;Throughput;Wireless LAN;Wireless application protocol}
+    \endentry
+    \entry{CiscoVNI2017}{article}{}
+      \name{author}{1}{}{%
+        {{hash=4941876ed11048cc24e00c36a8658291}{%
+           family={Cisco\bibnamedelima VNI},
+           family_i={C\bibinitperiod\bibinitdelim V\bibinitperiod},
+           given={2017},
+           given_i={2\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cisco}%
+      }
+      \strng{namehash}{4941876ed11048cc24e00c36a8658291}
+      \strng{fullhash}{4941876ed11048cc24e00c36a8658291}
+      \field{sortinit}{C}
+      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{White Paper}
+      \field{month}{06}
+      \field{title}{{Cisco Visual Networking Index: Forecast and Methodology, 2016--2021}}
+      \field{year}{2017}
+      \verb{url}
+      \verb https://www.cisco.com/c/en/us/solutions/collateral/service-provider/visual-networking-index-vni/complete-white-paper-c11-481360.html
+      \endverb
+    \endentry
+    \entry{Python3}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=e916da348163d73c23a44e14dd07cb27}{%
+           family={Foundation},
+           family_i={F\bibinitperiod},
+           given={Python\bibnamedelima Software},
+           given_i={P\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{e916da348163d73c23a44e14dd07cb27}
+      \strng{fullhash}{e916da348163d73c23a44e14dd07cb27}
+      \field{sortinit}{F}
+      \field{sortinithash}{c6a7d9913bbd7b20ea954441c0460b78}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Online: accessed 05-July-2017}
+      \field{title}{Python 3}
+      \field{year}{2017}
+      \verb{url}
+      \verb http://python.org
+      \endverb
+    \endentry
+    \entry{Friis46}{article}{}
+      \name{author}{1}{}{%
+        {{hash=2d083c2f60e2e13e8a5794dd3b42c696}{%
+           family={Friis},
+           family_i={F\bibinitperiod},
+           given={H.\bibnamedelimi T.},
+           given_i={H\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+      }
+      \strng{namehash}{2d083c2f60e2e13e8a5794dd3b42c696}
+      \strng{fullhash}{2d083c2f60e2e13e8a5794dd3b42c696}
+      \field{sortinit}{F}
+      \field{sortinithash}{c6a7d9913bbd7b20ea954441c0460b78}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{{A simple transmission formula for a radio circuit is derived. The utility of the formula is emphasized and its limitations are discussed.}}
+      \field{issn}{0096-8390}
+      \field{journaltitle}{Proceedings of the Institute of Radio Engineers}
+      \field{month}{05}
+      \field{number}{5}
+      \field{title}{{A Note on a Simple Transmission Formula}}
+      \field{volume}{34}
+      \field{year}{1946}
+      \field{pages}{254\bibrangedash 256}
+      \range{pages}{3}
+      \verb{doi}
+      \verb 10.1109/JRPROC.1946.234568
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1109/JRPROC.1946.234568
+      \endverb
+      \keyw{communication,free,loss,model,path,space,transmission,wireless}
+    \endentry
+    \entry{Gartner}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=18bfab6309a4addeb7e1dae07d2a4b89}{%
+           family={Gartner},
+           family_i={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{18bfab6309a4addeb7e1dae07d2a4b89}
+      \strng{fullhash}{18bfab6309a4addeb7e1dae07d2a4b89}
+      \field{sortinit}{G}
+      \field{sortinithash}{1c854ef9177a91bf894e66485bdbd3ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Online: accessed 26-September-2017}
+      \field{title}{Gartner Press Release}
+      \field{year}{2017}
+      \verb{url}
+      \verb http://http://www.gartner.com/newsroom/id/3598917
+      \endverb
+    \endentry
+    \entry{impactRF}{article}{}
+      \name{author}{4}{}{%
+        {{hash=c8a2ca98903d293782c28d9371d99adc}{%
+           family={Gummadi},
+           family_i={G\bibinitperiod},
+           given={Ramakrishna},
+           given_i={R\bibinitperiod}}}%
+        {{hash=ed3fc532903c051209e0750c2c89f2ac}{%
+           family={Wetherall},
+           family_i={W\bibinitperiod},
+           given={David},
+           given_i={D\bibinitperiod}}}%
+        {{hash=7860a04dc0eb9b2178d2e481455106de}{%
+           family={Greenstein},
+           family_i={G\bibinitperiod},
+           given={Ben},
+           given_i={B\bibinitperiod}}}%
+        {{hash=106c3fc06f6dbedec4b8814203e99827}{%
+           family={Seshan},
+           family_i={S\bibinitperiod},
+           given={Srinivasan},
+           given_i={S\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{4488db5b02fc45d64c639669de2cfc07}
+      \strng{fullhash}{539732771e6d36d59019373b393899d7}
+      \field{sortinit}{G}
+      \field{sortinithash}{1c854ef9177a91bf894e66485bdbd3ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0146-4833}
+      \field{journaltitle}{SIGCOMM Comput. Commun. Rev.}
+      \field{month}{08}
+      \field{number}{4}
+      \field{title}{Understanding and Mitigating the Impact of RF Interference on 802.11 Networks}
+      \field{volume}{37}
+      \field{year}{2007}
+      \field{pages}{385\bibrangedash 396}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1145/1282427.1282424
+      \endverb
+      \verb{url}
+      \verb http://doi.acm.org/10.1145/1282427.1282424
+      \endverb
+      \keyw{802.11,RF interference,SINR,channel hopping,jamming}
+    \endentry
+    \entry{5ghz}{article}{}
+      \field{sortinit}{I}
+      \field{sortinithash}{25e99d37ba90f7c4fb20baf4e310faf3}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Std 802.11j-2004}
+      \field{title}{IEEE Standard for Information Technology- Telecommunications and Information Exchange Between Systems- Local and Metropolitan Area Networks- Specific Requirements Part 11: Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications Amendment 7: 4.9 GHz-5 GHz Operation in Japan}
+      \field{year}{2004}
+      \field{pages}{1\bibrangedash 40}
+      \range{pages}{40}
+      \verb{doi}
+      \verb 10.1109/IEEESTD.2004.95388
+      \endverb
+    \endentry
+    \entry{JSON}{report}{}
+      \list{institution}{1}{%
+        {ECMA}%
+      }
+      \field{sortinit}{J}
+      \field{sortinithash}{ec3950a647c092421b9fcca6d819504a}
+      \field{labeltitlesource}{title}
+      \field{edition}{1st Edition}
+      \field{month}{10}
+      \field{number}{Standard ECMA-404 1st Edition / October 2013}
+      \field{title}{{The JSON Data Interchange Format}}
+      \field{type}{techreport}
+      \field{year}{2013}
+      \verb{url}
+      \verb http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf
+      \endverb
+      \keyw{ecma,json}
+    \endentry
+    \entry{Murty2}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=73ea88dc43731dfa0b7c9385c083156e}{%
+           family={Murty},
+           family_i={M\bibinitperiod},
+           given={Rohan},
+           given_i={R\bibinitperiod}}}%
+        {{hash=ff5f2ad1629acf52018ec470b61bf2c9}{%
+           family={Padhye},
+           family_i={P\bibinitperiod},
+           given={Jitendra},
+           given_i={J\bibinitperiod}}}%
+        {{hash=a5aac31ee830ae74984e06eb9cbff303}{%
+           family={Chandra},
+           family_i={C\bibinitperiod},
+           given={Ranveer},
+           given_i={R\bibinitperiod}}}%
+        {{hash=4b0db7d899a2a4c837e56231942c4cb1}{%
+           family={Wolman},
+           family_i={W\bibinitperiod},
+           given={Alec},
+           given_i={A\bibinitperiod}}}%
+        {{hash=48cd42b4b3b70a9312b0480bba46487c}{%
+           family={Zill},
+           family_i={Z\bibinitperiod},
+           given={Brian},
+           given_i={B\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {San Francisco, California}%
+      }
+      \list{publisher}{1}{%
+        {USENIX Association}%
+      }
+      \strng{namehash}{ba8d9109f63270494a17eeea6a13ac7e}
+      \strng{fullhash}{61701bb2a7467745f1a97e223fc1f4e2}
+      \field{sortinit}{M}
+      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 5th USENIX Symposium on Networked Systems Design and Implementation}
+      \field{isbn}{111-999-5555-22-1}
+      \field{series}{NSDI'08}
+      \field{title}{Designing High Performance Enterprise Wi-Fi Networks}
+      \field{year}{2008}
+      \field{pages}{73\bibrangedash 88}
+      \range{pages}{16}
+      \verb{url}
+      \verb http://dl.acm.org/citation.cfm?id=1387589.1387595
+      \endverb
+    \endentry
+    \entry{Murty}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=73ea88dc43731dfa0b7c9385c083156e}{%
+           family={Murty},
+           family_i={M\bibinitperiod},
+           given={Rohan},
+           given_i={R\bibinitperiod}}}%
+        {{hash=ff5f2ad1629acf52018ec470b61bf2c9}{%
+           family={Padhye},
+           family_i={P\bibinitperiod},
+           given={Jitendra},
+           given_i={J\bibinitperiod}}}%
+        {{hash=4b0db7d899a2a4c837e56231942c4cb1}{%
+           family={Wolman},
+           family_i={W\bibinitperiod},
+           given={Alec},
+           given_i={A\bibinitperiod}}}%
+        {{hash=076cf707817a3f8501c3ecc48b1b2268}{%
+           family={Welsh},
+           family_i={W\bibinitperiod},
+           given={Matt},
+           given_i={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Boston, MA}%
+      }
+      \list{publisher}{1}{%
+        {USENIX Association}%
+      }
+      \strng{namehash}{ba8d9109f63270494a17eeea6a13ac7e}
+      \strng{fullhash}{3609280f800c821108fffc5f9bee6c68}
+      \field{sortinit}{M}
+      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 2010 USENIX Conference on USENIX Annual Technical Conference}
+      \field{series}{USENIXATC'10}
+      \field{title}{Dyson: An Architecture for Extensible Wireless LANs}
+      \field{year}{2010}
+      \field{pages}{15\bibrangedash 15}
+      \range{pages}{1}
+      \verb{url}
+      \verb http://dl.acm.org/citation.cfm?id=1855840.1855855
+      \endverb
+    \endentry
+    \entry{Suresh}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=2a7e02b9b0aaeb02a7d2dd0f80ff5116}{%
+           family={Suresh},
+           family_i={S\bibinitperiod},
+           given={Lalith},
+           given_i={L\bibinitperiod}}}%
+        {{hash=cc18fa33e586dc6bf44bd7f0c82a4873}{%
+           family={Schulz-Zander},
+           family_i={S\bibinithyphendelim Z\bibinitperiod},
+           given={Julius},
+           given_i={J\bibinitperiod}}}%
+        {{hash=fd164a296339123ced07fb4ec0e1e5fa}{%
+           family={Merz},
+           family_i={M\bibinitperiod},
+           given={Ruben},
+           given_i={R\bibinitperiod}}}%
+        {{hash=a2f03739ecbec5fd41971c58f390f197}{%
+           family={Feldmann},
+           family_i={F\bibinitperiod},
+           given={Anja},
+           given_i={A\bibinitperiod}}}%
+        {{hash=cbb4d04a90491c7e8fa43e139129d300}{%
+           family={Vazao},
+           family_i={V\bibinitperiod},
+           given={Teresa},
+           given_i={T\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Helsinki, Finland}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{7632c303d30b4ce4e0b47a632c62f44e}
+      \strng{fullhash}{134c97e273ca5bb7fe17ad59042c1450}
+      \field{sortinit}{S}
+      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the First Workshop on Hot Topics in Software Defined Networks}
+      \field{isbn}{978-1-4503-1477-0}
+      \field{series}{HotSDN '12}
+      \field{title}{Towards Programmable Enterprise WLANS with Odin}
+      \field{year}{2012}
+      \field{pages}{115\bibrangedash 120}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1145/2342441.2342465
+      \endverb
+      \verb{url}
+      \verb http://doi.acm.org/10.1145/2342441.2342465
+      \endverb
+      \keyw{enterprise wlans,odin,openflow,sdn,virtualization}
+    \endentry
+    \entry{wigle}{online}{}
+      \name{author}{1}{}{%
+        {{hash=91c684bbf7e3f9c26281aeac3326742d}{%
+           family={WiGLE},
+           family_i={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{91c684bbf7e3f9c26281aeac3326742d}
+      \strng{fullhash}{91c684bbf7e3f9c26281aeac3326742d}
+      \field{sortinit}{W}
+      \field{sortinithash}{99e3ba1b3f78bb6f073e7fa7ac11636b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{07}
+      \field{title}{WiGLE: Wireless Network Mapping}
+      \field{year}{2017}
+      \verb{url}
+      \verb https://wigle.net/
+      \endverb
+    \endentry
+    \entry{FSPL}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           family_i={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{W}
+      \field{sortinithash}{99e3ba1b3f78bb6f073e7fa7ac11636b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Accessed 4th July, 2017}
+      \field{title}{Free-space path loss --- Wikipedia, The Free Encyclopedia}
+      \field{year}{2017}
+      \verb{url}
+      \verb http://en.wikipedia.org/w/index.php?title=Free-space%5C%20path%5C%20loss&oldid=765763753
+      \endverb
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+
