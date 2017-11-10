@@ -24,7 +24,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {4.3}{\ignorespaces Generated topology with random, uniform distribution and\relax }}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Example of a Wigle API request\relax }}{20}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Example of a Wigle API request\relax }}{19}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {4.5}{\ignorespaces REST API response with AP data\relax }}{20}
 \defcounter {refsection}{0}\relax 
@@ -34,6 +34,10 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Groups in a uniform distribution. Basic Appraoch\relax }}{30}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Groups in Forks, Washington. Basic Appraoch\relax }}{31}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Basic approach. Groups in Forks, Washington\relax }}{31}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.4}{\ignorespaces K-means splitting. Groups in a uniform distribution\relax }}{33}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.5}{\ignorespaces K-means splitting. Groups in Forks, Washington\relax }}{34}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }

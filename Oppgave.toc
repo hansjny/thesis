@@ -60,11 +60,11 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.3}Data output and visual representation}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}WiGLE}{19}
+\contentsline {section}{\numberline {4.4}WiGLE}{18}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.4.1}REST API}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.2}Using Wigle data}{20}
+\contentsline {subsection}{\numberline {4.4.2}The Haversine Formula}{20}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {5}Access point clustering}{22}
 \defcounter {refsection}{0}\relax 
@@ -94,11 +94,17 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{Results}{30}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Results}{30}
-\defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{Evaluation}{30}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.5.2}K-means clustering}{32}
+\contentsline {subsection}{\numberline {5.5.2}K-means clustering}{31}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Introduction to K-means}{31}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{K-means splitting}{31}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Results}{32}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Evaluation}{32}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.5.3}Minimum Cut}{32}
 \defcounter {refsection}{0}\relax 
@@ -112,12 +118,12 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{Dimensionality}{32}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Volatility}{32}
+\contentsline {subsubsection}{Volatility}{34}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Computed interference vs observed interference}{33}
+\contentsline {subsubsection}{Computed interference vs observed interference}{34}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Future Work}{34}
+\contentsline {chapter}{\numberline {6}Future Work}{36}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.1}ResFi}{34}
+\contentsline {section}{\numberline {6.1}ResFi}{36}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.2}Raft}{34}
+\contentsline {section}{\numberline {6.2}Raft}{36}

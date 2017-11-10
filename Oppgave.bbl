@@ -400,6 +400,25 @@
       \verb http://dl.acm.org/citation.cfm?id=1855840.1855855
       \endverb
     \endentry
+    \entry{Nichat}{article}{}
+      \name{author}{1}{}{%
+        {{hash=0ab38a48f2b8de344355da8bfee13db0}{%
+           family={Nichat},
+           family_i={N\bibinitperiod},
+           given={Mangesh},
+           given_i={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{0ab38a48f2b8de344355da8bfee13db0}
+      \strng{fullhash}{0ab38a48f2b8de344355da8bfee13db0}
+      \field{sortinit}{N}
+      \field{sortinithash}{925374ca63e7594de7fafdb83e64d41d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{International Journal of Engineering Research and Applications(IJERA) ISSN: 2248-9622 Vol. 3, Issue 3, May-Jun 2013, pp.162}
+      \field{month}{05}
+      \field{title}{Landmark based shortest path detection by using Dijkestra Algorithm and Haversine Formula}
+      \field{year}{2013}
+    \endentry
     \entry{Suresh}{inproceedings}{}
       \name{author}{5}{}{%
         {{hash=2a7e02b9b0aaeb02a7d2dd0f80ff5116}{%
@@ -454,6 +473,25 @@
       \verb http://doi.acm.org/10.1145/2342441.2342465
       \endverb
       \keyw{enterprise wlans,odin,openflow,sdn,virtualization}
+    \endentry
+    \entry{WigleAPI}{online}{}
+      \name{author}{1}{}{%
+        {{hash=91c684bbf7e3f9c26281aeac3326742d}{%
+           family={WiGLE},
+           family_i={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{91c684bbf7e3f9c26281aeac3326742d}
+      \strng{fullhash}{91c684bbf7e3f9c26281aeac3326742d}
+      \field{sortinit}{W}
+      \field{sortinithash}{99e3ba1b3f78bb6f073e7fa7ac11636b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{11}
+      \field{title}{WiGLE API}
+      \field{year}{2017}
+      \verb{url}
+      \verb https://api.wigle.net/swagger
+      \endverb
     \endentry
     \entry{wigle}{online}{}
       \name{author}{1}{}{%

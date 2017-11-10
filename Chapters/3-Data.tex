@@ -144,7 +144,7 @@ The output from this specific run is a 23.2 MB large file containing the resulti
 By writing a simple HTML and JavaScript browser application, we can parse the JSON and visually represent the nodes on a grid.
 The result will look like what can be seen in figure \ref{fig:randtop}
 
-\begin{figure}
+\begin{figure}[h]
 \center
 \includegraphics[scale=0.35]{Images/interface.png}
 \caption{Generated topology with random, uniform distribution and}
@@ -171,30 +171,30 @@ they collect is user submitted stored in their database. Anyone can download an 
 
 
 	\subsection{REST API}
-	Their REST API provides data presented in JSON, and offers different services,
-	such as user profile operations, statistical information and network search.
+	WiGLE has a REST API that can be used to retrieve information from their database. The API responds to requests with JSON data. It gives access to a
+	number of services such as user profile management, large-scale statistical information about the collected data
+	and more specific network searches. An interactive guide to the public API is available at \cite{WigleAPI}. 
 
-	We only need to use the networks search part of the API for our purpose. 
-	By passing it a request for nodes between two latitudes
-	and longitudes, the API responds with the APs in that area.  
-	A request will look something like what can be seen in figure \ref{fig:wigReq}
+	We are going to mine data for the topology generation program, hence the network search service is all we are interested in. There are several ways an access point can be retrieved using
+	the network search. We can query specific SSIDs, a range of coordinates, only APs with a minimum signal level, or only query networks that are free to use. As 
+	we are only rebuilding the network topology to fit our tailored data structure, we will consider all access points and not filter on any parameters except for coordinates.
+	By issuing an API a request for nodes between two latitudes and two longitudes, the response is an array with AP objects within that area.  
+	A request will look something like what can be seen in figure \ref{fig:wigReq}.
 	\begin{figure}
 	\scriptsize
 	\begin{lstlisting}[breaklines]
-	 https://api.wigle.net/api/v2/network/search?first=0&latrange1=37.80846&latrange2=37.7467&longrange1=-122.5392&longrange2=-122.3813
+	 https://api.wigle.net/api/v2/network/search?first=0&latrange1=37.80846&latrange2=37.7467&longrange1=-122.5392&longrange2=-122.3813&start=0
 	\end{lstlisting}
 	\caption{Example of a Wigle API request}
 	\label{fig:wigReq}
 	\end{figure}
-	The parameters $latrange1$ and $longrange1$ are the coordinates that marks the beginning 
-	of the area we are interested in, where $latrange2$ and $longrange2$ marks the end. 
-	As WiGLE at most returns information about 100 APs for every query, we need the $start$
-	parameter to tell WiGLE at which index offset we want to begin fetching data from.
-	A start value of $0$ means we fetch in the range $0-99$, a value of $100$ means in the
-	range $100-199$ and so on. The JSON response for a succesful request for an AP,
-	can be seen in figure \ref{fig:wigle}.
 
-	\begin{figure}
+	The parameters $latrange1$ and $longrange1$ are the coordinates that marks the beginning of the area we are interested in and $latrange2$ and $longrange2$ marks the end. 
+	We want information about the position of all access points within this range, however WiGLE returns at most 100 results per query. If there are more than 100 access points, we need to change the $start$
+	parameter. This parameter tells WiGLE at which offset we want to begin fetching data from. For instance a start value of $0$ means we fetch the first 100 access points, with indexes 0-99. A value of $100$ means that
+	we fetch the next 100 APs in the range $100-199$ and so on. The JSON response for a succesful request for one AP can be seen in figure \ref{fig:wigle}. 
+
+	\begin{figure}[h]
 
 	\begin{lstlisting}[language=json]
 {
@@ -224,24 +224,26 @@ they collect is user submitted stored in their database. Anyone can download an 
 \label{fig:wigle}
 \end{figure}
 
-We are primarily interested in the properties $trilong$ and $trilat$, which is
-the triangulated coordinates of the AP. 
+The JSON-object in the response contains quite a lot of information about all of the APs retrieved. We wont be using most of this data, but it is worth noting that some of it could be used to perfect the search. For instance the last updated parameter could
+be a way to refine the access points retrieval, so that access points that has been long gone is not taken into consideration. The most valueable properties for us is $trilong$ and $trilat$. As the names suggest these contain the position calculated
+by the weighted-centroid triliteration. 
 
-\subsection{Using Wigle data}
-WiGLE provides data about the location of access points. However, to be able to
-use the data for our group computation, we must translate the global coordinates
-to two dimensional coordinates. We can then place each AP on a topology with the
-same format as the generated topologies we created in section \ref{simdata}.
-This is necessary for two reasons.
+\subsection{The Haversine Formula}
+As seen in the previous section, WiGLE provides data about the location of access points and a way for us to retrieve this data in a usable format. 
+At this point we could create a program that operates directly on the longitudes and latitudes retrieved. This program would also need to be able to use the FPSL formula on global coordinates to compute the radio scans of each AP. 
+To properly visualize the data we would have to reinstall the nodes on a globe. This requires a lot of extra labour, and it seems especially redudant when we already have a working program and topology visualizer that alerady
+has the aforementioned functionality. The problem is that this relies on a coordinate system in Euclidean space. In other words, to be able to reuse the functionality we have already built
+we must translate the geographic coordinates to coordinates in Euclidean space.
 
-The first reason is that creating a group creation program that can operate
-on the longitudes and latitudes directly adds more complexity. Both with regards to
-group computation and visual representation. 
+The haversine formula is used compute the great-circle distance between two global coordinates \cite{Nichat}. We can utilize this to get the distance in meters
+between the boundaries of our area of interest. 
 
-The second reason is that the WiGLE data does not contain information about
-which neighbours each AP can hear, and with what $-dBi$ strengths they are heard.
-This will have to be computed like earlier, and by parsing it to the format
-we designed in section \ref{simulationrep} we can reuse the code to generate the neighbour lists.
+\[
+	sin^2\left(\frac{\varphi_2-\varphi_1}{2} \right) + cos(\varphi_1) * cos(\varphi_2) * sin^2 \left( \frac{\lambda_2 - \lambda_1}{2} \right)
+	%a = sin²(Δφ/2) + cos φ1 ⋅ cos φ2 ⋅ sin²(Δλ/2)
+	%FSPL(dB) = 20\log_{10}\left( f \right)  + 20\log_{10} \left(d\right) - 27.55
+\]	
+
 
 The haversine formula [[ref or explain]] gives us the distance in meters between two coordinates. By calculating
 the distane between the latitude startpoint and the latitude endpoint, we can get the size of one

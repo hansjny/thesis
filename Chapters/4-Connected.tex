@@ -216,18 +216,17 @@ This means that the algorithm converges after a while, when all groups are too l
 \subsubsection{Results}
 The results of the computations on the different topologies using this appraoch can be seen in figures \ref{fig:basic_uniform} and  \ref{fig:basic_forks}.
  
-\begin{figure}
+\begin{figure}[h]
 	\center
 	\includegraphics[scale=0.46]{Images/computations/BASIC500x500_1000n.jpg}
 	\caption{Groups in a uniform distribution. Basic Appraoch}
 	\label{fig:basic_uniform}
 \end{figure}
 
-\subsubsection{Results}
-\begin{figure}
+\begin{figure}[h]
 	\center
 	\includegraphics[scale=0.46]{Images/computations/BASICForks.jpg}
-	\caption{Groups in Forks, Washington. Basic Appraoch}
+	\caption{Basic approach. Groups in Forks, Washington}
 	\label{fig:basic_forks}
 \end{figure}
 
@@ -257,6 +256,43 @@ merge can be discarded because of the large group size, even though many nodes i
 %\end{algorithm}
 
 \subsection{K-means clustering}
+\subsubsection{Introduction to K-means}
+K-means is a well known clustering algorithms often used for classification purposes in machine learning. It can enable unsupervised learning. The 
+negative side of K-means is that the result strongly depends on how the algorithm. This problem makes K-means an algorithm that is usually ran several
+times in a hill-climbing fashion to get the best results possible. 
+\subsubsection{K-means splitting}
+In the clustering scenario, it is desirable to avoid running many variation of K-means with different centroids. Actually, using randomized starting centers
+is not viable, because then all the random would have to be communicated to all nodes in the group. It would be a lot better to have a deterministic way 
+of choosing the starting centers. And by using the basic approach that can be achieved. As it is known, each node does not have a top-down view of the network 
+topology. It only knows about itself and the members of its group. Therefore it is not interesting to see whether or not K-means would perform well on the entire 
+network topology. Then we also get the problem of deciding how many centroids there should be. Instead, what we could do is allow two groups to merge even though
+they would exceed the maximum groups size. The result is a larger network topology we can run K-means on. Still, the problem of knowing how many clusters
+the result should end up in remains. It's possible to think about a way that clusters could be evaluated, and the amount of clusterss/centroids could gradually be
+incremented to see which amount gave the best results. However, the intuitive approach that will be considered here is using only two centroids. As there are two groups merging, the two
+groups will remain, but some nodes may change groups in the process. Instead of choosing random positions for the first two groups centers, we will let each of the merging groups
+compute their own centroid, and then K-means uses these centroids as bootstrapping. 
+
+\subsubsection{Results}
+
+\begin{figure}[h]
+	\center
+	\includegraphics[scale=0.46]{Images/computations/KMEANS500x500_1000n.jpg}
+	\caption{K-means splitting. Groups in a uniform distribution}
+	\label{fig:kmeans_uniform}
+\end{figure}
+
+\begin{figure}[h]
+	\center
+	\includegraphics[scale=0.46]{Images/computations/KMEANSForks.jpg}
+	\caption{K-means splitting. Groups in Forks, Washington}
+	\label{fig:kmeans_forks}
+\end{figure}
+
+
+
+
+
+\subsubsection{Evaluation}
 
 \subsection{Minimum Cut}
 

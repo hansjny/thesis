@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.25)  10 NOV 2017 10:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.25)  10 NOV 2017 18:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -908,13 +908,13 @@ Package: subcaption 2016/02/20 v1.1-142 Sub-captions (AR)
 )
 
 Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 26.
+less on input line 27.
 
 
 Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
-less on input line 28.
+less on input line 29.
 
-LaTeX Font Info:    Try loading font information for T1+txtt on input line 51.
+LaTeX Font Info:    Try loading font information for T1+txtt on input line 52.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/txfonts/t1txtt.fd
 File: t1txtt.fd 2000/12/15 v3.1
 )
@@ -943,18 +943,18 @@ File: english.lbx 2016/05/14 v3.4 biblatex localization (PK/JW/AB)
 (./Chapters/FutureWork.aux))
 \openout1 = `Oppgave.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 129.
-LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 130.
+LaTeX Font Info:    ... okay on input line 130.
 \AtBeginShipoutBox=\box41
 
 (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -998,8 +998,8 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'Oppgave.bbl' found.
 
 (./Oppgave.bbl)
-Package biblatex Info: Reference section=0 on input line 129.
-Package biblatex Info: Reference segment=0 on input line 129.
+Package biblatex Info: Reference section=0 on input line 130.
+Package biblatex Info: Reference segment=0 on input line 130.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 
@@ -1007,16 +1007,16 @@ Package caption Info: End \AtBeginDocument code.
 File: ifi-kompendium-forside-eng.pdf Graphic file (type pdf)
 
 <use ifi-kompendium-forside-eng.pdf>
-Package pdftex.def Info: ifi-kompendium-forside-eng.pdf used on input line 131.
+Package pdftex.def Info: ifi-kompendium-forside-eng.pdf used on input line 132.
 
 (pdftex.def)             Requested size: 639.66422pt x 887.20244pt.
-LaTeX Font Info:    Try loading font information for T1+phv on input line 131.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 132.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <17> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 131.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 132.
  [1
 
 
@@ -1232,6 +1232,9 @@ Package pdftex.def Info: Images/interface.png used on input line 149.
 (pdftex.def)             Requested size: 376.26132pt x 280.70288pt.
 
 
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
@@ -1252,9 +1255,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [19]
-
-LaTeX Warning: Reference `simdata' on page 20 undefined on input line 234.
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1342,8 +1342,11 @@ File: Images/computations/BASICForks.jpg Graphic file (type jpg)
 
 <use Images/computations/BASICForks.jpg>
 Package pdftex.def Info: Images/computations/BASICForks.jpg used on input line 
-229.
+228.
 (pdftex.def)             Requested size: 349.06834pt x 349.53006pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1359,35 +1362,71 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [31 <./Images/computations/BASICForks.jpg>]
+<Images/computations/KMEANS500x500_1000n.jpg, id=190, 684.05562pt x 683.05188pt
+>
+File: Images/computations/KMEANS500x500_1000n.jpg Graphic file (type jpg)
+ <use Images/computations/KMEANS500x500_1000n.jpg>
+Package pdftex.def Info: Images/computations/KMEANS500x500_1000n.jpg used on in
+put line 279.
+(pdftex.def)             Requested size: 314.6694pt x 314.20767pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Images/computations/KMEANSForks.jpg, id=191, 684.5575pt x 682.55pt>
+File: Images/computations/KMEANSForks.jpg Graphic file (type jpg)
+
+<use Images/computations/KMEANSForks.jpg>
+Package pdftex.def Info: Images/computations/KMEANSForks.jpg used on input line
+ 286.
+(pdftex.def)             Requested size: 314.90027pt x 313.9768pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[32])
+[32]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[33]
+[33 <./Images/computations/KMEANS500x500_1000n.jpg>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[34 <./Images/computations/KMEANSForks.jpg>])
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[35]
 \openout2 = `Chapters/FutureWork.aux'.
 
  (./Chapters/FutureWork.tex
 Chapter 6.
-) [34
+) [36
 
 
 
 ]
-Overfull \hbox (21.8727pt too wide) in paragraph at lines 188--188
+Overfull \hbox (21.8727pt too wide) in paragraph at lines 189--189
 []\T1/cmr/m/n/12 WiFi Al-li-ance. \T1/cmr/m/it/12 WiFi Al-li-ance News Re-lease
 \T1/cmr/m/n/12 . On-line: ac-cessed 26-September-
  []
 
-[35
+[37
 
 
 
@@ -1398,12 +1437,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[36] (./Oppgave.aux (./Chapters/1-Introduction.aux)
+[38] (./Oppgave.aux (./Chapters/1-Introduction.aux)
 (./Chapters/2-Background.aux) (./Chapters/3-Related.aux) (./Chapters/3-Data.aux
 ) (./Chapters/4-Connected.aux) (./Chapters/FutureWork.aux))
-
-LaTeX Warning: There were undefined references.
-
 Package logreq Info: Writing requests to 'Oppgave.run.xml'.
 \openout1 = `Oppgave.run.xml'.
 
@@ -1413,13 +1449,13 @@ Package logreq Info: Writing requests to 'Oppgave.run.xml'.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 14954 strings out of 493014
- 240102 string characters out of 6133351
- 774794 words of memory out of 5000000
- 18197 multiletter control sequences out of 15000+600000
+ 14971 strings out of 493014
+ 240669 string characters out of 6133351
+ 767874 words of memory out of 5000000
+ 18212 multiletter control sequences out of 15000+600000
  30562 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,12n,45p,1434b,12844s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 39i,12n,45p,1434b,12843s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm
 -super-t1.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}<
 /usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
@@ -1448,10 +1484,10 @@ ype1/public/txfonts/t1xbtt.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/
 public/txfonts/t1xtt.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/he
 lvetic/uhvb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/helvetic/
 uhvr8a.pfb>
-Output written on Oppgave.pdf (42 pages, 6595522 bytes).
+Output written on Oppgave.pdf (44 pages, 7293446 bytes).
 PDF statistics:
- 292 PDF objects out of 1000 (max. 8388607)
- 189 compressed objects within 2 object streams
+ 301 PDF objects out of 1000 (max. 8388607)
+ 194 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
