@@ -70,7 +70,7 @@ Additionally the following parameters should be variable depending on each test 
 	
 
 	\begin{figure}[H]
-	\begin{python}
+		\begin{python}
 #In topology class
 def measureInterference(self):
  for nodeSubject in self._nodes:  
@@ -228,30 +228,65 @@ The JSON-object in the response contains quite a lot of information about all of
 be a way to refine the access points retrieval, so that access points that has been long gone is not taken into consideration. The most valueable properties for us is $trilong$ and $trilat$. As the names suggest these contain the position calculated
 by the weighted-centroid triliteration. 
 
-\subsection{The Haversine Formula}
+esubsection{The Haversine Formula}
 As seen in the previous section, WiGLE provides data about the location of access points and a way for us to retrieve this data in a usable format. 
-At this point we could create a program that operates directly on the longitudes and latitudes retrieved. This program would also need to be able to use the FPSL formula on global coordinates to compute the radio scans of each AP. 
-To properly visualize the data we would have to reinstall the nodes on a globe. This requires a lot of extra labour, and it seems especially redudant when we already have a working program and topology visualizer that alerady
-has the aforementioned functionality. The problem is that this relies on a coordinate system in Euclidean space. In other words, to be able to reuse the functionality we have already built
-we must translate the geographic coordinates to coordinates in Euclidean space.
+At this point we could create a program that operates directly on the longitudes and latitudes retrieved.
+This program would also need to be able to use the FPSL formula on global coordinates to compute the radio scans of each AP,
+and to properly visualize the data we would have to reinstall the nodes on a globe. This implementation requires a lot of extra labour, and seems especially
+redundant when we already have a working program that already has the aforementioned functionality.
+The problem is that our previous work relies on a two dimensional Cartesian coordinate system.
+To be able to reuse what we have have already built, the geographic coordinates has to be translated into coordinates in Euclidean space.
 
-The haversine formula is used compute the great-circle distance between two global coordinates \cite{Nichat}. We can utilize this to get the distance in meters
-between the boundaries of our area of interest. 
+The haversine formula \cite{virtues} is used to accurately compute the great-circle distance between two global coordinates.
 
 \[
-	sin^2\left(\frac{\varphi_2-\varphi_1}{2} \right) + cos(\varphi_1) * cos(\varphi_2) * sin^2 \left( \frac{\lambda_2 - \lambda_1}{2} \right)
+	d =2R sin^{-1} \left(\sqrt{ \left(sin\left(\frac{\varphi_2-\varphi_1}{2} \right)\right)^2 + cos(\varphi_1) * cos(\varphi_2) * sin\left(\left( \frac{\lambda_2 - \lambda_1}{2} \right)\right)^2} \right)
 	%a = sin²(Δφ/2) + cos φ1 ⋅ cos φ2 ⋅ sin²(Δλ/2)
 	%FSPL(dB) = 20\log_{10}\left( f \right)  + 20\log_{10} \left(d\right) - 27.55
 \]	
 
+Where $d$ is the distance between two latitudes $\varphi_1$ and $\varphi_2$ and two longitudes $\lambda_1$ and $\lambda_2$. $R$ is the radius of the
+sphere, which in this context is the earth's radius. 
 
-The haversine formula [[ref or explain]] gives us the distance in meters between two coordinates. By calculating
-the distane between the latitude startpoint and the latitude endpoint, we can get the size of one
-axis in meters. By computing the distance between the longitude start and endpoint we get the size of the
-other axis. To place a node correctly in the coordinate system, we simply use the haversine formula on the
-origin coordinates to compute the distances between each axis. 
+This can also be expressed with a two-parameter inverse tangent function \cite{chamberlain_2017}, as long as neither of the
+parameters are zero. 
 
+\begin{flalign}
+	\nonumber a &= \left(sin\left(\frac{\varphi_2-\varphi_1}{2} \right)\right)^2 + cos(\varphi_1) * cos(\varphi_2) * sin\left(\left( \frac{\lambda_2 - \lambda_1}{2} \right)\right)^2 \\
+	\nonumber c &= 2*atan2(\sqrt{a}, \sqrt{(1-a)}) \\
+	\nonumber d &= c * R
+	%a = sin²(Δφ/2) + cos φ1 ⋅ cos φ2 ⋅ sin²(Δλ/2
+	%FSPL(dB) = 20\log_{10}\left( f \right)  + 20\log_{10} \left(d\right) - 27.55
+\end{flalign}
+
+
+The python implementation of the formula can be seen in figure \ref{fig:haversine}. It is s imortant to note that the degrees taken as input
+has to been converted to radians before inserting it in the formula. 
+
+	\begin{figure}[H]
+		\tiny
+		\begin{python}
+def distanceBetweenCoordinates(lat1, lat2, long1, long2):
+	deltaLon = math.radians(long2 - long1)
+	deltaLat = math.radians(lat2 - lat1)
+	a = (math.sin(deltaLat / 2))**2 + math.cos(math.radians(lat1)) * math.cos(math.radians(lat2)) * (math.sin(deltaLon/2))**2
+	c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a)) 
+	R = 6371000
+	d = round(c * R)
+	return d
+	\end{python}
+			\caption{Implementation of haversine distance}
+			\label{fig:haversine}
+	\end{figure}
+
+
+We can utilize this to get the distance in meters between the boundaries of our area of interest.
+When all data is retrieved from wigle, we still have the specified coordinates that data was retrieved from.
+Using these coordinates gives us the size of our cartesian coordinate system. First the distance between the first latitude $\varphi_1$ and the second latitude $\varphi_2$
+is calculated, using the same longitude  $\lambda_1 = \lambda_2$. This returns the size of the x-axis in meters.
+The opposite has to be done to get the size of the y-axis, using $\varphi_1 = \varphi_2$ and equal longitudes.
+other axis. The same approach can be used to place each node on the coordinate system.
 All of this has been implemented in a python program. As input it takes both latitude and longitude start and end coordinates,
-    then fetches all nodes within that range and inserts them on a plane. 
+then fetches all nodes within that range and inserts them on a plane. 
 
 

@@ -124,6 +124,28 @@
       \endverb
       \keyw{IEEE standards;carrier sense multiple access;packet radio networks;standardisation;telecommunication standards;wireless LAN;CSMA/CA;DCF;IEEE 802.11 distributed coordination function;IEEE 802.11 protocol;MAC;analytical model;binary slotted exponential backoff;carrier sense multiple access;collision avoidance;ideal channel conditions;medium access control;packet transmission;performance analysis;standardization;terminals;threshold;throughput performance evaluation;wireless local area networks;Access protocols;Analytical models;Collision avoidance;Media Access Protocol;Multiaccess communication;Performance analysis;Physical layer;Throughput;Wireless LAN;Wireless application protocol}
     \endentry
+    \entry{chamberlain_2017}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=f790a484a5f00e70640d03ecb166247f}{%
+           family={Chamberlain},
+           family_i={C\bibinitperiod},
+           given={Robert\bibnamedelima G.},
+           given_i={R\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \strng{namehash}{f790a484a5f00e70640d03ecb166247f}
+      \strng{fullhash}{f790a484a5f00e70640d03ecb166247f}
+      \field{sortinit}{C}
+      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Cs.nyu.edu}
+      \field{note}{Online: accessed 14-Nov-2017}
+      \field{title}{Computing Distances}
+      \field{year}{1999}
+      \verb{url}
+      \verb https://cs.nyu.edu/visual/home/proj/tiger/gisfaq.html
+      \endverb
+    \endentry
     \entry{CiscoVNI2017}{article}{}
       \name{author}{1}{}{%
         {{hash=4941876ed11048cc24e00c36a8658291}{%
@@ -400,24 +422,28 @@
       \verb http://dl.acm.org/citation.cfm?id=1855840.1855855
       \endverb
     \endentry
-    \entry{Nichat}{article}{}
+    \entry{virtues}{article}{}
       \name{author}{1}{}{%
-        {{hash=0ab38a48f2b8de344355da8bfee13db0}{%
-           family={Nichat},
-           family_i={N\bibinitperiod},
-           given={Mangesh},
-           given_i={M\bibinitperiod}}}%
+        {{hash=89d208cdd987211be2606b23f2e999de}{%
+           family={Sinnott},
+           family_i={S\bibinitperiod},
+           given={Roger\bibnamedelima W},
+           given_i={R\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
       }
-      \strng{namehash}{0ab38a48f2b8de344355da8bfee13db0}
-      \strng{fullhash}{0ab38a48f2b8de344355da8bfee13db0}
-      \field{sortinit}{N}
-      \field{sortinithash}{925374ca63e7594de7fafdb83e64d41d}
+      \strng{namehash}{89d208cdd987211be2606b23f2e999de}
+      \strng{fullhash}{89d208cdd987211be2606b23f2e999de}
+      \field{sortinit}{S}
+      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{booktitle}{International Journal of Engineering Research and Applications(IJERA) ISSN: 2248-9622 Vol. 3, Issue 3, May-Jun 2013, pp.162}
-      \field{month}{05}
-      \field{title}{Landmark based shortest path detection by using Dijkestra Algorithm and Haversine Formula}
-      \field{year}{2013}
+      \field{journaltitle}{Sky and Telescope}
+      \field{number}{2}
+      \field{title}{Virtues of the Haversine}
+      \field{volume}{68}
+      \field{year}{1984}
+      \field{pages}{158}
+      \range{pages}{1}
+      \keyw{diss imported-verified inthesis phtotowalking}
     \endentry
     \entry{Suresh}{inproceedings}{}
       \name{author}{5}{}{%

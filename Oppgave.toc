@@ -60,11 +60,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.3}Data output and visual representation}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}WiGLE}{18}
+\contentsline {section}{\numberline {4.4}WiGLE}{17}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.4.1}REST API}{19}
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.2}The Haversine Formula}{20}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {5}Access point clustering}{22}
 \defcounter {refsection}{0}\relax 
@@ -92,7 +90,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{Procedure}{29}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Results}{30}
+\contentsline {subsubsection}{Results}{29}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{Evaluation}{30}
 \defcounter {refsection}{0}\relax 

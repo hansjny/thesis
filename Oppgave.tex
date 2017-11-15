@@ -62,10 +62,12 @@
 
 % Python style for highlighting
 \newcommand\pythonstyle{\lstset{
-	language=Python,
-basicstyle=\ttm,
+language=Python,
+stepnumber=1, 
+breaklines=true,
+basicstyle=\scriptsize\ttfamily,
 otherkeywords={self},             % Add keywords here
-keywordstyle=\ttb\color{deepblue},
+keywordstyle=\scriptsize\ttfamily\color{deepblue},
 emph={MyClass,__init__},          % Custom highlighting
 emphstyle=\ttb\color{deepred},    % Custom highlighting style
 stringstyle=\color{deepgreen},
@@ -96,7 +98,7 @@ showstringspaces=false            %
 \colorlet{numb}{magenta!60!black}
 
 \lstdefinelanguage{json}{
-	basicstyle=\small\ttfamily,
+	basicstyle=\scriptsize\ttfamily,
     numbers=left,
     numberstyle=\scriptsize,
     stepnumber=1,
