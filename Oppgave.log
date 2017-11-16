@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.25)  14 NOV 2017 17:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.25)  16 NOV 2017 13:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -8,8 +8,8 @@ LaTeX2e <2016/03/31>
 Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/report.cls
 Document Class: report 2014/09/29 v1.4h Standard LaTeX document class
-(/usr/local/texlive/2016/texmf-dist/tex/latex/base/size12.clo
-File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
 \c@chapter=\count80
@@ -644,6 +644,12 @@ Package: wrapfig 2003/01/31  v 3.6
 \f@ncyO@olf=\skip74
 \f@ncyO@orf=\skip75
 )
+(/usr/local/texlive/2016/texmf-dist/tex/latex/appendix/appendix.sty
+Package: appendix 2009/09/02 v1.2b extra appendix facilities
+\c@@pps=\count128
+\c@@ppsavesec=\count129
+\c@@ppsaveapp=\count130
+)
 (/usr/local/texlive/2016/texmf-dist/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2016/05/14 v3.4 programmable bibliographies (PK/JW/AB)
 
@@ -679,7 +685,7 @@ Package etexcmds Info: Could not find \expanded.
 )))
 (/usr/local/texlive/2016/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count128
+\lrq@indent=\count131
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
@@ -691,49 +697,49 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 (/usr/local/texlive/2016/texmf-dist/tex/generic/xstring/xstring.sty
 (/usr/local/texlive/2016/texmf-dist/tex/generic/xstring/xstring.tex
 \@xs@message=\write3
-\integerpart=\count129
-\decimalpart=\count130
+\integerpart=\count132
+\decimalpart=\count133
 )
 Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
 )
-\c@tabx@nest=\count131
-\c@listtotal=\count132
-\c@listcount=\count133
-\c@liststart=\count134
-\c@liststop=\count135
-\c@citecount=\count136
-\c@citetotal=\count137
-\c@multicitecount=\count138
-\c@multicitetotal=\count139
-\c@instcount=\count140
-\c@maxnames=\count141
-\c@minnames=\count142
-\c@maxitems=\count143
-\c@minitems=\count144
-\c@citecounter=\count145
-\c@savedcitecounter=\count146
-\c@uniquelist=\count147
-\c@uniquename=\count148
-\c@refsection=\count149
-\c@refsegment=\count150
-\c@maxextratitle=\count151
-\c@maxextratitleyear=\count152
-\c@maxextrayear=\count153
-\c@maxextraalpha=\count154
-\c@abbrvpenalty=\count155
-\c@highnamepenalty=\count156
-\c@lownamepenalty=\count157
-\c@maxparens=\count158
-\c@parenlevel=\count159
-\blx@tempcnta=\count160
-\blx@tempcntb=\count161
-\blx@tempcntc=\count162
-\blx@maxsection=\count163
-\blx@maxsegment@0=\count164
-\blx@notetype=\count165
-\blx@parenlevel@text=\count166
-\blx@parenlevel@foot=\count167
-\blx@sectionciteorder@0=\count168
+\c@tabx@nest=\count134
+\c@listtotal=\count135
+\c@listcount=\count136
+\c@liststart=\count137
+\c@liststop=\count138
+\c@citecount=\count139
+\c@citetotal=\count140
+\c@multicitecount=\count141
+\c@multicitetotal=\count142
+\c@instcount=\count143
+\c@maxnames=\count144
+\c@minnames=\count145
+\c@maxitems=\count146
+\c@minitems=\count147
+\c@citecounter=\count148
+\c@savedcitecounter=\count149
+\c@uniquelist=\count150
+\c@uniquename=\count151
+\c@refsection=\count152
+\c@refsegment=\count153
+\c@maxextratitle=\count154
+\c@maxextratitleyear=\count155
+\c@maxextrayear=\count156
+\c@maxextraalpha=\count157
+\c@abbrvpenalty=\count158
+\c@highnamepenalty=\count159
+\c@lownamepenalty=\count160
+\c@maxparens=\count161
+\c@parenlevel=\count162
+\blx@tempcnta=\count163
+\blx@tempcntb=\count164
+\blx@tempcntc=\count165
+\blx@maxsection=\count166
+\blx@maxsegment@0=\count167
+\blx@notetype=\count168
+\blx@parenlevel@text=\count169
+\blx@parenlevel@foot=\count170
+\blx@sectionciteorder@0=\count171
 \labelnumberwidth=\skip76
 \labelalphawidth=\skip77
 \biblabelsep=\skip78
@@ -744,9 +750,9 @@ Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
 \bibhang=\skip83
 \blx@bcfin=\read1
 \blx@bcfout=\write4
-\c@mincomprange=\count169
-\c@maxcomprange=\count170
-\c@mincompwidth=\count171
+\c@mincomprange=\count172
+\c@maxcomprange=\count173
+\c@mincompwidth=\count174
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 
@@ -755,72 +761,72 @@ Package biblatex Info: Trying to load biblatex style data model...
 Package biblatex Info: ... file 'numeric.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count172
-\c@savedafterword=\count173
-\c@annotator=\count174
-\c@savedannotator=\count175
-\c@author=\count176
-\c@savedauthor=\count177
-\c@bookauthor=\count178
-\c@savedbookauthor=\count179
-\c@commentator=\count180
-\c@savedcommentator=\count181
-\c@editor=\count182
-\c@savededitor=\count183
-\c@editora=\count184
-\c@savededitora=\count185
-\c@editorb=\count186
-\c@savededitorb=\count187
-\c@editorc=\count188
-\c@savededitorc=\count189
-\c@foreword=\count190
-\c@savedforeword=\count191
-\c@holder=\count192
-\c@savedholder=\count193
-\c@introduction=\count194
-\c@savedintroduction=\count195
-\c@namea=\count196
-\c@savednamea=\count197
-\c@nameb=\count198
-\c@savednameb=\count199
-\c@namec=\count266
-\c@savednamec=\count267
-\c@translator=\count268
-\c@savedtranslator=\count269
-\c@shortauthor=\count270
-\c@savedshortauthor=\count271
-\c@shorteditor=\count272
-\c@savedshorteditor=\count273
-\c@labelname=\count274
-\c@savedlabelname=\count275
-\c@institution=\count276
-\c@savedinstitution=\count277
-\c@lista=\count278
-\c@savedlista=\count279
-\c@listb=\count280
-\c@savedlistb=\count281
-\c@listc=\count282
-\c@savedlistc=\count283
-\c@listd=\count284
-\c@savedlistd=\count285
-\c@liste=\count286
-\c@savedliste=\count287
-\c@listf=\count288
-\c@savedlistf=\count289
-\c@location=\count290
-\c@savedlocation=\count291
-\c@organization=\count292
-\c@savedorganization=\count293
-\c@origlocation=\count294
-\c@savedoriglocation=\count295
-\c@origpublisher=\count296
-\c@savedorigpublisher=\count297
-\c@publisher=\count298
-\c@savedpublisher=\count299
-\c@language=\count300
-\c@savedlanguage=\count301
-\c@pageref=\count302
-\c@savedpageref=\count303
+\c@afterword=\count175
+\c@savedafterword=\count176
+\c@annotator=\count177
+\c@savedannotator=\count178
+\c@author=\count179
+\c@savedauthor=\count180
+\c@bookauthor=\count181
+\c@savedbookauthor=\count182
+\c@commentator=\count183
+\c@savedcommentator=\count184
+\c@editor=\count185
+\c@savededitor=\count186
+\c@editora=\count187
+\c@savededitora=\count188
+\c@editorb=\count189
+\c@savededitorb=\count190
+\c@editorc=\count191
+\c@savededitorc=\count192
+\c@foreword=\count193
+\c@savedforeword=\count194
+\c@holder=\count195
+\c@savedholder=\count196
+\c@introduction=\count197
+\c@savedintroduction=\count198
+\c@namea=\count199
+\c@savednamea=\count266
+\c@nameb=\count267
+\c@savednameb=\count268
+\c@namec=\count269
+\c@savednamec=\count270
+\c@translator=\count271
+\c@savedtranslator=\count272
+\c@shortauthor=\count273
+\c@savedshortauthor=\count274
+\c@shorteditor=\count275
+\c@savedshorteditor=\count276
+\c@labelname=\count277
+\c@savedlabelname=\count278
+\c@institution=\count279
+\c@savedinstitution=\count280
+\c@lista=\count281
+\c@savedlista=\count282
+\c@listb=\count283
+\c@savedlistb=\count284
+\c@listc=\count285
+\c@savedlistc=\count286
+\c@listd=\count287
+\c@savedlistd=\count288
+\c@liste=\count289
+\c@savedliste=\count290
+\c@listf=\count291
+\c@savedlistf=\count292
+\c@location=\count293
+\c@savedlocation=\count294
+\c@organization=\count295
+\c@savedorganization=\count296
+\c@origlocation=\count297
+\c@savedoriglocation=\count298
+\c@origpublisher=\count299
+\c@savedorigpublisher=\count300
+\c@publisher=\count301
+\c@savedpublisher=\count302
+\c@language=\count303
+\c@savedlanguage=\count304
+\c@pageref=\count305
+\c@savedpageref=\count306
 \shorthandwidth=\skip84
 \shortjournalwidth=\skip85
 \shortserieswidth=\skip86
@@ -838,13 +844,13 @@ Package biblatex Info: ... file 'biblatex.def' found.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 2016/05/14 v3.4 biblatex compatibility (PK/JW/AB)
-\c@textcitecount=\count304
-\c@textcitetotal=\count305
-\c@textcitemaxnames=\count306
-\c@biburlnumpenalty=\count307
-\c@biburlucpenalty=\count308
-\c@biburllcpenalty=\count309
-\c@smartand=\count310
+\c@textcitecount=\count307
+\c@textcitetotal=\count308
+\c@textcitemaxnames=\count309
+\c@biburlnumpenalty=\count310
+\c@biburlucpenalty=\count311
+\c@biburllcpenalty=\count312
+\c@smartand=\count313
 )
 Package biblatex Info: Trying to load bibliography style 'numeric'...
 Package biblatex Info: ... file 'numeric.bbx' found.
@@ -856,8 +862,8 @@ Package biblatex Info: ... file 'standard.bbx' found.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2016/05/14 v3.4 biblatex bibliography style (PK/JW/AB)
-\c@bbx:relatedcount=\count311
-\c@bbx:relatedtotal=\count312
+\c@bbx:relatedcount=\count314
+\c@bbx:relatedtotal=\count315
 ))
 Package biblatex Info: Trying to load citation style 'numeric'...
 Package biblatex Info: ... file 'numeric.cbx' found.
@@ -896,25 +902,25 @@ Package caption3 Info: TeX engine: e-TeX on input line 67.
 \caption@parindent=\dimen134
 \caption@hangindent=\dimen135
 )
-\c@ContinuedFloat=\count313
+\c@ContinuedFloat=\count316
 Package caption Info: float package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: wrapfig package is loaded.
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/caption/subcaption.sty
 Package: subcaption 2016/02/20 v1.1-142 Sub-captions (AR)
-\c@subfigure=\count314
-\c@subtable=\count315
+\c@subfigure=\count317
+\c@subtable=\count318
 )
 
 Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 27.
+less on input line 28.
 
 
 Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
-less on input line 29.
+less on input line 30.
 
-LaTeX Font Info:    Try loading font information for T1+txtt on input line 52.
+LaTeX Font Info:    Try loading font information for T1+txtt on input line 53.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/txfonts/t1txtt.fd
 File: t1txtt.fd 2000/12/15 v3.1
 )
@@ -940,35 +946,35 @@ File: english.lbx 2016/05/14 v3.4 biblatex localization (PK/JW/AB)
 )))
 (./Oppgave.aux (./Chapters/1-Introduction.aux) (./Chapters/2-Background.aux)
 (./Chapters/3-Related.aux) (./Chapters/3-Data.aux) (./Chapters/4-Connected.aux)
-(./Chapters/FutureWork.aux))
+(./Chapters/FutureWork.aux) (./Appendix.aux))
 \openout1 = `Oppgave.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 132.
-LaTeX Font Info:    ... okay on input line 132.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 132.
-LaTeX Font Info:    ... okay on input line 132.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 132.
-LaTeX Font Info:    ... okay on input line 132.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 132.
-LaTeX Font Info:    ... okay on input line 132.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 132.
-LaTeX Font Info:    ... okay on input line 132.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 132.
-LaTeX Font Info:    ... okay on input line 132.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
 \AtBeginShipoutBox=\box41
 
 (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count316
+\scratchcounter=\count319
 \scratchdimen=\dimen136
 \scratchbox=\box42
-\nofMPsegments=\count317
-\nofMParguments=\count318
+\nofMPsegments=\count320
+\nofMParguments=\count321
 \everyMPshowfont=\toks27
-\MPscratchCnt=\count319
+\MPscratchCnt=\count322
 \MPscratchDim=\dimen137
-\MPnumerator=\count320
-\makeMPintoPDFobject=\count321
+\MPnumerator=\count323
+\makeMPintoPDFobject=\count324
 \everyMPtoPDFconversion=\toks28
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -988,7 +994,7 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count322
+\c@lstlisting=\count325
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
@@ -998,8 +1004,8 @@ Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'Oppgave.bbl' found.
 
 (./Oppgave.bbl)
-Package biblatex Info: Reference section=0 on input line 132.
-Package biblatex Info: Reference segment=0 on input line 132.
+Package biblatex Info: Reference section=0 on input line 133.
+Package biblatex Info: Reference segment=0 on input line 133.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 
@@ -1007,16 +1013,16 @@ Package caption Info: End \AtBeginDocument code.
 File: ifi-kompendium-forside-eng.pdf Graphic file (type pdf)
 
 <use ifi-kompendium-forside-eng.pdf>
-Package pdftex.def Info: ifi-kompendium-forside-eng.pdf used on input line 134.
+Package pdftex.def Info: ifi-kompendium-forside-eng.pdf used on input line 135.
 
 (pdftex.def)             Requested size: 639.66422pt x 887.20244pt.
-LaTeX Font Info:    Try loading font information for T1+phv on input line 134.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 135.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <17> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 134.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 135.
  [1
 
 
@@ -1024,7 +1030,7 @@ LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <17> not available
 ompendium-forside-eng.pdf>] [1]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
+ Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
@@ -1040,7 +1046,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
+ Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
@@ -1067,14 +1073,14 @@ Chapter 1.
 ]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
+ Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
 [2])
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
+ Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
@@ -1087,48 +1093,48 @@ Chapter 2.
 
 
 
-] <Images/Hiddenterminalfigure.jpg, id=77, 1003.75pt x 477.785pt>
+] <Images/Hiddenterminalfigure.jpg, id=78, 1003.75pt x 477.785pt>
 File: Images/Hiddenterminalfigure.jpg Graphic file (type jpg)
 
 <use Images/Hiddenterminalfigure.jpg>
 Package pdftex.def Info: Images/Hiddenterminalfigure.jpg used on input line 33.
 
 (pdftex.def)             Requested size: 301.12732pt x 143.3366pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[5 <./Images/Hiddenterminalfigure.jpg>]
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 48.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
+ Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[6] <Images/DCF.jpg, id=87, 1003.75pt x 379.4175pt>
+[5 <./Images/Hiddenterminalfigure.jpg>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[6] <Images/DCF.jpg, id=90, 1003.75pt x 379.4175pt>
 File: Images/DCF.jpg Graphic file (type jpg)
  <use Images/DCF.jpg>
 Package pdftex.def Info: Images/DCF.jpg used on input line 94.
 (pdftex.def)             Requested size: 351.31776pt x 132.79811pt.
 
+<Images/PPDU.png, id=91, 562.1pt x 209.78375pt>
+File: Images/PPDU.png Graphic file (type png)
+ <use Images/PPDU.png>
+Package pdftex.def Info: Images/PPDU.png used on input line 117.
+(pdftex.def)             Requested size: 281.04932pt x 104.8916pt.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
+ Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[7 <./Images/DCF.jpg>] <Images/PPDU.png, id=94, 562.1pt x 209.78375pt>
-File: Images/PPDU.png Graphic file (type png)
-
-<use Images/PPDU.png>
-Package pdftex.def Info: Images/PPDU.png used on input line 117.
-(pdftex.def)             Requested size: 281.04932pt x 104.8916pt.
+[7 <./Images/DCF.jpg>]
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 143.
 
 
@@ -1137,62 +1143,59 @@ File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
+ Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
 [8 <./Images/PPDU.png>]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[9] <Images/Channels80211.png, id=104, 159.59625pt x 385.44pt>
+<Images/Channels80211.png, id=102, 159.59625pt x 385.44pt>
 File: Images/Channels80211.png Graphic file (type png)
 
 <use Images/Channels80211.png>
 Package pdftex.def Info: Images/Channels80211.png used on input line 201.
-(pdftex.def)             Requested size: 97.5pt x 235.47093pt.
-
-Overfull \hbox (2.85316pt too wide) in paragraph at lines 215--215
-[]\T1/cmr/bx/n/17.28 Overview of Chan-nel Al-loc-a-tion Al-gorithms 
- []
+(pdftex.def)             Requested size: 90.0pt x 217.35643pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
+ Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[10]
-Underfull \hbox (badness 1377) in paragraph at lines 216--218
-[]\T1/cmr/m/n/12 There ex-ists many dif-fer-ent chan-nel al-loc-a-tion al-
+[9]
+Underfull \hbox (badness 1107) in paragraph at lines 216--218
+\T1/cmr/m/n/10.95 There ex-ists many dif-fer-ent chan-nel al-loc-a-tion al-
  []
 
 )
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
+ Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[11 <./Images/Channels80211.png>]
+[10 <./Images/Channels80211.png>]
 \openout2 = `Chapters/3-Related.aux'.
 
  (./Chapters/3-Related.tex
 Chapter 3.
 
-Overfull \hbox (2.4153pt too wide) in paragraph at lines 6--9
-\T1/cmr/m/n/12 And while it shows that their cent-ral co-ordin-ator in fact im-
-proves the through-
+Overfull \hbox (3.75829pt too wide) in paragraph at lines 20--23
+\T1/cmr/m/n/10.95 And while it shows that their cent-ral co-ordin-ator in fact 
+im-proves the through-
  []
 
-) [12
+) [11
 
 
 
 ]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[12]
 \openout2 = `Chapters/3-Data.aux'.
 
  (./Chapters/3-Data.tex
@@ -1204,7 +1207,7 @@ Chapter 4.
 ]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
+ Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
@@ -1213,304 +1216,11 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
+ Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[15]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[16] <Images/interface.png, id=135, 1075.01625pt x 801.99625pt>
+[15] <Images/interface.png, id=133, 1075.01625pt x 801.99625pt>
 File: Images/interface.png Graphic file (type png)
 
-<use Images/interface.png>
-Package pdftex.def Info: Images/interface.png used on input line 149.
-(pdftex.def)             Requested size: 376.26132pt x 280.70288pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[17]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[18 <./Images/interface.png>]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[19]
-Overfull \hbox (4.1495pt too wide) in paragraph at lines 231--239
-[]\T1/cmr/m/n/12 esubsectionThe Hav-er-sine For-mula As seen in the pre-vi-ous 
-sec-tion, WiGLE
- []
-
-
-Overfull \hbox (22.05373pt too wide) detected at line 246
-\OML/cmm/m/it/12 d \OT1/cmr/m/n/12 = 2\OML/cmm/m/it/12 Rsin[] []
- []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[20])
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[21]
-\openout2 = `Chapters/4-Connected.aux'.
-
- (./Chapters/4-Connected.tex
-Chapter 5.
-[22
-
-
-
-]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[23]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[24]
-Overfull \hbox (8.15196pt too wide) in paragraph at lines 84--84
-[]\T1/cmr/bx/n/17.28 Computation as-sump-tions and re-quire-ments 
- []
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[25]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[26]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[27]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[28]
-<Images/computations/BASIC500x500_1000n.jpg, id=177, 761.84625pt x 761.84625pt>
-File: Images/computations/BASIC500x500_1000n.jpg Graphic file (type jpg)
-<use Images/computations/BASIC500x500_1000n.jpg>
-Package pdftex.def Info: Images/computations/BASIC500x500_1000n.jpg used on inp
-ut line 221.
-(pdftex.def)             Requested size: 350.45352pt x 350.45352pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<Images/computations/BASICForks.jpg, id=178, 758.835pt x 759.83875pt>
-File: Images/computations/BASICForks.jpg Graphic file (type jpg)
-
-<use Images/computations/BASICForks.jpg>
-Package pdftex.def Info: Images/computations/BASICForks.jpg used on input line 
-228.
-(pdftex.def)             Requested size: 349.06834pt x 349.53006pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[29]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[30 <./Images/computations/BASIC500x500_1000n.jpg>]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[31 <./Images/computations/BASICForks.jpg>]
-<Images/computations/KMEANS500x500_1000n.jpg, id=189, 684.05562pt x 683.05188pt
->
-File: Images/computations/KMEANS500x500_1000n.jpg Graphic file (type jpg)
- <use Images/computations/KMEANS500x500_1000n.jpg>
-Package pdftex.def Info: Images/computations/KMEANS500x500_1000n.jpg used on in
-put line 279.
-(pdftex.def)             Requested size: 314.6694pt x 314.20767pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<Images/computations/KMEANSForks.jpg, id=190, 684.5575pt x 682.55pt>
-File: Images/computations/KMEANSForks.jpg Graphic file (type jpg)
-
-<use Images/computations/KMEANSForks.jpg>
-Package pdftex.def Info: Images/computations/KMEANSForks.jpg used on input line
- 286.
-(pdftex.def)             Requested size: 314.90027pt x 313.9768pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[32]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[33 <./Images/computations/KMEANS500x500_1000n.jpg>]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[34 <./Images/computations/KMEANSForks.jpg>])
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[35]
-\openout2 = `Chapters/FutureWork.aux'.
-
- (./Chapters/FutureWork.tex
-Chapter 6.
-) [36
-
-
-
-]
-Overfull \hbox (21.8727pt too wide) in paragraph at lines 191--191
-[]\T1/cmr/m/n/12 WiFi Al-li-ance. \T1/cmr/m/it/12 WiFi Al-li-ance News Re-lease
-\T1/cmr/m/n/12 . On-line: ac-cessed 26-September-
- []
-
-[37
-
-
-
-]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[38]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[39] (./Oppgave.aux (./Chapters/1-Introduction.aux)
-(./Chapters/2-Background.aux) (./Chapters/3-Related.aux) (./Chapters/3-Data.aux
-) (./Chapters/4-Connected.aux) (./Chapters/FutureWork.aux))
-Package logreq Info: Writing requests to 'Oppgave.run.xml'.
-\openout1 = `Oppgave.run.xml'.
-
- )
-(\end occurred inside a group at level 1)
-
-### simple group (level 1) entered at line 1061 ({)
-### bottom level 
-Here is how much of TeX's memory you used:
- 15008 strings out of 493014
- 241152 string characters out of 6133351
- 781966 words of memory out of 5000000
- 18248 multiletter control sequences out of 15000+600000
- 30876 words of font info for 59 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 39i,12n,45p,1434b,13562s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm
--super-t1.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}<
-/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
-usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></u
-sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
-/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/l
-ocal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loca
-l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local
-/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/t
-exlive/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/tex
-live/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texli
-ve/2016/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive
-/2016/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2
-016/texmf-dist/fonts/type1/public/cm-super/sfcc1200.pfb></usr/local/texlive/201
-6/texmf-dist/fonts/type1/public/cm-super/sfit0800.pfb></usr/local/texlive/2016/
-texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/local/texlive/2016/te
-xmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2016/texm
-f-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2016/texmf-
-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2016/texmf-di
-st/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2016/texmf-dist
-/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2016/texmf-dist/f
-onts/type1/public/cm-super/sfrm2074.pfb></usr/local/texlive/2016/texmf-dist/fon
-ts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2016/texmf-dist/fonts
-/type1/public/cm-super/sftt0800.pfb></usr/local/texlive/2016/texmf-dist/fonts/t
-ype1/public/cm-super/sftt1200.pfb></usr/local/texlive/2016/texmf-dist/fonts/typ
-e1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/
-helvetic/uhvr8a.pfb>
-Output written on Oppgave.pdf (45 pages, 7310045 bytes).
-PDF statistics:
- 300 PDF objects out of 1000 (max. 8388607)
- 193 compressed objects within 2 object streams
- 0 named destinations out of 1000 (max. 500000)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+<us

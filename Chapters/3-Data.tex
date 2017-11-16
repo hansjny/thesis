@@ -40,7 +40,7 @@ Additionally the following parameters should be variable depending on each test 
 \end{itemize}
 
 
-	\section{Program design}
+	\section{Program design}\label{prog_design}
 	The topology generation program consists of two main functionalitites.
 
 	The first functionality is creating a topology and generate nodes which are uniformly
@@ -228,7 +228,7 @@ The JSON-object in the response contains quite a lot of information about all of
 be a way to refine the access points retrieval, so that access points that has been long gone is not taken into consideration. The most valueable properties for us is $trilong$ and $trilat$. As the names suggest these contain the position calculated
 by the weighted-centroid triliteration. 
 
-esubsection{The Haversine Formula}
+\subsection{The Haversine Formula}
 As seen in the previous section, WiGLE provides data about the location of access points and a way for us to retrieve this data in a usable format. 
 At this point we could create a program that operates directly on the longitudes and latitudes retrieved.
 This program would also need to be able to use the FPSL formula on global coordinates to compute the radio scans of each AP,
@@ -260,7 +260,7 @@ parameters are zero.
 \end{flalign}
 
 
-The python implementation of the formula can be seen in figure \ref{fig:haversine}. It is s imortant to note that the degrees taken as input
+The python implementation of the formula can be seen in figure \ref{fig:haversine}. It is imortant to note that the degrees taken as input
 has to been converted to radians before inserting it in the formula. 
 
 	\begin{figure}[H]
@@ -280,13 +280,18 @@ def distanceBetweenCoordinates(lat1, lat2, long1, long2):
 	\end{figure}
 
 
-We can utilize this to get the distance in meters between the boundaries of our area of interest.
-When all data is retrieved from wigle, we still have the specified coordinates that data was retrieved from.
-Using these coordinates gives us the size of our cartesian coordinate system. First the distance between the first latitude $\varphi_1$ and the second latitude $\varphi_2$
-is calculated, using the same longitude  $\lambda_1 = \lambda_2$. This returns the size of the x-axis in meters.
-The opposite has to be done to get the size of the y-axis, using $\varphi_1 = \varphi_2$ and equal longitudes.
-other axis. The same approach can be used to place each node on the coordinate system.
-All of this has been implemented in a python program. As input it takes both latitude and longitude start and end coordinates,
-then fetches all nodes within that range and inserts them on a plane. 
+This can be used to get the distance in meters between the boundaries of our area of interest. When the data is retrieved from
+WiGLE we can use the specified coordinates to compute the size of the cartesian coordinate system.
+The distance between the first latitude $\varphi_{start}$ and the second latitude $\varphi_{stop}$
+is calculated. This is done by using the same longitude  $\lambda_1 = \lambda_2$, and returns the size of the x-axis in meters.
+The opposite has to be done to get the size of the y-axis, using $\lambda_{start}$ and $\lambda_{stop}$ and equal longitudes.
+The same approach can be used to place each node on the coordinate system, where the first set of the coordinates is
+$\varphi_{start}$ and $\lambda_{start}$, and the second set is the coordinates of the AP.
+\subsection{Data output}
+The resulting python program takes an output filename and two latitudes and two longitudes as input. It queries WiGLE's API for all the APs between these coordinates.
+As long as the number of APs in the coordinate range does not exceed the daily data limit, all the data will be stored in a topology datastructure imported 
+from the topology generation program in section \ref{prog_design}. The APs will be placed correctly relative to each other, with real world distance between them,
+based on the coordinates of each AP. 
 
+{{wigle data figure, overlaid map}}
 

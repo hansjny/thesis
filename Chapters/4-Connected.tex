@@ -185,22 +185,22 @@ containing both nodes.
 
 
 
-\section{Algorithms}\label{algorithm}
-We will consider three possible approaches to cluster access points. First we will look at a minimal and basic approach without any complicated heuristics or algorithms. 
-Next we will consider a well known clustering algorithm and treat the problem as a pure clustering problem. Finally we will look at the problem as a graph partitioning problem.
-All approaches will be tested with the same topologies: one uniformly distributed, one used for evaluating traditional clustering algorithms, and two topologies 
-of towns fetched from Wigle. Henceforth we will for the sake of simplicity be referring to APs that are running the group algorithm as \textit{nodes}.
+%\section{Algorithms}\label{algorithm}
+%We will consider three possible approaches to cluster access points. First we will look at a minimal and basic approach without any complicated heuristics or algorithms. 
+%Next we will consider a well known clustering algorithm and treat the problem as a pure clustering problem. Finally we will look at the problem as a graph partitioning problem.
+%All approaches will be tested with the same topologies: one uniformly distributed, one used for evaluating traditional clustering algorithms, and two topologies 
+%of towns fetched from Wigle. Henceforth we will for the sake of simplicity be referring to APs that are running the group algorithm as \textit{nodes}.
 
-\subsection{Basic apprach}
+\section{Basic Neighbour Clustering}
 The basic approach we will consider first is a very intuitive approach, and is a natural starting point. A short way to describe it is that each group always seeks
 to merge with the neighbouring group that contains the node which disturbs the group the most. 
 
-\subsubsection{Procedure}
+\subsection{Procedure}
 As a way of boostrapping the group creation procedure, each node begins by identifying itself as a member of a group that only contains itself. 
 Let us call this group $a$. Group $a$ looks at all the radio readings of every member of the group, and picks the node with the highest dBm value
 to contact. Of course, in the beginning there is only one node in group $a$. So in the first iteration this node's radio readings alone will decide which group to merge with. 
 The neighbour node, which we will call $B$, is the node that disturbs group $a$ the most. $B$ is a member of group $b$.
-As this neighhbour is the most disturbing neighbour of the entire group $a$, it means that this is the most crucial node to collaborate with.
+As this neighbour is the most disturbing neighbour of the entire group $a$, it means that this is the most crucial node to collaborate with.
 In other words, group $a$ wants to merge with group $b$ to create a larger group that contains node $B$.
 
 A merge happens in the following way: the members of the two groups exchange information about all their member nodes and their radio readings and combine the information.
@@ -213,27 +213,27 @@ We can not always accept merges, else we would end up with a group that spanned 
 If the sum of members in two groups that wants to merge exceeds a predefined threshold, the merge is aborted and no changes is reported to have happened for either group. 
 This means that the algorithm converges after a while, when all groups are too large to merge.
  
-\subsubsection{Results}
+\subsection{Results}
 The results of the computations on the different topologies using this appraoch can be seen in figures \ref{fig:basic_uniform} and  \ref{fig:basic_forks}.
  
 \begin{figure}[h]
 	\center
-	\includegraphics[scale=0.46]{Images/computations/BASIC500x500_1000n.jpg}
+	\includegraphics[scale=0.35]{Images/computations/BASIC500x500_1000n.jpg}
 	\caption{Groups in a uniform distribution. Basic Appraoch}
 	\label{fig:basic_uniform}
 \end{figure}
 
 \begin{figure}[h]
 	\center
-	\includegraphics[scale=0.46]{Images/computations/BASICForks.jpg}
+	\includegraphics[scale=0.35]{Images/computations/BASICForks.jpg}
 	\caption{Basic approach. Groups in Forks, Washington}
 	\label{fig:basic_forks}
 \end{figure}
 
-\subsubsection{Evaluation}
-The stength of this algorithm is its simplicity. Without using any special techniques it creates clusters that on first eyesight lookes quite promising. 
-An obvious weakness is that all nodes which are admitted to a group is never kicked out, no matter what happens during merges. This means that a very beneficial 
-merge can be discarded because of the large group size, even though many nodes in the group hardly disturbs anyone and should be deprioritized. 
+%\subsubsection{Evaluation}
+%The stength of this algorithm is its simplicity. Without using any special techniques it creates clusters that on first eyesight lookes quite promising. 
+%An obvious weakness is that all nodes which are admitted to a group is never kicked out, no matter what happens during merges. This means that a very beneficial 
+%merge can be discarded because of the large group size, even though many nodes in the group hardly disturbs anyone and should be deprioritized. 
 
 
 %
@@ -255,35 +255,46 @@ merge can be discarded because of the large group size, even though many nodes i
 %\caption{How to write algorithms}
 %\end{algorithm}
 
-\subsection{K-means clustering}
-\subsubsection{Introduction to K-means}
-K-means is a well known clustering algorithms often used for classification purposes in machine learning. It can enable unsupervised learning. The 
-negative side of K-means is that the result strongly depends on how the algorithm. This problem makes K-means an algorithm that is usually ran several
-times in a hill-climbing fashion to get the best results possible. 
-\subsubsection{K-means splitting}
-In the clustering scenario, it is desirable to avoid running many variation of K-means with different centroids. Actually, using randomized starting centers
-is not viable, because then all the random would have to be communicated to all nodes in the group. It would be a lot better to have a deterministic way 
-of choosing the starting centers. And by using the basic approach that can be achieved. As it is known, each node does not have a top-down view of the network 
-topology. It only knows about itself and the members of its group. Therefore it is not interesting to see whether or not K-means would perform well on the entire 
-network topology. Then we also get the problem of deciding how many centroids there should be. Instead, what we could do is allow two groups to merge even though
-they would exceed the maximum groups size. The result is a larger network topology we can run K-means on. Still, the problem of knowing how many clusters
-the result should end up in remains. It's possible to think about a way that clusters could be evaluated, and the amount of clusterss/centroids could gradually be
-incremented to see which amount gave the best results. However, the intuitive approach that will be considered here is using only two centroids. As there are two groups merging, the two
-groups will remain, but some nodes may change groups in the process. Instead of choosing random positions for the first two groups centers, we will let each of the merging groups
-compute their own centroid, and then K-means uses these centroids as bootstrapping. 
+\section{K-means clustering}
+\subsection{Introduction to K-means}
+K-means is a well known clustering algorithm often used for classification purposes in machine learning, usually in the context of unsupervised learning. K-means
+is an iterative algorithm designed to find a predefined amount of clusters in a data-set with unclassified data points. The amount of clusters to find is denoted by
+K (hence K-means). 
 
-\subsubsection{Results}
+The principle of K-means is rather simple. K centroids are randomly placed somewhere in the data set, then the euclidean distance between each data point and each centroid is computed. All data points
+closest to the same centroid becomes part of the same cluster set. When all data points are associated with a cluster, each cluster computes the mean position of all its data points.
+The value of the mean position becomes the location of the new centroids. When all the new centroids are computed
+one iteration is over, and the algorithm continues until the position of all centroids remains unchanged after an iteration. This means that the solution has converged and all K-clusters has been identified. 
+
+A well known problem with K-means is that the result strongly depends on how the algorithm is initiatied. This problem is usually dealt with by running K-means several times and choosing the best result of all the runs. 
+
+\subsection{K-means splitting}
+K-means clustering is not directly applicable to solve our clustering challenge. We will consider whether it can be used in combination with the previous algorithm to create 
+more interesting results or not. Indeed, a vanilla implementation of K-means requires an extensive overview of the surrounding network topology. Our groups are limited to knowing about their members
+and their neighbours. It would also be hard to choose a suitable K. Nontheless, K-means could still potentially help us create better groups. Let us consider the following. We extend the basic approach
+so groups are allowed to merge into a transient group if it exceeds the given maxsize. The purpose of the large transient group is to identify the biggest gap between nodes, and split the group in two new
+groups with $count(nodes) < maxsize$. If we set $K=2$, K-means can be used to identify where the transient group should be split to create two more connected clusters. 
+
+Randomly picking two nodes to be centroids could lead to undesirable results where the two resulting groups are fundamentally different from the original ones. Recall that all we are trying to do is to
+reevaluate the divison line between the groups and see if K-means can achieve a better split. We can consider using the two negotiating nodes as centroids. The negotiating nodes belong to different groups,
+and are the nodes that has observed eachother as the strongest interferer and are the nodes that are closest to the division lines between the group. If the distance between the most interfering nodes
+is lower after applying the K-means split, the new groups are applied. On the other hand, if the distance is shorter (meaning a less optimal cut is found) the original groups are restored. Because the bootstrapped
+position of the centroids is planned and not random, the result is deterministic and we don't have to run the algorithm more than one time to get the result. 
+%
+
+
+\subsection{Results}
 
 \begin{figure}[h]
 	\center
-	\includegraphics[scale=0.46]{Images/computations/KMEANS500x500_1000n.jpg}
+	\includegraphics[scale=0.35]{Images/computations/KMEANS500x500_1000n.jpg}
 	\caption{K-means splitting. Groups in a uniform distribution}
 	\label{fig:kmeans_uniform}
 \end{figure}
 
 \begin{figure}[h]
 	\center
-	\includegraphics[scale=0.46]{Images/computations/KMEANSForks.jpg}
+	\includegraphics[scale=0.35]{Images/computations/KMEANSForks.jpg}
 	\caption{K-means splitting. Groups in Forks, Washington}
 	\label{fig:kmeans_forks}
 \end{figure}
@@ -300,7 +311,9 @@ compute their own centroid, and then K-means uses these centroids as bootstrappi
 
 
 
-\section{Evaluation}
+\section{Analysis}
+\section{Evaluation program}
+
 \subsection{Acquired knowledge}
 \subsection{Weaknesses}
 The computations have taught us about what kind of clustering could work with the assumptions we have set. Even so, there are several questions that still remains,

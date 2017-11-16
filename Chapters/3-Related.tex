@@ -1,7 +1,21 @@
 \chapter{Related work}
-
+CISCO offers a solution directed at enterprise networks \cite{ciscoRRM}, where implementing and managing a centralized
+controller is a more managable task than in residential networks.
+Their architecture consists of one or more Wireless Lan Controllers (WLCs).
+The WLCs creates a group name which all APs part of the same RF-group is aware of. All APs broadcasts their RF-group name, along
+with the IP-address of their controller. Any other AP sharing the same RF-group name reports the incoming broadcast message to the controller, and then rebroadcasts the packet.  This way the controller
+becomes aware of all APs that can hear each other, similar to the flooding routing mechanism,
+and they can form logical groups based on this information.
+If applicable the RF-groups perform leader election to decide which controller becomes the RF Group leader, but there
+can also a preconfigured leader. The RF group leader has the responsibility of running the relevant channel allocation
+algorithms and ajusting the radio power level of the APs. 
 
 \subsection{Software Defined Networking}
+
+\subsection{ResFi}
+\subsection{Distributed Clusteering}
+DCA and DMAC
+
 \subsection{Software Defined Radio}
 \subsection{SCIFI} SCIFI \cite{SCIFI} is a centralized channel allocation protocol for infrastructure Wireless LANs that improves the traditional graph-coloring algorith DSATUR. 
 		And while it shows that their central coordinator in fact improves the throughput compared to Wireless LANs that are not configured by SCIFI, the algorithm is just an algorithm for setting 

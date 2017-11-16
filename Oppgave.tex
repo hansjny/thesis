@@ -1,4 +1,4 @@
-\documentclass[12pt, a4paper, UKenglish, final]{report}
+\documentclass[11pt, a4paper, UKenglish, final]{report}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 %\usepackage{mathtools,amssymb}
@@ -11,6 +11,7 @@
 \usepackage{wrapfig}
 \usepackage{graphicx}
 \usepackage{fancyhdr}
+\usepackage[toc,page]{appendix}
 \usepackage[backend=biber,
 	    style=numeric,
 	    citestyle=numeric]{biblatex}
@@ -159,8 +160,6 @@ showstringspaces=false            %
 \include{Chapters/4-Connected}
 \include{Chapters/FutureWork}
 
-
-
 %
 %\makeatletter
 %\def\BState{\State\hskip-\ALG@thistlm}
@@ -188,4 +187,7 @@ showstringspaces=false            %
 
 \backmatter
 \printbibliography
+
+\include{Appendix}
+
 \end{document}

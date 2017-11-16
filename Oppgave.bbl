@@ -146,6 +146,26 @@
       \verb https://cs.nyu.edu/visual/home/proj/tiger/gisfaq.html
       \endverb
     \endentry
+    \entry{ciscoRRM}{online}{}
+      \name{author}{1}{}{%
+        {{hash=7b1d1185b835814de783483f686e9825}{%
+           family={Cisco},
+           family_i={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{7b1d1185b835814de783483f686e9825}
+      \strng{fullhash}{7b1d1185b835814de783483f686e9825}
+      \field{sortinit}{C}
+      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{05}
+      \field{note}{Accessed 16th Nov, 2017}
+      \field{title}{Radio Resource Management under Unified Wireless Networks}
+      \field{year}{2010}
+      \verb{url}
+      \verb https://www.cisco.com/c/en/us/support/docs/wireless-mobility/wireless-lan-wlan/71113-rrm-new.html
+      \endverb
+    \endentry
     \entry{CiscoVNI2017}{article}{}
       \name{author}{1}{}{%
         {{hash=4941876ed11048cc24e00c36a8658291}{%
