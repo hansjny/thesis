@@ -442,6 +442,27 @@
       \verb http://dl.acm.org/citation.cfm?id=1855840.1855855
       \endverb
     \endentry
+    \entry{Aerohive}{article}{}
+      \name{author}{1}{}{%
+        {{hash=6d85f503393dd92dd92ced3e68746809}{%
+           family={Networks},
+           family_i={N\bibinitperiod},
+           given={Aerohive},
+           given_i={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{6d85f503393dd92dd92ced3e68746809}
+      \strng{fullhash}{6d85f503393dd92dd92ced3e68746809}
+      \field{sortinit}{N}
+      \field{sortinithash}{925374ca63e7594de7fafdb83e64d41d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Technical report}
+      \field{title}{Radio Resource Management in HiveOS}
+      \field{year}{2011}
+      \verb{url}
+      \verb http://docs.aerohive.com/pdfs/Aerohive-Solution_Brief-RadioResource_Management_in_HiveOS.pdf
+      \endverb
+    \endentry
     \entry{virtues}{article}{}
       \name{author}{1}{}{%
         {{hash=89d208cdd987211be2606b23f2e999de}{%
