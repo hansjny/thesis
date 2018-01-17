@@ -541,6 +541,28 @@
       \endverb
       \keyw{enterprise wlans,odin,openflow,sdn,virtualization}
     \endentry
+    \entry{resfigit}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=93e35fad9c2eb23915b5c48842a2b51c}{%
+           family={(szehl)},
+           family_i={(\bibinitperiod},
+           given={Sven\bibnamedelima Zehl},
+           given_i={S\bibinitperiod\bibinitdelim Z\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {GitHub}%
+      }
+      \strng{namehash}{93e35fad9c2eb23915b5c48842a2b51c}
+      \strng{fullhash}{93e35fad9c2eb23915b5c48842a2b51c}
+      \field{sortinit}{s}
+      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{https://github.com/resfi/resfi}
+      \field{journaltitle}{GitHub repository}
+      \field{title}{ResFi}
+      \field{year}{2016}
+    \endentry
     \entry{WigleAPI}{online}{}
       \name{author}{1}{}{%
         {{hash=91c684bbf7e3f9c26281aeac3326742d}{%
@@ -596,6 +618,47 @@
       \field{year}{2017}
       \verb{url}
       \verb http://en.wikipedia.org/w/index.php?title=Free-space%5C%20path%5C%20loss&oldid=765763753
+      \endverb
+    \endentry
+    \entry{resfi}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=acbfe2edf70173278e67b42f0a5f8d65}{%
+           family={Zehl},
+           family_i={Z\bibinitperiod},
+           given={Sven},
+           given_i={S\bibinitperiod}}}%
+        {{hash=ed9c023613f3490c6f238ebc0be9935c}{%
+           family={Zubow},
+           family_i={Z\bibinitperiod},
+           given={Anatolij},
+           given_i={A\bibinitperiod}}}%
+        {{hash=11adf46bb32e0fe9cab8c42dc990bc12}{%
+           family={Wolisz},
+           family_i={W\bibinitperiod},
+           given={Adam},
+           given_i={A\bibinitperiod}}}%
+        {{hash=4c054f8027b7386eedb9be826fcca987}{%
+           family={Döring},
+           family_i={D\bibinitperiod},
+           given={Michael},
+           given_i={M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Coimbra, Portugal}%
+      }
+      \strng{namehash}{9b45b6905ea5c66bb57ea92789f13858}
+      \strng{fullhash}{ab7b33e604abfd433bced6d6458f4631}
+      \field{sortinit}{Z}
+      \field{sortinithash}{fdda4caaa6b5fa63e0c081dcb159543a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{17th IEEE International Symposium on a World of Wireless, Mobile and Multimedia Networks (IEEE WoWMoM 2016)}
+      \field{month}{06}
+      \field{note}{accepted for publication}
+      \field{title}{ResFi: A Secure Framework for Self Organized Radio Resource Management in Residential WiFi Networks}
+      \field{year}{2016}
+      \verb{url}
+      \verb http://www.tkn.tu-berlin.de/fileadmin/fg112/Papers/2016/zehl16resfi.pdf
       \endverb
     \endentry
   \endsortlist

@@ -1,27 +1,27 @@
 [0] Config.pm:343> INFO - This is Biber 2.5
-[1] Config.pm:346> INFO - Logfile is 'Oppgave.blg'
-[46] biber-darwin:290> INFO - === Mon Nov 20, 2017, 13:40:51
+[0] Config.pm:346> INFO - Logfile is 'Oppgave.blg'
+[45] biber-darwin:290> INFO - === Wed Dec  6, 2017, 09:24:14
 [67] Biber.pm:351> INFO - Reading 'Oppgave.bcf'
-[166] Biber.pm:776> INFO - Found 20 citekeys in bib section 0
-[180] Biber.pm:3493> INFO - Processing section 0
-[195] Biber.pm:3657> INFO - Looking for bibtex format file 'references.bib' for section 0
-[197] bibtex.pm:1187> INFO - Decoding LaTeX character macros into UTF-8
-[200] bibtex.pm:1048> INFO - Found BibTeX data source 'references.bib'
-[229] Utils.pm:149> WARN - ISBN '111-999-5555-22-1' in entry 'Murty2' is invalid - run biber with '--validate_datamodel' for details.
-[242] Utils.pm:149> WARN - BibTeX subsystem: /var/folders/3l/jbf7f24x3v11vd_hg4zq7cp00000gn/T/QrK5wBkB3B/references.bib_46033.utf8, line 23, warning: 152 characters of junk seen at toplevel
-[242] Utils.pm:149> WARN - BibTeX subsystem: /var/folders/3l/jbf7f24x3v11vd_hg4zq7cp00000gn/T/QrK5wBkB3B/references.bib_46033.utf8, line 73, warning: 1 characters of junk seen at toplevel
-[244] Utils.pm:149> WARN - The field 'author' in entry '5ghz' cannot be null, deleting it
-[245] Utils.pm:149> WARN - The field 'issn' in entry '5ghz' cannot be null, deleting it
-[245] Utils.pm:149> WARN - The field 'keywords' in entry '5ghz' cannot be null, deleting it
-[245] Utils.pm:149> WARN - The field 'month' in entry '5ghz' cannot be null, deleting it
-[245] Utils.pm:149> WARN - The field 'number' in entry '5ghz' cannot be null, deleting it
-[245] Utils.pm:149> WARN - The field 'volume' in entry '5ghz' cannot be null, deleting it
-[245] Utils.pm:149> WARN - The field 'number' in entry 'SCIFI' cannot be null, deleting it
-[245] Utils.pm:149> WARN - The field 'volume' in entry 'SCIFI' cannot be null, deleting it
-[273] UCollate.pm:66> INFO - Overriding locale 'en-UK' defaults 'variable = shifted' with 'variable = non-ignorable'
-[273] UCollate.pm:66> INFO - Overriding locale 'en-UK' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[274] Biber.pm:3306> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'en-UK'
-[274] Biber.pm:3310> INFO - No sort tailoring available for locale 'en-UK'
-[296] bbl.pm:526> INFO - Writing 'Oppgave.bbl' with encoding 'UTF-8'
-[299] bbl.pm:619> INFO - Output to Oppgave.bbl
-[299] Biber.pm:108> INFO - WARNINGS: 11
+[161] Biber.pm:776> INFO - Found 22 citekeys in bib section 0
+[172] Biber.pm:3493> INFO - Processing section 0
+[189] Biber.pm:3657> INFO - Looking for bibtex format file 'references.bib' for section 0
+[191] bibtex.pm:1187> INFO - Decoding LaTeX character macros into UTF-8
+[194] bibtex.pm:1048> INFO - Found BibTeX data source 'references.bib'
+[232] Utils.pm:149> WARN - ISBN '111-999-5555-22-1' in entry 'Murty2' is invalid - run biber with '--validate_datamodel' for details.
+[248] Utils.pm:149> WARN - BibTeX subsystem: /var/folders/3l/jbf7f24x3v11vd_hg4zq7cp00000gn/T/BBDvA1ljbF/references.bib_7565.utf8, line 23, warning: 152 characters of junk seen at toplevel
+[249] Utils.pm:149> WARN - BibTeX subsystem: /var/folders/3l/jbf7f24x3v11vd_hg4zq7cp00000gn/T/BBDvA1ljbF/references.bib_7565.utf8, line 92, warning: 1 characters of junk seen at toplevel
+[252] Utils.pm:149> WARN - The field 'author' in entry '5ghz' cannot be null, deleting it
+[252] Utils.pm:149> WARN - The field 'issn' in entry '5ghz' cannot be null, deleting it
+[252] Utils.pm:149> WARN - The field 'keywords' in entry '5ghz' cannot be null, deleting it
+[252] Utils.pm:149> WARN - The field 'month' in entry '5ghz' cannot be null, deleting it
+[252] Utils.pm:149> WARN - The field 'number' in entry '5ghz' cannot be null, deleting it
+[253] Utils.pm:149> WARN - The field 'volume' in entry '5ghz' cannot be null, deleting it
+[253] Utils.pm:149> WARN - The field 'number' in entry 'SCIFI' cannot be null, deleting it
+[253] Utils.pm:149> WARN - The field 'volume' in entry 'SCIFI' cannot be null, deleting it
+[286] UCollate.pm:66> INFO - Overriding locale 'en-UK' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[286] UCollate.pm:66> INFO - Overriding locale 'en-UK' defaults 'variable = shifted' with 'variable = non-ignorable'
+[286] Biber.pm:3306> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'en-UK'
+[286] Biber.pm:3310> INFO - No sort tailoring available for locale 'en-UK'
+[312] bbl.pm:526> INFO - Writing 'Oppgave.bbl' with encoding 'UTF-8'
+[316] bbl.pm:619> INFO - Output to Oppgave.bbl
+[316] Biber.pm:108> INFO - WARNINGS: 11

@@ -38,14 +38,28 @@ in the network are called HiveAPs, and they offer services such as
 				if the new HiveAP has a low enough load to handle more clients. It would also know if other neighbouring APs are better suited to handle the load of the new client.
 				This is achieved by witholding probe responses. 
 	\item Channel allocation: by using the Aerohive Channel Selection Protocol, HiveAPs tries to select the channel with the lowest co-channel interference. Their channel selection protocol uses 5 measurements, two static and 3 dynamic.
-	The 2 static measurements are the number of nearby APs are operating on the same channel. The APs there are the higher the penalty, but the penalty per AP reduces as the number of APs increases, as the first one(s) are the most
-	critical. The other static cost factor is what power level can be transmitted at the given channel, as this may differ on some 5GHz non-overlapping channels. The dynamic measurements are CRC-error rate, channel utlization,
+	The first static measurements is the number of nearby APs who are operating on the same channel. The more APs there are the higher the penalty, but the penalty per AP reduces as the number of APs increases. This
+		is because the first one(s) are the most critical. The other static cost factor is what power level can be transmitted at the given channel, as this may differ on some 5GHz non-overlapping channels. The dynamic measurements are CRC-error rate, channel utlization,
 	and the utilization of overlapping APs. All of these dynamic factors can penalize a channel with 0 to 3.5%. 
 \end{itemize}
 
-
-
 \subsection{ResFi}
+ResFi \cite{resfi} is the only significant related work that directly aims to enable self-organized management in residential deployments of wireless LAN. Works such as \cite{Murty2}, \cite{ciscoRRM} and \cite{Aerohive} are all directed toward enterprise
+networks. As we also aim to mainly concern ourselves with residential networks and their infrastrucure, ResFi is especially interesting to look at. ResFi assumes that all access points have two interfaces, one connected to a wired backone (e.g Internet), and another
+802.11 compatible wireless interface. They also assume a Radio Resource Management Unit (RRMU), which in most residential homes is a router that controls the channel and power level of the antenna.  In short ResFi enables connectivity between distributed access points without imposing a central controller on the access points, and without doing any modifications to hardware and drivers (like modifying standards or requiring propriatary equipment). 
+
+\subsubsection{Operation}
+\begin{enumerate}
+	\item An AP that has just booted up beacons a frame on all available channels. This frame contains: a globally routable IP-address, port, and two cryptographic keys. One transient key for group communication, and the public key for the RRMU.  
+	\item All APs that can hear the beacon responds with a probe response containing the same information as in 1.
+	\item When the scan is complete, the new AP can point-to-point communicate with all other APs using the wired backbone and the globally routable IP-address
+\end{enumerate}
+
+\subsubsection{Implementation}
+They implemented ResFi on Ubuntu 14.04. It adds vendor specific information elements to the MAC-header with the IP, port, and cryptographic data. This can be done Linux user space by using their modified version of hostapd \cite{resfigit}.
+As it runs on python, it could in practice be implemented on any Linux system. It uses a south-bound API to communicate with the RRMU, and a north-bound API to enable applications to use ResFi.
+ResFi itself provides no specific channel allocation mechanism, nor a group-creation/AP-clustering algorithm.
+
 \subsection{Distributed Clusteering}
 DCA and DMAC
 

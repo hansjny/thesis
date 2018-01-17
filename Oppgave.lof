@@ -12,35 +12,43 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {2.3}{\ignorespaces DSSS PHY PPDU format from IEEE Std 802.11-2016 \relax }}{8}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.4}{\ignorespaces \newline Channel/frequency\newline distribution \newline \relax }}{10}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces \newline Channel/frequency\newline distribution \newline \relax }}{11}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Computing the interference between nodes\relax }}{16}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Computing the interference between nodes\relax }}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.2}{\ignorespaces JSON output structure\relax }}{17}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces JSON output structure\relax }}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Generated topology with random, uniform distribution and\relax }}{18}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Generated topology with random, uniform distribution and the interface for viewing topologies\relax }}{21}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Example of a Wigle API request\relax }}{19}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Example of a Wigle API request\relax }}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.5}{\ignorespaces REST API response with AP data\relax }}{20}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces REST API response with AP data\relax }}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Implementation of haversine distance\relax }}{21}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Implementation of haversine distance\relax }}{24}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Group simulation file structure\relax }}{28}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Group simulation file structure\relax }}{32}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Groups in a uniform distribution. Basic Appraoch\relax }}{30}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Groups in a uniform distribution. Basic Appraoch\relax }}{34}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Basic approach. Groups in Forks, Washington\relax }}{31}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Basic approach. Groups in Forks, Washington\relax }}{34}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.4}{\ignorespaces K-means splitting. Groups in a uniform distribution\relax }}{32}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Basic approach. Groups in Lillehammer, Norway\relax }}{35}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.5}{\ignorespaces K-means splitting. Groups in Forks, Washington\relax }}{33}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Basic approach. Groups in Lillehammer, Norway\relax }}{35}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.6}{\ignorespaces K-means splitting. Groups in a uniform distribution\relax }}{37}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.7}{\ignorespaces K-means splitting. Groups in Forks, Washington\relax }}{38}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.8}{\ignorespaces K-means splitting. Groups in Lillehammer, Norway\relax }}{39}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.9}{\ignorespaces K-means splitting. Groups in Tynset, Norway\relax }}{40}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 

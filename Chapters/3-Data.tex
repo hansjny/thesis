@@ -147,7 +147,7 @@ The result will look like what can be seen in figure \ref{fig:randtop}
 \begin{figure}[h]
 \center
 \includegraphics[scale=0.35]{Images/interface.png}
-\caption{Generated topology with random, uniform distribution and}
+\caption{Generated topology with random, uniform distribution and the interface for viewing topologies}
 \label{fig:randtop}
 \end{figure}
 
@@ -198,6 +198,7 @@ they collect is user submitted stored in their database. Anyone can download an 
 
 	\begin{lstlisting}[language=json]
 {
+\subsection{Graph history}
 	"userfound": false,
 	"qos": 0,
 	"comment": null,
@@ -288,7 +289,7 @@ The opposite has to be done to get the size of the y-axis, using $\lambda_{start
 The same approach can be used to place each node on the coordinate system, where the first set of the coordinates is
 $\varphi_{start}$ and $\lambda_{start}$, and the second set is the coordinates of the AP.
 \subsection{Data output}
-The resulting python program takes an output filename and two latitudes and two longitudes as input. It queries WiGLE's API for all the APs between these coordinates.
+The resulting python program \ref{appendix:wigleprogram}takes an output filename and two latitudes and two longitudes as input. It queries WiGLE's API for all the APs between these coordinates.
 As long as the number of APs in the coordinate range does not exceed the daily data limit, all the data will be stored in a topology datastructure imported 
 from the topology generation program in section \ref{prog_design}. The APs will be placed correctly relative to each other, with real world distance between them,
 based on the coordinates of each AP. 
