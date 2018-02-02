@@ -33,8 +33,7 @@ and usually only affecting each other in one plane.
 
 Remembering attenuation, we know that RF-interference is also a property of distance. 
 These pieces of information tells us that RSSI readings between access points in two separated buildings should be lower than readings between access points in adjacent apartments.
-What we will be looking at in the following chapter is how we can utilize the RSSI readings between access points to build a clustering algorithm that creates reasonable groups
-of access points that discriminates between low-impact and high-impact nodes.  
+In the following chapter we will consider how we can utilize the RSSI readings between access points to build a clustering algorithm that creates reasonable groups of access points. 
 
 %The should consist of APs that interfere with each other when their channels are overlapping, so that overlap can be avoided with a channel allocation algorithm run within the group. Not all APs in
 %the connected group will necessarily be able to hear each other on the radio directly, but all nodes
@@ -42,19 +41,17 @@ of access points that discriminates between low-impact and high-impact nodes.
 
 \section{Problem overview}
 The main problem we are dealing with is finding a way for access points to group together in clusters that are geographically close to each other. This can either be solved with a centralized
-coordinator or with a peer-to-peer distributed protocol. In this thesis we will be focusing on the distributed approach, but first we will take a look at the pros and cons of each approach, and
-the work that has already been done on the field.
+coordinator or with a peer-to-peer distributed protocol. In this thesis we will be focusing on the distributed approach, but first we will take a look at the pros and cons of each approach.
 
 \subsection{Centralized model}
 Let us briefly envision how a centralized model might look. As we want to propose a solution that works across private consumer networks as well as larger corporate networks,
-we can not assume that all networks are under the same administrative domain. This is where the centralized approach is limited, and why it may not be ideal.
+we can not assume that all networks are under the same administrative domain. This is where the centralized approach is limited, and why most solutions presented in the related work section is usually only deployed under the same extended service set (ESS).
 
-Just like the distributed version, the centralized controller is also restricted by the NP-complete nature of all graph colouring algorithms.
-To be able to create a channel plan which is as optimal as possible, it has to identify groups of nodes that impacts each other severely. 
+Just like a distributed version, a centralized controller is also restricted by the NP-complete nature of all graph colouring algorithms.
+To be able to compute a channel plan using heuristics, it has to identify groups of nodes that impacts each other severely. 
 
 The advantage of the centralized model is the ability to have the full picture of access points readily available. Let us assume the controller is placed at an ISP or a router manifacturer.
-The controller could potentially know exactly where in the world the access points are placed. Creating groups would
-be as simple as dividing within naturally separative geographical barriers like roads, streets and buildings. 
+The controller could potentially know exactly where in the world the access points are placed. Creating groups would be as simple as dividing within naturally separative geographical barriers like roads, streets and buildings. 
 
 For a central controller to be able to identify APs that are near eachother and compute the optimal channel distribution, APs need to report their radio readings to the controller. 
 The controller then needs to identify which of all the observed APs it can control, and which is not controllable and has to be treated as noise. There would be no requirement for
@@ -65,53 +62,37 @@ that can not be controlled by the controller, all nearby access points would be 
 Even though in there is a tendency for apartments in the same building to have the same ISP in Norway, there is no gurantee for that to always be the case.  
 
 \subsection{Distributed approach}
-Now that we have looked at how a centralized model might look, we can dive further into the main matter of the thesis. A simplistic way to portray the idea behind
-the distributed approach is: nodes only depend on their own radio RSSI readings to be able to create groups. When the group is formed, all of its members can
-compute a channel plan which is as optimal possible. In reality this idea has some major challenges that we have to overcome. Here are the most prominent ones: 
-\begin{itemize}
-	\item The communication channel. Nodes have to be able to communicate with eachother. The 802.11 standard describes no protocol for communication between access points that are not on the same extended service set. This communication would have to happen on the network layer, preferably over TCP. This communication channel would have to convey a messages that enables group creation,
-		most likely a custom protocol. 
+We will continue considering a distributed approach as the main topic of the thesis. In reality this idea has some major challenges that we have to overcome. Here are the most prominent ones: 
+\begin{enumerate}
 	\item The group creation itself. Based on the RSSI-readings and the communication channel, nodes have to be able to organize themselves in a tight cluster of nodes that
 		includes all nodes that impacts each other most severely. This problem essentially boils down to a clustering problem. This is the main issue we will
 		try to find a reasonable solution for. 
-	\item Node state. As all nodes have to compute a channel plan for the group, they all need to have the same consistent information about the members of the groups
-		and every other node's RSSI-readings. 
-	\item Channel plan computation. Even though the centralized approach would have a similar problem, it can be more difficult to solve in a distributed fashion, as 
-		it is reasonable to assume that an access point has limited computational power. We will not discuss a solution for this in depth, as it is out of the scope
-		of the thesis, but there are already a couple of algorithms that treat channel allocation as a graph colouring problem. 
-\end{itemize}
+	\item The communication channel. Nodes have to be able to communicate with eachother. The 802.11 standard describes no protocol for communication between access points that are not on the same extended service set. This communication would have to happen on the network layer, preferably over TCP. This communication channel would have to convey a messages that enables group creation,
+		most likely a custom protocol. 	
+	\item State synchronization. As all nodes have to compute a channel plan for the group, they all need to have synchronized information about the members of the groups
+		and possibly also every other node's RSSI-readings. 
+	\item Channel plan computation. Even though the centralized approach would have a similar problem, it will be more difficult to solve in a distributed fashion as 
+		it is reasonable to assume that an access point has limited computational power. This point extends past the scope of the thesis, but algorithms like DSATUR {{(insert ref)}}
+		and SCIFI are examples of algorithms that computes channel plans as a graph colouring problems.
+\end{enumerate}
 
 \section{Computation assumptions and requirements}
-Moving forward in the next chapters we will be looking at possible ways for nodes to organize themselves into groups, only depending on peer-to-peer information sharing.
-We will be using the data we fetched in chapter \ref{dataacc}. The data provides a topology of nodes where all nodes have a list of neighbours.
-This neighbour list contains the appropriate computed RSSI-readings for how loud each neighbour can be heard.
-This is the only information the nodes are given, and based on the RSSI-values of their neighbours they should be able to create groups that resembles clusters of nodes. It is
-important that the border between two different groups are placed in such a way that interference between the two groups are as minimal as possible, and this also a metric for
-how we evaluate the performance of different algorithms. To simplify the computation procedure and to reduce the workload for building the simulation program
-we are going to to a number of assumptions. 
+Moving forward in the next chapters we will be looking at possible ways for nodes to organize themselves into groups.
+We will be using the data we fetched in chapter \ref{dataacc}. The data provides a topology of nodes where all nodes have a list of neighbouring nodes.
+This neighbour list contains the appropriate computed RSSI-readings for each node. Based on the RSSI-values of their neighbours, the nodes should be able to create groups that resembles
+clusters. It is important that the border between two different groups are placed in such a way that interference between the two groups are as minimal as possible. To simplify the computation procedure and to reduce the workload for building the simulation program we are going to to a number of assumptions. 
 
     \begin{enumerate}
-    \item Assumption 1: All nodes involved in the simulation also runs the group creation algorithm. This is an assumption needed to be able to
-	see how well the group performs in an optimal condition. Note that it can be interesting to add rogue nodes that does not take part in group creation at a later point
-	to see how well group creation works in a less optimal environment. 
-    \item Assumption 2: If a node has another node in its neighbour list (meaning that they can hear each other on their radio), it also knows how to directly contact the node (e.g. via TCP).
-	 This assumption also implies that there is implemented a protocol that lets nodes communicate and exchange information about their RSSI-readings and group membership. 
-    \item Assumption 3: All nodes in a group are completely synchronous, and always have an equal image of the state of the group at a given time. Sharing information with the group is instant. 
+    \item Assumption 1: All nodes involved in the simulation also runs the group creation algorithm. 
+		\item Assumption 2: When a node is observed over radio, it is also known how to directly contact the node (e.g. via TCP). This assumption also implies that there is implemented a protocol that lets nodes communicate and exchange information about their RSSI-readings and group membership. For now we will assume this is true, but in chapter {{(ref)}} we will address the issue. 
+		\item Assumption 3: All nodes in a group are completely synchronous, and always have an equal image of the state of the group at a given time. Sharing information with the group is instant. This is also an issue that will be addressed in chapter {{3}}.
     \end{enumerate}
 \section{Program design}
 \subsection{Design choices}
 The program is designed to be modified so it can accomodate different algorithm types without changing the fundamental framework.
 Everything regarding group computation is implemented in Python 3 \cite{Python3}, and is designed parse the output from the data generation program and use it directly.
-Seperating these programs is important, as group computation should be a fast operation, while the data generation (or fetching) is a slow process and should only be done
-once every time a new data set is required. A major design choice that had to be made early in the planning process was whether the computation should be run in parallel or in sequence. 
-
-If the computation runs as parallel processes, it could assign one thread to each node and then let the nodes interact through a public interface. This is
-in many ways similar to simulating a peer-to-peer protocol interface. Comparing it with a sequential implementation, a parallel computation could arguably be a better representation of the real world,
-as the nodes act independently of each other and the order of events is to some degree random. It is exactly because of this chaotic nature of parallel computation
-the program was designed to run in sequence. The benefit of a sequential implementation is consistent and recreateable results, which outweighs the benefits of a parallel implementation.
-It also reduces the complexity of doing operations on groups memberships, since we don't have any race conditions. This particular point is also accounted for in computation assumption 3,
-where we assume that all nodes have the exact same state. Given a perfect algorithm that always finds the best division of groups, we could argue that the resulting groups
-should end up being the same whether or not it is done sequentially or in parallel - but at this point we don't know what results to expect. 
+Group computation should be a fast operation, while the data generation (or fetching) is a slow process and should only be done once every time a new data set is required.
+The program is not parallelized to keep results consistent and to easier debug and locate program errors. 
 
 \subsection{Group framework}
 The group framework consists of 3 classes with different responsibilities:
@@ -134,14 +115,14 @@ The group framework consists of 3 classes with different responsibilities:
 \end{itemize}
 {{flowchart}}
 \subsection{Output file structure}
-As previously mentioned the results are writen to file. The results does not only contain the resulting divison of groups, but to be able to recreate the simulation
+The results of the group computations are writen to file. The results does not only contain the resulting divison of groups, but to be able to recreate the simulation
 visually, the results contains the topology of all nodes and their group membership for each iteration in the simulation process. This means that we can step-by-step
-recreate the simulation. This can of course also be achieved in realtime by the computation framework using the Python library \verb|matplotlib|, but
-there is a value to being able to separate the processes of creating groups and visualizing them. The data is stored as JSON, and the structure can been seen in
-figure \ref{fig:jsongroup}. Having the data stored as JSON means that the data is language independent and this allows us to either implement a
-python parser for the data and use matplotlib as suggested, or we can use another applicaton to visualize the data. Since we already have the topology visualizer
+recreate the simulation. The data is stored as JSON, and the structure can been seen in figure \ref{fig:jsongroup}.
+Having the data stored as JSON means that the data is language independent. This allows us to either implement a parser in python for the data and use \verb|matplotlib| to visualize it,
+or we can use another applicaton to visualize the data. Since we already have the topology visualizer
 written in HTML and JavaScript from chapter \ref{dataacc}, we can extend this program to let us upload a group creation output file. 
 \begin{figure}[H]
+
 \begin{minipage}{\linewidth}
 \begin{lstlisting}[language=json]
   "iterations": {
@@ -191,61 +172,171 @@ containing both nodes.
 %All approaches will be tested with the same topologies: one uniformly distributed, one used for evaluating traditional clustering algorithms, and two topologies 
 %of towns fetched from Wigle. Henceforth we will for the sake of simplicity be referring to APs that are running the group algorithm as \textit{nodes}.
 
-\section{Basic Neighbour Clustering}
-The basic approach we will consider first is a very intuitive approach, and is a natural starting point. A short way to describe it is that each group always seeks
-to merge with the neighbouring group that contains the node which disturbs the group the most. 
+\section{Creating groups with clustering}
+In this section we will consider and evaluate a way to divide access points in groups.
 
-\subsection{Procedure}
-As a way of boostrapping the group creation procedure, each node begins by identifying itself as a member of a group that only contains itself. 
-Let us call this group $a$. Group $a$ looks at all the radio readings of every member of the group, and picks the node with the highest dBm value
-to contact. Of course, in the beginning there is only one node in group $a$. So in the first iteration this node's radio readings alone will decide which group to merge with. 
+\subsection {Agglomerative Clustering}
+\subsubsection{Description}
+Agglomerative clustering  \cite{agglomerative} is a variant of hierarchical clustering where clusters are pairwise greedily merged. The starting number of clusters is the same as the number of
+points in the data set. Based on a specified distance metric, the two clusters that are closest to one another is merged into combined cluster. The clustering is complete
+when there is only one cluster left. It falls under the category of hierarchical clustering, and a dendrogram is iteratively being built for each merge,
+containing all past merges of the clusters. An example of agglomorative clustering can be seen in {{figure}}\ref{fig:agglomerative}.
+
+\subsubsection{Evaluation}
+Agglomerative clustering provides us with the basic idea for a an algorithm we can use to create access point groups. However, there are two points where agglomerative clustering
+fails to meet our requirements: 
+\begin{itemize}
+	\item There is no upper limit to the amount of nodes in each cluster
+	\item As the clustering algorithm will be running distributed  on each cluster, a decision has to be made with only the local distance observations at hand.
+		Assuming that there exists two groups that finds each other the closest (most disturbing), might prove a fallacy. RSSI is observed locally, and while one node observes another with a given signal strength,
+		the mututal observation might be a different one. This could create a deadlock where there exists no combination of group pairs where both observes the other
+		as the closest group. 
+\end{itemize}
+
+The first point has the trivial solution of checking the number of nodes before accepting a merge,  and would only be a slight implemention change of agglomorative clustering. 
+The second point forces us to change the paradigm of always finding two mutually closest groups. 
+
+\subsection{K-Nearest Neighbour Clustering}
+\subsubsection{Description}
+To resolve the problems discussed in the previous section, we will suggest a slighly different algorithm and refer to it as K-Nearest Neighbour Clustering. 
+In this method, similar to agglomerative clustering, in the beggining there are equally many clusters as there are nodes. Instead of looking for pairs that are mutually close,
+each cluster seeks to merge with the cluster that is closest. The distance is defined by the distance metric. The merge will always happen as long as the resulting cluster does 
+not contain a higher node count than K.
+
+\subsubsection{Distance metric}
+The distance metric lets us specify exactly what the distance between two clusters signifies. As each cluster usually consists of several nodes, there are multiple
+options for what the distance between two clusters could be defined as. The distance metrics used in hierarchical clustering are typically either
+\begin{itemize}
+	\item The average distance between the nodes of each cluster
+	\item The minimum distance between the nodes of each cluster
+	\item The maximum distance between the nodes of each cluster
+\end{itemize}
+
+The metric we will use is the -dBi value of neighbouring nodes. Every node in a cluster tracks the observed -dBi value of all other nodes that are not a member of the cluster.
+The cluster containing the node with the highest -dBi value will be merged together with original one. This is similar to the minimum distance metric. 
+
+\subsubsection{Implementation}
+Each node begins by identifying itself as a member of a group that only contains itself.  Let us call this group $a$.
+Group $a$ loops throught the radio readings of every member of the group, and picks the node with the highest observed -dBi value
+to contact. In the beginning there is only one node in group $a$. Hence in the first iteration this node's radio readings alone will decide which group to merge with. 
 The neighbour node, which we will call $B$, is the node that disturbs group $a$ the most. $B$ is a member of group $b$.
-As this neighbour is the most disturbing neighbour of the entire group $a$, it means that this is the most crucial node to collaborate with.
 In other words, group $a$ wants to merge with group $b$ to create a larger group that contains node $B$.
 
 A merge happens in the following way: the members of the two groups exchange information about all their member nodes and their radio readings and combine the information.
 As the data is now identical for all the members of both groups and they can make identical choices it means that they are part of the same group. 
 
-In our simulation this is as easy as combining two Group objects into one. In an implemented scenario or in a test bed the procedure would be a little more complicated, and
-we will cover that later. 
+In our simulation this is as easy as combining two Group objects into one. A pseudocode sample of an implementation can be seen in \ref{fig:groupmerge}.
+In a real world implementation there would have to be a supporting protocol to 
+enable the flow of information and synchronization of data. These specific challenges will be addressed in chapter {{insert chapter}}.
 
-We can not always accept merges, else we would end up with a group that spanned the entire topology. That is why we define a maximum threshold for the amount of member a group can have.
-If the sum of members in two groups that wants to merge exceeds a predefined threshold, the merge is aborted and no changes is reported to have happened for either group. 
-This means that the algorithm converges after a while, when all groups are too large to merge.
+	\begin{figure}[H]
+		\tiny
+		\begin{python}
+allGroups = [];
+K = 120;
+
+for node in topology: //Initialize groups
+	g = new Group()
+	g.members.append(node)
+	allGroups.append(g);
+
+while True: //Run as long as there are changes
+	changes = 0;	
+	for group in allGroups: 
+		globalMaxDbi = -INFINITE
+		globalClosestNode = None
+
+		for node in group:
+			localMaxDbi = -INFINITE
+			localClosestNode = None
+
+			for neighbour in node.neighbours:
+				if neighbour.dbi > localMaxDbi:
+					localMaxDbi = neighbour.dbi
+					localClosestNode = neigbour
+
+			if (localMaxdbi > globalMaxDbi):
+				globalMaxDbi = localMaxDbi
+				globalclosestnode = localclosestnode:
+
+		var groupToMergeWith = globalclosestnode.group
+		if (length(group.members) + length(groupToMergeWith.members)) < K:
+			var newGroup = new Group()
+			newgroup.members = group.members + mergeWith.members
+			allGroups.append(newgroup)
+			allGroups.remove(mergeWith)
+			allGroups.remove(group)
+			changes = 1
+	if (changes == 0):
+		break
+		\end{python}
+			\caption{Pseudocode sample of how the K-Nearest Neighbour Clustering runs in a simulated environment}
+			\label{fig:groupmerge}
+	\end{figure}
+
+
+
+We can not always accept merges, else we would end up with a group that spanned the entire topology. That is why we define a maximum threshold for the amount of members a group can have, 
+referred to as K. If the sum of members in two groups that wants to merge exceeds K, the merge is aborted and no changes is reported to have happened for either group. 
+This means that the simulation algorithm converges when no groups remain that are small enough to merge with another.
  
-\subsection{Results}
-The results of the computations on the different topologies using this appraoch can be seen in figures \ref{fig:basic_uniform} and  \ref{fig:basic_forks}.
- 
-\begin{figure}[H]
-	\center
-	\includegraphics[scale=0.34]{Images/computations/BASIC500x500_1000n.jpg}
-	\caption{Groups in a uniform distribution. Basic Appraoch}
-	\label{fig:basic_uniform}
+\subsection{Results of on different topologies}
+Figure \ref{fig:knearest}a shows the result of running the K-Nearest Neighbour Clustering algorithm on a uniform distribution topology, while figures \ref{fig:knearest}b, \ref{fig:knearest}c, \ref{fig:knearest}d shows the resulting clusters after running it on topologies on citites and towns collected by WiGLE. The different node colors indicate different group memberships.
+%\begin{figure}
+%	\begin{minipage}
+%		\includegraphics[width=.8\linewidth]{Images/computations/BASIC500x500_1000n.jpg}
+%		\caption{A}
+%		\label{fig:basic_uniform}
+%	\end{minipage}
+%
+%	\begin{minipage}
+%		\includegraphics[width=.8\linewidth]{Images/computations/BASICForks.jpg}
+%		\caption{B}
+%		\label{fig:basic_forks}
+%	\end{minipage}
+%\caption{plots of....}
+%\label{fig:fig}
+%\end{figure}
+\begin{figure}
+		\centering
+		\subfloat[Uniform]{{\includegraphics[width=6cm]{Images/computations/BASIC500x500_1000n.jpg} }}%
+		\qquad
+		\subfloat[Forks]{{\includegraphics[width=6cm]{Images/computations/BASICForks.jpg} }}%
+		\newline
+		\subfloat[Lillehammer]{{\includegraphics[width=6cm]{Images/computations/BASICLillehammer.jpg} }}%
+		\qquad
+		\subfloat[Tynset]{{\includegraphics[width=6cm]{Images/computations/BASICTynset.jpg} }}%
+		\caption{K-Nearest Neighbour Clustering on different topologies}%
+		\label{fig:knearest}%
 \end{figure}
 
-\begin{figure}[H]
-	\center
-	\includegraphics[scale=0.34]{Images/computations/BASICForks.jpg}
-	\caption{Basic approach. Groups in Forks, Washington}
-	\label{fig:basic_forks}
-\end{figure}
+%\begin{figure}[H]
+%	\center
+%	\includegraphics[scale=0.25]{Images/computations/BASICLillehammer.jpg}
+%	\caption{K-Nearest Neighbour Clustering on nodes in Lillehammer, Norway}
+%	\label{fig:basic_lillehammer}
+%\end{figure}
+%
+%\begin{figure}[H]
+%	\center
+%	\includegraphics[scale=0.25]{Images/computations/BASICTynset.jpg}
+%	\caption{K-Nearest Neighbour Clustering on nodes in Tynset, Norway}
+%	\label{fig:basic_tynset}
+%\end{figure}
 
-\begin{figure}[H]
-	\center
-	\includegraphics[scale=0.34]{Images/computations/BASICLillehammer.jpg}
-	\caption{Basic approach. Groups in Lillehammer, Norway}
-	\label{fig:basic_lillehammer}
-\end{figure}
+\subsection{Evaluation}
+By looking at the results of the simulations of the K-Nearest Neighbour Clustering it is obvious that clusters are created.  Even in the more chaotic topologies as Lillehammer,
+there are distinct clusters that encompasses the closest nodes. However, there are two obvious problems with this algorithm:
+\begin{itemize}
+	\item In contrast to agglomerative clustering, our K-Nearest Neighbour Clustering algorithm does not care if the closest distance between the groups is pairwise mutual. This
+		might lead to one group $a$ merging into another group $b$, even while $b$ has another neighbouring group $c$ that lies closer. If the maximum size K is reached during the merge of
+		$a$ and $b$,  the resulting group will never be able to merge with $c$ even though that would have given a better cluster. 
+	\item Once a cluster reaches the maximum size K, there is no possibilty for any other nodes to join the cluster.
+		In our simulation of static topologies that might work, but in a real world scenario access points may turn on randomly, and be located in the middle of an already existing cluster.
+		With the current algorithm there is no way to handle this event, and the node could not become a member of the cluster that surrounds it. 
+\end{itemize}
 
-\begin{figure}[H]
-	\center
-	\includegraphics[scale=0.34]{Images/computations/BASICTynset.jpg}
-	\caption{Basic approach. Groups in Lillehammer, Norway}
-	\label{fig:basic_tynset}
-\end{figure}
-
-
-
+In the next section we will look at how we can use group splitting to create a solution for these problems. 
 
 %\subsubsection{Evaluation}
 %The stength of this algorithm is its simplicity. Without using any special techniques it creates clusters that on first eyesight lookes quite promising. 
@@ -272,65 +363,56 @@ The results of the computations on the different topologies using this appraoch 
 %\caption{How to write algorithms}
 %\end{algorithm}
 
-\section{K-means clustering}
+\section{Introducing splitting}
+To improve the K-Nearest Neighbour Clustering algorithm suggested in the previous chapter, we can introduce the notion of group splitting. By letting one cluster merge with another without knowing
+if the merge is mutually beneficial, we are also accepting that not all merges will be optimal. A way to increase the chance of a group consisting of nodes that impacts each other severely
+would be to accept merges that result in groups larger than K. The group would be too large, but also much more likely to be given the chance to merge with the nodes of highest impact. 
+To reduce the group size back to K the least impactful nodes would have to be kicked out of the group, and this is what we call group splitting. 
+This section is dedicated to two different suggestions of how a group could be split. 
+
 \subsection{Introduction to K-means}
-K-means is a well known clustering algorithm often used for classification purposes in machine learning, usually in the context of unsupervised learning. K-means
+K-means is a clustering algorithm commonly used for classification purposes in machine learning, usually in the context of unsupervised learning. K-means
 is an iterative algorithm designed to find a predefined amount of clusters in a data-set with unclassified data points. The amount of clusters to find is denoted by
 K (hence K-means). 
 
-The principle of K-means is rather simple. K centroids are randomly placed somewhere in the data set, then the euclidean distance between each data point and each centroid is computed. All data points
+K centroids are randomly placed somewhere in the data set, then the distance between each data point and each centroid is computed. All data points
 closest to the same centroid becomes part of the same cluster set. When all data points are associated with a cluster, each cluster computes the mean position of all its data points.
-The value of the mean position becomes the location of the new centroids. When all the new centroids are computed
-one iteration is over, and the algorithm continues until the position of all centroids remains unchanged after an iteration. This means that the solution has converged and all K-clusters has been identified. 
+The value of the mean position becomes the location of the new centroids. When all the new centroids are computed, one iteration is over. The algorithm continues until the position 
+of all centroids remains unchanged after an iteration. When the position of the centroids are the same two iterations in a row, it means that the solution has converged and all K-clusters has been identified. 
 
-A well known problem with K-means is that the result strongly depends on how the algorithm is initiatied. This problem is usually dealt with by running K-means several times and choosing the best result of all the runs. 
+A well known problem with K-means is that the result strongly depends on how the algorithm is initiatied. This problem can be reduced by running K-means several times
+and choosing the best result of all the runs. 
 
 \subsection{K-means splitting}
-K-means clustering is not directly applicable to solve our clustering challenge. We will consider whether it can be used in combination with the previous algorithm to create 
-more interesting results or not. Indeed, a vanilla implementation of K-means requires an extensive overview of the surrounding network topology. Our groups are limited to knowing about their members
-and their neighbours. It would also be hard to choose a suitable K. Nontheless, K-means could still potentially help us create better groups. Let us consider the following. We extend the basic approach
-so groups are allowed to merge into a transient group if it exceeds the given maxsize. The purpose of the large transient group is to identify the biggest gap between nodes, and split the group in two new
-groups with $count(nodes) < maxsize$. If we set $K=2$, K-means can be used to identify where the transient group should be split to create two more connected clusters. 
+K-means clustering is not directly applicable to solve our clustering challenge. The reason we can not use K-means as the clustering algorithm is because the distributed nature of
+the nodes and groups. Indeed, a vanilla implementation of K-means requires an extensive overview of the surrounding network topology. Our groups are limited to knowing about their members
+and their neighbours. It would also be hard to choose a suitable K. Nontheless, K-means could still potentially help us create better groups. Let us consider the following.
+We extend the K-Nearest Neighbour Clustering so groups are allowed to merge into a transient group if it exceeds the given maxsize.
+The purpose of the large transient group is to identify the biggest gap between nodes, and split the group in two new groups with
+$count(nodes) < maxsize$. If we set $K=2$, K-means can be used to identify where the transient group should be split to create two more connected clusters. 
 
-Randomly picking two nodes to be centroids could lead to undesirable results where the two resulting groups are fundamentally different from the original ones. Recall that all we are trying to do is to
-reevaluate the divison line between the groups and see if K-means can achieve a better split. We can consider using the two negotiating nodes as centroids. The negotiating nodes belong to different groups,
-and are the nodes that has observed eachother as the strongest interferer and are the nodes that are closest to the division lines between the group. If the distance between the most interfering nodes
-is lower after applying the K-means split, the new groups are applied. On the other hand, if the distance is shorter (meaning a less optimal cut is found) the original groups are restored. Because the bootstrapped
-position of the centroids is planned and not random, the result is deterministic and we don't have to run the algorithm more than one time to get the result. 
+Randomly picking two nodes to be centroids could lead to undesirable results where the two resulting groups are fundamentally different from the original ones.
+Recall that what  we are trying to do is to reevaluate the divison line between the groups and see if K-means can achieve a better split. We can consider using the two negotiating nodes as centroids.
+The negotiating nodes belong to different groups, and are the nodes that has observed eachother as the strongest interferer and are the nodes that are closest to the division lines between the group. If the distance between the most interfering nodes is lower after applying the K-means split, the new groups are applied.
+On the other hand, if the distance is shorter (meaning a less optimal cut is found) the original groups are restored.
+As the bootstrapped position of the centroids is planned and not random the result is deterministic and we don't have to run the algorithm more than one time to get the result. 
 %
 
 
+
 \subsection{Results}
-
-\begin{figure}[H]
-	\center
-	\includegraphics[scale=0.35]{Images/computations/KMEANS500x500_1000n.jpg}
-	\caption{K-means splitting. Groups in a uniform distribution}
-	\label{fig:kmeans_uniform}
+\begin{figure}
+	\centering
+		\subfloat[Uniform]{{\includegraphics[width=6cm]{Images/computations/KMEANS500x500_1000n.jpg} }}%
+		\qquad
+		\subfloat[Forks]{{\includegraphics[width=6cm]{Images/computations/KMEANSForks.jpg} }}%
+		\newline
+		\subfloat[Lillehammer]{{\includegraphics[width=6cm]{Images/computations/KMEANSLillehammer.jpg} }}%
+		\qquad
+		\subfloat[Tynset]{{\includegraphics[width=6cm]{Images/computations/KMEANSTynset.jpg} }}%
+		\caption{K-means splitting on different topologies}%
+		\label{fig:knearest}%
 \end{figure}
-
-\begin{figure}[h]
-	\center
-	\includegraphics[scale=0.35]{Images/computations/KMEANSForks.jpg}
-	\caption{K-means splitting. Groups in Forks, Washington}
-	\label{fig:kmeans_forks}
-\end{figure}
-
-\begin{figure}[h]
-	\center
-	\includegraphics[scale=0.35]{Images/computations/KMEANSLillehammer.jpg}
-	\caption{K-means splitting. Groups in Lillehammer, Norway}
-	\label{fig:kmeans_forks}
-\end{figure}
-
-
-\begin{figure}[h]
-	\center
-	\includegraphics[scale=0.35]{Images/computations/KMEANSTynset.jpg}
-	\caption{K-means splitting. Groups in Tynset, Norway}
-	\label{fig:kmeans_forks}
-\end{figure}
-
 
 
 

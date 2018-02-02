@@ -90,41 +90,55 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5.3}Computation assumptions and requirements}{29}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.4}Program design}{30}
+\contentsline {section}{\numberline {5.4}Program design}{29}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4.1}Design choices}{30}
+\contentsline {subsection}{\numberline {5.4.1}Design choices}{29}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.4.2}Group framework}{30}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4.3}Output file structure}{31}
+\contentsline {subsection}{\numberline {5.4.3}Output file structure}{30}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.5}Basic Neighbour Clustering}{32}
+\contentsline {section}{\numberline {5.5}Creating groups with clustering}{31}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.5.1}Procedure}{32}
+\contentsline {subsection}{\numberline {5.5.1}Agglomerative Clustering}{32}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.5.2}Results}{33}
+\contentsline {subsubsection}{Description}{32}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.6}K-means clustering}{36}
+\contentsline {subsubsection}{Evaluation}{32}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.5.2}K-Nearest Neighbour Clustering}{32}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Description}{32}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Distance metric}{33}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Implementation}{33}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.5.3}Results of on different topologies}{35}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.5.4}Evaluation}{35}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.6}Introducing splitting}{36}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.6.1}Introduction to K-means}{36}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.6.2}K-means splitting}{36}
+\contentsline {subsection}{\numberline {5.6.2}K-means splitting}{37}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.6.3}Results}{37}
+\contentsline {subsection}{\numberline {5.6.3}Results}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Evaluation}{38}
+\contentsline {subsubsection}{Evaluation}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.6.4}Minimum Cut}{38}
+\contentsline {subsection}{\numberline {5.6.4}Minimum Cut}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.7}Analysis}{38}
+\contentsline {section}{\numberline {5.7}Analysis}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.8}Evaluation program}{38}
+\contentsline {section}{\numberline {5.8}Evaluation program}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.8.1}Acquired knowledge}{38}
+\contentsline {subsection}{\numberline {5.8.1}Acquired knowledge}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.8.2}Weaknesses}{38}
+\contentsline {subsection}{\numberline {5.8.2}Weaknesses}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Dimensionality}{38}
+\contentsline {subsubsection}{Dimensionality}{39}
 \defcounter {refsection}{0}\relax 
 \contentsline {subsubsection}{Volatility}{39}
 \defcounter {refsection}{0}\relax 
@@ -135,11 +149,3 @@
 \contentsline {section}{\numberline {6.1}ResFi}{41}
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {6.2}Raft}{41}
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Appendices}{45}
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Data generation}{46}
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {A.0.1}GenerateTopology.py}{46}
-\defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {A.0.2}WigleData.py}{50}

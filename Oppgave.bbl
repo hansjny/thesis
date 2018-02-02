@@ -346,6 +346,31 @@
       \endverb
       \keyw{ecma,json}
     \endentry
+    \entry{agglomerative}{article}{}
+      \name{author}{1}{}{%
+        {{hash=b8fd52be7f29a6e6bcdf585c6ffdb06b}{%
+           family={{Müllner}},
+           family_i={M\bibinitperiod},
+           given={D.},
+           given_i={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{b8fd52be7f29a6e6bcdf585c6ffdb06b}
+      \strng{fullhash}{b8fd52be7f29a6e6bcdf585c6ffdb06b}
+      \field{sortinit}{M}
+      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprintclass}{stat.ML}
+      \field{eprinttype}{arXiv}
+      \field{journaltitle}{ArXiv e-prints}
+      \field{month}{09}
+      \field{title}{{Modern hierarchical, agglomerative clustering algorithms}}
+      \field{year}{2011}
+      \verb{eprint}
+      \verb 1109.2378
+      \endverb
+      \keyw{Statistics - Machine Learning,Computer Science - Data Structures and Algorithms,62H30,I.5.3}
+    \endentry
     \entry{Murty2}{inproceedings}{}
       \name{author}{5}{}{%
         {{hash=73ea88dc43731dfa0b7c9385c083156e}{%

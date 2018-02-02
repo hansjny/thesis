@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.25)  6 DEC 2017 09:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.25)  2 FEB 2018 09:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -633,22 +633,58 @@ Package: listings 2015/06/04 1.6 (Carsten Heinz)
 \WF@everypar=\toks26
 Package: wrapfig 2003/01/31  v 3.6
 )
+(/usr/local/texlive/2016/texmf-dist/tex/latex/subfig/subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen129
+\captionmargin@=\dimen130
+\captionwidth=\dimen131
+\caption@tempdima=\dimen132
+\caption@indent=\dimen133
+\caption@parindent=\dimen134
+\caption@hangindent=\dimen135
+)
+\c@ContinuedFloat=\count128
+Package caption Info: float package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: wrapfig package is loaded.
+)
+\c@KVtest=\count129
+\sf@farskip=\skip67
+\sf@captopadj=\dimen136
+\sf@capskip=\skip68
+\sf@nearskip=\skip69
+\c@subfigure=\count130
+\c@subfigure@save=\count131
+\c@lofdepth=\count132
+\c@subtable=\count133
+\c@subtable@save=\count134
+\c@lotdepth=\count135
+\sf@top=\skip70
+\sf@bottom=\skip71
+)
 (/usr/local/texlive/2016/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
-\fancy@headwidth=\skip67
-\f@ncyO@elh=\skip68
-\f@ncyO@erh=\skip69
-\f@ncyO@olh=\skip70
-\f@ncyO@orh=\skip71
-\f@ncyO@elf=\skip72
-\f@ncyO@erf=\skip73
-\f@ncyO@olf=\skip74
-\f@ncyO@orf=\skip75
+\fancy@headwidth=\skip72
+\f@ncyO@elh=\skip73
+\f@ncyO@erh=\skip74
+\f@ncyO@olh=\skip75
+\f@ncyO@orh=\skip76
+\f@ncyO@elf=\skip77
+\f@ncyO@erf=\skip78
+\f@ncyO@olf=\skip79
+\f@ncyO@orf=\skip80
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/appendix/appendix.sty
 Package: appendix 2009/09/02 v1.2b extra appendix facilities
-\c@@pps=\count128
-\c@@ppsavesec=\count129
-\c@@ppsaveapp=\count130
+\c@@pps=\count136
+\c@@ppsavesec=\count137
+\c@@ppsaveapp=\count138
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/biblatex/biblatex.sty
 Package: biblatex 2016/05/14 v3.4 programmable bibliographies (PK/JW/AB)
@@ -685,7 +721,7 @@ Package etexcmds Info: Could not find \expanded.
 )))
 (/usr/local/texlive/2016/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count131
+\lrq@indent=\count139
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
@@ -697,62 +733,62 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 (/usr/local/texlive/2016/texmf-dist/tex/generic/xstring/xstring.sty
 (/usr/local/texlive/2016/texmf-dist/tex/generic/xstring/xstring.tex
 \@xs@message=\write3
-\integerpart=\count132
-\decimalpart=\count133
+\integerpart=\count140
+\decimalpart=\count141
 )
 Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
 )
-\c@tabx@nest=\count134
-\c@listtotal=\count135
-\c@listcount=\count136
-\c@liststart=\count137
-\c@liststop=\count138
-\c@citecount=\count139
-\c@citetotal=\count140
-\c@multicitecount=\count141
-\c@multicitetotal=\count142
-\c@instcount=\count143
-\c@maxnames=\count144
-\c@minnames=\count145
-\c@maxitems=\count146
-\c@minitems=\count147
-\c@citecounter=\count148
-\c@savedcitecounter=\count149
-\c@uniquelist=\count150
-\c@uniquename=\count151
-\c@refsection=\count152
-\c@refsegment=\count153
-\c@maxextratitle=\count154
-\c@maxextratitleyear=\count155
-\c@maxextrayear=\count156
-\c@maxextraalpha=\count157
-\c@abbrvpenalty=\count158
-\c@highnamepenalty=\count159
-\c@lownamepenalty=\count160
-\c@maxparens=\count161
-\c@parenlevel=\count162
-\blx@tempcnta=\count163
-\blx@tempcntb=\count164
-\blx@tempcntc=\count165
-\blx@maxsection=\count166
-\blx@maxsegment@0=\count167
-\blx@notetype=\count168
-\blx@parenlevel@text=\count169
-\blx@parenlevel@foot=\count170
-\blx@sectionciteorder@0=\count171
-\labelnumberwidth=\skip76
-\labelalphawidth=\skip77
-\biblabelsep=\skip78
-\bibitemsep=\skip79
-\bibnamesep=\skip80
-\bibinitsep=\skip81
-\bibparsep=\skip82
-\bibhang=\skip83
+\c@tabx@nest=\count142
+\c@listtotal=\count143
+\c@listcount=\count144
+\c@liststart=\count145
+\c@liststop=\count146
+\c@citecount=\count147
+\c@citetotal=\count148
+\c@multicitecount=\count149
+\c@multicitetotal=\count150
+\c@instcount=\count151
+\c@maxnames=\count152
+\c@minnames=\count153
+\c@maxitems=\count154
+\c@minitems=\count155
+\c@citecounter=\count156
+\c@savedcitecounter=\count157
+\c@uniquelist=\count158
+\c@uniquename=\count159
+\c@refsection=\count160
+\c@refsegment=\count161
+\c@maxextratitle=\count162
+\c@maxextratitleyear=\count163
+\c@maxextrayear=\count164
+\c@maxextraalpha=\count165
+\c@abbrvpenalty=\count166
+\c@highnamepenalty=\count167
+\c@lownamepenalty=\count168
+\c@maxparens=\count169
+\c@parenlevel=\count170
+\blx@tempcnta=\count171
+\blx@tempcntb=\count172
+\blx@tempcntc=\count173
+\blx@maxsection=\count174
+\blx@maxsegment@0=\count175
+\blx@notetype=\count176
+\blx@parenlevel@text=\count177
+\blx@parenlevel@foot=\count178
+\blx@sectionciteorder@0=\count179
+\labelnumberwidth=\skip81
+\labelalphawidth=\skip82
+\biblabelsep=\skip83
+\bibitemsep=\skip84
+\bibnamesep=\skip85
+\bibinitsep=\skip86
+\bibparsep=\skip87
+\bibhang=\skip88
 \blx@bcfin=\read1
 \blx@bcfout=\write4
-\c@mincomprange=\count172
-\c@maxcomprange=\count173
-\c@mincompwidth=\count174
+\c@mincomprange=\count180
+\c@maxcomprange=\count181
+\c@mincompwidth=\count182
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 
@@ -761,78 +797,78 @@ Package biblatex Info: Trying to load biblatex style data model...
 Package biblatex Info: ... file 'numeric.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count175
-\c@savedafterword=\count176
-\c@annotator=\count177
-\c@savedannotator=\count178
-\c@author=\count179
-\c@savedauthor=\count180
-\c@bookauthor=\count181
-\c@savedbookauthor=\count182
-\c@commentator=\count183
-\c@savedcommentator=\count184
-\c@editor=\count185
-\c@savededitor=\count186
-\c@editora=\count187
-\c@savededitora=\count188
-\c@editorb=\count189
-\c@savededitorb=\count190
-\c@editorc=\count191
-\c@savededitorc=\count192
-\c@foreword=\count193
-\c@savedforeword=\count194
-\c@holder=\count195
-\c@savedholder=\count196
-\c@introduction=\count197
-\c@savedintroduction=\count198
-\c@namea=\count199
-\c@savednamea=\count266
-\c@nameb=\count267
-\c@savednameb=\count268
-\c@namec=\count269
-\c@savednamec=\count270
-\c@translator=\count271
-\c@savedtranslator=\count272
-\c@shortauthor=\count273
-\c@savedshortauthor=\count274
-\c@shorteditor=\count275
-\c@savedshorteditor=\count276
-\c@labelname=\count277
-\c@savedlabelname=\count278
-\c@institution=\count279
-\c@savedinstitution=\count280
-\c@lista=\count281
-\c@savedlista=\count282
-\c@listb=\count283
-\c@savedlistb=\count284
-\c@listc=\count285
-\c@savedlistc=\count286
-\c@listd=\count287
-\c@savedlistd=\count288
-\c@liste=\count289
-\c@savedliste=\count290
-\c@listf=\count291
-\c@savedlistf=\count292
-\c@location=\count293
-\c@savedlocation=\count294
-\c@organization=\count295
-\c@savedorganization=\count296
-\c@origlocation=\count297
-\c@savedoriglocation=\count298
-\c@origpublisher=\count299
-\c@savedorigpublisher=\count300
-\c@publisher=\count301
-\c@savedpublisher=\count302
-\c@language=\count303
-\c@savedlanguage=\count304
-\c@pageref=\count305
-\c@savedpageref=\count306
-\shorthandwidth=\skip84
-\shortjournalwidth=\skip85
-\shortserieswidth=\skip86
-\shorttitlewidth=\skip87
-\shortauthorwidth=\skip88
-\shorteditorwidth=\skip89
+\c@afterword=\count183
+\c@savedafterword=\count184
+\c@annotator=\count185
+\c@savedannotator=\count186
+\c@author=\count187
+\c@savedauthor=\count188
+\c@bookauthor=\count189
+\c@savedbookauthor=\count190
+\c@commentator=\count191
+\c@savedcommentator=\count192
+\c@editor=\count193
+\c@savededitor=\count194
+\c@editora=\count195
+\c@savededitora=\count196
+\c@editorb=\count197
+\c@savededitorb=\count198
+\c@editorc=\count199
+\c@savededitorc=\count266
+\c@foreword=\count267
+\c@savedforeword=\count268
+\c@holder=\count269
+\c@savedholder=\count270
+\c@introduction=\count271
+\c@savedintroduction=\count272
+\c@namea=\count273
+\c@savednamea=\count274
+\c@nameb=\count275
+\c@savednameb=\count276
+\c@namec=\count277
+\c@savednamec=\count278
+\c@translator=\count279
+\c@savedtranslator=\count280
+\c@shortauthor=\count281
+\c@savedshortauthor=\count282
+\c@shorteditor=\count283
+\c@savedshorteditor=\count284
+\c@labelname=\count285
+\c@savedlabelname=\count286
+\c@institution=\count287
+\c@savedinstitution=\count288
+\c@lista=\count289
+\c@savedlista=\count290
+\c@listb=\count291
+\c@savedlistb=\count292
+\c@listc=\count293
+\c@savedlistc=\count294
+\c@listd=\count295
+\c@savedlistd=\count296
+\c@liste=\count297
+\c@savedliste=\count298
+\c@listf=\count299
+\c@savedlistf=\count300
+\c@location=\count301
+\c@savedlocation=\count302
+\c@organization=\count303
+\c@savedorganization=\count304
+\c@origlocation=\count305
+\c@savedoriglocation=\count306
+\c@origpublisher=\count307
+\c@savedorigpublisher=\count308
+\c@publisher=\count309
+\c@savedpublisher=\count310
+\c@language=\count311
+\c@savedlanguage=\count312
+\c@pageref=\count313
+\c@savedpageref=\count314
+\shorthandwidth=\skip89
+\shortjournalwidth=\skip90
+\shortserieswidth=\skip91
+\shorttitlewidth=\skip92
+\shortauthorwidth=\skip93
+\shorteditorwidth=\skip94
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
 
@@ -844,13 +880,13 @@ Package biblatex Info: ... file 'biblatex.def' found.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 2016/05/14 v3.4 biblatex compatibility (PK/JW/AB)
-\c@textcitecount=\count307
-\c@textcitetotal=\count308
-\c@textcitemaxnames=\count309
-\c@biburlnumpenalty=\count310
-\c@biburlucpenalty=\count311
-\c@biburllcpenalty=\count312
-\c@smartand=\count313
+\c@textcitecount=\count315
+\c@textcitetotal=\count316
+\c@textcitemaxnames=\count317
+\c@biburlnumpenalty=\count318
+\c@biburlucpenalty=\count319
+\c@biburllcpenalty=\count320
+\c@smartand=\count321
 )
 Package biblatex Info: Trying to load bibliography style 'numeric'...
 Package biblatex Info: ... file 'numeric.bbx' found.
@@ -862,8 +898,8 @@ Package biblatex Info: ... file 'standard.bbx' found.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2016/05/14 v3.4 biblatex bibliography style (PK/JW/AB)
-\c@bbx:relatedcount=\count314
-\c@bbx:relatedtotal=\count315
+\c@bbx:relatedcount=\count322
+\c@bbx:relatedtotal=\count323
 ))
 Package biblatex Info: Trying to load citation style 'numeric'...
 Package biblatex Info: ... file 'numeric.cbx' found.
@@ -888,30 +924,6 @@ Package biblatex Info: ... file 'biblatex.cfg' found.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/biblatex/biblatex.cfg
 File: biblatex.cfg 
 ))
-(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
-Package caption3 Info: TeX engine: e-TeX on input line 67.
-\captionmargin=\dimen129
-\captionmargin@=\dimen130
-\captionwidth=\dimen131
-\caption@tempdima=\dimen132
-\caption@indent=\dimen133
-\caption@parindent=\dimen134
-\caption@hangindent=\dimen135
-)
-\c@ContinuedFloat=\count316
-Package caption Info: float package is loaded.
-Package caption Info: listings package is loaded.
-Package caption Info: wrapfig package is loaded.
-)
-(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/subcaption.sty
-Package: subcaption 2016/02/20 v1.1-142 Sub-captions (AR)
-\c@subfigure=\count317
-\c@subtable=\count318
-)
 
 Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
 less on input line 28.
@@ -947,12 +959,9 @@ File: english.lbx 2016/05/14 v3.4 biblatex localization (PK/JW/AB)
 (./Oppgave.aux (./Chapters/1-Introduction.aux) (./Chapters/2-Background.aux)
 (./Chapters/3-Related.aux) (./Chapters/3-Data.aux) (./Chapters/4-Connected.aux
 
-LaTeX Warning: Label `fig:kmeans_forks' multiply defined.
+LaTeX Warning: Label `fig:knearest' multiply defined.
 
-
-LaTeX Warning: Label `fig:kmeans_forks' multiply defined.
-
-) (./Chapters/FutureWork.aux) (./Appendix.aux))
+) (./Chapters/FutureWork.aux))
 \openout1 = `Oppgave.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 134.
@@ -971,16 +980,16 @@ LaTeX Font Info:    ... okay on input line 134.
 
 (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count319
-\scratchdimen=\dimen136
+\scratchcounter=\count324
+\scratchdimen=\dimen137
 \scratchbox=\box42
-\nofMPsegments=\count320
-\nofMParguments=\count321
+\nofMPsegments=\count325
+\nofMParguments=\count326
 \everyMPshowfont=\toks27
-\MPscratchCnt=\count322
-\MPscratchDim=\dimen137
-\MPnumerator=\count323
-\makeMPintoPDFobject=\count324
+\MPscratchCnt=\count327
+\MPscratchDim=\dimen138
+\MPnumerator=\count328
+\makeMPintoPDFobject=\count329
 \everyMPtoPDFconversion=\toks28
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -1000,7 +1009,10 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count325
+\c@lstlisting=\count330
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: End \AtBeginDocument code.
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
@@ -1012,8 +1024,6 @@ Package biblatex Info: ... file 'Oppgave.bbl' found.
 (./Oppgave.bbl)
 Package biblatex Info: Reference section=0 on input line 134.
 Package biblatex Info: Reference segment=0 on input line 134.
-Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: End \AtBeginDocument code.
 
 <ifi-kompendium-forside-eng.pdf, id=1, 639.66579pt x 887.2046pt>
 File: ifi-kompendium-forside-eng.pdf Graphic file (type pdf)
@@ -1336,6 +1346,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [27]
+Overfull \hbox (8.15196pt too wide) in paragraph at lines 79--79
+[]\T1/cmr/bx/n/17.28 Computation as-sump-tions and re-quire-ments 
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1343,10 +1357,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [28]
-Overfull \hbox (8.15196pt too wide) in paragraph at lines 84--84
-[]\T1/cmr/bx/n/17.28 Computation as-sump-tions and re-quire-ments 
- []
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1362,6 +1372,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [30]
 
+LaTeX Warning: Reference `fig:agglomerative' on page 31 undefined on input line
+ 183.
+
+
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
@@ -1375,50 +1389,43 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [32]
-<Images/computations/BASIC500x500_1000n.jpg, id=190, 761.84625pt x 761.84625pt>
-File: Images/computations/BASIC500x500_1000n.jpg Graphic file (type jpg)
-<use Images/computations/BASIC500x500_1000n.jpg>
-Package pdftex.def Info: Images/computations/BASIC500x500_1000n.jpg used on inp
-ut line 221.
-(pdftex.def)             Requested size: 259.02429pt x 259.02429pt.
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[33] <Images/computations/BASICForks.jpg, id=194, 758.835pt x 759.83875pt>
+[33]
+<Images/computations/BASIC500x500_1000n.jpg, id=193, 761.84625pt x 761.84625pt>
+File: Images/computations/BASIC500x500_1000n.jpg Graphic file (type jpg)
+<use Images/computations/BASIC500x500_1000n.jpg>
+Package pdftex.def Info: Images/computations/BASIC500x500_1000n.jpg used on inp
+ut line 302.
+(pdftex.def)             Requested size: 170.71652pt x 170.71051pt.
+
+<Images/computations/BASICForks.jpg, id=194, 758.835pt x 759.83875pt>
 File: Images/computations/BASICForks.jpg Graphic file (type jpg)
 
 <use Images/computations/BASICForks.jpg>
 Package pdftex.def Info: Images/computations/BASICForks.jpg used on input line 
-228.
-(pdftex.def)             Requested size: 258.00049pt x 258.34175pt.
+304.
+(pdftex.def)             Requested size: 170.71652pt x 170.93315pt.
 
 <Images/computations/BASICLillehammer.jpg, id=195, 759.83875pt x 757.83125pt>
 File: Images/computations/BASICLillehammer.jpg Graphic file (type jpg)
 
 <use Images/computations/BASICLillehammer.jpg>
 Package pdftex.def Info: Images/computations/BASICLillehammer.jpg used on input
- line 235.
-(pdftex.def)             Requested size: 258.34175pt x 257.65921pt.
+ line 306.
+(pdftex.def)             Requested size: 170.71652pt x 170.26184pt.
 
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[34 <./Images/computations/BASIC500x500_1000n.jpg> <./Images/computations/BASIC
-Forks.jpg>]
-<Images/computations/BASICTynset.jpg, id=199, 760.8425pt x 760.8425pt>
+<Images/computations/BASICTynset.jpg, id=196, 760.8425pt x 760.8425pt>
 File: Images/computations/BASICTynset.jpg Graphic file (type jpg)
 
 <use Images/computations/BASICTynset.jpg>
 Package pdftex.def Info: Images/computations/BASICTynset.jpg used on input line
- 242.
-(pdftex.def)             Requested size: 258.68303pt x 258.68303pt.
+ 308.
+(pdftex.def)             Requested size: 170.71652pt x 170.71779pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1426,8 +1433,16 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[35 <./Images/computations/BASICLillehammer.jpg> <./Images/computations/BASICTy
-nset.jpg>]
+[34]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[35 <./Images/computations/BASIC500x500_1000n.jpg> <./Images/computations/BASIC
+Forks.jpg> <./Images/computations/BASICLillehammer.jpg> <./Images/computations/
+BASICTynset.jpg>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1435,46 +1450,44 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [36]
-<Images/computations/KMEANS500x500_1000n.jpg, id=206, 684.05562pt x 683.05188pt
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[37]
+<Images/computations/KMEANS500x500_1000n.jpg, id=210, 684.05562pt x 683.05188pt
 >
 File: Images/computations/KMEANS500x500_1000n.jpg Graphic file (type jpg)
  <use Images/computations/KMEANS500x500_1000n.jpg>
 Package pdftex.def Info: Images/computations/KMEANS500x500_1000n.jpg used on in
-put line 307.
-(pdftex.def)             Requested size: 239.42305pt x 239.07173pt.
+put line 406.
+(pdftex.def)             Requested size: 170.71652pt x 170.4603pt.
 
-<Images/computations/KMEANSForks.jpg, id=207, 684.5575pt x 682.55pt>
+<Images/computations/KMEANSForks.jpg, id=211, 684.5575pt x 682.55pt>
 File: Images/computations/KMEANSForks.jpg Graphic file (type jpg)
 
 <use Images/computations/KMEANSForks.jpg>
 Package pdftex.def Info: Images/computations/KMEANSForks.jpg used on input line
- 314.
-(pdftex.def)             Requested size: 239.59871pt x 238.89607pt.
+ 408.
+(pdftex.def)             Requested size: 170.71652pt x 170.21007pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<Images/computations/KMEANSLillehammer.jpg, id=208, 760.8425pt x 760.8425pt>
+<Images/computations/KMEANSLillehammer.jpg, id=212, 760.8425pt x 760.8425pt>
 File: Images/computations/KMEANSLillehammer.jpg Graphic file (type jpg)
 
 <use Images/computations/KMEANSLillehammer.jpg>
 Package pdftex.def Info: Images/computations/KMEANSLillehammer.jpg used on inpu
-t line 321.
-(pdftex.def)             Requested size: 266.29886pt x 266.29886pt.
+t line 410.
+(pdftex.def)             Requested size: 170.71652pt x 170.71779pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<Images/computations/KMEANSTynset.jpg, id=209, 759.83875pt x 758.835pt>
+<Images/computations/KMEANSTynset.jpg, id=213, 759.83875pt x 758.835pt>
 File: Images/computations/KMEANSTynset.jpg Graphic file (type jpg)
 
 <use Images/computations/KMEANSTynset.jpg>
 Package pdftex.def Info: Images/computations/KMEANSTynset.jpg used on input lin
-e 329.
-(pdftex.def)             Requested size: 265.94754pt x 265.59624pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
+e 412.
+(pdftex.def)             Requested size: 170.71652pt x 170.48735pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1482,28 +1495,23 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[37 <./Images/computations/KMEANS500x500_1000n.jpg>]
+[38 <./Images/computations/KMEANS500x500_1000n.jpg> <./Images/computations/KMEA
+NSForks.jpg> <./Images/computations/KMEANSLillehammer.jpg> <./Images/computatio
+ns/KMEANSTynset.jpg>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[38 <./Images/computations/KMEANSForks.jpg>]
+[39])
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[39 <./Images/computations/KMEANSLillehammer.jpg>])
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[40 <./Images/computations/KMEANSTynset.jpg>]
+[40]
 \openout2 = `Chapters/FutureWork.aux'.
 
  (./Chapters/FutureWork.tex
@@ -1541,48 +1549,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[44]
-\openout2 = `Appendix.aux'.
-
- (./Appendix.tex [45
-
-
-
-]
-Appendix A.
-[46
-
-]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[47]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[48]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[49])
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[50] (./Oppgave.aux (./Chapters/1-Introduction.aux)
+[44] (./Oppgave.aux (./Chapters/1-Introduction.aux)
 (./Chapters/2-Background.aux) (./Chapters/3-Related.aux) (./Chapters/3-Data.aux
-) (./Chapters/4-Connected.aux) (./Chapters/FutureWork.aux) (./Appendix.aux))
+) (./Chapters/4-Connected.aux) (./Chapters/FutureWork.aux))
 
 LaTeX Warning: There were undefined references.
 
@@ -1598,13 +1567,13 @@ Package logreq Info: Writing requests to 'Oppgave.run.xml'.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 15134 strings out of 493014
- 243845 string characters out of 6133351
- 845225 words of memory out of 5000000
- 18360 multiletter control sequences out of 15000+600000
+ 15172 strings out of 493014
+ 244763 string characters out of 6133351
+ 786137 words of memory out of 5000000
+ 18403 multiletter control sequences out of 15000+600000
  30876 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,12n,45p,1434b,14491s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 44i,12n,51p,1434b,13824s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/cm-super/cm
 -super-t1.enc}{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}<
 /usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></
@@ -1632,10 +1601,10 @@ ts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2016/texmf-dist/fonts
 ype1/public/cm-super/sftt1200.pfb></usr/local/texlive/2016/texmf-dist/fonts/typ
 e1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/
 helvetic/uhvr8a.pfb>
-Output written on Oppgave.pdf (56 pages, 8416297 bytes).
+Output written on Oppgave.pdf (50 pages, 8408724 bytes).
 PDF statistics:
- 340 PDF objects out of 1000 (max. 8388607)
- 217 compressed objects within 3 object streams
+ 321 PDF objects out of 1000 (max. 8388607)
+ 204 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  71 words of extra memory for PDF output out of 10000 (max. 10000000)
 
