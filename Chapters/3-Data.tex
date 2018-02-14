@@ -1,20 +1,14 @@
 \chapter{Data acquisition and structure}\label{dataacc}
-%
-%Before implementing and testing any group creation algorithms, we need to gather usable data
-%to perform testing on. The data consists of the topology size, and where in the topology a node is located.
-%
-%For basic testing we can create our own data, and either assume the location of nodes, or randomly distribute them on a topology.
+In this chapter we will consider how we can develop a tool that generates and visualizes the layout of network topologies based on constructed, artificial data and real, mined data.
+We will have great need for both artificial and real data in chapter \ref{chap:clustering} where we consider algorithms that enables distributed clustering of access points. This chapter also covers the storing of the data in question, how to structure it and visualize it both correcly and meaningfully in a web application. 
 
-We don't have the time nor the resources to organize a large enough testbed to purposefully evaluate the algorithms and suggestions that we will look at in the 
-consecutive chapters. A sufficient testbed would require a large amount of routers (100-200 for a low scale test) in a small geographical area, preferably installed in 
+\section{Motivation}
+The data mining is important as we don't have the time nor the resources to organize a large enough testbed to purposefully evaluate the algorithms and suggestions that we will look at in the 
+consecutive chapter. A sufficient testbed would require a large amount of routers (100-200 for a low scale test) in a small geographical area, preferably installed in 
 residential apartment buildings. Not only would the creation of such a testbed require a lot of physical equipment, but there is also a lot of logical challenges 
-that would have to be overcome, such as communication protocols and distributed consensus. These are problems we will address at a later point. Additionally, 
-we could argue that it never advisable to go directly from an idea to a testbed anyway, especially without having any empirical indication of which approaches have merit,
-and which is not worth the effort to implement. The risk is to waste a lot of time and resources to create a real life implementation that could have been identified as pointless 
-in an early calculation or simulation. 
-
-In this chapter we will consider how we can develop a tool that generates and visualizes the layout of network topologies based on constructed, artificial data, or
-real-life location data of access points. 
+that would have to be overcome, such as communication protocols and distributed consensus. These are problems we will address in chapter \ref{chap:distr}.
+While said challenges could be overcome, going directly from a concept idea to a large tesbed without having any empirical indication of which approaches have merit, is 
+hardly advisable. Hence we gather data with the motivation of being able to perform realistic calculations and simulations, and with that enhance the believability of the results produced. 
 
 \section{Requirements}
 SSID, current channel frequency, radio power, physical data rate and supported 802.11 standards are just a few properties of a single real-life access point.

@@ -488,6 +488,42 @@
       \verb http://docs.aerohive.com/pdfs/Aerohive-Solution_Brief-RadioResource_Management_in_HiveOS.pdf
       \endverb
     \endentry
+    \entry{raftio}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=7cd6def2de460a2efcd2ef9fb4ce7f68}{%
+           family={Ongaro},
+           family_i={O\bibinitperiod},
+           given={Diego},
+           given_i={D\bibinitperiod}}}%
+        {{hash=ecac04ff101bba23ba67c9332853d538}{%
+           family={Ousterhout},
+           family_i={O\bibinitperiod},
+           given={John},
+           given_i={J\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Philadelphia, PA}%
+      }
+      \list{publisher}{1}{%
+        {USENIX Association}%
+      }
+      \strng{namehash}{ecdcf8824e5963a927e4345e04cb1bcf}
+      \strng{fullhash}{ecdcf8824e5963a927e4345e04cb1bcf}
+      \field{sortinit}{O}
+      \field{sortinithash}{7803d2715d5e795e70382b084ab8d00e}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 2014 USENIX Conference on USENIX Annual Technical Conference}
+      \field{isbn}{978-1-931971-10-2}
+      \field{series}{USENIX ATC'14}
+      \field{title}{In Search of an Understandable Consensus Algorithm}
+      \field{year}{2014}
+      \field{pages}{305\bibrangedash 320}
+      \range{pages}{16}
+      \verb{url}
+      \verb http://dl.acm.org/citation.cfm?id=2643634.2643666
+      \endverb
+    \endentry
     \entry{virtues}{article}{}
       \name{author}{1}{}{%
         {{hash=89d208cdd987211be2606b23f2e999de}{%

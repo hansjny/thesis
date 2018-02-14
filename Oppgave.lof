@@ -56,4 +56,16 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Tynset}}}{38}
 \defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Comparison with and without K-means splitting on Tynset\relax }}{39}
+\defcounter {refsection}{0}\relax 
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Without K-means splitting}}}{39}
+\defcounter {refsection}{0}\relax 
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {With K-means splitting}}}{39}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Comparison with and without K-means splitting on uniform distribution\relax }}{40}
+\defcounter {refsection}{0}\relax 
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Without K-means splitting}}}{40}
+\defcounter {refsection}{0}\relax 
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {With K-means splitting}}}{40}
+\defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }

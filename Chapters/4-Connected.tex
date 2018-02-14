@@ -1,4 +1,4 @@
-\chapter{Access point clustering}
+\chapter{Access point clustering} \label{chap:clustering}
 %To enable collaborative channel allocation, it is
 %important for every AP to know which APs it is collaborating with.
 %One way to share information about who collaborates with who,
@@ -282,21 +282,8 @@ This means that the simulation algorithm converges when no groups remain that ar
  
 \subsection{Results of on different topologies}
 Figure \ref{fig:knearest}a shows the result of running the K-Nearest Neighbour Clustering algorithm on a uniform distribution topology, while figures \ref{fig:knearest}b, \ref{fig:knearest}c, \ref{fig:knearest}d shows the resulting clusters after running it on topologies on citites and towns collected by WiGLE. The different node colors indicate different group memberships.
-%\begin{figure}
-%	\begin{minipage}
-%		\includegraphics[width=.8\linewidth]{Images/computations/BASIC500x500_1000n.jpg}
-%		\caption{A}
-%		\label{fig:basic_uniform}
-%	\end{minipage}
-%
-%	\begin{minipage}
-%		\includegraphics[width=.8\linewidth]{Images/computations/BASICForks.jpg}
-%		\caption{B}
-%		\label{fig:basic_forks}
-%	\end{minipage}
-%\caption{plots of....}
-%\label{fig:fig}
-%\end{figure}
+
+
 \begin{figure}
 		\centering
 		\subfloat[Uniform]{{\includegraphics[width=6cm]{Images/computations/BASIC500x500_1000n.jpg} }}%
@@ -310,19 +297,6 @@ Figure \ref{fig:knearest}a shows the result of running the K-Nearest Neighbour C
 		\label{fig:knearest}%
 \end{figure}
 
-%\begin{figure}[H]
-%	\center
-%	\includegraphics[scale=0.25]{Images/computations/BASICLillehammer.jpg}
-%	\caption{K-Nearest Neighbour Clustering on nodes in Lillehammer, Norway}
-%	\label{fig:basic_lillehammer}
-%\end{figure}
-%
-%\begin{figure}[H]
-%	\center
-%	\includegraphics[scale=0.25]{Images/computations/BASICTynset.jpg}
-%	\caption{K-Nearest Neighbour Clustering on nodes in Tynset, Norway}
-%	\label{fig:basic_tynset}
-%\end{figure}
 
 \subsection{Evaluation}
 By looking at the results of the simulations of the K-Nearest Neighbour Clustering it is obvious that clusters are created.  Even in the more chaotic topologies as Lillehammer,
@@ -338,36 +312,12 @@ there are distinct clusters that encompasses the closest nodes. However, there a
 
 In the next section we will look at how we can use group splitting to create a solution for these problems. 
 
-%\subsubsection{Evaluation}
-%The stength of this algorithm is its simplicity. Without using any special techniques it creates clusters that on first eyesight lookes quite promising. 
-%An obvious weakness is that all nodes which are admitted to a group is never kicked out, no matter what happens during merges. This means that a very beneficial 
-%merge can be discarded because of the large group size, even though many nodes in the group hardly disturbs anyone and should be deprioritized. 
-
-
-%
-%\begin{algorithm}[H]
-%    \SetAlgoLined
-%    \KwData{this text}
-%    \KwResult{how to write algorithm with \LaTeX2e }
-%    initialization\;
-%    \While{not at end of this document}{
-%	    read current\;
-%	\eIf{understand}{
-%		go to next section\;
-%	    current section becomes this one\;
-%    }{
-%	    go back to the beginning of current section\;
-%    }
-%    }
-
-%\caption{How to write algorithms}
-%\end{algorithm}
 
 \section{Introducing splitting}
-To improve the K-Nearest Neighbour Clustering algorithm suggested in the previous chapter, we can introduce the notion of group splitting. By letting one cluster merge with another without knowing
-if the merge is mutually beneficial, we are also accepting that not all merges will be optimal. A way to increase the chance of a group consisting of nodes that impacts each other severely
-would be to accept merges that result in groups larger than K. The group would be too large, but also much more likely to be given the chance to merge with the nodes of highest impact. 
-To reduce the group size back to K the least impactful nodes would have to be kicked out of the group, and this is what we call group splitting. 
+To improve the K-Nearest Neighbour Clustering algorithm suggested in the previous section, we can introduce the notion of group splitting. By letting one cluster merge with another without knowing
+if the merge is mutually beneficial, we are also accepting that not all merges will be optimal. A way to increase the chance of a group ending up with nodes that impacts each other severely
+would be to accept merges that result in groups larger than K. The group would be too large, but more likely to have the opportunity to merge with the nodes of highest impact. 
+To reduce the group size back to K, the least impactful nodes would have to be kicked out of the group. This is what we call group splitting. 
 This section is dedicated to two different suggestions of how a group could be split. 
 
 \subsection{Introduction to K-means}
@@ -384,7 +334,7 @@ A well known problem with K-means is that the result strongly depends on how the
 and choosing the best result of all the runs. 
 
 \subsection{K-means splitting}
-K-means clustering is not directly applicable to solve our clustering challenge. The reason we can not use K-means as the clustering algorithm is because the distributed nature of
+K-means clustering is not directly applicable to solve our original clustering challenge. The reason we can not use K-means as the clustering algorithm is because the distributed nature of
 the nodes and groups. Indeed, a vanilla implementation of K-means requires an extensive overview of the surrounding network topology. Our groups are limited to knowing about their members
 and their neighbours. It would also be hard to choose a suitable K. Nontheless, K-means could still potentially help us create better groups. Let us consider the following.
 We extend the K-Nearest Neighbour Clustering so groups are allowed to merge into a transient group if it exceeds the given maxsize.
@@ -392,15 +342,18 @@ The purpose of the large transient group is to identify the biggest gap between 
 $count(nodes) < maxsize$. If we set $K=2$, K-means can be used to identify where the transient group should be split to create two more connected clusters. 
 
 Randomly picking two nodes to be centroids could lead to undesirable results where the two resulting groups are fundamentally different from the original ones.
-Recall that what  we are trying to do is to reevaluate the divison line between the groups and see if K-means can achieve a better split. We can consider using the two negotiating nodes as centroids.
-The negotiating nodes belong to different groups, and are the nodes that has observed eachother as the strongest interferer and are the nodes that are closest to the division lines between the group. If the distance between the most interfering nodes is lower after applying the K-means split, the new groups are applied.
-On the other hand, if the distance is shorter (meaning a less optimal cut is found) the original groups are restored.
-As the bootstrapped position of the centroids is planned and not random the result is deterministic and we don't have to run the algorithm more than one time to get the result. 
-%
-
+Recall that what we are trying to do is to reevaluate the divison line between the groups and see if K-means can achieve a better split, not create two entirely new clustes. As we already have
+two independent clusters, we can precalculate their centroids before merging and bootstrap K-means with these centroids instead. 
+If the distance between the most interfering nodes is lower after applying the K-means split, the new groups are applied. On the other hand, if the distance is shorter
+(meaning a less optimal cut is found) the original groups are restored. As the bootstrapped position of the centroids is planned and not random,
+the result is deterministic and we don't have to run the algorithm more than one time to get the result. 
 
 
 \subsection{Results}
+The results of simulating the group creation with K-means splitting implemented can be seen in figure \ref{fig:kmeans}. The groups look very similar to those we computed in \ref{fig:knearest}, but
+in some places there are some major differenes. A comparison of the two algorithms executed on the same section of Tynset's town centre can be seen in figure \ref{fig:kmeanscomparison}, and another
+comparison of a section of the uniform distribution can be seen in figure \ref{fig:kmeanscomparisonuniform}. 
+
 \begin{figure}
 	\centering
 		\subfloat[Uniform]{{\includegraphics[width=6cm]{Images/computations/KMEANS500x500_1000n.jpg} }}%
@@ -411,47 +364,70 @@ As the bootstrapped position of the centroids is planned and not random the resu
 		\qquad
 		\subfloat[Tynset]{{\includegraphics[width=6cm]{Images/computations/KMEANSTynset.jpg} }}%
 		\caption{K-means splitting on different topologies}%
-		\label{fig:knearest}%
+		\label{fig:kmeans}%
+\end{figure}
+
+\begin{figure}
+	\centering
+		\subfloat[Without K-means splitting]{{\includegraphics[width=3cm]{Images/computations/TynsetNear.jpg} }}%
+		\qquad
+		\subfloat[With K-means splitting]{{\includegraphics[width=3cm]{Images/computations/TynsetNearKmeans.jpg} }}%
+		\caption{Comparison with and without K-means splitting on Tynset}%
+		\label{fig:kmeanscomparison}%
+\end{figure}
+
+\subsection{Evaluation}
+There is little doubt that K-means splitting improves upon the original algorithm, especially when splits only are accepted when the maximum interference of a group is reduced after the split.
+Even though the clusters in a static environment is slightly improved, the most important use-case for K-means splitting is under the introduction of new nodes to an environment
+where all groups have converged. Where in the unmodified K-Nearest Neighbour Clustering algorithm there was no specific way to handle a new node in an environment of saturated groups
+with K-means splitting eventually new groups will be formed on the basis of the updated topology. The weakness of this approach is how ill suited it is to run in a distributed environment.
+It is trivial to simulate splits using K-means, as during a simulation the absolute coordinates of the nodes in the group are accesible. This is information unavailable for nodes under
+real circumstances. Hence some major adaptions would have to be made to get this to work in an implementation.
+One way to realize the algorithm would be to select a physical node as centroid instead of a virtual point. All nodes in sensing range of the surrounding area of
+the centroid node would know their distance to the centroid. Then, using a relay network to communicate internally in the group, figure out the approximate
+distance from all nodes not within sensing range of the centroid. It is unknown if such an approach would be accurate enough to work, or have a complexity that is conceivable to implement.  
+
+\begin{figure}
+	\centering
+		\subfloat[Without K-means splitting]{{\includegraphics[width=4cm]{Images/computations/500x5000Near.jpg} }}%
+		\qquad
+		\subfloat[With K-means splitting]{{\includegraphics[width=4cm]{Images/computations/500x5000NearKmeans.jpg} }}%
+		\caption{Comparison with and without K-means splitting on uniform distribution}%
+		\label{fig:kmeanscomparisonuniform}%
 \end{figure}
 
 
-
-
-
-
-
-\subsubsection{Evaluation}
-
 \subsection{Minimum Cut}
 
-\section{Analysis}
-\section{Evaluation program}
 
-\subsection{Acquired knowledge}
-\subsection{Weaknesses}
-The computations have taught us about what kind of clustering could work with the assumptions we have set. Even so, there are several questions that still remains,
-and without considering them we can not expect to get any concluding answers. 
-
-\subsubsection{Dimensionality} 
-Both the data we have created and the data fetched from \verb|wigle.net| takes the $x$ and $y$ axes in account. Obtaining data in three dimensions is harder.
-Wigle positions the access points using longitude and latitude, and the simple reason for this is that all their data is based on ground-level triangulation.
-As we are are only creating clusters based on information in two dimensions, we can not immediately assume that our results is applicable to 3-dimensional world. 
-We could argue that it is resonable to think that a group creation algorithm that works well in two dimensions should also work well in three dimensions. Especially since our computations has only
-used a virtual dBi value, and as we recall from the beginning this is a property calculated using the free space path loss formula. This formula takes only the distance between each node
-as a variable. Nonetheless, other challenges may occur in 3 dimensions that we have not accounted for. For instance, 
-the positioning of the nodes may we much denser than anticipated and its hard to estimate how that will impact the formation of groups. 
+\section{Evaluation}
+In this section we will consider what the results in this chapters can tell us, and cover what questions that still needs answering with respect to distributed group creation and clustering.  
+\subsection{Simulation weaknesses}
+The simulations have taught us about what kind of clustering could work with the assumptions we have set. Even so, there are several questions that still remains,
+and without considering them we can not expect to get definitive answers of what works or not. 
 
 \subsubsection{Volatility} 
 All the computations we have done takes a static network topology as an input. The static topology is an image of a network topology in a given state, and is not representative
 of the volatile nature of modern networks. While it is true that most access points are relatively stationary and constant, it is increasingly popular to create
 ad-hoc on-demand Wi-Fi networks using cell phones or a computers as access points. Additionally resetting of routers, power outages, etc. means that access points come and go. 
-Hence it is indisputable that network topologies are volatile, and the group clustering algorithm should, when final, run as a continous operation. 
+Hence it is indisputable that network topologies are volatile, and the group clustering algorithm should, when final, run as a continous operation. We have considered ways that 
+the algorithm can handle volatily by splitting and continously create groups, but the simulation framework does not support inserting or removing nodes during the computation, hence
+only static environments that quickly converges is considered. 
 
-\subsubsection{Computed interference vs observed interference}
+\subsubsection{Computed interference versuss observed interference}
 Our group computations has been based on the RSSI of all nearby access points, and the dBi values that denotes all RSSIs were calculated using the free space path loss formula.
-As distance is the only variable that affects the result of our RSSI calculation, it means that all RSSI levels forms a symmetric binary relation between nodes. In the real world 
-this is not the case. Access points may interfere with each other differently, and the RSSI values may change when there are variations in the environment. We have assumed
-that there is always another access point that disturbs the most. If the RSSI values changes rapidly, so may also the access point that disturbs the most. 
+As distance is the only variable that affects the result of our RSSI calculation, it means that the RSSI levels becomes a symmetric binary relation between nodes. In the real world 
+this is not the case. Access points may interfere with each other differently, and the RSSI values may change when there are variations in the environment. This is the reasons deadlocks could
+occur if implementing regular agglomerative hierarchical clustering and the motivation behind creating K-Nearest Neighbour Clustering, even though our topologies would work well with agglomerative
+clustering. We also have no simulations of how groups would look if the distance between two nodes were not mutual.
+
+\subsubsection{Dimensionality} 
+Both the data we have created and the data fetched from \verb|wigle.net| takes the $x$ and $y$ axes in account. Obtaining data in three dimensions is harder.
+Wigle places the access points using longitude and latitude as all their data is acquired using ground-level triangulation.
+By creating clusters based on information in two dimensions we don't know how the algorithm behaves in a 3-dimensional world. It is resonable to think that an algorithm
+which is based on distance two dimensions should also work well in three dimensions, but we have done no simulations that can support the claim. 
+
+
 
 %\subsection{Uniformly distributed nodes}
 %We will look at how groups were created in different topology scenarios. 
@@ -470,7 +446,7 @@ that there is always another access point that disturbs the most. If the RSSI va
 %\begin{figure}
 %\center
 %\includegraphics[scale=0.45]{Images/grouptest_1.jpg}
-%\caption{200 nodes, $memberThresh=128$, $size=200x200$}
+%\caption{200 nodes, $memberThresh=128$, $size=200x200$
 %\label{fig:200_128}
 %\end{figure}
 %

@@ -64,19 +64,21 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {4}Data acquisition and structure}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}Requirements}{16}
+\contentsline {section}{\numberline {4.1}Motivation}{16}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Program design}{17}
+\contentsline {section}{\numberline {4.2}Requirements}{17}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}Data output and visual representation}{19}
+\contentsline {section}{\numberline {4.3}Program design}{18}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}WiGLE}{20}
+\contentsline {section}{\numberline {4.4}Data output and visual representation}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.1}REST API}{22}
+\contentsline {section}{\numberline {4.5}WiGLE}{20}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.2}The Haversine Formula}{23}
+\contentsline {subsection}{\numberline {4.5.1}REST API}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.4.3}Data output}{25}
+\contentsline {subsection}{\numberline {4.5.2}The Haversine Formula}{23}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.5.3}Data output}{25}
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {5}Access point clustering}{26}
 \defcounter {refsection}{0}\relax 
@@ -124,28 +126,32 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.6.2}K-means splitting}{37}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.6.3}Results}{39}
+\contentsline {subsection}{\numberline {5.6.3}Results}{38}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Evaluation}{39}
+\contentsline {subsection}{\numberline {5.6.4}Evaluation}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.6.4}Minimum Cut}{39}
+\contentsline {subsection}{\numberline {5.6.5}Minimum Cut}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.7}Analysis}{39}
+\contentsline {section}{\numberline {5.7}Evaluation}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.8}Evaluation program}{39}
+\contentsline {subsection}{\numberline {5.7.1}Simulation weaknesses}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.8.1}Acquired knowledge}{39}
+\contentsline {subsubsection}{Volatility}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.8.2}Weaknesses}{39}
+\contentsline {subsubsection}{Computed interference versuss observed interference}{41}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Dimensionality}{39}
+\contentsline {subsubsection}{Dimensionality}{41}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Volatility}{39}
+\contentsline {chapter}{\numberline {6}Group communication and state synchronization}{42}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Computed interference vs observed interference}{40}
+\contentsline {section}{\numberline {6.1}Problem overview}{42}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Future Work}{41}
+\contentsline {section}{\numberline {6.2}Enabling technologies}{43}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.1}ResFi}{41}
+\contentsline {subsection}{\numberline {6.2.1}Distributed consensus with Raft}{43}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.2}Raft}{41}
+\contentsline {subsection}{\numberline {6.2.2}Access point communication with ResFi}{43}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.3}Protocol design}{43}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.4}Protocol implementation}{43}

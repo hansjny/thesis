@@ -1,0 +1,26 @@
+\chapter{Group communication and state synchronization}
+In the previous chapters we have suggested an algorithm for how groups can be formed.
+In this chapter we will focus on the algorithms and protocols required to enable communication between access points and ultimately groups.
+There has already been done some work on the subject of access point communication over IP, and we can also rely on previous work in the field
+of distributed consensus to ensure synchronized group states. We will consider these technologies and suggest a protocol that stitches all required components together. 
+
+
+\section{Problem overview}
+In chapter \ref{chap:clustering} we looked at an algorithm that enables cluster formation in a distributed environment where no node knows the complete layout of the surrounding networks.
+A number of assumptions were made before we suggested an algorithm. Two of the assumptions encapsulated the three following problems:
+\begin{itemize}
+\item Direct contact between access points is possible
+\item An underlying group communication protocol is in place
+\item The state of a group is synchronized throughout all its members
+\end{itemize}
+In this chapter we shall attempt to handle these issues to create a more complete scheme for group creation in a distributed environment.
+
+\section{Enabling technologies}
+When creating the protocol, there is need for some some already well-researched technology as a foundation. Raft \cite{raftio} is a technology created to simplify distributed consensus, and
+ResFi is a technolohy create to enable communication over IP between access point. This section will briefly introduce these. 
+\subsection{Distributed consensus with Raft}
+\subsection{Access point communication with ResFi}
+
+\section{Protocol design}
+
+\section{Protocol implementation}
