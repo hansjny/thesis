@@ -11,7 +11,7 @@ environment. If there are a lot of solid obstacles, like walls and ceilings, the
 
 Even if the surrounding environment is mostly open space, the wireless signal becomes subject of attenuation,
      which is a physical property of electromagnic waves that weakens the signal the longer it has travelled through a
-     medium. When this medium is air, we refer to the phenomenon as Free Space Path Loss (FSPL). Attentuation limits
+     medium. When this medium is only air, the phenomenon is referred to as Free Space Path Loss. Attentuation limits
      the transmit range of a radio, and to transmit further it has to increase its transmission power.
 
      \subsection{Collisions in wireless technology}
@@ -30,17 +30,51 @@ Even if the surrounding environment is mostly open space, the wireless signal be
 
      \begin{figure}
      \center
-     \includegraphics[scale=0.3]{Images/Hiddenterminalfigure.jpg}
-     \caption{A and C sending to node B unknowingly at the same time, resulting in a collision}
+		 \subfloat[A and C transmitting unknowingly at the same time, resulting in a collision at B]{{\includegraphics[width=13cm]{Images/HiddenTerminal.png} }}%
+
+     \caption{The hidden terminal problem illustrated}
      \label{fig:hiddenterminal}
      \end{figure}
 
 
+\section{Network infrastructure}
+		\subsection{Basic Service Set}
+		A basic service set (BSS) in infrastruture mode consists of a single AP connected by wire to a distribution system (in residential deployment the distribution system is typically the ISP).
+		Stations within the basic service area, which is the area physically serveable by the AP, can connect to the BSS using dynamic access point association, described
+		in \cite{std80211}. A minimalist BSS infrastructure is illustrated in \ref{fig:basicserviceset}. It also worth mentioning that a BSS can also be configured to operate as an independent
+		basic service set, where there is no infrastructure in place (no APs), and communication is direct between stations. This is more commonly known as ad-hoc mode.
+		
+		One basic service set per household is the typical infrastructure in residential networks, but it is not uncommon to have multiple basic service sets in larger homes,
+		where APs are placed on different floors to have a better signal strength. Usually these APs have different service set identifiers (SSIDs), and each requires its own authentication.
+		This is because the APs are not under the same extended service set. 
+
+		 \begin{figure}
+			 \center
+			 \includegraphics[scale=1]{Images/BSS.png}
+			 \caption{Minimalist Basic Service Set in infrastructure mode}
+			 \label{fig:basicserviceset}
+		 \end{figure}
+
+		\subsection{Extended Service Set}
+		An extended service set (ESS) can consist of multiple basic service sets, and thereby APs. The extended service set is a logical entity which can extend station
+		authentication and association to all APs under the same extended service set. In an ESS the SSID of all APs are also identical. This means a STA can be in the basic service area of
+		multiple APs at the same time, and is given the opportunity to select which AP to be serviced by. APs in an ESS can operate on different channels, and the medium access control
+		mechanisms are performed as usual. Figure \ref{fig:extendedserviceset} illustrates the infrastructure of an extended service set.  
+
+		 \begin{figure}
+			 \center
+			 \includegraphics[scale=1]{Images/ESS.png}
+			 \caption{Extended Service Set}
+			 \label{fig:extendedserviceset}
+		 \end{figure}
+
+
      \section{MAC Layer}
+		 In this section parts of MAC layer of the 802.11 protocol is accounted for.  
      The 802.11 MAC layer implements the Carrier Sense Multiple Access / Collision Avoidance (CSMA/CA) protocol to control access to the medium.
-     The CSMA/CA protocol is designed to operate in an entirely distributed fashion, where all stations connected to the same BSS  operate on
+     The CSMA/CA protocol is designed to operate in an entirely distributed fashion, where all stations connected to the same basic service set operates on
      the same frequency without coordinated timeslots. As suggested by the name of the protocol, there are two basic operations in the CSMA/CA protocol:
-     \textbf{Carrier Sensing (CS)} and \textbf{Collision Avoidance (CA)}. 
+     \textbf{Carrier Sensing (CS)} and \textbf{Collision Avoidance (CA)}, both of which will be briefly covered.  
 
      \subsection{Carrier Sense}
      In 802.11, carrier sensing (CS) is done in two ways
@@ -99,7 +133,7 @@ CSMA/CA attempts to avoid collisions in a network layout that includes hidden te
 
 
 	\section{PHY Layer}
-	The physical layer in 801.11 is also divided in two sublayers. The upper sublayer is the Physical Layer Convergence Procedure (PLCP), responsible for CCA and acting
+	The physical layer in 801.11 is also divided in two sublayers. The upper sublayer is the Physical Layer Convergence Procedure (PLCP), responsible for clear channel assessment and acting
 	as a common interface for MAC layer drivers. The lower sublayer is the Physical Medium Dependent (PMD) which is responsible for modulation and directly interfaces with
 	the radio. It is responsible for transmitting the complete frames, and receive
 	and decode incoming frames. 
@@ -109,8 +143,7 @@ CSMA/CA attempts to avoid collisions in a network layout that includes hidden te
 	that consists of 3 parts. The preamble, the header and the frame from the mac layer
 	called MAC Service Data Unit (MSDU), see figure \ref{fig:PPDU}. The frame structure
 	has a long and short format, and changes a little bit for High Rate DSSS (HR-DSSS),
-	but contains mostly the same fields. As they are relevant for the thesis,
-	we will briefly summarize the fields in the preamble and header:
+	but contains mostly the same fields.
 
 	\begin{figure}
 	\center
@@ -167,11 +200,13 @@ CSMA/CA attempts to avoid collisions in a network layout that includes hidden te
 	\verb|ACK transmission time + SIFS + DIFS.| This is because the station that received the corrupt frame have no idea if any neighbouring station,
 	received it correctly, and is about to transmit an ACK-frame. Additionally
 	to waiting the minimum EIFS time, the station also has to wait for
-	an idle channel indication from the PLCP layer again. % The correct formula for EIFS is $DIFS + SIFS + lowest transmission time" 
+	an idle channel indication from the PLCP layer again.
+	
+	Interference can thus be severly damaging for QoS on wireless networks.   % The correct formula for EIFS is $DIFS + SIFS + lowest transmission time" 
 
 	\subsection{Countermeasures}
 	Several countermeasures to limit the impact of RF-interference has been suggested.
-	On the mac layer there is frame aggregation with individual headers.
+	On the MAC layer there is frame aggregation with individual headers.
 	Frame aggregation in 802.11n is a technique that wraps several payloads under the same
 	header and send them all when channel access is granted. This can improve the throughput
 	if the channel is clear, but if the frame gets corrupted during transmission
@@ -183,7 +218,7 @@ CSMA/CA attempts to avoid collisions in a network layout that includes hidden te
 	This means that only a few frames has to be retransmitted in case of corruption,
 	and not the entire aggregation. 
 
-	On the physical layer there are a couple of suggested countermeasures:
+	Additionally on the physical layer there are a couple of other suggested countermeasures:
 	\begin{itemize}
 	\item Changing the transmission power levels
 	\item Lowering data rates
@@ -191,8 +226,6 @@ CSMA/CA attempts to avoid collisions in a network layout that includes hidden te
 	\item Forward error correction
 	\item Changing packet sizes
 	\end{itemize}
-	[[Fylle ut om de forskjellige]]
-
 
 
 	\begin{wrapfigure}{R}{0.25\textwidth}
@@ -202,8 +235,8 @@ CSMA/CA attempts to avoid collisions in a network layout that includes hidden te
 	\end{wrapfigure}
 
 
-	It is shown that the previous countermeasures only have limited
-	impact, while changing the channel of an AP remains the most effective.
+	It is shown that the mentioned countermeasures only have limited
+	impact, while switching to a channel with less interference (if available) remains the most effective.
 	\cite{impactRF}. 
 	\section{Channels} 
 	802.11 b/g/n uses the range of frequencies from 2.400-2.500 GHz on the Industrial,
@@ -212,9 +245,6 @@ CSMA/CA attempts to avoid collisions in a network layout that includes hidden te
 	National Information Infrastructure (UNII) band, which offers more frequencies \cite{5ghz}.
 	Other than that the properties and challenges for the different bands are ultimately the same.
 	The distribution of the frequencies on the 2.4 GHz band to the different channels is illustrated by figure \ref{fig:channels}. The frequencies listed are the center frequencies of each channel. In practice this means that an AP that transmits on one channel will interfere with close channels in both directions. Two channels are entirely non-interfering if they send on two frequencies  $f_{1}$ and $f_{2}$ so that $|f_{1} - f_{2}| > 0.025$. This means that there are in total three completely non-overlapping channels, 1, 6 and 11. The process of deciding which channel to transmit on is called channel allocation. 
-	\section{Overview of Channel Allocation Algorithms}
-	There exists many different channel allocation algorithms, and we'll introduce some relevant
-	here. 
 
 
 

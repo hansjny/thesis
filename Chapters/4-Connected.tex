@@ -382,10 +382,11 @@ Even though the clusters in a static environment is slightly improved, the most 
 where all groups have converged. Where in the unmodified K-Nearest Neighbour Clustering algorithm there was no specific way to handle a new node in an environment of saturated groups
 with K-means splitting eventually new groups will be formed on the basis of the updated topology. The weakness of this approach is how ill suited it is to run in a distributed environment.
 It is trivial to simulate splits using K-means, as during a simulation the absolute coordinates of the nodes in the group are accesible. This is information unavailable for nodes under
-real circumstances. Hence some major adaptions would have to be made to get this to work in an implementation.
+real circumstances - the only available information is the approximiate point-to-point distance inferred from the RSSI scans.
+Hence some major adaptions would have to be made to get this to work in an implementation.
 One way to realize the algorithm would be to select a physical node as centroid instead of a virtual point. All nodes in sensing range of the surrounding area of
-the centroid node would know their distance to the centroid. Then, using a relay network to communicate internally in the group, figure out the approximate
-distance from all nodes not within sensing range of the centroid. It is unknown if such an approach would be accurate enough to work, or have a complexity that is conceivable to implement.  
+the centroid node would report the distance to the centroid to their n-hop neighbour using an overlay network to communicate internally in the group. The other nodes could
+then figure out their approximate distance to the centroid. It is unknown if such an approach would be accurate enough to work, or have a complexity that is conceivable to implement.  
 
 \begin{figure}
 	\centering
@@ -398,6 +399,20 @@ distance from all nodes not within sensing range of the centroid. It is unknown 
 
 
 \subsection{Minimum Cut}
+
+\begin{figure}
+	\centering
+		\subfloat[Uniform]{{\includegraphics[width=6cm]{Images/computations/MINCUT500_500.png} }}%
+		\qquad
+		\subfloat[Forks]{{\includegraphics[width=6cm]{Images/computations/MINCUT_FORKS.png} }}%
+		\newline
+		\subfloat[Lillehammer]{{\includegraphics[width=6cm]{Images/computations/MINCUT_LILLEHAMMER.png} }}%
+		\qquad
+		\subfloat[Tynset]{{\includegraphics[width=6cm]{Images/computations/MINCUT_TYNSET.png} }}%
+		\caption{Minimum cut algorithm splitting on different topologies}%
+		\label{fig:knearest}%
+\end{figure}
+
 
 
 \section{Evaluation}

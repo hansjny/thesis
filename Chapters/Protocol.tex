@@ -1,8 +1,9 @@
-\chapter{Group communication and state synchronization}
-In the previous chapters we have suggested an algorithm for how groups can be formed.
-In this chapter we will focus on the algorithms and protocols required to enable communication between access points and ultimately groups.
-There has already been done some work on the subject of access point communication over IP, and we can also rely on previous work in the field
-of distributed consensus to ensure synchronized group states. We will consider these technologies and suggest a protocol that stitches all required components together. 
+\chapter{Communication protocol and state synchronization}
+This chapter is dedicated to the specification, design and implementation criteria of the Distributed Group Creation Protocol (DGCP).
+While in the previous chapters it has been suggested an algorithm for how groups can be formed, in this chapter the focus shall be on the technology and protocols required
+to enable communication between access points, - and ultimately groups. There has already been done some work on the subject of access point communication over IP,
+and previous work in the field of distributed consensus can be used to ensure synchronized group states. In this chapter these technologies will be covered and considered,
+and finally a protocol sketch that stitches all required components together will be suggested. 
 
 
 \section{Problem overview}
@@ -16,11 +17,74 @@ A number of assumptions were made before we suggested an algorithm. Two of the a
 In this chapter we shall attempt to handle these issues to create a more complete scheme for group creation in a distributed environment.
 
 \section{Enabling technologies}
-When creating the protocol, there is need for some some already well-researched technology as a foundation. Raft \cite{raftio} is a technology created to simplify distributed consensus, and
-ResFi is a technolohy create to enable communication over IP between access point. This section will briefly introduce these. 
+When designing a protocol that enables group communication, there is need for some some already well-researched theory and technology as a foundation. There are already enough
+considerations to take when designing an architecture like this, and there is no need to reinvent the wheel where there is already done a good amount of research. 
+Raft \cite{raftio} will be used for state synchronzation. Raft is a distributed consensus protocol and provides the equivalent degree of fault-tolerance as the Paxos \cite{lamport2001paxos} protocol family.
+ResFi is a protocol used to enable communication over IP between adjacent access points. This section is dedicated to briefly introduce these protocols. 
 \subsection{Distributed consensus with Raft}
 \subsection{Access point communication with ResFi}
+This subsection is dedicated to briefly describe how ResFi operates, and to cover why and how it is a protocol that can be taken advantage of in the Distributed Group Creation Protocol. 
+
+ResFi is a protocol framework that supports creation of radio resource management in legacy residential networks. ResFi is intented to be used in  a chaotically deployed landscape of acccess points,
+which is similar to the intentions of the group creation in this thesis. It enables the creation of secure point-to-point communication channel over IP through wired backhaul network. 
+Point-to-point in this context means APs that are directly adjacant (or neighbouring APs as it has been referred to in the group creation chapter).
+It also supports secure broadcast via n-hop communication. A brief account of the sequential steps of the ResFi standard mode of operation follows,
+the more thorough explanation can be find in the ResFi paper \cite{resfi} under chapter \textit{IV. Detailed Specification}.
+
+\begin{enumerate}
+	\item When an AP ($a$) is booted, a symmetric group key is created, along with an RSA key-pair. 
+	\item $a$ scans all 802.11 channels for neighbouring APs. For each AP it finds, $a$ sends out a probe request that contains its public IP and public RSA key. It also includes
+		the symmetric group key. As a response to the probe request it receives a probe response containing the equivalent information for each neighbour. 
+	\item When the exhchange has happened, $a$ subscribes to the publish sockets of all the neighbouring nodes using the IP received in step 2. Each neighbour in turn subscribes to $a$'s
+		publish sockets as well. This makes it possible for each AP to broadcast messages to all subscribed neighbours,
+		or create a unicast session key between one specific AP to enable secure and bidirectional unicast communication.
+\end{enumerate}
+
+ResFi has a north-bound framework API that lets application running on the AP use ResFi's features through an API, without doing direct modifications to the implementation. All communication happens
+in the JSON-format. Table \ref{tab:resfapi} shows which functions are available in the north-bound API, original table also including the south-bound API functions can be found in \cite{resfi} table 1.
+
+\begin{table}[h]
+	\small
+	\resizebox{\textwidth}{!}{%
+		\begin{tabular}{|l|l|}
+			\hline
+			sendToNeighbor(ap\_id, message) & \makecell[l]{Sends a message to an ap with id ap\_id. Message is in JSON format.\\The message is encrypted using the symmetric unciast session key.} \\
+			\hline
+			sendToNeighbors(msg, TTL) & \makecell[l]{Sends a message to all neighbours.\\Will be flooded out to n-hop neighbours, where n = TTL.} \\
+			\hline
+			getNeighbour() & List all neighbour AP IDs \\
+			\hline	
+			regCallbacks(newMessage, newNode, nodeDC) & \makecell[l]{Registers callback functions for the events new message,\\new neighbour node, and node disconnected. } \\
+			\hline
+			registerNewApplication(name) & \makecell[l]{Registers a new application with ResFi.\\Names are used to separate different applications.}\\
+			\hline
+			getResFiCredentials(param) & \makecell[l]{If param is 1, it return the public IP of the AP,\\ and if param is 2 it returns the public RSA key}\\
+			\hline
+			usePrivateRSAKey(data, mode) & \makecell[l]{Uses RSA key on tjhe data. If the mode is 1, it computes\\the signature of the data, if mode is 2 it assumed the\\data is encrypted and
+																									decrypts it with the key.} \\
+			\hline
+		\end{tabular}}
+		\caption{ResFi north-bound API}
+		\label{tab:resfapi}
+\end{table}
+
+%\begin{table}
+%\centering
+%\begin{tabular}{l | r}
+%apifunctioncall() & descriptiong of the fuckin shit \\
+%apifunctioncall() & descriptiong of the fuckin shit \\
+%apifunctioncall() & descriptiong of the fuckin shit \\
+%\end{tabular}
+%\end{table}
 
 \section{Protocol design}
+\subsection{Requirements and assumptions}
+\begin{itemize} 
+	\item ResFi and Raft are both the consensus protocol and the protocol that enables point-to-point communication over the backhaul network should
+		be replacable
+	\item The protocol should be robust enought to handle edge-cases like power outages.
+	\item Security research on this topic could be addressed in a master thesis on its own, so we will only rely on the security that ResFi provides, and not focus on intentional 
+		malicious actions.
+\end{itemize}
 
 \section{Protocol implementation}

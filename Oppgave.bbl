@@ -191,6 +191,34 @@
       \verb https://www.cisco.com/c/en/us/solutions/collateral/service-provider/visual-networking-index-vni/complete-white-paper-c11-481360.html
       \endverb
     \endentry
+    \entry{std80211}{article}{}
+      \name{author}{2}{}{%
+        {{hash=c4a5d942ab74a6e72c31f3bd81c193f2}{%
+           family={Cole},
+           family_i={C\bibinitperiod},
+           given={Terry\bibnamedelima L.},
+           given_i={T\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=6f10b737c5c2de5e4ce66daa235caf11}{%
+           family={Barber},
+           family_i={B\bibinitperiod},
+           given={Simon.\bibnamedelimi eds.\bibnamedelimi (2007)},
+           given_i={S\bibinitperiod\bibinitdelim e\bibinitperiod\bibinitdelim (\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Piscataway, NJ: Institute of Electrical}%
+        {Electronics Engineers}%
+      }
+      \strng{namehash}{fd1ad02ea3731c9f0ea773394362fe01}
+      \strng{fullhash}{fd1ad02ea3731c9f0ea773394362fe01}
+      \field{sortinit}{C}
+      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-7381-5656-6}
+      \field{journaltitle}{Local and Metropolitan Area Networks, Specific Requirements, IEEE Standard for Information technology— Telecommunications and information exchange between systems.}
+      \field{title}{Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (IEEE Std 802.11-2007)}
+      \field{year}{2007}
+    \endentry
     \entry{Python3}{misc}{}
       \name{author}{1}{}{%
         {{hash=e916da348163d73c23a44e14dd07cb27}{%
@@ -345,6 +373,30 @@
       \verb http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf
       \endverb
       \keyw{ecma,json}
+    \endentry
+    \entry{lamport2001paxos}{article}{}
+      \true{moreauthor}
+      \true{morelabelname}
+      \name{author}{1}{}{%
+        {{hash=5d77435450d10a850a5b58577b9a456b}{%
+           family={Lamport},
+           family_i={L\bibinitperiod},
+           given={Leslie},
+           given_i={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{0703c25783b9b45b0fdc5cf5765a34af}
+      \strng{fullhash}{0703c25783b9b45b0fdc5cf5765a34af}
+      \field{sortinit}{L}
+      \field{sortinithash}{872351f18d0f736066eda0bf18bfa4f7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ACM Sigact News}
+      \field{number}{4}
+      \field{title}{Paxos made simple}
+      \field{volume}{32}
+      \field{year}{2001}
+      \field{pages}{18\bibrangedash 25}
+      \range{pages}{8}
     \endentry
     \entry{agglomerative}{article}{}
       \name{author}{1}{}{%
@@ -523,6 +575,41 @@
       \verb{url}
       \verb http://dl.acm.org/citation.cfm?id=2643634.2643666
       \endverb
+    \endentry
+    \entry{Sharma}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=9bb3fc54e09278396d6bf947539898ca}{%
+           family={Sharma},
+           family_i={S\bibinitperiod},
+           given={Navin\bibnamedelima Kumar},
+           given_i={N\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Terromolinos, Spain}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{9bb3fc54e09278396d6bf947539898ca}
+      \strng{fullhash}{9bb3fc54e09278396d6bf947539898ca}
+      \field{sortinit}{S}
+      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 4th ACM International Workshop on Mobility Management and Wireless Access}
+      \field{isbn}{1-59593-488-X}
+      \field{series}{MobiWac '06}
+      \field{title}{A Weighted Center of Mass Based Trilateration Approach for Locating Wireless Devices in Indoor Environment}
+      \field{year}{2006}
+      \field{pages}{112\bibrangedash 115}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1145/1164783.1164804
+      \endverb
+      \verb{url}
+      \verb http://doi.acm.org/10.1145/1164783.1164804
+      \endverb
+      \keyw{Kalman filter,RSSI,attenuation,center of mass,trilateration}
     \endentry
     \entry{virtues}{article}{}
       \name{author}{1}{}{%

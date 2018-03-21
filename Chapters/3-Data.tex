@@ -1,33 +1,38 @@
 \chapter{Data acquisition and structure}\label{dataacc}
-In this chapter we will consider how we can develop a tool that generates and visualizes the layout of network topologies based on constructed, artificial data and real, mined data.
-We will have great need for both artificial and real data in chapter \ref{chap:clustering} where we consider algorithms that enables distributed clustering of access points. This chapter also covers the storing of the data in question, how to structure it and visualize it both correcly and meaningfully in a web application. 
+In this chapter a tool that generates and visualizes the layout of network topologies based on constructed, artificial data and real, mined data, is presented. 
+There will be great need for both artificial and real data in chapter \ref{chap:clustering} where algorithms that enables distributed clustering of access points are considered.
+This chapter also covers the storing of the data in question, how to structure it and visualize it both correcly and meaningfully in a web application. 
 
 \section{Motivation}
-The data mining is important as we don't have the time nor the resources to organize a large enough testbed to purposefully evaluate the algorithms and suggestions that we will look at in the 
-consecutive chapter. A sufficient testbed would require a large amount of routers (100-200 for a low scale test) in a small geographical area, preferably installed in 
-residential apartment buildings. Not only would the creation of such a testbed require a lot of physical equipment, but there is also a lot of logical challenges 
-that would have to be overcome, such as communication protocols and distributed consensus. These are problems we will address in chapter \ref{chap:distr}.
-While said challenges could be overcome, going directly from a concept idea to a large tesbed without having any empirical indication of which approaches have merit, is 
-hardly advisable. Hence we gather data with the motivation of being able to perform realistic calculations and simulations, and with that enhance the believability of the results produced. 
+The data mining is important as for this thesis there is neither enough time nor resources to organize a large enough testbed to purposefully evaluate the
+algorithms and suggestions that is looked upon in the consecutive chapter. A sufficient testbed would require a large amount of routers (100-200 for a low scale test)
+in a small geographical area, preferably installed in residential apartment buildings. Not only would the creation of such a testbed require a lot of physical equipment,
+but there is also a lot of logical challenges that would have to be overcome, such as communication protocols and some sort of distributed consensus or synchronization.
+These problems are addressed in chapter \ref{chap:distr}. While said challenges could be overcome, going directly from a concept idea to a large testbed
+without having any empirical indication of which approaches have merit, is hardly advisable. Hence the data is gathered with the motivation of being able to perform realistic
+calculations and simulations, and thus also enhance the quality of the results produced. 
 
 \section{Requirements}
-SSID, current channel frequency, radio power, physical data rate and supported 802.11 standards are just a few properties of a single real-life access point.
-We are going to represent such access points in our network topology, but the access points we are representing will not be in the transmission (CSMA/CA) state where
-most of theese properties are used. Our access points are in a state we can call the \textit{group discovery state}, where the goal is to find or create a group to be a part of
-so that a channel can be assigned before transmission happens. Hence, to perform our computations, we don't have to consider many of these properties.
-Actually, we will only store each access point's SSID, because this is a practical way to uniquely identify them \footnote{In the real world this is of course not the case,
-but we will enforce it in our computations. We could just as well call it a unique id.},  and the the list of other access points that can be seen through a WLAN scan with
-and their observed signal strength. These are the only metrics we require, but unfortunately there is no publicly available data source that contains the subjective radio scans
-of a large amount of access points in the same area.
+SSID, channel frequency, radio power, physical data rate and supported 802.11 standards are just a few properties of a single real-life wireless access point.
+Access points are going to be represented in the network topology, but the access points will not be in the transmission (CSMA/CA) state where
+most of these properties are used. The access points are in a state we will call the \textit{group discovery state}, where the goal is to find or create a group to be a part of. 
+As previously mentioned, the ultimate purpose of creating a group is to enable collaboration between access points to create a close-to optimal channel plan. The channel allocation algorithm
+itself is not within the thesis scope - instead the focus shall be on the creation and discovery of the collaborative groups themselves.
 
-As a basis for our simulation we will represent nodes on a two-dimensional grid. Each dataset has to contain a set of nodes with two coordinates $x$ and $y$ so they can
-positioned on the grid. When the nodes are placed on the grid they represent a network topology
-and it will be possible to compute an estimation of which nodes can hear each other on the radio, and add these to each node's SSID-scan list.
-This list contains the names of all the nodes it can hear, and how loud it is heard measured in $-dBi$.
-Additionally the following parameters should be variable depending on each test scenario:
+To perform computations for group creation and discovery, many of the aforementioned properties does not have to be considered. .
+Actually, it is only necessary store each access point's SSID, as this is a convenient way to provide a unique identification handle \footnote{In the real world this is of course not the case,
+but we will enforce it in the computations. Actually it could just as well be called an unique id.}, and the the list of other access points that can be seen through an RSSI scan with
+their observed RSSIs. These are the only required metrics. Unfortunately there is at the time of writing no publicly available data source that contains the subjective radio scans
+of a large amount of access points which are located in the same area.
+
+As a basis for the simulation access points, or nodes, will be placed on a two-dimensional grid. Each dataset has to contain a set of nodes which has two coordinates $x$ and $y$,
+giving them a position on the topology grid. When the nodes are placed on the grid they represent a network topology, and it will then be possible to compute an
+estimation of which nodes can hear each other on the radio. In other words, a virtual RSSI scan. All observed \textit{neighbour nodes} will be added to each node's RSSI-scan neighbour list.
+This neighbour list contains the names of all the nodes it can hear, and the RSSI levels measured in $-dBi$.
+Additionally the following parameters are variable depending on each test scenario:
 
 \begin{itemize}
-	\item Topology size with the possibility to give variable width of x- and y-axis as input arguments. These unit of the axes is meters.
+	\item Topology size with the possibility to give variable width of x- and y-axis as input arguments. These unit of the axes is meters. 
 	\item Number of nodes to place on the topology
 	\item Minimum distance between nodes (in meters). This is only to avoid unlikely placement and extreme interference of nodes that are placed on top of each other. 
 	\item Minimum loudness measured in $-dBi$ for a node to account another node as a neighbour (e.g -100 is too low for anyone to hear).
@@ -41,12 +46,12 @@ Additionally the following parameters should be variable depending on each test 
 	and randomly positioned on the network topology. The size of the topology, the number of nodes and the minimum distance
 	between nodes are properties that are passed as input arguments to the program.
 
-	The second functionality is performing the calculation of which nodes can actually hear each other over the radio.
-	We are assuming all nodes	are transmitting with equal strength, and that the environment is flat and obstacle free. 
+	The second functionality is performing the calculation of which nodes can actually observe each other over the radio.
+	In all proceeding simulations it is assumed that all nodes are transmitting with equal strength, and that the environment is flat and obstacle free. 
 	All the neighbouring nodes that can be heard by a node, is added to its list of neighbours, and it stores the $-dBi$ value so it later can be shared with
-	the group. The interference levels between access points are calculated by iterating through every access point. For each node $N$ we record its x and y position,
-	and then start a second iteration through the nodes. For each node $n$ in the second iteration we calculate the distance $d$ in
-	meters between $N$ and $n$ using Euclidean distance. The formula for isotropic antennas is described by Friis \cite{Friis46}, and can be used to
+	the group. The interference levels between access points are calculated by iterating through every access point. For each node $N$ its x and y position is recorded,
+	and then a second iteration through the nodes is initiated. For each node $n$ in the second iteration the distance $d$ in
+	meters between $N$ and $n$ using Euclidean distance is calculated. The formula for isotropic antennas is described by Friis \cite{Friis46}, and can be used to
 	derive the formula for free space path loss \cite{FSPL} that is as follows:
 \[
 	FSPL(dB) = 10\log_{10} \left( \frac{ (4 \pi f d)}{c} ^2 \right) 
@@ -56,7 +61,7 @@ Additionally the following parameters should be variable depending on each test 
 \[
 	FSPL(dB) = 20\log_{10}\left( f \right)  + 20\log_{10} \left(d\right) - 27.55
 \]	
-	As we have to compute the distance from all nodes to every other node, the topology generation program has $O(n^2)$ complexity. A simplified version of the code
+	As the distance from all nodes to every other node has to be computed, the topology generation program has $O(n^2)$ complexity. A simplified version of the code
 	can be seen in figure \ref{fig:dbiCreation}. 
 
 	The resulting program, written in Python 3\cite{Python3}, contains an importable \textit{topology class}. This way, for further testing we can use different data
@@ -135,8 +140,8 @@ Which instructs the program to create a topology with 500 nodes. The topology sh
 between each node. The $dbi$ parameter makes sure that only nodes which can be heard with a $-dBi$-value of $-85$ or larger should appear in the neighbour list. 
 The output from this specific run is a 23.2 MB large file containing the resulting topology-data in JSON.
 
-By writing a simple HTML and JavaScript browser application, we can parse the JSON and visually represent the nodes on a grid.
-The result will look like what can be seen in figure \ref{fig:randtop}
+By writing a simple HTML and JavaScript browser application, the JSON can easily be parsed and visually represent the nodes on a grid.
+The result after creating a topology and visualizing in the web applications can be seen in figure \ref{fig:randtop}
 
 \begin{figure}[h]
 \center
@@ -147,33 +152,49 @@ The result will look like what can be seen in figure \ref{fig:randtop}
 
 \section{WiGLE}
 WiGLE (Wireless Geographical Logging Engine) \cite{wigle} is a project started in 2001 which purpose is to gather information about wireless networks. All the information
-they collect is user submitted stored in their database. Anyone can download an Android app developed and published by WiGLE, and use the app for wardriving,
-\footnote{Wardriving is the act of tracking wireless networks using a laptop or a phone,	and then store the information about each network.},
-	then submit the data to WiGLE's centralized database. The APs discovered can be viewed on an interactive map provided on WiGLE's website. 
-	All the data can also be accessed through a public API which is especially interesting for us. Using their service is entirely free, but the
+they collect is user submitted stored in their database. Anyone can download an Android app developed and published by WiGLE, and use the app for wardriving\footnote{Wardriving is the act of tracking wireless networks using a laptop or a phone,	and then store the information about each network.},
+	then submit the data to WiGLE's centralized database. The APs discovered can be viewed on an interactive map provided on WiGLE's website as seen in figure \ref{fig:wigfig} 
+	All the data can also be accessed through a public API. Using their service is entirely free, but the
 	amount of data that can be requested is throttled on a day-to-day basis. In the FAQ section on the website its written that the project openly supports research projects, 
-	so after contacting them they upgraded the account we will be using for the data requests to a higher daily data quota.
+	so after contacting them they upgraded the account to a higher daily data quota. This is needed for the data requests to fetch the topologies of interest. 
 
-	As the physical location of each access point is estimated using weighted-centroid trilateration, 
-	we can fetch the estimated position of each access point. However, the location data is not necessarily always accurate: if the measurements of an access point signal
-	strength is done in multiple places (in a way that a line between the measurement locations surrounds the access point), the access point location becomes very precise. 
-	On the other hand, if the measurements are taken on only one side of the access point, the measurements are heavily shifted towards that side. {{figure?}} 
-	
-	Even though the data is not perfect, it is more suited to impersonate the layout of real-life network topologies and give us a better understanding of how what access point
+\begin{figure}[h]
+	\center
+	\includegraphics[scale=0.35]{Images/wigle.png}
+	\caption{WiGLE map of Wi-Fi networks observed in Oslo from 2017-2018}
+	\label{fig:wigfig}
+\end{figure}
+
+
+	As the physical location of each access point is estimated by WiGLE using weighted-centroid trilateration \cite{Sharma}, the location data is not necessarily always accurate:
+	if the measurements of an access point signal strength is done in multiple places (in a way that a line between the measurement locations surrounds the access point),
+	the access point location becomes very precise. On the other hand, if the measurements are taken on only one side of the access point,
+	the measurements are heavily shifted towards that side. This tendency can be observed
+	when zooming in on many Norwegian towns where most access points seem to be positioned on the road. This is obviously not right, but as most observations
+	are most likely are done from the road when wardriving, this happens frequently. Figure \ref{fig:wiglediff} illustrates the big difference multiple observation points can make.
+
+\begin{figure}
+	\centering
+		\subfloat[Few observation points in Ski, Norway]{{\includegraphics[width=6cm]{Images/wigleSki.png} }}%
+		\qquad
+		\subfloat[Several observations points in Manhattan, New York]{{\includegraphics[width=6cm]{Images/wigleNy.png} }}%
+		\caption{WiGLE accuracy}%
+		\label{fig:wiglediff}%
+\end{figure}
+
+	Even though the data is not perfect, it is suited to impersonate the layout of real-life network topologies and give us a better understanding of how what access point
 	clustering would look like in real-life. 
-
-
 
 	\subsection{REST API}
 	WiGLE has a REST API that can be used to retrieve information from their database. The API responds to requests with JSON data. It gives access to a
 	number of services such as user profile management, large-scale statistical information about the collected data
 	and more specific network searches. An interactive guide to the public API is available at \cite{WigleAPI}. 
 
-	We are going to mine data for the topology generation program, hence the network search service is all we are interested in. There are several ways an access point can be retrieved using
-	the network search. We can query specific SSIDs, a range of coordinates, only APs with a minimum signal level, or only query networks that are free to use. As 
-	we are only rebuilding the network topology to fit our tailored data structure, we will consider all access points and not filter on any parameters except for coordinates.
+	To retrieve data for the topology generation progam, the only required part of the API is the network search service. There are several ways an access point can be retrieved using
+	the network search. For instance specific SSIDs can be queried, a range of coordinates, APs with a minimum signal level, or only query networks that are free to use. As 
+	we are only rebuilding the network topology to fit the previously tailored data structure, all access points will be considered, and no filter parameter filters applied, except for coordinates.
 	By issuing an API a request for nodes between two latitudes and two longitudes, the response is an array with AP objects within that area.  
-	A request will look something like what can be seen in figure \ref{fig:wigReq}.
+	An API request will look something like what can be seen in figure \ref{fig:wigReq}.
 	\begin{figure}
 	\scriptsize
 	\begin{lstlisting}[breaklines]
@@ -184,9 +205,9 @@ they collect is user submitted stored in their database. Anyone can download an 
 	\end{figure}
 
 	The parameters $latrange1$ and $longrange1$ are the coordinates that marks the beginning of the area we are interested in and $latrange2$ and $longrange2$ marks the end. 
-	We want information about the position of all access points within this range, however WiGLE returns at most 100 results per query. If there are more than 100 access points, we need to change the $start$
-	parameter. This parameter tells WiGLE at which offset we want to begin fetching data from. For instance a start value of $0$ means we fetch the first 100 access points, with indexes 0-99. A value of $100$ means that
-	we fetch the next 100 APs in the range $100-199$ and so on. The JSON response for a succesful request for one AP can be seen in figure \ref{fig:wigle}. 
+	To be meaningfully create a network topology based on the API request, information about \textit{all} access points within this range is desired. Alas, as it happens
+	WiGLE returns at most 100 results per query. This means if there are more than 100 access points, the $start$
+	parameter has to be changed. This parameter tells WiGLE at which offset we want to begin fetching data from. For instance a start value of $0$ means we fetch the first 100 access points, with indexes 0-99. A value of $100$ means that the next 100 APs in the range $100-199$ is fetched, and so on. The JSON response for a succesful request for one AP can be seen in figure \ref{fig:wigle}. 
 
 	\begin{figure}[h]
 
@@ -219,18 +240,17 @@ they collect is user submitted stored in their database. Anyone can download an 
 \label{fig:wigle}
 \end{figure}
 
-The JSON-object in the response contains quite a lot of information about all of the APs retrieved. We wont be using most of this data, but it is worth noting that some of it could be used to perfect the search. For instance the last updated parameter could
-be a way to refine the access points retrieval, so that access points that has been long gone is not taken into consideration. The most valueable properties for us is $trilong$ and $trilat$. As the names suggest these contain the position calculated
-by the weighted-centroid triliteration. 
+The JSON-object in the response contains quite a lot of information about all of the APs retrieved. Most of this data is redundant information, but it is worth noting that some of it could be used to perfect the search. For instance the last updated parameter could
+be a way to refine the access points retrieval, so that access points that has been long gone is not taken into consideration. The most valueable properties for us is $trilong$ and $trilat$. As the names suggest these contain the position calculated :wby the weighted-centroid triliteration. 
 
 \subsection{The Haversine Formula}
 As seen in the previous section, WiGLE provides data about the location of access points and a way for us to retrieve this data in a usable format. 
 At this point we could create a program that operates directly on the longitudes and latitudes retrieved.
-This program would also need to be able to use the FPSL formula on global coordinates to compute the radio scans of each AP,
+This program would also need to be able to use the FPSL formula on coordinates to compute the radio scans of each AP,
 and to properly visualize the data we would have to reinstall the nodes on a globe. This implementation requires a lot of extra labour, and seems especially
 redundant when we already have a working program that already has the aforementioned functionality.
 The problem is that our previous work relies on a two dimensional Cartesian coordinate system.
-To be able to reuse what we have have already built, the geographic coordinates has to be translated into coordinates in Euclidean space.
+To be able to reuse what we have have already built with, the geographic coordinates has to be translated into coordinates in Euclidean space to improve the accuracy.
 
 The haversine formula \cite{virtues} is used to accurately compute the great-circle distance between two global coordinates.
 
