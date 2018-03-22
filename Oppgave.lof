@@ -60,36 +60,48 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Tynset}}}{37}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.4}{\ignorespaces K-means splitting on different topologies\relax }}{40}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Simplified illustration of the idea behind splitting. K = 2\relax }}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Uniform}}}{40}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Two neighbouring nodes}}}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Forks}}}{40}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {A and B merges. A third node appears}}}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Lillehammer}}}{40}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {All nodes joined in transient group}}}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Tynset}}}{40}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Splitting to reduce group size}}}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Comparison with and without K-means splitting on Tynset\relax }}{41}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces K-means splitting on different topologies\relax }}{41}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Without K-means splitting}}}{41}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Uniform}}}{41}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {With K-means splitting}}}{41}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Forks}}}{41}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Comparison with and without K-means splitting on uniform distribution\relax }}{42}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Lillehammer}}}{41}
+\defcounter {refsection}{0}\relax 
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Tynset}}}{41}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Comparison with and without K-means splitting on Tynset\relax }}{42}
 \defcounter {refsection}{0}\relax 
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Without K-means splitting}}}{42}
 \defcounter {refsection}{0}\relax 
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {With K-means splitting}}}{42}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Minimum cut algorithm splitting on different topologies\relax }}{43}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Comparison with and without K-means splitting on uniform distribution\relax }}{43}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Uniform}}}{43}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Without K-means splitting}}}{43}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Forks}}}{43}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {With K-means splitting}}}{43}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Lillehammer}}}{43}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Flowchart of the minimum cut implementation for splitting\relax }}{46}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Tynset}}}{43}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Minimum cut algorithm splitting on different topologies\relax }}{47}
+\defcounter {refsection}{0}\relax 
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Uniform}}}{47}
+\defcounter {refsection}{0}\relax 
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Forks}}}{47}
+\defcounter {refsection}{0}\relax 
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Lillehammer}}}{47}
+\defcounter {refsection}{0}\relax 
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Tynset}}}{47}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }

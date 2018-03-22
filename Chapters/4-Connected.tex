@@ -243,28 +243,28 @@ for node in topology: //Initialize groups
 while True: //Run as long as there are changes
 	changes = 0;	
 	for group in allGroups: 
-		globalMaxDbi = -INFINITE
-		globalClosestNode = None
+		groupMaxDbi = -INFINITE
+		groupClosestNode = None
 
 		for node in group:
-			localMaxDbi = -INFINITE
-			localClosestNode = None
+			nodeMaxDbi = -INFINITE
+			nodeClosestNode = None
 
 			for neighbour in node.neighbours:
-				if neighbour.dbi > localMaxDbi:
-					localMaxDbi = neighbour.dbi
-					localClosestNode = neigbour
+				if neighbour.dbi > nodeMaxDbi:
+					nodeMaxDbi = neighbour.dbi
+					nodeClosestNode = neigbour
 
-			if (localMaxdbi > globalMaxDbi):
-				globalMaxDbi = localMaxDbi
-				globalclosestnode = localclosestnode:
+			if (nodeMaxdbi > groupMaxDbi):
+				groupMaxDbi = groupMaxDbi
+				groupClosestNOde = nodeClosestNode:
 
-		var groupToMergeWith = globalclosestnode.group
+		var groupToMergeWith = groupClosestNode.group
 		if (length(group.members) + length(groupToMergeWith.members)) < K:
 			var newGroup = new Group()
-			newgroup.members = group.members + mergeWith.members
+			newgroup.members = group.members + groupToMergeWith.members
 			allGroups.append(newgroup)
-			allGroups.remove(mergeWith)
+			allGroups.remove(groupToMergeWith)
 			allGroups.remove(group)
 			changes = 1
 	if (changes == 0):
@@ -280,7 +280,7 @@ We can not always accept merges, else we would end up with a group that spanned 
 referred to as K. If the sum of members in two groups that wants to merge exceeds K, the merge is aborted and no changes is reported to have happened for either group. 
 This means that the simulation algorithm converges when no groups remain that are small enough to merge with another.
  
-\subsection{Results of on different topologies}
+\subsection{Results on different topologies}
 Figure \ref{fig:knearest}a shows the result of running the K-Nearest Neighbour Clustering algorithm on a uniform distribution topology, while figures \ref{fig:knearest}b, \ref{fig:knearest}c, \ref{fig:knearest}d shows the resulting clusters after running it on topologies on citites and towns collected by WiGLE. The different node colors indicate different group memberships.
 
 
@@ -313,12 +313,32 @@ there are distinct clusters that encompasses the closest nodes. However, there a
 In the next section we will look at how we can use group splitting to create a solution for these problems. 
 
 
-\section{Introducing splitting}
-To improve the K-Nearest Neighbour Clustering algorithm suggested in the previous section, we can introduce the notion of group splitting. By letting one cluster merge with another without knowing
-if the merge is mutually beneficial, we are also accepting that not all merges will be optimal. A way to increase the chance of a group ending up with nodes that impacts each other severely
-would be to accept merges that result in groups larger than K. The group would be too large, but more likely to have the opportunity to merge with the nodes of highest impact. 
-To reduce the group size back to K, the least impactful nodes would have to be kicked out of the group. This is what we call group splitting. 
-This section is dedicated to two different suggestions of how a group could be split. 
+\section{K-means splitting}
+In this section the the concept of group splitting will be introduced. Group splitting is thought to improve the K-Nearest Neighbour Clustering algorithm suggested in the previous section.
+Moreover, this section is dedicated to the introduction, simulation and evaluation of one of the two split approaches that will be taken in the thesis.
+
+\subsection{Group splitting}
+An implication created by letting one cluster merge with another without knowing if the merge is mutually beneficial, is that not all merges will be optimal.
+A way to increase the likelihood of a group ending up with the neighbouring nodes that impacts each other severely would be to accept merges that result in groups larger than K, the maximum size. 
+The group would be too large, but more likely to have the opportunity to merge with the nodes of highest impact. To reduce the group size back to K,
+the least impactful nodes would have to be kicked out of the group. This is what we call group splitting. A simplified illustration of the basic concept is shown in figure \ref{fig:splitting},
+where the maximum group size is 2 and two neighbouring nodes join to reach the maximum group size. A third, more impactful node appears, and is included in a transient group
+before the least disturbing node is kicked out to get the group size back to K. 
+
+\begin{figure}
+	\centering
+		\subfloat[Two neighbouring nodes]{{\includegraphics[width=6cm]{Images/mergestep1.png} }}%
+		\qquad
+		\subfloat[A and B merges. A third node appears]{{\includegraphics[width=6cm]{Images/mergestep2.png} }}%
+		\newline
+		\subfloat[All nodes joined in transient group]{{\includegraphics[width=6cm]{Images/mergestep3.png} }}%
+		\qquad
+		\subfloat[Splitting to reduce group size]{{\includegraphics[width=6cm]{Images/mergestep4.png} }}%
+		\caption{Simplified illustration of the idea behind splitting. K = 2}%
+		\label{fig:splitting}%
+\end{figure}
+
+
 
 \subsection{Introduction to K-means}
 K-means is a clustering algorithm commonly used for classification purposes in machine learning, usually in the context of unsupervised learning. K-means
@@ -328,25 +348,28 @@ K (hence K-means).
 K centroids are randomly placed somewhere in the data set, then the distance between each data point and each centroid is computed. All data points
 closest to the same centroid becomes part of the same cluster set. When all data points are associated with a cluster, each cluster computes the mean position of all its data points.
 The value of the mean position becomes the location of the new centroids. When all the new centroids are computed, one iteration is over. The algorithm continues until the position 
-of all centroids remains unchanged after an iteration. When the position of the centroids are the same two iterations in a row, it means that the solution has converged and all K-clusters has been identified. 
+of all centroids remains unchanged after an iteration. When the position of the centroids are the same two iterations in a row, it means that the solution has converged and all K-clusters has been identified \cite{mackaymeans}.
 
 A well known problem with K-means is that the result strongly depends on how the algorithm is initiatied. This problem can be reduced by running K-means several times
 and choosing the best result of all the runs. 
 
 \subsection{K-means splitting}
-K-means clustering is not directly applicable to solve our original clustering challenge. The reason we can not use K-means as the clustering algorithm is because the distributed nature of
-the nodes and groups. Indeed, a vanilla implementation of K-means requires an extensive overview of the surrounding network topology. Our groups are limited to knowing about their members
-and their neighbours. It would also be hard to choose a suitable K. Nontheless, K-means could still potentially help us create better groups. Let us consider the following.
-We extend the K-Nearest Neighbour Clustering so groups are allowed to merge into a transient group if it exceeds the given maxsize.
+K-means clustering is not directly applicable to solve the clustering challenge in this thesis. The simple reason being the distributed nature of
+the nodes and groups. Indeed, a vanilla implementation of K-means requires an extensive overview of the surronding, if not entire, network topology.
+The groups are so far limited to knowing about their members and their neighbours. It would also be hard to choose a suitable K. 
+
+Nontheless, K-means could still potentially help us create better groups. Let us consider the following.
+By extending the K-Nearest Neighbour Clustering so groups are allowed to merge into a transient group if it exceeds the given maxsize.
 The purpose of the large transient group is to identify the biggest gap between nodes, and split the group in two new groups with
-$count(nodes) < maxsize$. If we set $K=2$, K-means can be used to identify where the transient group should be split to create two more connected clusters. 
+$count(nodes) < maxsize$. If we set the K-means variable K, to $K=2$, K-means can be used to identify where the transient group should be split to create two more connected clusters. 
 
 Randomly picking two nodes to be centroids could lead to undesirable results where the two resulting groups are fundamentally different from the original ones.
-Recall that what we are trying to do is to reevaluate the divison line between the groups and see if K-means can achieve a better split, not create two entirely new clustes. As we already have
-two independent clusters, we can precalculate their centroids before merging and bootstrap K-means with these centroids instead. 
+Recall that the purpose of the split is to reevaluate the divison line between the groups and see if K-means can achieve a better split, not create two entirely new clusters.
+There already exists two independent clusters before the split. The centroids of these clusters can be precalculated before merging, and be used to bootstrap K-means with two non-randomly chosen
+centroids.
 If the distance between the most interfering nodes is lower after applying the K-means split, the new groups are applied. On the other hand, if the distance is shorter
 (meaning a less optimal cut is found) the original groups are restored. As the bootstrapped position of the centroids is planned and not random,
-the result is deterministic and we don't have to run the algorithm more than one time to get the result. 
+the result is deterministic and the algorithm does not have to be run more than one time to get the result. 
 
 
 \subsection{Results}
@@ -398,7 +421,52 @@ then figure out their approximate distance to the centroid. It is unknown if suc
 \end{figure}
 
 
-\subsection{Minimum Cut}
+\section{Minimum Cut Splitting}
+In this section we will consider another approach to group splitting. Namely the graph theory algorithm for creating a minimum cut.
+
+\subsection{Minimum cut}
+The core concept of the minimum cut algorithm is to find a way to cut a directed graph so that a source node is completely separated from a sink node, while cutting over edges 
+whose weights adds up to a sum which is as low, or minimal, as possible \cite{chinneck}.
+
+The minimum cut is often referenced in the context of the max-flow min-cut theorem, which states that the maximum flow of a directed graph is equal to the capacity of the minimum cut.
+The capacity of the minimum cut is equal to the sum of the weight of the edges the cut runs through. In 1956 Delbert R. Fuelkerson and Lester R.
+Ford proposed a method for finding the minimum-cut \cite{ford1956} in a flow network, now called the Ford-Fuelkerson method. The method was extended by the Edmonds-Karp algorithm \cite{Edmonds} which is identical, except that is specifies that a breadth-first search should be used for the augmented-path stages in the algorithm, whereas in Ford-Fuelkerson this is unspecified (hence being called
+a method, and not an algorithm).
+
+The implementation of minimum cut that will be used in this section is a part of the NetworkX \cite{NetworkX} python package for manipulation of complex networks.
+
+\subsection{Implementing minimum cut splitting}
+To utilize minimum cut as a mechanism for splitting, the groups has to be treated as directed graphs. While the data structure of the networks in the implementation is not
+originally designed for graph operations, the nature of the nodes with its neighbour lists and RSSI metrics certainly is a graph by default. Meaning that each node's neighbour list contains
+its outgoing edges, while the belonging RSSI value is the weight of the edge. In contrast to the K-means splitting implementation, the minimum cut implementation does not require
+a larger transient group. Instead the groups does have to negotiate to know when a split can be confirmed. Let us take a sequential look at how the flow of the mincut splitting is performed. 
+
+\begin{enumerate}
+	\item Two groups $A$ and $B$ wants to merge, their combined size is larger than the specified group $maxSize$. The measured RSSI between the groups $A$ and $B$ is called $rssiThresh$. 
+	\item The groups independently builds a graph of their current state, using the RSSI values as weights on edges to neighbouring nodes. In the simulation implementation this is done using the NetworkX graph.
+	\item Each edge in the graph where the weight is larger than  $rssiThresh$, gets a new weight = \verb|INFINITE|.
+	\item The groups independently perform minimum cut multiple times. In the simulation implementation this is done with a call to the library function \verb|minimum_cut(G, s, t)|,
+		where $G$ is the graph, $s$ source and $t$ is the sink. To find the best partition to exclude from the graph, the  sink node is always the node which lies closest to the other group,
+		while the source node changes for each call to minimum cut. When all nodes, except for the sink, have been sources in the minimum cut algorithm, this step is finished. The cut
+		which has the lowest capacity of all performed cuts is stored along with the partition of this cut. 
+	\item If the capacity of the minimum cut is less than \verb|INFINITE|, the partition which does not contain the sink node is excluded from the graph. 
+  \item If the capacity is higher than \verb|INFINITE|, it means there exists no suitable cuts in the group which are less beneficial than the addition of another group. 
+	\item The groups $A$ and $B$ check if the combined number of nodes exceeds $maxSize$. If the node number is still too high, repeat step 4 provided that there were any 
+		exclusions in the graphs in the previous run. If there are no exclusions in either group, there exists no cut that can bring the combined group size down to desired size, and the
+		merge has to be aborted. 
+
+\end{enumerate}
+
+\begin{figure}
+	\includegraphics[width=\textwidth]{Images/mincutflow2.png}
+		\caption{Flowchart of the minimum cut implementation for splitting}%
+		\label{fig:mincutflow}%
+\end{figure}
+
+
+
+
+\subsection{Results}
 
 \begin{figure}
 	\centering

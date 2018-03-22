@@ -2128,10 +2128,15 @@
     <bcf:citekey order="30">chamberlain_2017</bcf:citekey>
     <bcf:citekey order="31">Python3</bcf:citekey>
     <bcf:citekey order="32">agglomerative</bcf:citekey>
-    <bcf:citekey order="33">raftio</bcf:citekey>
-    <bcf:citekey order="34">lamport2001paxos</bcf:citekey>
-    <bcf:citekey order="35">resfi</bcf:citekey>
-    <bcf:citekey order="36">resfi</bcf:citekey>
+    <bcf:citekey order="33">mackaymeans</bcf:citekey>
+    <bcf:citekey order="34">chinneck</bcf:citekey>
+    <bcf:citekey order="35">ford1956</bcf:citekey>
+    <bcf:citekey order="36">Edmonds</bcf:citekey>
+    <bcf:citekey order="37">NetworkX</bcf:citekey>
+    <bcf:citekey order="38">raftio</bcf:citekey>
+    <bcf:citekey order="39">lamport2001paxos</bcf:citekey>
+    <bcf:citekey order="40">resfi</bcf:citekey>
+    <bcf:citekey order="41">resfi</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nty/global/" type="entry" sortscheme="nty" sortnamekeyscheme="global" labelprefix="">
   <bcf:sorting>

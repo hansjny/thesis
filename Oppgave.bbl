@@ -19,6 +19,29 @@
 
 \refsection{0}
   \sortlist[entry]{nty/global/}
+    \entry{NetworkX}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=8478c24f3d3f452d07db99b954f977fc}{%
+           family={A.\bibnamedelimi Hagberg},
+           family_i={A\bibinitperiod\bibinitdelim H\bibinitperiod},
+           suffix={D.\bibnamedelimi Schult},
+           suffix_i={D\bibinitperiod\bibinitdelim S\bibinitperiod},
+           given={P.\bibnamedelimi Swart},
+           given_i={P\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{8478c24f3d3f452d07db99b954f977fc}
+      \strng{fullhash}{8478c24f3d3f452d07db99b954f977fc}
+      \field{sortinit}{A}
+      \field{sortinithash}{b685c7856330eaee22789815b49de9bb}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Online: accessed 21-March-2018}
+      \field{title}{NetworkX}
+      \field{year}{2015}
+      \verb{url}
+      \verb https://networkx.github.io/documentation/networkx-1.10/
+      \endverb
+    \endentry
     \entry{wifialliance}{misc}{}
       \name{author}{1}{}{%
         {{hash=baaae33af641acca3c686df8b46de873}{%
@@ -146,6 +169,27 @@
       \verb https://cs.nyu.edu/visual/home/proj/tiger/gisfaq.html
       \endverb
     \endentry
+    \entry{chinneck}{book}{}
+      \name{author}{1}{}{%
+        {{hash=0cfa9d52e9c2e41f5d8cfd75ba94f85f}{%
+           family={Chinneck},
+           family_i={C\bibinitperiod},
+           given={John\bibnamedelima W},
+           given_i={J\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \strng{namehash}{0cfa9d52e9c2e41f5d8cfd75ba94f85f}
+      \strng{fullhash}{0cfa9d52e9c2e41f5d8cfd75ba94f85f}
+      \field{sortinit}{C}
+      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{chapter}{9}
+      \field{title}{Practical optimization: a gentle introduction}
+      \field{year}{2006}
+      \verb{url}
+      \verb http://www.sce.carleton.ca/faculty/chinneck/po/Chapter9.pdf
+      \endverb
+    \endentry
     \entry{ciscoRRM}{online}{}
       \name{author}{1}{}{%
         {{hash=7b1d1185b835814de783483f686e9825}{%
@@ -218,6 +262,74 @@
       \field{journaltitle}{Local and Metropolitan Area Networks, Specific Requirements, IEEE Standard for Information technology— Telecommunications and information exchange between systems.}
       \field{title}{Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (IEEE Std 802.11-2007)}
       \field{year}{2007}
+    \endentry
+    \entry{Edmonds}{article}{}
+      \name{author}{2}{}{%
+        {{hash=4512d981a2fac684e867257fcb2c5419}{%
+           family={Edmonds},
+           family_i={E\bibinitperiod},
+           given={Jack},
+           given_i={J\bibinitperiod}}}%
+        {{hash=5d77d3cf25d2ee3ce64732bb77de0b0f}{%
+           family={Karp},
+           family_i={K\bibinitperiod},
+           given={Richard\bibnamedelima M.},
+           given_i={R\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{c443c754ada01bdb7c5c3fc76f884803}
+      \strng{fullhash}{c443c754ada01bdb7c5c3fc76f884803}
+      \field{sortinit}{E}
+      \field{sortinithash}{fefc5210ef4721525b2a478df41efcd4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0004-5411}
+      \field{journaltitle}{J. ACM}
+      \field{month}{04}
+      \field{number}{2}
+      \field{title}{Theoretical Improvements in Algorithmic Efficiency for Network Flow Problems}
+      \field{volume}{19}
+      \field{year}{1972}
+      \field{pages}{248\bibrangedash 264}
+      \range{pages}{17}
+      \verb{doi}
+      \verb 10.1145/321694.321699
+      \endverb
+      \verb{url}
+      \verb http://doi.acm.org/10.1145/321694.321699
+      \endverb
+    \endentry
+    \entry{ford1956}{article}{}
+      \name{author}{2}{}{%
+        {{hash=e5e027c816337e98f906018dee3381c2}{%
+           family={Ford},
+           family_i={F\bibinitperiod},
+           given={Lester\bibnamedelima R},
+           given_i={L\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+        {{hash=cd81c5c9bcbd48ab67f8c4e969d8995d}{%
+           family={Fulkerson},
+           family_i={F\bibinitperiod},
+           given={Delbert\bibnamedelima R},
+           given_i={D\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{126ad7a96b58934f8884b72f7c7d8719}
+      \strng{fullhash}{126ad7a96b58934f8884b72f7c7d8719}
+      \field{sortinit}{F}
+      \field{sortinithash}{c6a7d9913bbd7b20ea954441c0460b78}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Canadian journal of Mathematics}
+      \field{number}{3}
+      \field{title}{Maximal flow through a network}
+      \field{volume}{8}
+      \field{year}{1956}
+      \field{pages}{399\bibrangedash 404}
+      \range{pages}{6}
     \endentry
     \entry{Python3}{misc}{}
       \name{author}{1}{}{%
@@ -397,6 +509,30 @@
       \field{year}{2001}
       \field{pages}{18\bibrangedash 25}
       \range{pages}{8}
+    \endentry
+    \entry{mackaymeans}{book}{}
+      \name{author}{1}{}{%
+        {{hash=b6c8b97d961afd655f954101e50afebf}{%
+           family={MacKay},
+           family_i={M\bibinitperiod},
+           given={David\bibnamedelimb J.\bibnamedelimi C.},
+           given_i={D\bibinitperiod\bibinitdelim J\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press, New York}%
+      }
+      \strng{namehash}{b6c8b97d961afd655f954101e50afebf}
+      \strng{fullhash}{b6c8b97d961afd655f954101e50afebf}
+      \field{sortinit}{M}
+      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{chapter}{20}
+      \field{isbn}{0-521-64298-1}
+      \field{title}{Information theory, inference and learning algorithms}
+      \field{year}{2003}
+      \field{pages}{284\bibrangedash 292}
+      \range{pages}{9}
     \endentry
     \entry{agglomerative}{article}{}
       \name{author}{1}{}{%
