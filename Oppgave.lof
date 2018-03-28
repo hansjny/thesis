@@ -46,55 +46,67 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Group simulation file structure\relax }}{33}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Group simulation file structure\relax }}{32}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Pseudocode sample of how the K-Nearest Neighbour Clustering runs in a simulated environment\relax }}{36}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Pseudocode sample of how the K-Nearest Neighbour Clustering runs in a simulated environment\relax }}{35}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.3}{\ignorespaces K-Nearest Neighbour Clustering on different topologies\relax }}{37}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces K-Nearest Neighbour Clustering on different topologies\relax }}{36}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Uniform}}}{37}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Uniform}}}{36}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Forks}}}{37}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Forks}}}{36}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Lillehammer}}}{37}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Lillehammer}}}{36}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Tynset}}}{37}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Tynset}}}{36}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Simplified illustration of the idea behind splitting. K = 2\relax }}{39}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Simplified illustration of the idea behind splitting. K = 2\relax }}{38}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Two neighbouring nodes}}}{39}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Two neighbouring nodes}}}{38}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {A and B merges. A third node appears}}}{39}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {A and B merges. A third node appears}}}{38}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {All nodes joined in transient group}}}{39}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {All nodes joined in transient group}}}{38}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Splitting to reduce group size}}}{39}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Splitting to reduce group size}}}{38}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.5}{\ignorespaces K-means splitting on different topologies\relax }}{41}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces K-means splitting on different topologies\relax }}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Uniform}}}{41}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Uniform}}}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Forks}}}{41}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Forks}}}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Lillehammer}}}{41}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Lillehammer}}}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Tynset}}}{41}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Tynset}}}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Comparison with and without K-means splitting on Tynset\relax }}{42}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Comparison with and without K-means splitting on Tynset\relax }}{41}
+\defcounter {refsection}{0}\relax 
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Without K-means splitting}}}{41}
+\defcounter {refsection}{0}\relax 
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {With K-means splitting}}}{41}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Comparison with and without K-means splitting on uniform distribution\relax }}{42}
 \defcounter {refsection}{0}\relax 
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Without K-means splitting}}}{42}
 \defcounter {refsection}{0}\relax 
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {With K-means splitting}}}{42}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Comparison with and without K-means splitting on uniform distribution\relax }}{43}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Flowchart of the minimum cut implementation for splitting\relax }}{43}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Without K-means splitting}}}{43}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Pseudocode of the minimum cut stage of the splitting\relax }}{45}
 \defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {With K-means splitting}}}{43}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Minimum cut illustration with group maximum size set to 5\relax }}{46}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Flowchart of the minimum cut implementation for splitting\relax }}{46}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Two groups are initially too large to merge. A split is going to be attempted. }}}{46}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Minimum cut algorithm splitting on different topologies\relax }}{47}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Both groups identify edges which should not be cut, marked by an infinite edge weight}}}{46}
+\defcounter {refsection}{0}\relax 
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {The groups excludes the partitions with the lowest capacity cuts}}}{46}
+\defcounter {refsection}{0}\relax 
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {The number of members of the groups combined is now lower than maximum size, and the merge is succesful}}}{46}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Minimum cut algorithm splitting on different topologies\relax }}{47}
 \defcounter {refsection}{0}\relax 
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Uniform}}}{47}
 \defcounter {refsection}{0}\relax 

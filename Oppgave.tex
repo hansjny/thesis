@@ -1,4 +1,4 @@
-\documentclass[12pt, a4paper, UKenglish, final]{report}
+\documentclass[12pt, a4paper, UKenglish, twoside, final]{report}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 %\usepackage{mathtools,amssymb}
@@ -13,6 +13,7 @@
 \usepackage{subfig}
 \usepackage{fancyhdr}
 \usepackage{makecell}
+\usepackage{lipsum}
 \usepackage[toc,page]{appendix}
 \usepackage[backend=biber,
 	    style=numeric,
@@ -134,10 +135,12 @@ keywordstyle=\scriptsize\ttfamily\color{deepblue},
 
 \begin{document}
 \ififorside
+\thispagestyle{plain}
 \maketitle{}
 \frontmatter
-
+\thispagestyle{plain}
 \section*{Abstract}
+\thispagestyle{plain}
 \clearpage
 %\section*{List of acronyms}
 %\begin{tabular}{ c c }

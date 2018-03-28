@@ -78,94 +78,96 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.5}WiGLE}{21}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.5.1}REST API}{23}
+\contentsline {subsection}{\numberline {4.5.1}REST API}{22}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.5.2}The Haversine Formula}{25}
+\contentsline {subsection}{\numberline {4.5.2}The Haversine Formula}{24}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.5.3}Data output}{27}
+\contentsline {subsection}{\numberline {4.5.3}Data output}{26}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Access point clustering}{28}
+\contentsline {chapter}{\numberline {5}Access point clustering}{27}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}Introduction}{28}
+\contentsline {section}{\numberline {5.1}Introduction}{27}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.2}Problem overview}{29}
+\contentsline {section}{\numberline {5.2}Problem overview}{28}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2.1}Centralized model}{29}
+\contentsline {subsection}{\numberline {5.2.1}Centralized model}{28}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.2.2}Distributed approach}{30}
+\contentsline {subsection}{\numberline {5.2.2}Distributed approach}{29}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.3}Computation assumptions and requirements}{31}
+\contentsline {section}{\numberline {5.3}Computation assumptions and requirements}{30}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.4}Program design}{31}
+\contentsline {section}{\numberline {5.4}Program design}{30}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4.1}Design choices}{31}
+\contentsline {subsection}{\numberline {5.4.1}Design choices}{30}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4.2}Group framework}{32}
+\contentsline {subsection}{\numberline {5.4.2}Group framework}{31}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4.3}Output file structure}{32}
+\contentsline {subsection}{\numberline {5.4.3}Output file structure}{31}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.5}Creating groups with clustering}{33}
+\contentsline {section}{\numberline {5.5}Creating groups with clustering}{32}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.5.1}Agglomerative Clustering}{34}
+\contentsline {subsection}{\numberline {5.5.1}Agglomerative Clustering}{33}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Description}{34}
+\contentsline {subsubsection}{Description}{33}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Evaluation}{34}
+\contentsline {subsubsection}{Evaluation}{33}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.5.2}K-Nearest Neighbour Clustering}{34}
+\contentsline {subsection}{\numberline {5.5.2}K-Nearest Neighbour Clustering}{33}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Description}{34}
+\contentsline {subsubsection}{Description}{33}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Distance metric}{35}
+\contentsline {subsubsection}{Distance metric}{34}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Implementation}{35}
+\contentsline {subsubsection}{Implementation}{34}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.5.3}Results on different topologies}{37}
+\contentsline {subsection}{\numberline {5.5.3}Results on different topologies}{36}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.5.4}Evaluation}{37}
+\contentsline {subsection}{\numberline {5.5.4}Evaluation}{36}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.6}K-means splitting}{38}
+\contentsline {section}{\numberline {5.6}K-means splitting}{37}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.6.1}Group splitting}{38}
+\contentsline {subsection}{\numberline {5.6.1}Group splitting}{37}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.6.2}Introduction to K-means}{39}
+\contentsline {subsection}{\numberline {5.6.2}Introduction to K-means}{38}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.6.3}K-means splitting}{40}
+\contentsline {subsection}{\numberline {5.6.3}K-means splitting}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.6.4}Results}{40}
+\contentsline {subsection}{\numberline {5.6.4}Results}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.6.5}Evaluation}{41}
+\contentsline {subsection}{\numberline {5.6.5}Evaluation}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.7}Minimum Cut Splitting}{43}
+\contentsline {section}{\numberline {5.7}Minimum Cut Splitting}{42}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.7.1}Minimum cut}{43}
+\contentsline {subsection}{\numberline {5.7.1}Minimum cut}{42}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.7.2}Implementing minimum cut splitting}{44}
+\contentsline {subsection}{\numberline {5.7.2}Using minimum cut for group splitting}{43}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.7.3}Results}{45}
+\contentsline {subsection}{\numberline {5.7.3}Simulation results}{45}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.8}Evaluation}{45}
+\contentsline {subsection}{\numberline {5.7.4}Evaluation}{45}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.8.1}Simulation weaknesses}{45}
+\contentsline {section}{\numberline {5.8}Evaluation}{48}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Volatility}{45}
+\contentsline {subsection}{\numberline {5.8.1}Simulation weaknesses}{48}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Computed interference versuss observed interference}{45}
+\contentsline {subsubsection}{Volatility}{48}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Dimensionality}{48}
+\contentsline {subsubsection}{Computed interference versuss observed interference}{48}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Communication protocol and state synchronization}{49}
+\contentsline {subsubsection}{Dimensionality}{49}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.1}Problem overview}{49}
+\contentsline {chapter}{\numberline {6}Communication protocol and state synchronization}{50}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.2}Enabling technologies}{50}
+\contentsline {section}{\numberline {6.1}Problem overview}{50}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.2.1}Distributed consensus with Raft}{50}
+\contentsline {section}{\numberline {6.2}Enabling technologies}{51}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.2.2}Access point communication with ResFi}{50}
+\contentsline {subsection}{\numberline {6.2.1}Distributed consensus with Raft}{51}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.3}Protocol design}{51}
+\contentsline {subsection}{\numberline {6.2.2}Access point communication with ResFi}{51}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.3.1}Requirements and assumptions}{51}
+\contentsline {section}{\numberline {6.3}Protocol design}{52}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.4}Protocol implementation}{51}
+\contentsline {subsection}{\numberline {6.3.1}Requirements and assumptions}{52}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.4}Protocol implementation}{52}
