@@ -68,7 +68,7 @@ Additionally the following parameters are variable depending on each test scenar
 	sources to get the positions of nodes, and only let the topology class compute the list of neighbours. 
 	
 
-	\begin{figure}[H]
+	\begin{figure}
 		\begin{python}
 #In topology class
 def measureInterference(self):
@@ -92,16 +92,17 @@ def measureDbi(self, dist):
  return (20 * math.log(self._frequency, 10)) + 
 (20 * math.log(dist, 10)) - 27.55
 
-			\end{python}
-			\caption{Computing the interference between nodes}
-			\label{fig:dbiCreation}
-			\end{figure}
+\end{python}
+\caption{Computing the interference between nodes}
+\label{fig:dbiCreation}
+\end{figure}
 
-			\section{Data output and visual representation} \label{simulationrep}
-			The result of the topology generation is stored in a JSON\cite{JSON} data file. The data file contains the height and width of the the generated topology, as well
-			as the number of nodes. A \verb|nodes| object consists of as many JSON node-objects as there are nodes. Figure \ref{fig:nodeStruct} illustrates the node structure
-			and is an example of how a node with two neighbours will look.
-			\begin{figure}[H]
+\section{Data output and visual representation} \label{simulationrep}
+The result of the topology generation is stored in a JSON\cite{JSON} data file.
+The data file contains the height and width of the the generated topology, as well
+as the number of nodes.
+A \verb|nodes| object consists of as many JSON node-objects as there are nodes. Figure \ref{fig:nodeStruct} illustrates the node structure and is an example of how a node with two neighbours will look.
+			\begin{figure}
 			\begin{minipage}{\linewidth}
 			\begin{lstlisting}[language=json]
 {

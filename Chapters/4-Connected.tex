@@ -32,8 +32,8 @@ separated by streets, bridges, parks, and so on. Rural areas are similar, but ne
 and usually only affecting each other in one plane.
 
 Remembering attenuation, we know that RF-interference is also a property of distance. 
-These pieces of information tells us that RSSI readings between access points in two separated buildings should be lower than readings between access points in adjacent apartments.
-In the following chapter we will consider how we can utilize the RSSI readings between access points to build a clustering algorithm that creates reasonable groups of access points. 
+These pieces of information tells us that signal strength measured between access points in two separated buildings should be lower than readings between access points in adjacent apartments.
+In the following chapter we will consider how we can utilize the signal strength measured between access points to build a clustering algorithm that creates reasonable groups of access points. 
 
 %The should consist of APs that interfere with each other when their channels are overlapping, so that overlap can be avoided with a channel allocation algorithm run within the group. Not all APs in
 %the connected group will necessarily be able to hear each other on the radio directly, but all nodes
@@ -64,13 +64,13 @@ Even though in there is a tendency for apartments in the same building to have t
 \subsection{Distributed approach}
 We will continue considering a distributed approach as the main topic of the thesis. In reality this idea has some major challenges that we have to overcome. Here are the most prominent ones: 
 \begin{enumerate}
-	\item The group creation itself. Based on the RSSI-readings and the communication channel, nodes have to be able to organize themselves in a tight cluster of nodes that
+	\item The group creation itself. Based on the signal strength and the communication channel, nodes have to be able to organize themselves in a tight cluster of nodes that
 		includes all nodes that impacts each other most severely. This problem essentially boils down to a clustering problem. This is the main issue we will
 		try to find a reasonable solution for. 
 	\item The communication channel. Nodes have to be able to communicate with eachother. The 802.11 standard describes no protocol for communication between access points that are not on the same extended service set. This communication would have to happen on the network layer, preferably over TCP. This communication channel would have to convey a messages that enables group creation,
 		most likely a custom protocol. 	
 	\item State synchronization. As all nodes have to compute a channel plan for the group, they all need to have synchronized information about the members of the groups
-		and possibly also every other node's RSSI-readings. 
+		and possibly also every other node's signal strength measurements. 
 	\item Channel plan computation. Even though the centralized approach would have a similar problem, it will be more difficult to solve in a distributed fashion as 
 		it is reasonable to assume that an access point has limited computational power. This point extends past the scope of the thesis, but algorithms like DSATUR {{(insert ref)}}
 		and SCIFI are examples of algorithms that computes channel plans as a graph colouring problems.
@@ -79,12 +79,12 @@ We will continue considering a distributed approach as the main topic of the the
 \section{Computation assumptions and requirements}
 Moving forward in the next chapters we will be looking at possible ways for nodes to organize themselves into groups.
 We will be using the data we fetched in chapter \ref{dataacc}. The data provides a topology of nodes where all nodes have a list of neighbouring nodes.
-This neighbour list contains the appropriate computed RSSI-readings for each node. Based on the RSSI-values of their neighbours, the nodes should be able to create groups that resembles
+This neighbour list contains the appropriate computed signal strength measurements for each node. Based on the signal strength of their neighbours, the nodes should be able to create groups that resembles
 clusters. It is important that the border between two different groups are placed in such a way that interference between the two groups are as minimal as possible. To simplify the computation procedure and to reduce the workload for building the simulation program we are going to to a number of assumptions. 
 
     \begin{enumerate}
     \item Assumption 1: All nodes involved in the simulation also runs the group creation algorithm. 
-		\item Assumption 2: When a node is observed over radio, it is also known how to directly contact the node (e.g. via TCP). This assumption also implies that there is implemented a protocol that lets nodes communicate and exchange information about their RSSI-readings and group membership. For now we will assume this is true, but in chapter {{(ref)}} we will address the issue. 
+		\item Assumption 2: When a node is observed over radio, it is also known how to directly contact the node (e.g. via TCP). This assumption also implies that there is implemented a protocol that lets nodes communicate and exchange information about their signal strength measurements and group membership. For now we will assume this is true, but in chapter {{(ref)}} we will address the issue. 
 		\item Assumption 3: All nodes in a group are completely synchronous, and always have an equal image of the state of the group at a given time. Sharing information with the group is instant. This is also an issue that will be addressed in chapter {{3}}.
     \end{enumerate}
 \section{Program design}
@@ -98,7 +98,7 @@ The program is not parallelized to keep results consistent and to easier debug a
 The group framework consists of 3 classes with different responsibilities:
 \begin{itemize}
 	\item \textbf{Group}. An object of this class is an abstraction of all the nodes that belong to the same group. Because we assumed that all nodes have equal
-	information about group membership and RSSI-readings, we can store all the members of each group in a list and let the group object act as a unified entity on
+	information about group membership and signal strength measurements, we can store all the members of each group in a list and let the group object act as a unified entity on
 	behalf of the entire group. All the interfaces and logic for forming groups is placed within this class. A method named \verb|iteration|
 	has the responsibility of triggering the appropriate action based on the state of the group. For instance adding nodes, removing nodes or merging the group
 	with another. This is the part of the code that has to be changed when implementing and changing algorithms. If an action was performed the method returns 1, else it returns 0. 
@@ -188,7 +188,7 @@ fails to meet our requirements:
 \begin{itemize}
 	\item There is no upper limit to the amount of nodes in each cluster
 	\item As the clustering algorithm will be running distributed  on each cluster, a decision has to be made with only the local distance observations at hand.
-		Assuming that there exists two groups that finds each other the closest (most disturbing), might prove a fallacy. RSSI is observed locally, and while one node observes another with a given signal strength,
+		Assuming that there exists two groups that finds each other the closest (most disturbing), might prove a fallacy. Signal strengths are observed locally, and while one node observes another with a given signal strength,
 		the mututal observation might be a different one. This could create a deadlock where there exists no combination of group pairs where both observes the other
 		as the closest group. 
 \end{itemize}
@@ -405,7 +405,7 @@ Even though the clusters in a static environment is slightly improved, the most 
 where all groups have converged. Where in the unmodified K-Nearest Neighbour Clustering algorithm there was no specific way to handle a new node in an environment of saturated groups
 with K-means splitting eventually new groups will be formed on the basis of the updated topology. The weakness of this approach is how ill suited it is to run in a distributed environment.
 It is trivial to simulate splits using K-means, as during a simulation the absolute coordinates of the nodes in the group are accesible. This is information unavailable for nodes under
-real circumstances - the only available information is the approximiate point-to-point distance inferred from the RSSI scans.
+real circumstances - the only available information is the approximiate point-to-point distance inferred from the signal strength scans.
 Hence some major adaptions would have to be made to get this to work in an implementation.
 One way to realize the algorithm would be to select a physical node as centroid instead of a virtual point. All nodes in sensing range of the surrounding area of
 the centroid node would report the distance to the centroid to their n-hop neighbour using an overlay network to communicate internally in the group. The other nodes could
@@ -422,7 +422,7 @@ then figure out their approximate distance to the centroid. It is unknown if suc
 
 
 \section{Minimum Cut Splitting}
-In this section we will consider another approach to group splitting. Namely the graph theory algorithm for creating a minimum cut.
+In this section we will consider another approach to group splitting, namely the graph theory algorithm for finding a minimum cut in a directed graph. 
 
 \subsection{Minimum cut}
 The core concept of the minimum cut algorithm is to find a way to cut a directed graph so that a source node is completely separated from a sink node, while cutting over edges 
@@ -435,27 +435,10 @@ a method, and not an algorithm).
 
 The implementation of minimum cut that will be used in this section is a part of the NetworkX \cite{NetworkX} python package for manipulation of complex networks.
 
-\subsection{Implementing minimum cut splitting}
-To utilize minimum cut as a mechanism for splitting, the groups has to be treated as directed graphs. While the data structure of the networks in the implementation is not
-originally designed for graph operations, the nature of the nodes with its neighbour lists and RSSI metrics certainly is a graph by default. Meaning that each node's neighbour list contains
-its outgoing edges, while the belonging RSSI value is the weight of the edge. In contrast to the K-means splitting implementation, the minimum cut implementation does not require
-a larger transient group. Instead the groups does have to negotiate to know when a split can be confirmed. Let us take a sequential look at how the flow of the mincut splitting is performed. 
+\subsection{Using minimum cut for group splitting}
+Minimum cut can be used for group splitting by identifying the least connected partitions of a group. If a node, or a partition of the group, is connected to the rest of the group
+through one or more links which are weaker than the strongest link to a neighbouring group, the partition can be excluded from the group to allow for a merge with the neighbouring group. 
 
-\begin{enumerate}
-	\item Two groups $A$ and $B$ wants to merge, their combined size is larger than the specified group $maxSize$. The measured RSSI between the groups $A$ and $B$ is called $rssiThresh$. 
-	\item The groups independently builds a graph of their current state, using the RSSI values as weights on edges to neighbouring nodes. In the simulation implementation this is done using the NetworkX graph.
-	\item Each edge in the graph where the weight is larger than  $rssiThresh$, gets a new weight = \verb|INFINITE|.
-	\item The groups independently perform minimum cut multiple times. In the simulation implementation this is done with a call to the library function \verb|minimum_cut(G, s, t)|,
-		where $G$ is the graph, $s$ source and $t$ is the sink. To find the best partition to exclude from the graph, the  sink node is always the node which lies closest to the other group,
-		while the source node changes for each call to minimum cut. When all nodes, except for the sink, have been sources in the minimum cut algorithm, this step is finished. The cut
-		which has the lowest capacity of all performed cuts is stored along with the partition of this cut. 
-	\item If the capacity of the minimum cut is less than \verb|INFINITE|, the partition which does not contain the sink node is excluded from the graph. 
-  \item If the capacity is higher than \verb|INFINITE|, it means there exists no suitable cuts in the group which are less beneficial than the addition of another group. 
-	\item The groups $A$ and $B$ check if the combined number of nodes exceeds $maxSize$. If the node number is still too high, repeat step 4 provided that there were any 
-		exclusions in the graphs in the previous run. If there are no exclusions in either group, there exists no cut that can bring the combined group size down to desired size, and the
-		merge has to be aborted. 
-
-\end{enumerate}
 
 \begin{figure}
 	\includegraphics[width=\textwidth]{Images/mincutflow2.png}
@@ -464,9 +447,74 @@ a larger transient group. Instead the groups does have to negotiate to know when
 \end{figure}
 
 
+To utilize minimum cut as a mechanism for splitting, the groups has to be treated as directed graphs. While the data structure of the networks in the implementation is not
+originally designed for graph operations, the nature of the nodes with its neighbour lists and signal strength metrics certainly can be treated as a graph. Meaning that each node's neighbour list contains
+its outgoing edges, while the belonging signal strength value is the weight of the edge. In contrast to the K-means splitting implementation, the minimum cut implementation does not require
+a larger transient group. Instead the groups have to negotiate to know when a split can be confirmed. A flowchart illustration an abstract flow of the simulation implementation can be seen in figure \ref{fig:mincutflow}, showing the steps which are more closely described below. 
+
+\begin{enumerate}
+	\item Two groups $A$ and $B$ wants to merge, their combined size is larger than the specified group $maxSize$. The measured maximum value of signal strength between nodes in the two different
+		groups $A$ and $B$ is called $rssiThresh$. 
+	\item The groups independently build a graph of their current state, using the signal strength values as weights on edges to neighbouring nodes. In the simulation implementation this is done using the NetworkX graph.
+	\item Each edge in the graph where the weight is larger than  $rssiThresh$, gets a new weight = \verb|INFINITE|.
+	\item The groups independently perform minimum cut multiple times. In the simulation implementation this is done with a call to the library function \verb|minimum_cut(G, s, t)|,
+		where $G$ is the graph, $s$ source and $t$ is the sink. To find the best partition to exclude from the graph, the  sink node is always the node which lies closest to the other group,
+		while the source node changes for each call to minimum cut. When all nodes, except for the sink, have been sources in the minimum cut algorithm, this step is finished. The cut
+		which has the lowest capacity of all performed cuts is stored along with the partition of this cut. 
+	\item The partition which does not contain the sink node is excluded from the graph, however if this partition is empty it means there exists no suitable cuts in the group which are less beneficial than the addition of another group. 
+	\item The groups $A$ and $B$ check if the combined number of nodes exceeds $maxSize$. If the node number is still too high, repeat step 4 provided that there were any 
+		exclusions in the graphs in the previous run. If there are no exclusions in either group, there exists no cut that can bring the combined group size down to desired size, and the
+		merge has to be aborted. 
+\end{enumerate}
+
+The pseudocode for step 4-5, referred to as the \verb|findCutAndPartition| procedure in the flowchart of \ref{fig:mincutflow}, can be seen in \ref{fig:pseudocut}.  
+
+For a detailed step by step illustration describing how a split happens in a topology where a split would be beneficial, see figure \ref{fig:mincutstep}. 
+
+	\begin{figure}
+		\tiny
+		\begin{python}
+			def findCutAndPartition(G, sink):
+			minCutCapacity = 99999 #Initiated to infinite (or a very high number)
+			minCutPartition = [] #Partition initially empty
+			for source in G.nodes_iter():
+				if source == sink: #Source and sink should not be the same
+						continue
+				cut, partition = nx.minimum_cut(G, source, sink)
+				if (cut >= 99999): #If cut is too high (infinite), dont keep
+						continue
+				if cut < minCutCapacity:
+						minCutCapacity = cut;
+						if sink in partition[0]:
+								minCutPartition = partition[1]
+						elif sink in partition[1]:
+								minCutParttition = partition[0]
+
+			for n in minCutPartition: #Remove nodes from graph
+						G.remove_node(n)
+			return list(minCutPartition);
+		\end{python}
+		\caption{Pseudocode of the minimum cut stage of the splitting}
+		\label{fig:pseudocut}
+	\end{figure}
+
+\begin{figure}
+	\centering
+		\subfloat[Two groups are initially too large to merge. A split is going to be attempted. ]{{\includegraphics[width=6cm]{Images/mincutstep1.png} }}%
+		\qquad
+		\subfloat[Both groups identify edges which should not be cut, marked by an infinite edge weight]{{\includegraphics[width=6cm]{Images/mincutstep2.png} }}%
+		\newline
+		\subfloat[The groups excludes the partitions with the lowest capacity cuts]{{\includegraphics[width=6cm]{Images/mincutstep3.png} }}%
+		\qquad
+		\subfloat[The number of members of the groups combined is now lower than maximum size, and the merge is succesful]{{\includegraphics[width=6cm]{Images/mincutstep4.png} }}%
+		\caption{Minimum cut illustration with group maximum size set to 5}%
+		\label{fig:mincutstep}%
+\end{figure}
 
 
-\subsection{Results}
+\subsection{Simulation results}
+The results of the simulation with the  implementation of minimum cut splitting can be seen in figure \ref{fig:mincutresults}.
+They are the same four topologies that have been used on previous simulations. 
 
 \begin{figure}
 	\centering
@@ -478,9 +526,17 @@ a larger transient group. Instead the groups does have to negotiate to know when
 		\qquad
 		\subfloat[Tynset]{{\includegraphics[width=6cm]{Images/computations/MINCUT_TYNSET.png} }}%
 		\caption{Minimum cut algorithm splitting on different topologies}%
-		\label{fig:knearest}%
+		\label{fig:mincutresults}%
 \end{figure}
 
+\subsection{Evaluation}
+While being slightly more complex to implement in a simulation than the K-means splitting, the results are more reliable and less dependent on 
+initial group selection. In all simulations the groups have been merged iteratively, meaning that the merge sequence depends
+on the order of merges. With this minimum cut implementation the resulting groups will become the same, no matter the order
+of group merging. This is a property which can be considered of importance in a real world scenario. The major benefit 
+the minimum cut group splitting has over K-means splitting in a real-world implementation scenario is the need for only link weights.
+As mentioned, K-means would be hard to realize, while the minimum cut method should in theory be little different from simulation 
+to real world implementation. 
 
 
 \section{Evaluation}
@@ -498,9 +554,9 @@ the algorithm can handle volatily by splitting and continously create groups, bu
 only static environments that quickly converges is considered. 
 
 \subsubsection{Computed interference versuss observed interference}
-Our group computations has been based on the RSSI of all nearby access points, and the dBi values that denotes all RSSIs were calculated using the free space path loss formula.
-As distance is the only variable that affects the result of our RSSI calculation, it means that the RSSI levels becomes a symmetric binary relation between nodes. In the real world 
-this is not the case. Access points may interfere with each other differently, and the RSSI values may change when there are variations in the environment. This is the reasons deadlocks could
+Our group computations has been based on the signal strength of all nearby access points, and the dBi values that denotes all signal strengths were calculated using the free space path loss formula.
+As distance is the only variable that affects the result of our signal strength calculation, it means that the signal strength levels becomes a symmetric binary relation between nodes. In the real world 
+this is not the case. Access points may interfere with each other differently, and the signal strength values may change when there are variations in the environment. This is the reasons deadlocks could
 occur if implementing regular agglomerative hierarchical clustering and the motivation behind creating K-Nearest Neighbour Clustering, even though our topologies would work well with agglomerative
 clustering. We also have no simulations of how groups would look if the distance between two nodes were not mutual.
 
