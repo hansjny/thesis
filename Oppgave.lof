@@ -42,7 +42,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {4.7}{\ignorespaces REST API response with AP data\relax }}{25}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Implementation of haversine distance\relax }}{26}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Implementation of haversine distance\relax }}{25}
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
@@ -80,21 +80,21 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Tynset}}}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Comparison with and without K-means splitting on Tynset\relax }}{41}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Comparison with and without K-means splitting on Tynset\relax }}{40}
+\defcounter {refsection}{0}\relax 
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Without K-means splitting}}}{40}
+\defcounter {refsection}{0}\relax 
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {With K-means splitting}}}{40}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Comparison with and without K-means splitting on uniform distribution\relax }}{41}
 \defcounter {refsection}{0}\relax 
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Without K-means splitting}}}{41}
 \defcounter {refsection}{0}\relax 
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {With K-means splitting}}}{41}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Comparison with and without K-means splitting on uniform distribution\relax }}{42}
-\defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Without K-means splitting}}}{42}
-\defcounter {refsection}{0}\relax 
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {With K-means splitting}}}{42}
-\defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {5.8}{\ignorespaces Flowchart of the minimum cut implementation for splitting\relax }}{43}
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Pseudocode of the minimum cut stage of the splitting\relax }}{45}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Pseudocode of the minimum cut stage of the splitting\relax }}{44}
 \defcounter {refsection}{0}\relax 
 \contentsline {figure}{\numberline {5.10}{\ignorespaces Minimum cut illustration with group maximum size set to 5\relax }}{46}
 \defcounter {refsection}{0}\relax 
@@ -116,4 +116,50 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Tynset}}}{47}
 \defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Comparison between K-means splitting and minimum cut splitting on Tynset\relax }}{48}
+\defcounter {refsection}{0}\relax 
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {With K-means splitting}}}{48}
+\defcounter {refsection}{0}\relax 
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {With minimum cut splitting}}}{48}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Illustrating two algorithm iterations to find the problem source of the minimum cut\relax }}{49}
+\defcounter {refsection}{0}\relax 
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Iteration 8: The green group seeks to merge with the pink, the signal strength between them for instance being -45dBi}}}{49}
+\defcounter {refsection}{0}\relax 
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Iteration 9: After the minimum cut split, some nodes have been thrown out to allow for the merge}}}{49}
+\defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Forks, Washington, USA\relax }}{61}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Uniform distribution, 500x500, 1000 nodes\relax }}{62}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Lillehammer, Norway\relax }}{62}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {A.4}{\ignorespaces Tynset, Norway\relax }}{63}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {A.6}{\ignorespaces Forks, Washington, USA\relax }}{63}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {A.5}{\ignorespaces Uniform distribution, 500x500, 1000 nodes\relax }}{64}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {A.7}{\ignorespaces Lillehammer, Norway\relax }}{64}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {A.8}{\ignorespaces Tynset, Norway\relax }}{65}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {A.10}{\ignorespaces Forks, Washington, USA\relax }}{65}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {A.9}{\ignorespaces Uniform distribution, 500x500, 1000 nodes\relax }}{66}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {A.11}{\ignorespaces Lillehammer, Norway\relax }}{66}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {A.12}{\ignorespaces Tynset, Norway\relax }}{67}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {A.14}{\ignorespaces Forks, Washington, USA\relax }}{67}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {A.13}{\ignorespaces Uniform distribution, 500x500, 1000 nodes\relax }}{68}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {A.15}{\ignorespaces Lillehammer, Norway\relax }}{68}
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {A.16}{\ignorespaces Tynset, Norway\relax }}{69}

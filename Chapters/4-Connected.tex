@@ -121,7 +121,7 @@ recreate the simulation. The data is stored as JSON, and the structure can been 
 Having the data stored as JSON means that the data is language independent. This allows us to either implement a parser in python for the data and use \verb|matplotlib| to visualize it,
 or we can use another applicaton to visualize the data. Since we already have the topology visualizer
 written in HTML and JavaScript from chapter \ref{dataacc}, we can extend this program to let us upload a group creation output file. 
-\begin{figure}[H]
+\begin{figure}
 
 \begin{minipage}{\linewidth}
 \begin{lstlisting}[language=json]
@@ -198,15 +198,17 @@ The second point forces us to change the paradigm of always finding two mutually
 
 \subsection{K-Nearest Neighbour Clustering}
 \subsubsection{Description}
-To resolve the problems discussed in the previous section, we will suggest a slighly different algorithm and refer to it as K-Nearest Neighbour Clustering. 
+To resolve the problems discussed in the previous section, we will suggest a slighly different algorithm and refer to it as K-Nearest Neighbour Clustering (KNNC). 
 In this method, similar to agglomerative clustering, in the beggining there are equally many clusters as there are nodes. Instead of looking for pairs that are mutually close,
 each cluster seeks to merge with the cluster that is closest. The distance is defined by the distance metric. The merge will always happen as long as the resulting cluster does 
 not contain a higher node count than K.
 
 \subsubsection{Distance metric}
 The distance metric lets us specify exactly what the distance between two clusters signifies. As each cluster usually consists of several nodes, there are multiple
-options for what the distance between two clusters could be defined as. The distance metrics used in hierarchical clustering are typically either
+options for what the distance between two clusters could be defined as. The distance metrics used in hierarchical clustering are typically either:
+
 \begin{itemize}
+	\itemsep0em 
 	\item The average distance between the nodes of each cluster
 	\item The minimum distance between the nodes of each cluster
 	\item The maximum distance between the nodes of each cluster
@@ -229,7 +231,7 @@ In our simulation this is as easy as combining two Group objects into one. A pse
 In a real world implementation there would have to be a supporting protocol to 
 enable the flow of information and synchronization of data. These specific challenges will be addressed in chapter {{insert chapter}}.
 
-	\begin{figure}[H]
+	\begin{figure}
 		\tiny
 		\begin{python}
 allGroups = [];
@@ -281,23 +283,55 @@ referred to as K. If the sum of members in two groups that wants to merge exceed
 This means that the simulation algorithm converges when no groups remain that are small enough to merge with another.
  
 \subsection{Results on different topologies}
-Figure \ref{fig:knearest}a shows the result of running the K-Nearest Neighbour Clustering algorithm on a uniform distribution topology, while figures \ref{fig:knearest}b, \ref{fig:knearest}c, \ref{fig:knearest}d shows the resulting clusters after running it on topologies on citites and towns collected by WiGLE. The different node colors indicate different group memberships.
+Figure \ref{fig:knearest}a shows the result of running the K-Nearest Neighbour Clustering algorithm on a uniform distribution topology, while figures \ref{fig:knearest}b, \ref{fig:knearest}c, \ref{fig:knearest}d shows the resulting clusters after running it on topologies on citites and towns collected by WiGLE. The different node colors indicate different group memberships. The large scale images of each topology can be seen in appendix \ref{appendix:knn}.
 
 
 \begin{figure}
 		\centering
-		\subfloat[Uniform]{{\includegraphics[width=6cm]{Images/computations/BASIC500x500_1000n.jpg} }}%
+		\subfloat[Uniform]{{\includegraphics[width=4.5cm]{Images/computations/BASIC500x500_1000n.jpg} }}%
 		\qquad
-		\subfloat[Forks]{{\includegraphics[width=6cm]{Images/computations/BASICForks.jpg} }}%
-		\newline
-		\subfloat[Lillehammer]{{\includegraphics[width=6cm]{Images/computations/BASICLillehammer.jpg} }}%
 		\qquad
-		\subfloat[Tynset]{{\includegraphics[width=6cm]{Images/computations/BASICTynset.jpg} }}%
+		\subfloat[Forks]{{\includegraphics[width=4.5cm]{Images/computations/BASICForks.jpg} }}
+
+		\subfloat[Lillehammer]{{\includegraphics[width=4.5cm]{Images/computations/BASICLillehammer.jpg} }}%
+		\qquad
+		\qquad
+		\subfloat[Tynset]{{\includegraphics[width=4.5cm]{Images/computations/BASICTynset.jpg} }}%
 		\caption{K-Nearest Neighbour Clustering on different topologies}%
 		\label{fig:knearest}%
 \end{figure}
 
 
+
+%\begin{figure}    
+%	\centering
+%	\begin{minipage}[t]{0.3\textwidth}
+%		\scriptsize
+%		\includegraphics[width=\linewidth]{Images/computations/BASIC500x500_1000n.jpg}
+%		\caption{KNNC: Uniform Distribution}
+%		\label{fig:immediate}
+%	\end{minipage}
+%	\hspace{0.5cm}
+%	\begin{minipage}[t]{0.3\textwidth}
+%		\includegraphics[width=\linewidth]{Images/computations/BASICForks.jpg}
+%		\caption{KNNC: Forks, USA}
+%		\label{fig:proximal}
+%	\end{minipage}
+%
+%	\vspace*{0.5cm} % (or whatever vertical separation you prefer)
+%	\begin{minipage}[t]{0.3\textwidth}
+%		\includegraphics[width=\linewidth]{Images/computations/BASICLillehammer.jpg}
+%		\caption{KNNC: Lillehammer, Norway}
+%		\label{fig:distal}
+%	\end{minipage}
+%	\hspace{0.5cm}
+%	\begin{minipage}[t]{0.3\textwidth}
+%		\includegraphics[width=\linewidth]{Images/computations/BASICTynset.jpg}
+%		\caption{KNNC: Tynset, Norway}
+%		\label{fig:combined}
+%	\end{minipage}
+%\end{figure}
+%
 \subsection{Evaluation}
 By looking at the results of the simulations of the K-Nearest Neighbour Clustering it is obvious that clusters are created.  Even in the more chaotic topologies as Lillehammer,
 there are distinct clusters that encompasses the closest nodes. However, there are two obvious problems with this algorithm:
@@ -327,13 +361,15 @@ before the least disturbing node is kicked out to get the group size back to K.
 
 \begin{figure}
 	\centering
-		\subfloat[Two neighbouring nodes]{{\includegraphics[width=6cm]{Images/mergestep1.png} }}%
+		\subfloat[Two neighbouring nodes]{{\includegraphics[width=5cm]{Images/mergestep1.png} }}%
 		\qquad
-		\subfloat[A and B merges. A third node appears]{{\includegraphics[width=6cm]{Images/mergestep2.png} }}%
-		\newline
-		\subfloat[All nodes joined in transient group]{{\includegraphics[width=6cm]{Images/mergestep3.png} }}%
 		\qquad
-		\subfloat[Splitting to reduce group size]{{\includegraphics[width=6cm]{Images/mergestep4.png} }}%
+		\subfloat[A and B merges. A third node appears]{{\includegraphics[width=5cm]{Images/mergestep2.png} }}%
+
+		\subfloat[All nodes joined in transient group]{{\includegraphics[width=5cm]{Images/mergestep3.png} }}%
+		\qquad
+		\qquad
+		\subfloat[Splitting to reduce group size]{{\includegraphics[width=5cm]{Images/mergestep4.png} }}%
 		\caption{Simplified illustration of the idea behind splitting. K = 2}%
 		\label{fig:splitting}%
 \end{figure}
@@ -373,28 +409,30 @@ the result is deterministic and the algorithm does not have to be run more than 
 
 
 \subsection{Results}
-The results of simulating the group creation with K-means splitting implemented can be seen in figure \ref{fig:kmeans}. The groups look very similar to those we computed in \ref{fig:knearest}, but
-in some places there are some major differenes. A comparison of the two algorithms executed on the same section of Tynset's town centre can be seen in figure \ref{fig:kmeanscomparison}, and another
+The results of simulating the group creation with K-means splitting implemented can be seen in figure \ref{fig:kmeans} (see 
+appendix \ref{appendix:kmeanssplit} for full size images). The groups clearly look very similar to those we computed in \ref{fig:knearest}, but in some places there are some major differenes. This is where splits have happened. A comparison of the two algorithms executed on the same section of Tynset's town centre can be seen in figure \ref{fig:kmeanscomparison}, and another
 comparison of a section of the uniform distribution can be seen in figure \ref{fig:kmeanscomparisonuniform}. 
 
 \begin{figure}
 	\centering
-		\subfloat[Uniform]{{\includegraphics[width=6cm]{Images/computations/KMEANS500x500_1000n.jpg} }}%
+		\subfloat[Uniform]{{\includegraphics[width=5cm]{Images/computations/KMEANS500x500_1000n.jpg} }}%
 		\qquad
-		\subfloat[Forks]{{\includegraphics[width=6cm]{Images/computations/KMEANSForks.jpg} }}%
-		\newline
-		\subfloat[Lillehammer]{{\includegraphics[width=6cm]{Images/computations/KMEANSLillehammer.jpg} }}%
 		\qquad
-		\subfloat[Tynset]{{\includegraphics[width=6cm]{Images/computations/KMEANSTynset.jpg} }}%
+		\subfloat[Forks]{{\includegraphics[width=5cm]{Images/computations/KMEANSForks.jpg} }}%
+
+		\subfloat[Lillehammer]{{\includegraphics[width=5cm]{Images/computations/KMEANSLillehammer.jpg} }}%
+		\qquad
+		\qquad
+		\subfloat[Tynset]{{\includegraphics[width=5cm]{Images/computations/KMEANSTynset.jpg} }}%
 		\caption{K-means splitting on different topologies}%
 		\label{fig:kmeans}%
 \end{figure}
 
 \begin{figure}
 	\centering
-		\subfloat[Without K-means splitting]{{\includegraphics[width=3cm]{Images/computations/TynsetNear.jpg} }}%
+		\subfloat[Without K-means splitting]{{\includegraphics[width=2.5cm]{Images/computations/TynsetNear.jpg} }}%
 		\qquad
-		\subfloat[With K-means splitting]{{\includegraphics[width=3cm]{Images/computations/TynsetNearKmeans.jpg} }}%
+		\subfloat[With K-means splitting]{{\includegraphics[width=2.5cm]{Images/computations/TynsetNearKmeans.jpg} }}%
 		\caption{Comparison with and without K-means splitting on Tynset}%
 		\label{fig:kmeanscomparison}%
 \end{figure}
@@ -447,30 +485,6 @@ through one or more links which are weaker than the strongest link to a neighbou
 \end{figure}
 
 
-To utilize minimum cut as a mechanism for splitting, the groups has to be treated as directed graphs. While the data structure of the networks in the implementation is not
-originally designed for graph operations, the nature of the nodes with its neighbour lists and signal strength metrics certainly can be treated as a graph. Meaning that each node's neighbour list contains
-its outgoing edges, while the belonging signal strength value is the weight of the edge. In contrast to the K-means splitting implementation, the minimum cut implementation does not require
-a larger transient group. Instead the groups have to negotiate to know when a split can be confirmed. A flowchart illustration an abstract flow of the simulation implementation can be seen in figure \ref{fig:mincutflow}, showing the steps which are more closely described below. 
-
-\begin{enumerate}
-	\item Two groups $A$ and $B$ wants to merge, their combined size is larger than the specified group $maxSize$. The measured maximum value of signal strength between nodes in the two different
-		groups $A$ and $B$ is called $rssiThresh$. 
-	\item The groups independently build a graph of their current state, using the signal strength values as weights on edges to neighbouring nodes. In the simulation implementation this is done using the NetworkX graph.
-	\item Each edge in the graph where the weight is larger than  $rssiThresh$, gets a new weight = \verb|INFINITE|.
-	\item The groups independently perform minimum cut multiple times. In the simulation implementation this is done with a call to the library function \verb|minimum_cut(G, s, t)|,
-		where $G$ is the graph, $s$ source and $t$ is the sink. To find the best partition to exclude from the graph, the  sink node is always the node which lies closest to the other group,
-		while the source node changes for each call to minimum cut. When all nodes, except for the sink, have been sources in the minimum cut algorithm, this step is finished. The cut
-		which has the lowest capacity of all performed cuts is stored along with the partition of this cut. 
-	\item The partition which does not contain the sink node is excluded from the graph, however if this partition is empty it means there exists no suitable cuts in the group which are less beneficial than the addition of another group. 
-	\item The groups $A$ and $B$ check if the combined number of nodes exceeds $maxSize$. If the node number is still too high, repeat step 4 provided that there were any 
-		exclusions in the graphs in the previous run. If there are no exclusions in either group, there exists no cut that can bring the combined group size down to desired size, and the
-		merge has to be aborted. 
-\end{enumerate}
-
-The pseudocode for step 4-5, referred to as the \verb|findCutAndPartition| procedure in the flowchart of \ref{fig:mincutflow}, can be seen in \ref{fig:pseudocut}.  
-
-For a detailed step by step illustration describing how a split happens in a topology where a split would be beneficial, see figure \ref{fig:mincutstep}. 
-
 	\begin{figure}
 		\tiny
 		\begin{python}
@@ -498,36 +512,108 @@ For a detailed step by step illustration describing how a split happens in a top
 		\label{fig:pseudocut}
 	\end{figure}
 
+
+To utilize minimum cut as a mechanism for splitting, the groups has to be treated as directed graphs. While the data structure of the networks in the implementation is not
+originally designed for graph operations, the nature of the nodes with its neighbour lists and signal strength metrics certainly can be treated as a graph. Meaning that each node's neighbour list contains
+its outgoing edges, while the belonging signal strength value is the weight of the edge. In contrast to the K-means splitting implementation, the minimum cut implementation does not require
+a larger transient group. Instead the groups have to negotiate to know when a split can be confirmed. A flowchart illustration an abstract flow of the simulation implementation can be seen in figure \ref{fig:mincutflow}, showing the steps which are more closely described below. 
+
+\begin{enumerate}
+	\item Two groups $A$ and $B$ wants to merge, their combined size is larger than the specified group $maxSize$. The measured maximum value of signal strength between nodes in the two different
+		groups $A$ and $B$ is called $rssiThresh$. 
+	\item The groups independently build a graph of their current state, using the signal strength values as weights on edges to neighbouring nodes. In the simulation implementation this is done using the NetworkX graph.
+	\item Each edge in the graph where the weight is larger than  $rssiThresh$, gets a new weight = \verb|INFINITE|.
+	\item The groups independently perform minimum cut multiple times. In the simulation implementation this is done with a call to the library function \verb|minimum_cut(G, s, t)|,
+		where $G$ is the graph, $s$ source and $t$ is the sink. To find the best partition to exclude from the graph, the  sink node is always the node which lies closest to the other group,
+		while the source node changes for each call to minimum cut. When all nodes, except for the sink, have been sources in the minimum cut algorithm, this step is finished. The cut
+		which has the lowest capacity of all performed cuts is stored along with the partition of this cut. 
+	\item The partition which does not contain the sink node is excluded from the graph, however if this partition is empty it means there exists no suitable cuts in the group which are less beneficial than the addition of another group. 
+	\item The groups $A$ and $B$ check if the combined number of nodes exceeds $maxSize$. If the node number is still too high, repeat step 4 provided that there were any 
+		exclusions in the graphs in the previous run. If there are no exclusions in either group, there exists no cut that can bring the combined group size down to desired size, and the
+		merge has to be aborted. 
+\end{enumerate}
+
+The pseudocode for step 4-5, referred to as the \verb|findCutAndPartition| procedure in the flowchart of \ref{fig:mincutflow}, can be seen in \ref{fig:pseudocut}.  
+
+For a detailed step by step illustration describing how a split happens in a topology where a split would be beneficial, see figure \ref{fig:mincutstep}. 
 \begin{figure}
 	\centering
-		\subfloat[Two groups are initially too large to merge. A split is going to be attempted. ]{{\includegraphics[width=6cm]{Images/mincutstep1.png} }}%
+		\subfloat[Two groups are initially too large to merge. A split is going to be attempted. ]{{\includegraphics[width=7cm]{Images/mincutstep1.png} }}%
 		\qquad
-		\subfloat[Both groups identify edges which should not be cut, marked by an infinite edge weight]{{\includegraphics[width=6cm]{Images/mincutstep2.png} }}%
-		\newline
-		\subfloat[The groups excludes the partitions with the lowest capacity cuts]{{\includegraphics[width=6cm]{Images/mincutstep3.png} }}%
+		\subfloat[Both groups identify edges which should not be cut, marked by an infinite edge weight]{{\includegraphics[width=7cm]{Images/mincutstep2.png} }}%
+		
+		\subfloat[The groups excludes the partitions with the lowest capacity cuts]{{\includegraphics[width=7cm]{Images/mincutstep3.png} }}%
 		\qquad
-		\subfloat[The number of members of the groups combined is now lower than maximum size, and the merge is succesful]{{\includegraphics[width=6cm]{Images/mincutstep4.png} }}%
+		\subfloat[The number of members of the groups combined is now lower than maximum size, and the merge is succesful]{{\includegraphics[width=7cm]{Images/mincutstep4.png} }}%
 		\caption{Minimum cut illustration with group maximum size set to 5}%
 		\label{fig:mincutstep}%
 \end{figure}
 
 
-\subsection{Simulation results}
-The results of the simulation with the  implementation of minimum cut splitting can be seen in figure \ref{fig:mincutresults}.
-They are the same four topologies that have been used on previous simulations. 
-
 \begin{figure}
 	\centering
-		\subfloat[Uniform]{{\includegraphics[width=6cm]{Images/computations/MINCUT500_500.png} }}%
+		\subfloat[Uniform]{{\includegraphics[width=4.5cm]{Images/computations/MINCUT500_500.png} }}%
 		\qquad
-		\subfloat[Forks]{{\includegraphics[width=6cm]{Images/computations/MINCUT_FORKS.png} }}%
-		\newline
-		\subfloat[Lillehammer]{{\includegraphics[width=6cm]{Images/computations/MINCUT_LILLEHAMMER.png} }}%
 		\qquad
-		\subfloat[Tynset]{{\includegraphics[width=6cm]{Images/computations/MINCUT_TYNSET.png} }}%
+		\subfloat[Forks]{{\includegraphics[width=4.5cm]{Images/computations/MINCUT_FORKS.png} }}%
+
+		\subfloat[Lillehammer]{{\includegraphics[width=4.5cm]{Images/computations/MINCUT_LILLEHAMMER.png} }}%
+		\qquad
+		\qquad	
+		\subfloat[Tynset]{{\includegraphics[width=4.5cm]{Images/computations/MINCUT_TYNSET.png} }}%
 		\caption{Minimum cut algorithm splitting on different topologies}%
 		\label{fig:mincutresults}%
 \end{figure}
+
+
+\subsection{Simulation results}
+The results of the simulation, using the same four topologies used for previous simulations, with the implementation of minimum cut splitting can be seen in figure \ref{fig:mincutresults} (full scale images can been seen in \ref{appendix:mincutsplitone}).
+Different groups are distinguished by color, and the group max size is set to 128. 
+
+\subsubsection{Comparison}
+In the result section of K-means splitting there was a close up examination and comparison of the group division in Tynset's city centre using no splitting and K-means splitting.
+In figure \ref{fig:mincutcomparison} a close up of the same area has been made between K-means splitting and minimum cut splitting. The group division seems to 
+be very similar, except for a major difference in a cluster on the top left area of the topology (pink color on \ref{fig:mincutcomparison}a).
+While the K-means splitting algorithm identifies a neatly separated cluster, the same cluster in the minimum cut method does not include three nodes at the bottom right edge of the cluster.
+This is imperfect  behaviour. By looking at the minimum cut, figure \ref{fig:mincutcomparison}b, one can tell that the distance from the three pink nodes to the pink cluster is large.
+Actually, it is larger than the distance to the green cluster. The green cluster is far from being the max size of 128, so upon a merge, shouldn't a split happen which would redefine the
+groups in a better way? What could possibly be the cause of this less optimal behaviour?
+\begin{figure}
+	\centering
+		\subfloat[With K-means splitting]{{\includegraphics[width=3cm]{Images/computations/TynsetNearKmeans.jpg} }}%
+		\qquad
+		\subfloat[With minimum cut splitting]{{\includegraphics[width=3cm]{Images/computations/TynsetNearMincut.jpg} }}%
+		\caption{Comparison between K-means splitting and minimum cut splitting on Tynset}%
+		\label{fig:mincutcomparison}%
+\end{figure}
+
+
+
+\subsubsection{Algorithm inspection}
+The application created earlier to step through each iteration of the algorithm can help illuminate the problem.
+The entire solution converges in 11 iterations, but iteration 8 and 9 seems to be the iterations which spefically impacts the result of the cluster in question.
+These are illustrated in figure \ref{fig:mincutbug}. In \ref{fig:mincutbug}a, the green group seeks to merge with the pink. They lie very close with a signal strength between them being -45 dBi.
+During the split several nodes are kicked out, which can be seen in \ref{fig:mincutbug}b. As expected, the three nodes in question have not been kicked out. By watching the figure it is easier to understand why.
+These 3 nodes are obviously less tighter connected than -45dbi, which would the threshold for minimum cuts over this graph, but they are not kicked out because sometime during the split the size of the group becomes lower than the max size of $128$ - before they have the chance to be thrown out. The merge is then immediately accepted. 
+
+An improvement to the algorithm would be to change step 6, so that the minimum cut partitioning would run until no more nodes could be kicked out. Even if the group size reached a tolerable size before that. A change
+like that would prevent leaving nodes in a group when their neighbours have been kicked out, and they would also be better off in another. 
+
+\subsubsection{Results after re-evaluation}
+The algoritm results after the modification is certainly more satisfactory than before. The final comparison between K-means and the new minimum cut can be seen in figure \ref{fig:mincutbug}. For the full size version of
+all four topologies on this simulation as well, see appendix \ref{appendix:mincutsplittwo}. 
+
+\begin{figure}
+	\centering
+		\subfloat[Iteration 8: The green group seeks to merge with the pink, the signal strength between them for instance being -45dBi]{{\includegraphics[width=4cm]{Images/mincutbug1.png} }}%
+		\qquad
+		\subfloat[Iteration 9: After the minimum cut split, some nodes have been thrown out to allow for the merge]{{\includegraphics[width=4cm]{Images/mincutbug2.png} }}%
+		\caption{Illustrating two algorithm iterations to find the problem source of the minimum cut}%
+		\label{fig:mincutbug}%
+\end{figure}
+
+
+
 
 \subsection{Evaluation}
 While being slightly more complex to implement in a simulation than the K-means splitting, the results are more reliable and less dependent on 
@@ -539,32 +625,57 @@ As mentioned, K-means would be hard to realize, while the minimum cut method sho
 to real world implementation. 
 
 
-\section{Evaluation}
-In this section we will consider what the results in this chapters can tell us, and cover what questions that still needs answering with respect to distributed group creation and clustering.  
-\subsection{Simulation weaknesses}
-The simulations have taught us about what kind of clustering could work with the assumptions we have set. Even so, there are several questions that still remains,
-and without considering them we can not expect to get definitive answers of what works or not. 
+\section{Evaluation of the clustering study}
+In this chapter four methods of clustering has been considered: regular agglomerative clustering, K-Nearest Neighbour Clustering (KNN Clustering), KNN Clustering with K-means splitting
+and KNN Clustering with minimum cut splitting. Which of the first is a well known clustering algorithm, and the last three has been proposed in this thesis. 
+This section is dedicated to the evaluation of the work done throughout this chapter, with regards to gained knowledge and simulation weaknesses.
+
+\subsection{Knowledge acquired from simulations}
+Before beginning the work on the thesis it was hard to envision how groups could be formed in a distributed manner, without any central controller having a top down view of
+the landscape of wireless access points. While many questions still remain, some of which will be addressed in the next chapter, many has also been answered. The main issue
+addressed is how groups can be formed, and how they can be continously updated to keep up with changes in the surrounding network.  
+
+Unsurprisingly, the small modification to the agglomerative clustering algoritm, which made KNN Clustering, yielded promising results.
+This algorithm could provide a natural starting point for a real-world implementation in a static network topology.
+However, this specific algorithm does not handle changes in the network environment very well, as once a group's maximum size is reached, it can not be modified. 
+Still it could possibly provide useful for testing scenarios, maybe in an early implementation when a distributed channel allocation algorithm is to be tested across the group, without
+wanting changes to happen. By considering ways to improve this algorithm, the notion of splitting was introduced, and tested through the methods of K-means and minimum cut.
+
+K-means was an interesting clustering algorithm to work with. The promising splitting results observed on the simulation topologies was especially fun to see, as
+the K-means method was adapted to fit the clustering purpose, and not implemented as a textbook K-means clustering.
+However, when comparing the K-means and the minimum cut algorithm to decide which one is the best bet for a real-world implementation of a splitting algorithm,
+the minimum cut algorithm comes off as the easiest to implement given the limited knowledge of the surrounding nodes each access point has access to. 
+Minimum cut also has the benefit of being more predictable in its splitting. The layout of a network is so similar to a graph,
+that in hindsight a version of the minimum cut algorithm seems like such an obvious choice. 
+
+\subsection{Simulation weaknesses and data bias}
+As seen the simulations have taught us about what kind of clustering could work under the assumptions made early in the thesis. The obtained results are also 
+a product of the data that was gathered, and the simulation program which was made. This subsection will consider all the different aspects that has not been considered
+when producing the simulated results, but might have an impact in a real life implementation. 
 
 \subsubsection{Volatility} 
-All the computations we have done takes a static network topology as an input. The static topology is an image of a network topology in a given state, and is not representative
-of the volatile nature of modern networks. While it is true that most access points are relatively stationary and constant, it is increasingly popular to create
-ad-hoc on-demand Wi-Fi networks using cell phones or a computers as access points. Additionally resetting of routers, power outages, etc. means that access points come and go. 
-Hence it is indisputable that network topologies are volatile, and the group clustering algorithm should, when final, run as a continous operation. We have considered ways that 
-the algorithm can handle volatily by splitting and continously create groups, but the simulation framework does not support inserting or removing nodes during the computation, hence
-only static environments that quickly converges is considered. 
+All the simulations takes a static network topology as an input. The static topology is an image of a network topology in a given state, and is not representative
+of the volatile nature of modern networks. Actually, it is more like a computation than a simulation in its rightful meaning.
+While it is true that most access points are relatively stationary and constant, it is increasingly popular to create ad-hoc on-demand Wi-Fi
+networks using cell phones or a computers as access points. Additionally resetting of routers, power outages, etc. means that access points come and go. 
+Hence it is indisputable that network topologies are volatile, and the group clustering algorithm should, when final, run as a continous operation. 
+Any reader of this thesis will know that ways the algorithm can handle volatily has been considered, enabled by group splitting,
+but the simulation framework does not support inserting or removing nodes during the computation, hence only static environments that quickly converges have been tested. 
 
-\subsubsection{Computed interference versuss observed interference}
-Our group computations has been based on the signal strength of all nearby access points, and the dBi values that denotes all signal strengths were calculated using the free space path loss formula.
-As distance is the only variable that affects the result of our signal strength calculation, it means that the signal strength levels becomes a symmetric binary relation between nodes. In the real world 
-this is not the case. Access points may interfere with each other differently, and the signal strength values may change when there are variations in the environment. This is the reasons deadlocks could
-occur if implementing regular agglomerative hierarchical clustering and the motivation behind creating K-Nearest Neighbour Clustering, even though our topologies would work well with agglomerative
-clustering. We also have no simulations of how groups would look if the distance between two nodes were not mutual.
+\subsubsection{Signal strength reporting bias}
+The group computations has been based on the signal strength of all nearby access points, and the $dBi$ values that denotes all signal strengths has been calculated using the
+free space path loss formula. As distance is the only variable that affects the result of the signal strength calculation,
+it means that the signal strength levels becomes a symmetric binary relation between nodes. In the real world this is not the case, and also the reason allgomerative clustering was deemed
+less ideal. Access points may interfere with each other differently, and the signal strength values may change when there are variations in the environment. This is the reasons deadlocks could
+occur if implementing regular agglomerative hierarchical clustering and the motivation behind creating K-Nearest Neighbour Clustering, even though the topologies actually
+could work well with agglomerative clustering. We also have no simulations of how groups would look if the perceived signal strength between two nodes were not mutual.
 
-\subsubsection{Dimensionality} 
-Both the data we have created and the data fetched from \verb|wigle.net| takes the $x$ and $y$ axes in account. Obtaining data in three dimensions is harder.
-Wigle places the access points using longitude and latitude as all their data is acquired using ground-level triangulation.
-By creating clusters based on information in two dimensions we don't know how the algorithm behaves in a 3-dimensional world. It is resonable to think that an algorithm
-which is based on distance two dimensions should also work well in three dimensions, but we have done no simulations that can support the claim. 
+\subsubsection{Dimensionality and node location reporting bias} 
+Both the data that has been randomly generated, and the data fetched from \verb|wigle.net| takes the $x$ and $y$ axes in account. Obtaining data in three dimensions is harder.
+Wigle places the access points using longitude and latitude as all their data is acquired using ground-level triangulation
+By creating clusters based on information in two dimensions there is no way to know how the algorithm behaves in a 3-dimensional world. Of course, it is reasonable to think that an algorithm
+which is based on distance two dimensions should also work well in three dimensions, but there has been done no simulations in three dimensions. As mentioned in the data-mining chapter, Wigle has a 
+tendency to place nodes closer to roads, which means that the positioning of nodes may not be strictly accurate in two dimensions either. 
 
 
 
