@@ -1,62 +1,67 @@
 \chapter{Introduction}
-The presence of Internet connected devices is still rapidly expanding. The latest forecast 
+The amount of Internet connected devices has for the past few years been rapidly increasing, and is still increasing this day. The latest forecasts
 esitmates that there will be about 27 billion devices connected to the Internet by 2021 \cite{CiscoVNI2017}, while by the end of the 2017 the number
-connected devices in use will be 8.4 billion \cite{Gartner}. In 2020 households alone will be responsible for over 10 billion devices that are
-able to wirelessly connect to the home router \cite{wifialliance}, and wireless traffic will account for 63 percent of all IP traffic in the world \cite{CiscoVNI2017}. 
-Traditionally devices that are commonly connected to the Internet in a household are computers, phones, watches, smart TVs, audio systems, and lately also private network storage systems.
-As the era of Internet of Things (IoT) has rapidly descended upon us, increasingly also less obvious utilites are connected to the Internet.
+connected devices will be close to 8.4 billion \cite{Gartner}. In 2020 households alone will be responsible for over 10 billion devices
+able to wirelessly connect to the home router \cite{wifialliance}, and wireless traffic will account for 63 percent of all IP-traffic in the world \cite{CiscoVNI2017}. 
+Traditional devices connected to the Internet like computers, phones, watches, smart TVs, audio systems, and lately also private network storage systems is responsible
+for much of the traffic. However, as the era of Internet of Things (IoT) has rapidly descended upon us, increasingly also less obvious utilites are connected to the Internet.
 These devices may span everything from lights and HVAC systems to coffee machines, fridges and even toasters. Whereas in the early 2000s it was common to own 
 one or two MAC-addresses per person, at the date of writing it is not unusual to possess a two digit number of MAC-addresses.
 
 But it is not only the numbers of devices that has changed. The consumers' expectations and demands are also being altered over time. 
 While ubiquitous connectivity is a buzzword often heard in the context of future 5G networks, ubiquitous access is already expected in
 modern households. The demand for Wi-Fi coverage extends through the entire home: the Internet radio in the garage, the video stream on the basement
-couch and the gaming laptop on the bedroom. All demands coverage and expects mobility at the same time. These devices also have something else in
-common that reflects the change that has happened the last years: demand for high data rate. In 2016 about 73 percent of all IP traffic orginated from video
+couch and the gaming laptop on the bedroom. All demands coverage and expects mobility at the same time. Many of these devices also have something else in
+common which reflects the change that has happened over the last few years: demand for high data rate. In 2016 about 73 percent of all IP traffic orginated from video
 streams, and in 2021 this number is expected to increase all the way up to 82 percent \cite{CiscoVNI2017}. 
 
-This demand for continous streams of high bitrate video poses a challenge that can not only be solved by providing larger bandwidth. First of all, video streams
-have high Quality of Service (QoS) demands. Buffering of videos and reduction of video quality negatively affects the subjective experience.
-Secondly, it is not unusual that different video flows occur simultaneously in a single residence. If such traffic is transmitted wirelessly
+The new demand for continous streams of high bitrate video poses a challenge that can not simply be solved by providing larger bandwidth. First of all, video streams
+have high Quality of Service (QoS) demands. Naturally, buffering of videos and/or reduction of video quality will negatively impact the experience of the service.
+Secondly, it is not unusual that different video flows occur simultaneously in the same household. If such traffic is transmitted wirelessly
 it results in an inherently busy transmission medium. Because of the international spectrum allocation standards, Wi-Fi is largely restricted to a small number of channels.
 To overcome this challenge, the 802.11 protocol specifies a set of rules which allows only one device in the vicinity to transmit on a channel at the same time. 
-This poses yet another challenge of distributing channels in a way that as few devices on the same channels as possible are close to one another. 
+This presents a largely unresolved challenge of mapping channels to access points in a way that there are only a few, or better yet no, devices on the same channels adjacent
+to each other.
 
-In short, while the physical layer (PHY) traditionally has been upgraded to meet the new demands in bitrate (e.g. fiber to the home, 
-and MIMO in 802.11ac) Wireless LAN connections struggle under the heavy impact of RF-intereference which can not be solved by increasing
-the physical datarate capacity. 
-
-\section{Motivation}
-Wireless LAN is deployed in almost all corporate buildings and residencies in the western world and increasingly also in the rest of the world.
-The use of these networks used to be limited to laptops that generated small amounts of data, but now the range of devices includes
-smart-phones, network storage devices, even in some cases servers. The deployment of Wi-Fi and the infrastructure has not 
-changed much over the years to match the new demands and increased traffic, and in most places coverage is still the main concern, while
-QoS comes second. 
-
-Customers who are subscribed to high data rate service level agreements often find they can only receive a comparable data rate over wired LAN.
-When the Wi-Fi network in their home is constantly underperforming, it is not unusual a customer to upgrade the data rate of their agreement. Often interfering networks
-are the perpatrators, and an increase of bandwith will have no effect. This can lead customers to frustration with their Internet service providers,
-even though it is the underlying technology, and not the service provider which is at fault.
-
-A customer service representative or a tech-savvy consumer may manually switch the operating channel for a wireless access point.
-If this has no effect a customer might be encouraged to get a router which can transmit a more powerful signal. While this might give a short relief
-for the customer who was resourceful enough to deal with the problem, it in turn may trigger a chain reaction of even stronger
-interference levels for the rest of the inhabitants in the surrounding area. 
+While the physical layer traditionally has been upgraded to meet the new demands in bitrate (e.g. fiber to the home, 
+and MIMO in 802.11ac) Wireless LAN connections struggle under the heavy impact of radio frequency intereference which can not be solved by increasing
+the physical datarate capacity.
 
 There has been done research on how centralized controllers can benefit the deployment of large enterprise networks (\cite{Murty}, \cite{Murty2} and \cite{Suresh}),
-but in this thesis we will address the emerging issue of deployment of Wi-Fi in residential areas and how routers and access points could organize themselves in self managing groups, 
-to allow distributed control and coopeation on channel allocation, where centralized controllers are impractical or impossible.
+but in this thesis we will address the emerging issue of deployment of Wi-Fi in residential areas. More specifically, we will consider possible clustering methods
+to enable routers and access points to organize themselves in self managing groups. A synchronous, distributed group across access points in different service sets
+would allow for planned, cooperative channel allocation. This would transform the channel allocation problem from finding a local optimal channel for each router,
+to a problem of finding an optimal channel plan for the entire group.
+
+\section{Motivation}
+Wireless LAN, commonly referred to as Wi-Fi, is deployed in almost all corporate buildings and residencies in the modern world.
+The use of these networks used to be limited to laptops or phones that generated small amounts of data, but now the range of devices includes
+smart-phones, network storage devices, and IoT appliances. The deployment of Wi-Fi and the infrastructure has not 
+changed much over the years to match the new demands and increased traffic. Actually, in most places coverage is still the main concern, while
+QoS comes second. 
+
+Customers subscribed to high data rate service level agreements often find they can only receive a comparable data rate over wired LAN.
+When the Wi-Fi network in their home is constantly underperforming, it is not unusual a customer to upgrade the data rate of their agreement.
+But as it happens, often interfering networks are the perpatrators, and an increase of bandwith will have no effect.
+This can lead customers to frustration with their Internet service providers, even though it is the underlying technology and not the service provider which is at fault.
+
+There exists a large amount of different algorithms that deal with channel allocation to prevent and limit interference. Some even consider the QoS observed by the client - not only the access points.
+However, many efficient algorithms are deployed in centralized systems and does not focus on decentralized instances, such as residential networks.
+Of all channel allocation algorithms, a few addresses the issue of optimizing the channel distribution. But the algorithms does not have a way to limit the amount of nodes to consider, and how to enable
+communication between them. The main motivation behind this thesis is to explore ways to create a distributed group (clustering) scheme. Once a group is established, 
+many problems can be solved with technologies previously only used in centralized systems.. 
 
 \section{Problem definition}
-There are 3 non-overlapping channels on the 2.4GHz spectrum that 802.11 Wireless LANs uses. One of the common ways of selecting a channel
+There are 3 non-overlapping channels on the 2.4GHz spectrum utilized by 802.11 Wi-Fi. One of the more common ways of selecting a channel
 is done by letting an access point sense which channel has the lowest interference levels, also called least congested channel search.
-When channels are selected in a selfish manner, where the only available information about the surrounding networks are obtained via
-subjective radio readings, it is highly unlikely that the distribution of channels in a confined area (e.g. an apartment block) becomes optimal.  
-Ideally all the access points would be configured so that the channel distribution in this area lead to as few equal channels as possible
-being adjacent to one another. While this boils down to a NP-complete graph-coloring problem, it is not the focus of this thesis.
+When channels are selected in this selfish manner, where the only available information about the surrounding networks are obtained via
+local radio observations, it is highly unlikely that the channel distribution in a confined area (e.g. an apartment block) becomes optimal.  
+All the access points would ideally be configured so channel distribution in an area leads to as few equal channels as possible
+being adjacent to one another. While this boils down to a NP-complete graph-coloring problem, it is not the focus of this thesis. 
 The main challenge to be considered is the clustering problem of identifying access points that heavily impacts eachother, and consider different approaches to how 
-they can form groups in a distributed manner that seeks to intuitively identify nodes that lie withing the same confined areas, as apartment buildings
-dense residential areas, etc. 
+they can form groups in a distributed manner. The clustering algoritm should intuitively identify nodes that lie within the same confined areas, as apartment buildings,
+dense residential areas, etc. No access point has a global view of the landscape of neighbouring routers, hence the clustering algorithm must be run in a way that
+clusters can be built relying only on information that can be obtained from radio scans of its membering access points. 
 
 \section{Method}
 To be able to see if we can form groups in a way that creates clusters of nearby nodes we need to get some data to perform

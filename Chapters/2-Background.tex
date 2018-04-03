@@ -1,6 +1,6 @@
 \chapter{Background}
-We will briefly introduce the relevant aspects of wireless technology and a selection of important
-concepts from the 802.11 standard, both on the link and physical layer.
+In this chapter the relevant aspects of wireless technology and a selection of important
+concepts from the 802.11 standard will be introduced.
 
 \section{Basic radio challenges}
 There are some challenges with wireless technologies that are harder to overcome than in wired transmission technologies like Ethernet.
@@ -11,22 +11,23 @@ environment. If there are a lot of solid obstacles, like walls and ceilings, the
 
 Even if the surrounding environment is mostly open space, the wireless signal becomes subject of attenuation,
      which is a physical property of electromagnic waves that weakens the signal the longer it has travelled through a
-     medium. When this medium is only air, the phenomenon is referred to as Free Space Path Loss. Attentuation limits
+     medium. When this medium is only air, the phenomenon is referred to as free space path loss. Attentuation limits
      the transmit range of a radio, and to transmit further it has to increase its transmission power.
 
      \subsection{Collisions in wireless technology}
-     If there are other nodes nearby that are within radio B's sensing range that sends at the same time as A, 
+     Given two radios A and B, if there are any other nodes nearby that are within radio B's sensing range that sends at the same time as A, 
      radio B experiences radio frequency interference, and thus may not be able to correctly decode the signal of A. In 802.3 Ethernet this
-     is graciously handled by collision detection in the CSMA/CD protocol. As each node can hear everyone on else on a cabled medium,
+     is graciously handled by collision detection in the CSMA/CD protocol. As each node can hear all other nodes on a wired medium,
      and listening while transmitting is generally not a problem, a node can retransmit if a collision is detected. In wireless techhnologies
      it is not equally easy to listen while transmitting, and collision detection may be impossible because of the hidden terminal problem.
 
      \subsubsection{The hidden terminal problem}
-     The hidden terminal problem is one of the major challenges for wireless technologies. 
-     When node A transmits a message to node B, it may not be able to sense what is going on
+     The hidden terminal problem is one of the major challenges for wireless technologies, and a brief explanation of the problem will be offered here.
+		 When node A transmits a message to node B, it may not be able to sense what is going on
      on the opposite side of node B. If a node C transmits at the same time, this signal may not enter node A's sensing range, and
      hence go undetected by, even though a collision has happened near node B. This is illustrated in figure \ref{fig:hiddenterminal} where
-     both A and C has unknowingly sent messages at the same time, and B has not been able to decode any messages because of the colliding messages. 
+     both A and C has unknowingly sent messages at the same time, and B has not been able to decode either of the two, as they have been corrupted during
+		 transmisison due to the collision. 
 
      \begin{figure}
      \center
@@ -38,6 +39,7 @@ Even if the surrounding environment is mostly open space, the wireless signal be
 
 
 \section{Network infrastructure}
+		In this section there will be a brief introduction to network infrastructures, to get an understanding of the differences between the mainly two types of infrastructures used today. 
 		\subsection{Basic Service Set}
 		A basic service set (BSS) in infrastruture mode consists of a single AP connected by wire to a distribution system (in residential deployment the distribution system is typically the ISP).
 		Stations within the basic service area, which is the area physically serveable by the AP, can connect to the BSS using dynamic access point association, described
@@ -57,7 +59,7 @@ Even if the surrounding environment is mostly open space, the wireless signal be
 
 		\subsection{Extended Service Set}
 		An extended service set (ESS) can consist of multiple basic service sets, and thereby APs. The extended service set is a logical entity which can extend station
-		authentication and association to all APs under the same extended service set. In an ESS the SSID of all APs are also identical. This means a STA can be in the basic service area of
+		authentication and association to all APs under the same extended service set. In an ESS the SSID of all APs are also identical. This means an STA can be in the basic service area of
 		multiple APs at the same time, and is given the opportunity to select which AP to be serviced by. APs in an ESS can operate on different channels, and the medium access control
 		mechanisms are performed as usual. Figure \ref{fig:extendedserviceset} illustrates the infrastructure of an extended service set.  
 
@@ -81,14 +83,14 @@ Even if the surrounding environment is mostly open space, the wireless signal be
      \begin{itemize}
      \item \textbf{Physical carrier sensing} handled by the physical layer (PHY) as Clear Channel Assessment (CCA), which we will talk about in the PHY subsection.
      \item \textbf{Virtual carrier sensing} is a MAC layer mechanism in place to limit the number of times
-     a node has to check the physical radio. When a valid 802.11 frame is decoded for a listening node, it can read the duration of
+     a node has to request CCA from the physical layer. When a valid 802.11 frame is decoded on a listening wireless network interface, it can read the duration of
      the transmission from the MAC header. The frame with a duration is called a Network Allocation Vector (NAV). When a NAV is received 
-     the channel is marked as busy and the node will back off for the duration of the NAV. 
+     the channel is marked as busy and the node will refrain from transmitting and also refrain from rechecking the channel for the duration of the NAV. 
      \end{itemize} 
 
 
      \subsection{Collision Avoidance}
-CSMA/CA attempts to avoid collisions in a network layout that includes hidden terminals. \textbf{Request To Send/Clear To Send} (RTS/CTS)
+CSMA/CA attempts to avoid collisions and is helpful in a network layout that includes hidden terminals. \textbf{Request To Send/Clear To Send} (RTS/CTS)
 	is the function that allows CSMA/CA to some degree avoid the hidden terminal problem. By letting a node first ask the receiver if it is
 	available for transmission (RTS), it prevents the node from sending the payload frame unless it receives Clear To Send (CTS) frame from the receiver first.
 	The other mechanisms for collision avoidance are: 
@@ -109,11 +111,11 @@ CSMA/CA attempts to avoid collisions in a network layout that includes hidden te
 	\end{itemize}
 
 	\subsection{Distributed Coordination Function}
-	The distributed coordination function is the main mode of operation in the 801.11 MAC layer, and is supposed to provide fair and reliable 
+	The distributed coordination function is the main mode of operation in the 802.11 MAC layer, and is supposed to provide fair and reliable 
 	transmission for all nodes on the same network. Figure \ref{fig:dcfmode} shows the 
-	frame exchange that happens. The transmitter has to wait DIFS time, before drawing 
+	frame exchange that happens. Following the figure, the transmitter has to wait DIFS time, before drawing 
 	a number from the contenion window and backing off that amount.
-	As no other transmissions has begun during this time and the channel is
+	As no other transmissions has begun during this time, and the channel is
 	still clear, the transmitter sends out an RTS frame. When received by the receiver
 	it waits SIFS time before transmitting a CTS frame. The transmitter then sends his
 	data frame, and waits for the ACK that indicates a succesful transmission. The 
@@ -133,10 +135,9 @@ CSMA/CA attempts to avoid collisions in a network layout that includes hidden te
 
 
 	\section{PHY Layer}
-	The physical layer in 801.11 is also divided in two sublayers. The upper sublayer is the Physical Layer Convergence Procedure (PLCP), responsible for clear channel assessment and acting
+	The physical layer in 802.11 is also divided in two sublayers. The upper sublayer is the Physical Layer Convergence Procedure (PLCP), responsible for clear channel assessment and acting
 	as a common interface for MAC layer drivers. The lower sublayer is the Physical Medium Dependent (PMD) which is responsible for modulation and directly interfaces with
-	the radio. It is responsible for transmitting the complete frames, and receive
-	and decode incoming frames. 
+	the radio. It is responsible for transmitting the complete frames, as well as receiving and decoding incoming frames. 
 
 	\subsection{PLCP Protocol Data Unit}
 	The physical layer convergence procedure creates PLCP Protocol Data Units (PPDUs), 
@@ -171,10 +172,10 @@ CSMA/CA attempts to avoid collisions in a network layout that includes hidden te
 	layer if the carrier is available for transmission. There
 	are primarily two ways the physical layer does CCA.
 	\begin{itemize}
-	\item CCA-ED (CCA-Energy Detect) detects signals that can not be decoded as a 801.11 frame, but is a disturbing signal on the channel. If the CCA-ED value
+	\item CCA-ED (CCA-Energy Detect) detects signals that can not be decoded as a 802.11 frame, but is nontheless a disturbing signal on the channel. If the CCA-ED value
 	exceeds a threshold, for instance 20 dB, then the CCA shall be indicated as
 	busy by issuing a \verb|PHY-CCA.indication(BUSY)| to the MAC layer.  
-	\item CCA-CS (CCA Carrier/Sense) detects a valid 801.11 frame and can
+	\item CCA-CS (CCA Carrier/Sense) detects a valid 802.11 frame and can
 	properly decode the header fields of a valid PPDU frame.
 	The channel gets marked as busy for as long as the length
 	field in the PPDU header specifies, even if the obvserved
@@ -187,11 +188,11 @@ CSMA/CA attempts to avoid collisions in a network layout that includes hidden te
 	A receiver will have problems deciding which parts of the signals 
 	belongs to which transmitter, and the signal may altered to the extent
 	that bits are changed or misrepresented. As the 2.4 GHz band that 802.11
-	utilizes is a part of the ISM band, channel noise or interference
-	can come from sources such as microwaves, bluetooth devices or other
-	WiFi entities.
+	utilizes is a part of the Industrial, Scientific and Medical (ISM) band, channel noise or interference
+	can come from sources such as microwaves, bluetooth devices and radio controllers, in addition to other Wi-Fi devices. 
 
-	\subsection{Impact in 802.11}If the PPDU header
+	\subsection{Impact in 802.11}
+	If the PPDU header
 	gets corrupted by an interfering signal and can not be decoded
 	, the PLCP layer issues a \verb|PHY-RXEND.indication(CarrierLost)|
 	to the MAC layer. According to CSMA/CA the station then has to
@@ -208,7 +209,7 @@ CSMA/CA attempts to avoid collisions in a network layout that includes hidden te
 	Several countermeasures to limit the impact of RF-interference has been suggested.
 	On the MAC layer there is frame aggregation with individual headers.
 	Frame aggregation in 802.11n is a technique that wraps several payloads under the same
-	header and send them all when channel access is granted. This can improve the throughput
+	header and send them together at the same time, once channel access is granted. This can improve the throughput
 	if the channel is clear, but if the frame gets corrupted during transmission
 	an increased amount of data is lost.
 	Therefore it can be beneficial to aggregate a frame with individual headers.
@@ -229,19 +230,17 @@ CSMA/CA attempts to avoid collisions in a network layout that includes hidden te
 
 
 	\begin{wrapfigure}{R}{0.25\textwidth}
-		\caption{\newline Channel/frequency\newline distribution \newline}
+		\caption{\newline Channel distribution}
 		\label{fig:channels}
 		\includegraphics[width=1\linewidth]{Images/Channels80211.png}
 	\end{wrapfigure}
 
 
-	It is shown that the mentioned countermeasures only have limited
-	impact, while switching to a channel with less interference (if available) remains the most effective.
-	\cite{impactRF}. 
+	The mentioned countermeasures only have limited
+	impact, while switching to a channel with less interference (if available) remains the most effective in most cases \cite{impactRF}. 
 	\section{Channels} 
-	802.11 b/g/n uses the range of frequencies from 2.400-2.500 GHz on the Industrial,
-	Scientific and Medical (ISM) band.
-	The increasingly popular 801.11n/ac also uses a range of 5 GHz frequencies on the Unlicensed
+	802.11 b/g/n uses the range of frequencies from 2.400-2.500 GHz on the ISM band.
+	The increasingly popular 802.11n/ac also uses a range of 5 GHz frequencies on the Unlicensed
 	National Information Infrastructure (UNII) band, which offers more frequencies \cite{5ghz}.
 	Other than that the properties and challenges for the different bands are ultimately the same.
 	The distribution of the frequencies on the 2.4 GHz band to the different channels is illustrated by figure \ref{fig:channels}. The frequencies listed are the center frequencies of each channel. In practice this means that an AP that transmits on one channel will interfere with close channels in both directions. Two channels are entirely non-interfering if they send on two frequencies  $f_{1}$ and $f_{2}$ so that $|f_{1} - f_{2}| > 0.025$. This means that there are in total three completely non-overlapping channels, 1, 6 and 11. The process of deciding which channel to transmit on is called channel allocation. 

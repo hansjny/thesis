@@ -1,25 +1,26 @@
 \chapter{Related work}
+This chapter is dedicated to give a brief account of works related to solving some of the challenges posed so far in this thesis. It is worth noting that some of the 
+works mentioned here are actual implementations and live products, but only deployed in corporate environments.
 
-\section{Brief survey of related work}
-\subsection{Cisco RRM}
+\section{Cisco RRM}
 CISCO offers a solution directed at enterprise networks \cite{ciscoRRM}, where implementing and managing a centralized
 controller is a more managable task than in residential networks.
 Their architecture consists of one or more Wireless Lan Controllers (WLCs).
-The WLCs creates a group name which all APs part of the same RF-group is aware of. All APs broadcasts their RF-group name, along
+The WLCs creates a group name and shares it with all APs in the same RF-group. All APs broadcasts their RF-group name, along
 with the IP-address of their controller. Any other AP sharing the same RF-group name reports the incoming broadcast message to the controller, and then rebroadcasts the packet.  This way the controller
-becomes aware of all APs that can hear each other, similar to the flooding routing mechanism,
+becomes aware of all APs that are in range of each other, similar to the flooding routing mechanism,
 and they can form logical groups based on this information.
 If applicable the RF-groups perform leader election to decide which controller becomes the RF Group leader, but there
 can also a preconfigured leader. The RF group leader has the responsibility of running the relevant channel allocation
 algorithms and ajusting the radio power level of the APs. 
 
-\subsection{DenseAP}
+\section{DenseAP}
 DenseAP described in \cite{Murty2} aims to restructure the infrastructure of enterprise networks.  The two fundamental
 changes they suggest is to deploy APs a lot denser (hence the name), and moving the task of associating clients
 with APs to a centralized controller. The reasoning behind the dense deployment of APs is that signals diminishes
-quickly in an indoor environment, and ideally an AP can always be associated with an AP in the close vicinity. The argument 
-they use for moving the association decision away from the client and over to a central controller, is that a client
-only uses signal strength as the metric to decide which to associative with. They emphasize that this can be
+quickly in an indoor environment, and ideally a client should always be associated with an AP in the close vicinity. The argument 
+they use for moving the association decision away from the client and over to a central controller, is that a client can
+only use signal strength as the metric deciding which AP to associate with. This is emphasized as
 suboptimal in conferences and meeting room environments, where many clients seek to associate with an AP at the same time.
 If all clients pick the same AP it also means all clients will transmit on the same channel,
 and RF-interference can reduce the throughput on the medium. 
@@ -28,42 +29,57 @@ reports to the DC, which contains information as RSSI measures, channel interfer
 information the DC decides which DAP each client should associate with, and also which channel each DAP should transmit
 on. 
 
-
-\subsection{HiveOS}
+\section{HiveOS}
 HiveOs \cite{Aerohive}, developed by Aerohive Networks offers distributed protocols and mechanisms to improve Wireless LANs in enterprise networks. The APs 
 in the network are called HiveAPs, and they offer services such as
 \begin{itemize}
 	\item Band steering: if an device can operate on the 5Ghz band, it will be forced to connect to the 5Ghz network to optimize the utilization of the radio spectrum. 
 	\item Load balancing: all HiveAPs have real-time information about how clients performs. If a client tries to associate with a new HiveAP, it will only be accepted
 				if the new HiveAP has a low enough load to handle more clients. It would also know if other neighbouring APs are better suited to handle the load of the new client.
-				This is achieved by witholding probe responses. 
+				This is achieved by witholding probe responses.
+
 	\item Channel allocation: by using the Aerohive Channel Selection Protocol, HiveAPs tries to select the channel with the lowest co-channel interference. Their channel selection protocol uses 5 measurements, two static and 3 dynamic.
-	The first static measurements is the number of nearby APs who are operating on the same channel. The more APs there are the higher the penalty, but the penalty per AP reduces as the number of APs increases. This
+	The first static measurements is the number of nearby APs who are operating on the same channel. The more APs there are the higher the penalty. The penalty per AP diminishes as the number of APs increases, this
 		is because the first one(s) are the most critical. The other static cost factor is what power level can be transmitted at the given channel, as this may differ on some 5GHz non-overlapping channels. The dynamic measurements are CRC-error rate, channel utlization,
 	and the utilization of overlapping APs. All of these dynamic factors can penalize a channel with 0 to 3.5%. 
 \end{itemize}
 
-\subsection{ResFi}
+\section{ResFi}
 ResFi \cite{resfi} is the only significant related work that directly aims to enable self-organized management in residential deployments of wireless LAN. Works such as \cite{Murty2}, \cite{ciscoRRM} and \cite{Aerohive} are all directed toward enterprise
 networks. As we also aim to mainly concern ourselves with residential networks and their infrastrucure, ResFi is especially interesting to look at. ResFi assumes that all access points have two interfaces, one connected to a wired backone (e.g Internet), and another
-802.11 compatible wireless interface. They also assume a Radio Resource Management Unit (RRMU), which in most residential homes is a router that controls the channel and power level of the antenna.  In short ResFi enables connectivity between distributed access points without imposing a central controller on the access points, and without doing any modifications to hardware and drivers (like modifying standards or requiring propriatary equipment). 
+802.11 compatible wireless interface. The figures of ResFi includes a Radio Resource Management Unit (RRMU). This is simply the device that interfaces with the antenna, and in most residential homes it will be a router that controls the channel and the power levels of the antenna. In short ResFi enables communication between access points under different basic service sets without imposing a central controller on the access points or being a part of an extended service set. More importantly, ResFi enables all of this without doing any modifications to hardware and drivers (like modifying standards or requiring propriatary equipment). 
 
-\subsubsection{Operation}
+\subsection{Operation}
+This section contains a short introduction of the way ResFi is initiated and operates.
 \begin{enumerate}
-	\item An AP that has just booted up beacons a frame on all available channels. This frame contains: a globally routable IP-address, port, and two cryptographic keys. One transient key for group communication, and the public key for the RRMU.  
+	\item An AP that has just booted up beacons a frame on all available channels. This frame contains: a globally routable IP-address, port, and two cryptographic keys. One transient key for group communication, and the public key for the RRMU. 
 	\item All APs that can hear the beacon responds with a probe response containing the same information as in 1.
-	\item When the scan is complete, the new AP can point-to-point communicate with all other APs using the wired backbone and the globally routable IP-address
+	\item When the scan is complete, the new AP can establish secure point-to-point communicate with all other APs using the wired backbone, the globally routable IP-address and the cryptographic keys
 \end{enumerate}
 
-\subsubsection{Implementation}
-They implemented ResFi on Ubuntu 14.04. It adds vendor specific information elements to the MAC-header with the IP, port, and cryptographic data. This can be done Linux user space by using their modified version of hostapd \cite{resfigit}.
-As it runs on python, it could in practice be implemented on any Linux system. It uses a south-bound API to communicate with the RRMU, and a north-bound API to enable applications to use ResFi.
-ResFi itself provides no specific channel allocation mechanism, nor a group-creation/AP-clustering algorithm.
+\subsection{Implementation}
+This section is dedicated to a brief overview of how ResFi can be implemented and deployed.
 
-\subsection{Distributed Clusteering}
+Originally ResFi was implemented on Ubuntu 14.04. It adds vendor specific information elements to the MAC-header with the IP, port, and cryptographic data. This can be done Linux user space by using their modified version of hostapd \cite{resfigit}.
+As it runs on python, it could in practice be implemented on any Linux system. It uses a south-bound API to communicate with the RRMU, and a north-bound API to enable applications to use ResFi. ResFi itself provides no specific channel allocation mechanism nor a group-creation/AP-clustering algorithm, but the north-bound API could fascilitate applications that provides services like these.
+
+\section{Distributed Clusteering}
 DCA and DMAC
 
-\subsection{SCIFI} SCIFI \cite{SCIFI} is a centralized channel allocation protocol for infrastructure Wireless LANs that improves the traditional graph-coloring algorith DSATUR. 
-		And while it shows that their central coordinator in fact improves the throughput compared to Wireless LANs that are not configured by SCIFI, the algorithm is just an algorithm for setting a channel in a preconfigured adminstrative domain. It does not deal with how the administrative domains (or collaborative groups as we call it) are defined. 
+\section{Channel allocation using DSATUR and SCIFI} 
+This section is dedicated to previous work done using the DSATUR heuristic. A little note to this section: it would also fit well in the background section. It accounts for the fundamentally important priniciple that
+channel allocation can be treated as a graph coloring problem once a network graph is constructed.  
+
+\subsection{DSATUR}
+DSATUR (from degree of saturation) is a heuristic created by Daniel Brélaz \cite{Brelaz} to find solutions to the NP-complete problem of coloring the vertices of a graph so that no adjacent vertices share the same color. 
+Channel allocation schemes relying on the DSATUR algorithm has been proposed before. In 2004 a paper was published, called
+"Automatic channel allocation for small wireless local area networks using graph colouring algorithm approach" \cite{mahonen}, where the idea is to listen for neighboring AP beacon frames to create a list of all neighbours.
+This list would be broadcast to all the neighbours. For multi-hop support, all receiving nodes will rebroadcast the list in a fashion equal to the flooding routing mechanism. This enables routers to create a graph of access points, and the DSATUR algorithm can then be used to compute the channel distribution. 
+
+\subsection{SCIFI}
+SCIFI \cite{SCIFI} is a centralized channel allocation protocol for infrastructure Wireless LANs that improves the traditional graph-coloring algorithm DSATUR. While it shows that their central coordinator
+in fact improves the throughput compared to Wireless LANs that are not configured by SCIFI, the it is an algorithm for setting a channel in a preconfigured adminstrative domain. It does not deal with how the administrative domains
+or router clusters are defined. If the method of creating clusters of collaborating routers proposed in this thesis has merit, SCIFI could plausibly be a supporting technology to compute channel distribution,
+where a group acts as the administrative domain required by SCIFI. 
 
 

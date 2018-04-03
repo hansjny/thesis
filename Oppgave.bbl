@@ -147,6 +147,43 @@
       \endverb
       \keyw{IEEE standards;carrier sense multiple access;packet radio networks;standardisation;telecommunication standards;wireless LAN;CSMA/CA;DCF;IEEE 802.11 distributed coordination function;IEEE 802.11 protocol;MAC;analytical model;binary slotted exponential backoff;carrier sense multiple access;collision avoidance;ideal channel conditions;medium access control;packet transmission;performance analysis;standardization;terminals;threshold;throughput performance evaluation;wireless local area networks;Access protocols;Analytical models;Collision avoidance;Media Access Protocol;Multiaccess communication;Performance analysis;Physical layer;Throughput;Wireless LAN;Wireless application protocol}
     \endentry
+    \entry{Brelaz}{article}{}
+      \name{author}{1}{}{%
+        {{hash=17bb0f61cd74702f90a4a19c44796866}{%
+           family={Brélaz},
+           family_i={B\bibinitperiod},
+           given={Daniel},
+           given_i={D\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{17bb0f61cd74702f90a4a19c44796866}
+      \strng{fullhash}{17bb0f61cd74702f90a4a19c44796866}
+      \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0001-0782}
+      \field{journaltitle}{Commun. ACM}
+      \field{month}{04}
+      \field{number}{4}
+      \field{title}{New Methods to Color the Vertices of a Graph}
+      \field{volume}{22}
+      \field{year}{1979}
+      \field{pages}{251\bibrangedash 256}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1145/359094.359101
+      \endverb
+      \verb{url}
+      \verb http://doi.acm.org/10.1145/359094.359101
+      \endverb
+      \keyw{NP-complete,balancing,comparison of the methods,graph coloring,graph structure,scheduling}
+    \endentry
     \entry{chamberlain_2017}{misc}{}
       \name{author}{1}{}{%
         {{hash=f790a484a5f00e70640d03ecb166247f}{%
@@ -533,6 +570,40 @@
       \field{year}{2003}
       \field{pages}{284\bibrangedash 292}
       \range{pages}{9}
+    \endentry
+    \entry{mahonen}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=f4649ef6776b6e1cb607462ea62a5fa2}{%
+           family={Mahonen},
+           family_i={M\bibinitperiod},
+           given={Petri},
+           given_i={P\bibinitperiod}}}%
+        {{hash=754a7c6a46d78dd02f1f205c7ba7fc8c}{%
+           family={Riihijarvi},
+           family_i={R\bibinitperiod},
+           given={Janne},
+           given_i={J\bibinitperiod}}}%
+        {{hash=2107f30ad50f685ef105cdf0ecc3710f}{%
+           family={Petrova},
+           family_i={P\bibinitperiod},
+           given={Marina},
+           given_i={M\bibinitperiod}}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{04269c0dd048f5f0279eb5d249c42a95}
+      \strng{fullhash}{04269c0dd048f5f0279eb5d249c42a95}
+      \field{sortinit}{M}
+      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Personal, Indoor and Mobile Radio Communications, 2004. PIMRC 2004. 15th IEEE International Symposium on}
+      \field{title}{Automatic channel allocation for small wireless local area networks using graph colouring algorithm approach}
+      \field{volume}{1}
+      \field{year}{2004}
+      \field{pages}{536\bibrangedash 539}
+      \range{pages}{4}
     \endentry
     \entry{agglomerative}{article}{}
       \name{author}{1}{}{%
