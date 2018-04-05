@@ -1,5 +1,6 @@
-\chapter{Communication protocol and state synchronization}
-This chapter is dedicated to the specification, design and implementation criteria of the Distributed Group Creation Protocol (DGCP).
+\chapter{Communication protocol, state synchronization and future work}
+\label{chap:proto}
+This chapter is dedicated to the specification, design and implementation criteria of what will be referred to as the Distributed Group Creation Protocol (DGCP).
 While in the previous chapters it has been suggested an algorithm for how groups can be formed, in this chapter the focus shall be on the technology and protocols required
 to enable communication between access points, - and ultimately groups. There has already been done some work on the subject of access point communication over IP,
 and previous work in the field of distributed consensus can be used to ensure synchronized group states. In this chapter these technologies will be covered and considered,
@@ -19,9 +20,35 @@ In this chapter we shall attempt to handle these issues to create a more complet
 \section{Enabling technologies}
 When designing a protocol that enables group communication, there is need for some some already well-researched theory and technology as a foundation. There are already enough
 considerations to take when designing an architecture like this, and there is no need to reinvent the wheel where there is already done a good amount of research. 
-Raft \cite{raftio} will be used for state synchronzation. Raft is a distributed consensus protocol and provides the equivalent degree of fault-tolerance as the Paxos \cite{lamport2001paxos} protocol family.
+Raft will be used for state synchronzation. Raft is a distributed consensus protocol and provides the equivalent degree of fault-tolerance as the Paxos \cite{lamport2001paxos} protocol family.
 ResFi is a protocol used to enable communication over IP between adjacent access points. This section is dedicated to briefly introduce these protocols. 
+
 \subsection{Distributed consensus with Raft}
+Raft \cite{raftio} is a distributed consensus protocol designed with simplicity in mind. The creators of Raft designed it to be used for educational purposes. Traditionally, Paxos has been used to explain
+distributed consensus, but Paxos has a complex design with extremely many different variations. Raft is now taught in courses all over the U.S, and their GitHub page includes to links
+of implementations in a large amount of languages.
+
+\subsection{Why distributed consensus?}
+Distributed consesus can be beneficial for the distributed group creation protocol for a couple of reasons, the most important two being:
+\begin{itemize}
+	\item Leader election for decision making
+	\item	Synchronous data replication (makes sure all nodes have a consistent picture of the group, in-case leader goes down)
+\end{itemize}
+
+\subsection{What Raft can not help with}
+Raft is not originally intended to run in a flexible environment where the amount of servers changes rapidly. Hence Raft would not handle regrouping after a merge within the same Raft session.
+There can be no consensus on "past" logs, as all groups will have different logs from before the merge. There is also no native method to invoke native leader handover, so in the event
+of merge there would be two leaders. 
+
+Another aspect that would be different from regular distributed consensus is the regular assumption that there are two main actors with different roles. Servers and clients. Servers are
+supposed to hold synchronized data, replicated across all the servers. The clients are the actors who invokes changes on the data.
+
+A traditional scenario is the banking example, where a client could be a mini-bank issuing a withdrawal from a bank account. The servers would be all the banking servers making sure the new,
+updated account balance is consistent no matter where money is withdrawn from. 
+
+In the distributed group creation protocol all nodes running Raft are both servers and clients. They have to report new changes in the form of neighbours and signal strength values,
+while also keeping a local, replicated copy of the state of the group.
+
 \subsection{Access point communication with ResFi}
 This subsection is dedicated to briefly describe how ResFi operates, and to cover why and how it is a protocol that can be taken advantage of in the Distributed Group Creation Protocol. 
 
@@ -78,13 +105,19 @@ in the JSON-format. Table \ref{tab:resfapi} shows which functions are available 
 %\end{table}
 
 \section{Protocol design}
-\subsection{Requirements and assumptions}
-\begin{itemize} 
-	\item ResFi and Raft are both the consensus protocol and the protocol that enables point-to-point communication over the backhaul network should
-		be replacable
-	\item The protocol should be robust enought to handle edge-cases like power outages.
-	\item Security research on this topic could be addressed in a master thesis on its own, so we will only rely on the security that ResFi provides, and not focus on intentional 
-		malicious actions.
-\end{itemize}
+This section outlines the architecture of a protocol that could facilitate group greation.  
+
+\subsection{Archictectural overview}
+The protocol relies on 4 main components, which can be seen in figure \ref{fig:dgcpoverview}.
+
+
+\begin{figure}
+	\includegraphics[width=\textwidth]{Images/dgcpoverview.png}
+		\caption{Architectural overview of protocol components }%
+		\label{fig:dgcpoverview}%
+\end{figure}
+
+
+
 
 \section{Protocol implementation}

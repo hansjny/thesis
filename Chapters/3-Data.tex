@@ -1,35 +1,55 @@
-\chapter{Data acquisition and structure}\label{dataacc}
-In this chapter a tool that generates and visualizes the layout of network topologies based on constructed, artificial data and real, mined data, is presented. 
-There will be great need for both artificial and real data in chapter \ref{chap:clustering} where algorithms that enables distributed clustering of access points are considered.
-This chapter also covers the storing of the data in question, how to structure it and visualize it both correcly and meaningfully in a web application. 
+\chapter{Data acquisition and data structure}\label{dataacc}
+This chapter is dedicated to the creation of a program that generates and visualizes the layout of Wi-Fi network topologies based on generated data and mined data.
+The data will be used in chapter \ref{chap:clustering}, where some suggested distributed clustering algorithms are created and considered. Storing the data,
+the data structure type, and finally how it can be visualized in a web application are also matters which will be addressed here. 
 
 \section{Motivation}
-The data mining is important as for this thesis there is neither enough time nor resources to organize a large enough testbed to purposefully evaluate the
-algorithms and suggestions that is looked upon in the consecutive chapter. A sufficient testbed would require a large amount of routers (100-200 for a low scale test)
-in a small geographical area, preferably installed in residential apartment buildings. Not only would the creation of such a testbed require a lot of physical equipment,
-but there is also a lot of logical challenges that would have to be overcome, such as communication protocols and some sort of distributed consensus or synchronization.
-These problems are addressed in chapter \ref{chap:distr}. While said challenges could be overcome, going directly from a concept idea to a large testbed
-without having any empirical indication of which approaches have merit, is hardly advisable. Hence the data is gathered with the motivation of being able to perform realistic
-calculations and simulations, and thus also enhance the quality of the results produced. 
+There is an undoubtful need for data when developing a distributed clustering algorithm to facilitate group creation.
+Surely a testbed could also do the trick, but it would require a large amount of routers. Maybe 100-200 for a low scale test, in a small geographical area,
+preferably installed in residential apartment buildings. Not only would the creation of such a testbed require a vast amount of equipment, but there are 
+some unsolved logical challenges as well. Like the communication protocol between routers, and maybe distributed consensus or some way to perform synchronization to communicate group memberships.
+These problems are addressed in chapter \ref{chap:proto}.
 
-\section{Requirements}
-SSID, channel frequency, radio power, physical data rate and supported 802.11 standards are just a few properties of a single real-life wireless access point.
-Access points are going to be represented in the network topology, but the access points will not be in the transmission (CSMA/CA) state where
-most of these properties are used. The access points are in a state we will call the \textit{group discovery state}, where the goal is to find or create a group to be a part of. 
-As previously mentioned, the ultimate purpose of creating a group is to enable collaboration between access points to create a close-to optimal channel plan. The channel allocation algorithm
-itself is not within the thesis scope - instead the focus shall be on the creation and discovery of the collaborative groups themselves.
+Even if such challenges could be overcome, going directly from a concept idea to a large testbed in a master thesis  - without having any empirical indication of which approaches have merit, may not be a good use of time. Hence, the data is gathered with the motivation of being able to perform realistic calculations and do algorithm developement on a money-, and time budget. Lastly, the motivation behind mining real data, instead of generating everything, is to enhance the quality and believeability of the results produced. 
 
-To perform computations for group creation and discovery, many of the aforementioned properties does not have to be considered. .
-Actually, it is only necessary store each access point's SSID, as this is a convenient way to provide a unique identification handle \footnote{In the real world this is of course not the case,
-but we will enforce it in the computations. Actually it could just as well be called an unique id.}, and the the list of other access points that can be seen through an RSSI scan with
-their observed RSSIs. These are the only required metrics. Unfortunately there is at the time of writing no publicly available data source that contains the subjective radio scans
-of a large amount of access points which are located in the same area.
+\section{Requirements and assumptions}
+This section will cover the requirements and assumptions for a data generation-, and visualization program. 
 
-As a basis for the simulation access points, or nodes, will be placed on a two-dimensional grid. Each dataset has to contain a set of nodes which has two coordinates $x$ and $y$,
-giving them a position on the topology grid. When the nodes are placed on the grid they represent a network topology, and it will then be possible to compute an
-estimation of which nodes can hear each other on the radio. In other words, a virtual RSSI scan. All observed \textit{neighbour nodes} will be added to each node's RSSI-scan neighbour list.
-This neighbour list contains the names of all the nodes it can hear, and the RSSI levels measured in $-dBi$.
-Additionally the following parameters are variable depending on each test scenario:
+\subsubsection{Background}
+As presented in the background chapter: SSID, channel frequency, radio power, physical data rate and supported 802.11 standards are just a few of the properties
+that makes up a wireless access point. Before deciding how to represent an access point in a network topology dataset, it is useful to
+consider the state an access point would be in when group creation is performed.  
+
+An access point is not in the transmission (CSMA/CA) state when performing channel allocation. This is simply due to the toughness of performing channel sensing without
+having a channel to sense. So, which sate is it in then? Well, it is hard to say without having a bird's eye view of the protocol and algorithm architecture. A fully developed protocol
+for distributed group-creation in residential deployed Wi-Fi is at the time of writing (and to the author's knowledge) non-existient.  Nor will a full-fledged architecture be presented in
+this thesis (even though suggestions will be made at the end), so a couple of assumptions has to be made. 
+
+\subsubsection{Assumptions}
+The access points are in a state we can call the \textit{group discovery state}, where the goal is to find or create a group to be a part of. This state would occur before channel
+allocation, as a major motivation for doing group creation in the first place is to be able to cleverly and collaboratively allocate channels within the group. 
+
+Hence, to simulate group creation and discovery, many of the access point properties does not have to be considered. Actually it is only necessary to store two things:
+\begin{itemize}
+	\item Each access point's SSID, as a convenient way to provide a unique identification handle \footnote{In the real world this is of course not the case,
+but we will enforce it in the computations. Actually it could just as well be called an unique id.}
+	\item The list of neighboring access points that can be seen through a Wi-Fi interface scan on each access point, along with the observed signal strength of these APs.
+\end{itemize}
+Channel frequency, radio power and data rate are properties that impacts data transmission between clients and access points, and does not need to a 
+part of this model. 
+
+In all succeeding simulations it is assumed that all nodes are transmitting with equal strength, and that the environment is flat and obstacle free. 
+
+\subsubsection{Requirements}
+Unfortunately there is at the time of writing no publicly available data source that contains radio scans of a large amount of access points located in the same area.
+This subsection describes the requirements for the simulation program that will both generate and represent Wi-Fi network topologies. Having a clear specificiation of program requirements
+simplifies the programming stage and reduces the risk of feature creep. 
+
+As a basis for the simulation, access points, hereupon also referred to as nodes, should be placed on a two-dimensional grid. Each dataset has to contain a set of nodes which has two coordinates $x$ and $y$, giving them a position on the grid. When all desired nodes are placed on a grid, the grid represents a network topology. It will then be possible to compute an
+estimation of which nodes can hear each other over the Wi-Fi radio. In other words, a virtual network interface scan. All observed \textit{neighbour nodes} will be added to each node's
+neighbour list. This neighbour list contains the names of all the nodes it can hear, and the signal strength levels measured in $-dBi$.
+
+Additionally the following parameters should be variable in the topology generation program, depending on each test scenario:
 
 \begin{itemize}
 	\item Topology size with the possibility to give variable width of x- and y-axis as input arguments. These unit of the axes is meters. 
@@ -40,32 +60,35 @@ Additionally the following parameters are variable depending on each test scenar
 
 
 	\section{Program design}\label{prog_design}
-	The topology generation program consists of two main functionalitites.
+	The resulting program consists of two main functionalitites.
 
 	The first functionality is creating a topology and generate nodes which are uniformly
-	and randomly positioned on the network topology. The size of the topology, the number of nodes and the minimum distance
-	between nodes are properties that are passed as input arguments to the program.
+	and randomly positioned on the network topology. The topology size, node count and minimum distance
+	between nodes, are properties taken as input arguments to the program.
 
 	The second functionality is performing the calculation of which nodes can actually observe each other over the radio.
-	In all proceeding simulations it is assumed that all nodes are transmitting with equal strength, and that the environment is flat and obstacle free. 
-	All the neighbouring nodes that can be heard by a node, is added to its list of neighbours, and it stores the $-dBi$ value so it later can be shared with
-	the group. The interference levels between access points are calculated by iterating through every access point. For each node $N$ its x and y position is recorded,
-	and then a second iteration through the nodes is initiated. For each node $n$ in the second iteration the distance $d$ in
+	
+	All neighbouring nodes observed by a node is added to its list of neighbours. The neighbour list contains the signal strength in $-dBi$ and the SSID of each neighbour.
+	The interference levels between access points are calculated by iterating through every access point. For each node $N$ its x and y position is recorded,
+	and then a second iteration through the nodes is initiated, resulting in a complexity of $O(N^2)$. For each node $n$ in the second iteration the distance $d$ in
 	meters between $N$ and $n$ using Euclidean distance is calculated. The formula for isotropic antennas is described by Friis \cite{Friis46}, and can be used to
 	derive the formula for free space path loss \cite{FSPL} that is as follows:
 \[
 	FSPL(dB) = 10\log_{10} \left( \frac{ (4 \pi f d)}{c} ^2 \right) 
 \]	
-	Where $d = distance$, $f = frequency$ and $c=constant$. The constant $c$ is used to account for different units. We will use the meters to denominate the distance,
-	and megahertz for the frequency. The resulting formula which will be implemented in the program is
+	Where $d = distance$, $f = frequency$ and $c=constant$. The constant $c$ is used to account for different units. Meters is used to denominate distance in the program,
+	and megahertz for the frequency. The resulting formula which will be implemented in the program is then: 
 \[
 	FSPL(dB) = 20\log_{10}\left( f \right)  + 20\log_{10} \left(d\right) - 27.55
 \]	
-	As the distance from all nodes to every other node has to be computed, the topology generation program has $O(n^2)$ complexity. A simplified version of the code
-	can be seen in figure \ref{fig:dbiCreation}. 
+	Pseudocode for the interference calculation can be seen in figure \ref{fig:dbiCreation}. 
 
-	The resulting program, written in Python 3\cite{Python3}, contains an importable \textit{topology class}. This way, for further testing we can use different data
-	sources to get the positions of nodes, and only let the topology class compute the list of neighbours. 
+	The resulting program, written in Python 3 \cite{Python3}, contains an importable \textit{topology class}. This way, for further testing we can use different data
+	sources to get the positions of nodes, and only let the topology class compute the list of neighbours and standarize the data structure of a topology.
+
+	The entire program can be viewed on GitHub: \newline
+{\small \url{https://github.com/hansjny/GroupSimulations/blob/master/GenerateTopology.py}}
+
 	
 
 	\begin{figure}
