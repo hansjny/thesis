@@ -956,25 +956,6 @@
       \verb https://wigle.net/
       \endverb
     \endentry
-    \entry{FSPL}{misc}{}
-      \name{author}{1}{}{%
-        {{hash=9c677286866aad38f8e9b660f5411814}{%
-           family={Wikipedia},
-           family_i={W\bibinitperiod}}}%
-      }
-      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
-      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
-      \field{sortinit}{W}
-      \field{sortinithash}{99e3ba1b3f78bb6f073e7fa7ac11636b}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{note}{Accessed 4th July, 2017}
-      \field{title}{Free-space path loss --- Wikipedia, The Free Encyclopedia}
-      \field{year}{2017}
-      \verb{url}
-      \verb http://en.wikipedia.org/w/index.php?title=Free-space%5C%20path%5C%20loss&oldid=765763753
-      \endverb
-    \endentry
     \entry{resfi}{inproceedings}{}
       \name{author}{4}{}{%
         {{hash=acbfe2edf70173278e67b42f0a5f8d65}{%
