@@ -1,11 +1,11 @@
 \chapter{Data acquisition and data structure}\label{dataacc}
 This chapter is dedicated to the creation of a program that generates and visualizes the layout of Wi-Fi network topologies based on generated data and mined data.
-The data will be used in chapter \ref{chap:clustering}, where some suggested distributed clustering algorithms are created and considered. Storing the data,
+The data will be used in chapter \ref{chap:clustering} where there will be demand for data to feed clustering algorithms. Storing the data,
 the data structure type, and finally how it can be visualized in a web application are also matters which will be addressed here. 
 
 \section{Motivation}
 There is an undoubtful need for data when developing a distributed clustering algorithm to facilitate group creation.
-Surely a testbed could also do the trick, but it would require a large amount of routers. Maybe 100-200 for a low scale test, in a small geographical area,
+Surely a testbed would also be beneficial for development, but it would require a large amount of routers. Maybe 100-200 for a low scale test, in a small geographical area,
 preferably installed in residential apartment buildings. Not only would the creation of such a testbed require a vast amount of equipment, but there are 
 some unsolved logical challenges as well. Like the communication protocol between routers, and maybe distributed consensus or some way to perform synchronization to communicate group memberships.
 These problems are addressed in chapter \ref{chap:proto}.
@@ -134,7 +134,7 @@ The entire program can be viewed on GitHub: \newline
 The result of the topology generation is stored in a JSON \cite{JSON} data file.
 The data file contains the height and width of the the generated topology, as well
 as the number of nodes.
-A \verb|nodes| object consists of as many JSON node-objects as there are nodes. Figure \ref{fig:nodeStruct} illustrates the node structure and is an example of how a node with two neighbours will look.
+A \verb|node| object consists of as many JSON node-objects as there are nodes. Figure \ref{fig:nodeStruct} illustrates the node structure and is an example of how a node with two neighbours will look.
 			\begin{figure}
 			\begin{minipage}{\linewidth}
 			\begin{lstlisting}[language=json]
@@ -281,7 +281,7 @@ The JSON-object in the response contains quite a lot of information about all of
 
 \subsubsection{The Haversine Formula}
 As seen in the previous section, WiGLE provides data about the location of access points and a way to retrieve this data in a usable format. 
-At this point a program that operates directly on the longitudes and latitudes retrieved could be made, but the problem is that the previous work relies on a two
+At this point a program that operates directly on the retrieved longitudes and latitudes could be made, but the problem is that the previous work relies on a two
 dimensional Cartesian coordinate system. To be able to reuse what we have have already built, the global coordinates has to be translated into distances.
 
 The haversine formula \cite{virtues} can be used to accurately compute the great-circle distance between two global coordinates.
@@ -337,10 +337,9 @@ $\varphi_{start}$ and $\lambda_{start}$, and the second set is the coordinates o
 
 \end{itemize}
 \subsection{Data output}
-The resulting python program \ref{appendix:wigleprogram}takes an output filename and two latitudes and two longitudes as input. It queries WiGLE's API for all the APs between these coordinates.
-As long as the number of APs in the coordinate range does not exceed the daily data limit, all the data will be stored in a topology datastructure imported 
+The resulting python program\footnote{GitHub URL: https://github.com/hansjny/GroupSimulations/blob/master/wigleData.py} takes an output filename and two latitudes and two longitudes as input.
+It queries WiGLE's API for all the APs between these coordinates. As long as the number of APs in the coordinate range does not exceed the daily data limit, all the data will be stored in a topology datastructure imported 
 from the topology generation program in section \ref{prog_design}. The APs will be placed correctly relative to each other, with real world distance between them,
 based on the coordinates of each AP. 
 
-{{wigle data figure, overlaid map}}
 

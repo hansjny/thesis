@@ -80,17 +80,17 @@ We will continue considering a distributed approach as the main topic of the the
 Moving forward in the next chapters we will be looking at possible ways for nodes to organize themselves into groups.
 We will be using the data we fetched in chapter \ref{dataacc}. The data provides a topology of nodes where all nodes have a list of neighbouring nodes.
 This neighbour list contains the appropriate computed signal strength measurements for each node. Based on the signal strength of their neighbours, the nodes should be able to create groups that resembles
-clusters. It is important that the border between two different groups are placed in such a way that interference between the two groups are as minimal as possible. To simplify the computation procedure and to reduce the workload for building the simulation program we are going to to a number of assumptions. 
+clusters. It is important that the border between two different groups are placed in such a way that interference between the two groups are as minimal as possible. To simplify the computation procedure and to reduce the workload for building the simulation program we are going to do a number of assumptions. 
 
     \begin{enumerate}
-    \item Assumption 1: All nodes involved in the simulation also runs the group creation algorithm. 
+    \item Assumption 1: All nodes involved in the simulation also run the group creation algorithm. 
 		\item Assumption 2: When a node is observed over radio, it is also known how to directly contact the node (e.g. via TCP). This assumption also implies that there is implemented a protocol that lets nodes communicate and exchange information about their signal strength measurements and group membership. For now we will assume this is true, but in chapter {{(ref)}} we will address the issue. 
 		\item Assumption 3: All nodes in a group are completely synchronous, and always have an equal image of the state of the group at a given time. Sharing information with the group is instant. This is also an issue that will be addressed in chapter {{3}}.
     \end{enumerate}
 \section{Program design}
 \subsection{Design choices}
 The program is designed to be modified so it can accomodate different algorithm types without changing the fundamental framework.
-Everything regarding group computation is implemented in Python 3 \cite{Python3}, and is designed parse the output from the data generation program and use it directly.
+Everything regarding group computation is implemented in Python 3 \cite{Python3}, and is designed to parse the output from the data generation program and use it directly.
 Group computation should be a fast operation, while the data generation (or fetching) is a slow process and should only be done once every time a new data set is required.
 The program is not parallelized to keep results consistent and to easier debug and locate program errors. 
 
@@ -173,16 +173,21 @@ containing both nodes.
 %of towns fetched from Wigle. Henceforth we will for the sake of simplicity be referring to APs that are running the group algorithm as \textit{nodes}.
 
 \section{Creating groups with clustering}
-In this section we will consider and evaluate a way to divide access points in groups.
+In this section we will consider and evaluate a way to divide access points in groups by assessing an exisiting clustering algorithm, and consider different modifications to this algorithm
+to make it better suited for a distributed clustering of access points. 
 
 \subsection {Agglomerative Clustering}
+There are a couple of reasons for choosing hierarchical agglomerative clustering as a starting point. First of all it does not need a pre-specified amount of clusters to be able to run,
+like for instance partitioning clustering needs. The second reason is that agglomerative clustering has a bottom-up approach, where the clustering begins by treating nodes as clusters and iteratively
+merges clusters to create a dendrogram that represents the current cluster and all previous merges. The bottom-up approach intuitively seems to fit well in a ditributed model, where all nodes
+know only of themselves and their neighbours. 
 \subsubsection{Description}
 Agglomerative clustering  \cite{agglomerative} is a variant of hierarchical clustering where clusters are pairwise greedily merged. The starting number of clusters is the same as the number of
 points in the data set. Based on a specified distance metric, the two clusters that are closest to one another is merged into combined cluster. The clustering is complete
 when there is only one cluster left. It falls under the category of hierarchical clustering, and a dendrogram is iteratively being built for each merge,
 containing all past merges of the clusters. An example of agglomorative clustering can be seen in {{figure}}\ref{fig:agglomerative}.
 
-\subsubsection{Evaluation}
+\subsubsection{Assessment}
 Agglomerative clustering provides us with the basic idea for a an algorithm we can use to create access point groups. However, there are two points where agglomerative clustering
 fails to meet our requirements: 
 \begin{itemize}
@@ -198,7 +203,7 @@ The second point forces us to change the paradigm of always finding two mutually
 
 \subsection{K-Nearest Neighbour Clustering}
 \subsubsection{Description}
-To resolve the problems discussed in the previous section, we will suggest a slighly different algorithm and refer to it as K-Nearest Neighbour Clustering (KNNC). 
+To resolve the problems discussed in the previous section, we will create a slighly different algorithm and refer to it as K-Nearest Neighbour Clustering (KNNC). 
 In this method, similar to agglomerative clustering, in the beggining there are equally many clusters as there are nodes. Instead of looking for pairs that are mutually close,
 each cluster seeks to merge with the cluster that is closest. The distance is defined by the distance metric. The merge will always happen as long as the resulting cluster does 
 not contain a higher node count than K.
@@ -219,7 +224,7 @@ The cluster containing the node with the highest -dBi value will be merged toget
 
 \subsubsection{Implementation}
 Each node begins by identifying itself as a member of a group that only contains itself.  Let us call this group $a$.
-Group $a$ loops throught the radio readings of every member of the group, and picks the node with the highest observed -dBi value
+Group $a$ loops through the radio readings of every member of the group, and picks the node with the highest observed -dBi value
 to contact. In the beginning there is only one node in group $a$. Hence in the first iteration this node's radio readings alone will decide which group to merge with. 
 The neighbour node, which we will call $B$, is the node that disturbs group $a$ the most. $B$ is a member of group $b$.
 In other words, group $a$ wants to merge with group $b$ to create a larger group that contains node $B$.
@@ -229,7 +234,7 @@ As the data is now identical for all the members of both groups and they can mak
 
 In our simulation this is as easy as combining two Group objects into one. A pseudocode sample of an implementation can be seen in \ref{fig:groupmerge}.
 In a real world implementation there would have to be a supporting protocol to 
-enable the flow of information and synchronization of data. These specific challenges will be addressed in chapter {{insert chapter}}.
+enable the flow of information and synchronization of data. 
 
 	\begin{figure}
 		\tiny

@@ -15,7 +15,7 @@ A number of assumptions were made before we suggested an algorithm. Two of the a
 \item An underlying group communication protocol is in place
 \item The state of a group is synchronized throughout all its members
 \end{itemize}
-In this chapter we shall attempt to handle these issues to create a more complete scheme for group creation in a distributed environment.
+In this chapter we look at technologies that can handle these issues to suggest an abstract architecture for a protocol that enables group creation in a distributed environment.
 
 \section{Enabling technologies}
 When designing a protocol that enables group communication, there is need for some some already well-researched theory and technology as a foundation. There are already enough
@@ -26,24 +26,28 @@ ResFi is a protocol used to enable communication over IP between adjacent access
 \subsection{Distributed consensus with Raft}
 Raft \cite{raftio} is a distributed consensus protocol designed with simplicity in mind. The creators of Raft designed it to be used for educational purposes. Traditionally, Paxos has been used to explain
 distributed consensus, but Paxos has a complex design with extremely many different variations. Raft is now taught in courses all over the U.S, and their GitHub page includes to links
-of implementations in a large amount of languages.
+of implementations in a large amount of languages. As Raft has such a wide range of implementations and is an easy protocol to understand relative to its quite complicated relative, Paxos, 
+we will suggest that Raft will be used to handle distributed consensus. 
 
 \subsection{Why distributed consensus?}
-Distributed consesus can be beneficial for the distributed group creation protocol for a couple of reasons, the most important two being:
+Distributed consesus is required for the distributed group creation protocol for a couple of reasons, the most important two being:
 \begin{itemize}
 	\item Leader election for decision making
 	\item	Synchronous data replication (makes sure all nodes have a consistent picture of the group, in-case leader goes down)
 \end{itemize}
 
+These reason are derived from the simple fact that there is no centralized controller to take decisions, so equally replicated data across all members node is required for all access
+points to reach the same decisions about group membership. 
+
 \subsection{What Raft can not help with}
-Raft is not originally intended to run in a flexible environment where the amount of servers changes rapidly. Hence Raft would not handle regrouping after a merge within the same Raft session.
-There can be no consensus on "past" logs, as all groups will have different logs from before the merge. There is also no native method to invoke native leader handover, so in the event
-of merge there would be two leaders. 
+Raft is not originally intended to run in a flexible environment where the amount of servers changes rapidly. Thus, Raft is not able to handle the group membership changes
+after two groups merge, within the same Raft session. This is because there can be no consensus on past logs between nodes from different groups, as all groups will have different logs from before the merge. There is also no native Raft method to invoke native leader handover, so in the event of merge there would be two leaders. 
 
-Another aspect that would be different from regular distributed consensus is the regular assumption that there are two main actors with different roles. Servers and clients. Servers are
-supposed to hold synchronized data, replicated across all the servers. The clients are the actors who invokes changes on the data.
+Another aspect that would be different from a traditional distributed consensus scenario, is the assumption that there are two main actors with different roles: servers and clients.
+In distributed consensus, each server is supposed to have their own data, identical via data replication across across all the servers in the Raft session. The clients are the actor that requests 
+changes on the data.
 
-A traditional scenario is the banking example, where a client could be a mini-bank issuing a withdrawal from a bank account. The servers would be all the banking servers making sure the new,
+A traditional scenario is the banking example: a client could be a mini-bank issuing a withdrawal from a bank account. The servers would be all the banking servers making sure the new,
 updated account balance is consistent no matter where money is withdrawn from. 
 
 In the distributed group creation protocol all nodes running Raft are both servers and clients. They have to report new changes in the form of neighbours and signal strength values,
@@ -95,20 +99,14 @@ in the JSON-format. Table \ref{tab:resfapi} shows which functions are available 
 		\label{tab:resfapi}
 \end{table}
 
-%\begin{table}
-%\centering
-%\begin{tabular}{l | r}
-%apifunctioncall() & descriptiong of the fuckin shit \\
-%apifunctioncall() & descriptiong of the fuckin shit \\
-%apifunctioncall() & descriptiong of the fuckin shit \\
-%\end{tabular}
-%\end{table}
 
 \section{Protocol design}
-This section outlines the architecture of a protocol that could facilitate group greation.  
+This section outlines the architecture of a protocol that could facilitate group creation.
 
 \subsection{Archictectural overview}
-The protocol relies on 4 main components, which can be seen in figure \ref{fig:dgcpoverview}.
+The protocol architecture we suggest here relies on 4 main components which can be seen in figure \ref{fig:dgcpoverview}.
+In the figure the blue boxes signifies logic that has yet to be implemented, while grey boxes signifies the components that needs to pre-exist. The arrows
+represents which of the components that has to communicate with each other. In the next few subsections we address the two blue compontents individually.
 
 
 \begin{figure}
@@ -118,6 +116,78 @@ The protocol relies on 4 main components, which can be seen in figure \ref{fig:d
 \end{figure}
 
 
+\subsection{ResFi Overlay Network Application}
+As made clear earlier, ResFi enables secure two-way communication between 1-hop neighbours, and broadcast messaging via n-hop neighbours. 
+To enable secure two-way unicast communication throughout the group, an overlay network application can be built using the north-bound ResFi API. 
+This means the overlay network application would have to use ResFi for point-to-point communication, and then implement its own routing mechanism
+to relay messages from node to node, until the message reaches its destination. Let us look at the following suggested criteria for the ResFi Overlay Network Application:
+
+\begin{itemize}
+	\item Messages sent through the ResFi OverLay Network Application can only reach members of the group. If a message is requested for a node not inside the group,
+		the message is not relayed.
+  \item Should be used for all communication between nodes, like control messages, Raft log updates, etc., except for merge messages, which would have to happen across
+		groups. 
+	\item Uses IPv6 address to uniquely identify nodes  ???
+\end{itemize}
 
 
-\section{Protocol implementation}
+\subsection{Distributed Group Creation Protocol}
+This subsection is dedication to a suggested architectural overview of the Distributed Group Creation Protocol (DGCP). 
+The protocol relies on the ability to directly interface with the access point radio, to execute and parse the results of the network scan. The protocol also
+needs to be able to send message through the ResFi Overlay Network Applications to the rest of the group, as well as direct access to the ResFi north-bound API to be able to contact 1-hop
+neighbours that are not in the group, to negotiate merges. 
+
+The roles of a node running the protocol is illustrated in figure \ref{fig:dgcproles}. What follows is an account on the different services and functionalities the protocol
+has to implement.  
+\begin{itemize}
+	\item Decide which nodes to merge with. 
+	\item Negotiate merges with neighoburs not in the same group
+	\item Incorporate Raft to ensure all nodes in the group know the entire group network topology 
+\end{itemize}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=8cm]{Images/dgcpnode.png}
+		\caption{The roles of a DGCP Node }%
+		\label{fig:dgcproles}%
+\end{figure}
+
+
+
+\subsubsection{Deciding which nodes to merge with}
+Since the beginning of the thesis, the idea has been to let all nodes have the exact same information about the group state to calculate the same results. Deciding
+which neighbouring groups to merge the group with is done by checking which nodes in the group has the most impactful neighbours. As all nodes in the group should share
+the same information, all nodes will find the same result of which neighbour to merge with.
+In the event that nodes in the group observe neighbours with exact equal signal strength, there will need to be implemented a deterministic way to decide which of the nodes would be chosen.
+This could be as simple choosing the neighbours with the highest alphbetical order of the SSID. The important matter is that all nodes reach the same result of which group to merge with. 
+
+\subsubsection{Negotiating merges via message passing}
+We established that the protocol has to make sure all nodes in a group conclude which neighbour disturbs the most on their own.
+For the sake of simplicity, we call this most disturbing neighbour $X$. $X$ is a member of group $G$. So now the nodes in the starting group knows it will attempt a merge with group $G$.
+The node that lies physically closest to $X$ should be responsible for negotiating the merge.
+We can be sure this node will be able to observe $X$ over its radio, and can then use direct ResFi uni-cast communication with this node. 
+
+For the handling of merges themselves, there are probably several ways this can be executed. In this thesis we suggest the following way:
+Node $N$ contacts is a part of a group $G$ that has identified node $X$ as the most disturbing node. Node $N$ will then contact the node issuing a \verb|merge request| message directly over ResFi.
+The merge request contains the entire network topology of $G$. $X$ will then locally merge the nodes to see if it is valid according to the maximum size. If the merge is accepted, it replies with a \verb|merge accept|. 
+
+The Distributed Group Creation Protcol uses the ResFi Overlay Network Application to communicate with the rest of the group. Group communication messages should include (but may not be limited to):
+		\begin{itemize}
+			\item Neighbour updates, e.g. a new access point appeared on the network scan of one of the routers, or significant signal strength value changes
+			\item Raft log updates, heartbeats, vote requests, and vote messages
+			\item Merge attempts 
+			\end{itemize}
+
+
+\subsubsection{Preventing duplicate merge attempts}
+To prevent a group from repeatedely attempting to merge with another group we suggest that a hashing the member datatru
+
+\section{Future Work}
+\begin{itemize}
+	\item Assessment of the ResFi overlay network application, the protocol, modification and implementation
+	\item Testing group creation using the clustering algorithms
+	\item Security evaluation
+
+\end{itemize}
+
+
