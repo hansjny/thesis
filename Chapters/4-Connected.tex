@@ -203,7 +203,7 @@ The second point forces us to change the paradigm of always finding two mutually
 
 \subsection{K-Nearest Neighbour Clustering}
 \subsubsection{Description}
-To resolve the problems discussed in the previous section, we will create a slighly different algorithm and refer to it as K-Nearest Neighbour Clustering (KNNC). 
+To resolve the problems discussed in the previous section, we will create a slighly different algorithm and refer to it as K-Closest Neighbour Clustering (KCNC). 
 In this method, similar to agglomerative clustering, in the beggining there are equally many clusters as there are nodes. Instead of looking for pairs that are mutually close,
 each cluster seeks to merge with the cluster that is closest. The distance is defined by the distance metric. The merge will always happen as long as the resulting cluster does 
 not contain a higher node count than K.
@@ -277,7 +277,7 @@ while True: //Run as long as there are changes
 	if (changes == 0):
 		break
 		\end{python}
-			\caption{Pseudocode sample of how the K-Nearest Neighbour Clustering runs in a simulated environment}
+			\caption{Pseudocode sample of how the K-Cloest Neighbour Clustering runs in a simulated environment}
 			\label{fig:groupmerge}
 	\end{figure}
 
@@ -288,7 +288,7 @@ referred to as K. If the sum of members in two groups that wants to merge exceed
 This means that the simulation algorithm converges when no groups remain that are small enough to merge with another.
  
 \subsection{Results on different topologies}
-Figure \ref{fig:knearest}a shows the result of running the K-Nearest Neighbour Clustering algorithm on a uniform distribution topology, while figures \ref{fig:knearest}b, \ref{fig:knearest}c, \ref{fig:knearest}d shows the resulting clusters after running it on topologies on citites and towns collected by WiGLE. The different node colors indicate different group memberships. The large scale images of each topology can be seen in appendix \ref{appendix:knn}.
+Figure \ref{fig:knearest}a shows the result of running the K-Closest Neighbour Clustering algorithm on a uniform distribution topology, while figures \ref{fig:knearest}b, \ref{fig:knearest}c, \ref{fig:knearest}d shows the resulting clusters after running it on topologies on citites and towns collected by WiGLE. The different node colors indicate different group memberships. The large scale images of each topology can be seen in appendix \ref{appendix:knn}.
 
 
 \begin{figure}
@@ -302,7 +302,7 @@ Figure \ref{fig:knearest}a shows the result of running the K-Nearest Neighbour C
 		\qquad
 		\qquad
 		\subfloat[Tynset]{{\includegraphics[width=4.5cm]{Images/computations/BASICTynset.jpg} }}%
-		\caption{K-Nearest Neighbour Clustering on different topologies}%
+		\caption{K-Closest Neighbour Clustering on different topologies}%
 		\label{fig:knearest}%
 \end{figure}
 
@@ -338,10 +338,10 @@ Figure \ref{fig:knearest}a shows the result of running the K-Nearest Neighbour C
 %\end{figure}
 %
 \subsection{Evaluation}
-By looking at the results of the simulations of the K-Nearest Neighbour Clustering it is obvious that clusters are created.  Even in the more chaotic topologies as Lillehammer,
+By looking at the results of the simulations of the K-Closest Neighbour Clustering it is obvious that clusters are created.  Even in the more chaotic topologies as Lillehammer,
 there are distinct clusters that encompasses the closest nodes. However, there are two obvious problems with this algorithm:
 \begin{itemize}
-	\item In contrast to agglomerative clustering, our K-Nearest Neighbour Clustering algorithm does not care if the closest distance between the groups is pairwise mutual. This
+	\item In contrast to agglomerative clustering, our K-Closest Neighbour Clustering algorithm does not care if the closest distance between the groups is pairwise mutual. This
 		might lead to one group $a$ merging into another group $b$, even while $b$ has another neighbouring group $c$ that lies closer. If the maximum size K is reached during the merge of
 		$a$ and $b$,  the resulting group will never be able to merge with $c$ even though that would have given a better cluster. 
 	\item Once a cluster reaches the maximum size K, there is no possibilty for any other nodes to join the cluster.
@@ -353,7 +353,7 @@ In the next section we will look at how we can use group splitting to create a s
 
 
 \section{K-means splitting}
-In this section the the concept of group splitting will be introduced. Group splitting is thought to improve the K-Nearest Neighbour Clustering algorithm suggested in the previous section.
+In this section the the concept of group splitting will be introduced. Group splitting is thought to improve the K-Closest Neighbour Clustering algorithm suggested in the previous section.
 Moreover, this section is dedicated to the introduction, simulation and evaluation of one of the two split approaches that will be taken in the thesis.
 
 \subsection{Group splitting}
@@ -400,7 +400,7 @@ the nodes and groups. Indeed, a vanilla implementation of K-means requires an ex
 The groups are so far limited to knowing about their members and their neighbours. It would also be hard to choose a suitable K. 
 
 Nontheless, K-means could still potentially help us create better groups. Let us consider the following.
-By extending the K-Nearest Neighbour Clustering so groups are allowed to merge into a transient group if it exceeds the given maxsize.
+By extending the K-Closest Neighbour Clustering so groups are allowed to merge into a transient group if it exceeds the given maxsize.
 The purpose of the large transient group is to identify the biggest gap between nodes, and split the group in two new groups with
 $count(nodes) < maxsize$. If we set the K-means variable K, to $K=2$, K-means can be used to identify where the transient group should be split to create two more connected clusters. 
 
@@ -445,7 +445,7 @@ comparison of a section of the uniform distribution can be seen in figure \ref{f
 \subsection{Evaluation}
 There is little doubt that K-means splitting improves upon the original algorithm, especially when splits only are accepted when the maximum interference of a group is reduced after the split.
 Even though the clusters in a static environment is slightly improved, the most important use-case for K-means splitting is under the introduction of new nodes to an environment
-where all groups have converged. Where in the unmodified K-Nearest Neighbour Clustering algorithm there was no specific way to handle a new node in an environment of saturated groups
+where all groups have converged. Where in the unmodified K-Closest Neighbour Clustering algorithm there was no specific way to handle a new node in an environment of saturated groups
 with K-means splitting eventually new groups will be formed on the basis of the updated topology. The weakness of this approach is how ill suited it is to run in a distributed environment.
 It is trivial to simulate splits using K-means, as during a simulation the absolute coordinates of the nodes in the group are accesible. This is information unavailable for nodes under
 real circumstances - the only available information is the approximiate point-to-point distance inferred from the signal strength scans.
@@ -631,8 +631,8 @@ to real world implementation.
 
 
 \section{Evaluation of the clustering study}
-In this chapter four methods of clustering has been considered: regular agglomerative clustering, K-Nearest Neighbour Clustering (KNN Clustering), KNN Clustering with K-means splitting
-and KNN Clustering with minimum cut splitting. Which of the first is a well known clustering algorithm, and the last three has been proposed in this thesis. 
+In this chapter four methods of clustering has been considered: regular agglomerative clustering, K-Closest Neighbour Clustering (KCN), KCN Clustering with K-means splitting
+and KCN Clustering with minimum cut splitting. Which of the first is a well known clustering algorithm, and the last three has been proposed in this thesis. 
 This section is dedicated to the evaluation of the work done throughout this chapter, with regards to gained knowledge and simulation weaknesses.
 
 \subsection{Knowledge acquired from simulations}
@@ -640,7 +640,7 @@ Before beginning the work on the thesis it was hard to envision how groups could
 the landscape of wireless access points. While many questions still remain, some of which will be addressed in the next chapter, many has also been answered. The main issue
 addressed is how groups can be formed, and how they can be continously updated to keep up with changes in the surrounding network.  
 
-Unsurprisingly, the small modification to the agglomerative clustering algoritm, which made KNN Clustering, yielded promising results.
+Unsurprisingly, the small modification to the agglomerative clustering algoritm, which made KCN Clustering, yielded promising results.
 This algorithm could provide a natural starting point for a real-world implementation in a static network topology.
 However, this specific algorithm does not handle changes in the network environment very well, as once a group's maximum size is reached, it can not be modified. 
 Still it could possibly provide useful for testing scenarios, maybe in an early implementation when a distributed channel allocation algorithm is to be tested across the group, without
