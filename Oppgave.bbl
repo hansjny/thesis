@@ -956,6 +956,19 @@
       \verb https://wigle.net/
       \endverb
     \endentry
+    \entry{cisco_2009}{misc}{}
+      \field{sortinit}{W}
+      \field{sortinithash}{99e3ba1b3f78bb6f073e7fa7ac11636b}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Cisco}
+      \field{month}{10}
+      \field{note}{Accessed 21. January, 2018}
+      \field{title}{Wireless LAN Controller (WLC) FAQ}
+      \field{year}{2009}
+      \verb{url}
+      \verb https://www.cisco.com/c/en/us/support/docs/wireless/4400-series-wireless-lan-controllers/69561-wlc-faq.html
+      \endverb
+    \endentry
     \entry{resfi}{inproceedings}{}
       \name{author}{4}{}{%
         {{hash=acbfe2edf70173278e67b42f0a5f8d65}{%

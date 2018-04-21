@@ -113,7 +113,7 @@ The group framework consists of 3 classes with different responsibilities:
 	where it calls the \verb|iterate| method in the GroupCollections object once every run. All the groups have converged and reached a steady state 
 	once the amount of changes returned by the GroupCollection's \verb|iterate| method is equal to zero. The results are written to file.
 \end{itemize}
-{{flowchart}}
+
 \subsection{Output file structure}
 The results of the group computations are writen to file. The results does not only contain the resulting divison of groups, but to be able to recreate the simulation
 visually, the results contains the topology of all nodes and their group membership for each iteration in the simulation process. This means that we can step-by-step
