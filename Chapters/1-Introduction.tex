@@ -29,8 +29,8 @@ the physical datarate capacity.
 
 There has been done research on how centralized controllers can benefit the deployment of large enterprise networks (\cite{Murty}, \cite{Murty2} and \cite{Suresh}),
 but in this thesis we will address the emerging issue of deployment of Wi-Fi in residential areas. More specifically, we will consider possible clustering methods
-to enable routers and access points to organize themselves in self managing groups. A synchronous, distributed group across access points in different service sets
-would allow for planned, cooperative channel allocation. This would transform the channel allocation problem from finding a local optimal channel for each router,
+to enable routers and access points to organize themselves in self managing groups. A synchronous, distributed group across access points
+could allow for planned, cooperative channel allocation. This would transform the channel allocation problem from finding a local optimal channel for each router,
 to a problem of finding an optimal channel plan for the entire group.
 
 \section{Motivation}
@@ -42,15 +42,14 @@ QoS comes second.
 
 Customers subscribed to high data rate service level agreements often find they can only receive a comparable data rate over wired LAN.
 When the Wi-Fi network in their home is constantly underperforming, it is not unusual a customer to upgrade the data rate of their agreement.
-But as it happens, often interfering networks are the perpetrators, and an increase of bandwith will have no effect.
+But as it happens, interfering networks are often the perpetrators, and an increase of bandwith will have no effect.
 This can lead customers to frustration with their Internet service providers, even though it is the underlying technology and not the service provider which is at fault.
 
 There exists a large amount of different algorithms that deal with channel allocation to prevent and limit interference. Some even consider the QoS observed by the client - not only the access points.
 However, many efficient algorithms are deployed in centralized systems and does not focus on decentralized instances, such as residential networks.
 A decentralized, distributed solution to optimize channel distribution would be helpful in apartment buildings and other residential zones where the density of wireless networks is high,
-as it would not require the wireless networks to be under the administration of the same controller (e.g. an ISP). The access points could communicate and organize channel allocation
-on their own. Of all channel allocation algorithms only a few addresses the issue of optimizing the channel distribution,
-but the algorithms does not have a way to limit the amount of nodes to consider.  The main motivation behind this thesis is to explore ways to create a distributed group (clustering) scheme. Once a group is established, many problems can be solved with technologies previously only used in centralized systems.
+as it would not require the wireless networks to be under the administration of the administrative domain (e.g. an ISP). The access points could communicate and organize channel allocation
+on their own, and also there would be no single point of failure, which is the case for many centralized solutions. Of all channel allocation algorithms only a few addresses the issue of optimizing the channel distribution, but these algorithms does not have a way to limit the amount of nodes to consider. The main motivation behind this thesis is to explore ways to create a distributed group (clustering) scheme. Once a group is established, many problems can be solved with technologies previously only succesfully implemented in centralized systems.
 
 \section{Problem definition}
 There are 3 non-overlapping channels on the 2.4GHz spectrum utilized by 802.11 Wi-Fi. Today, one of the more common ways of selecting a channel
@@ -60,61 +59,17 @@ local radio observations, it is highly unlikely that the channel distribution in
 
 Ideally we want all access points to be configured so the channel distribution in an area leads to as few equal channels as possible
 being next to one another. The task of optimizing channel distribution is essentially what is called a graph-coloring problem, where the problem is
-finding a distribution where no adjacent nodes should operate on the same channels. This is NP-hard and can be solved with heuristics \cite{Brelaz}, but is not the focus of this thesis. 
+finding a distribution where no adjacent nodes should operate on the same channels. This is inherently an NP-hard problem to solve, and good solutions can be found with heuristics such as DSATUR \cite{Brelaz}.
 
-Since the problem is NP-hard, it is easier to determine a good channel distribution if fewer access points are considered. In other words, if the groups are too large, 
-the channel distribution problem becomes too complicated to solve. This bring us to the punch line of the problem definition: finding a way to confine access points to a high-impact group.
-We have already established the motivation behind aiming for a decentralized solution - but to achieve this, access points have to find these groups on their own.
-It is easy to intuitively say that, for instance, an apartment building should be one group. It is less obvious to answer how all access points in an apartment building
-would identify the boundaries of the building and create a group on their own, entirely independent of an Internet service provide (and ideally also router brand).
-It boils down to a distributed clustering problem, where no access point has a global view of the landscape of neighbouring routers. So we must find a way to make the clustering algorithm
-able to be run in a way that clusters can be built relying only on information that can be obtained from radio scans of its membering access points.
+Since the problem is NP-hard, it is easier to determine a good channel distribution if fewer access points are considered. In other words, if the are too many access points to consider, 
+the channel distribution problem becomes too complicated to find good solutions for.
+This bring us to the punch line of the problem definition: finding a way to confine access points to high-impact groups. We have already established the motivation behind aiming for a decentralized solution - but to achieve this, access points have to find these groups on their own. It is easy to intuitively say that, for instance, an apartment building should be one group. It is less obvious to answer how all access points in an apartment building would identify the boundaries of the building and create a group on their own, entirely independent of an Internet service provide (and ideally also router brand).
+It boils down to a distributed clustering problem, where no access point has a global view of the landscape of neighbouring routers. A way must be found to run
+a clustering algorithm in in a way so clusters can be built relying only on information that can be obtained from radio scans of the group's membering access points.
 
 \section{Method}
-To be able to see if we can form groups in a way that creates clusters of nearby nodes we need to get some data to perform
-calculation on. We will both create syntethic data and use real world location data of access points to evaluate the performance of the group creations. 
-Then we will take a look at possible solutions to let access points communicate with each other without any manual bootstrapping or 
-previous association. Then we will consider the problems and challenges that has to be overcome in the process of creating and deploying 
-an architecture as suggested in the thesis. 
-
-    %We will take a look on earlier algorithms in the research of finding a better way to allocate channels in 802.11. 
-    %Then we can do a number of assumptions to be able to propose an algorithm for group creation amongst unorganized access points,
-    %and then evaluate the algorithm by computing groups and clusters of access points.  
-
-
-
-
-%\section{Channel allocation} 
-%To deal with the problem of channel allocation we will think of an AP as a vertex in a graph. When an AP scans its radio
-%it can hear the strength of all nearby wireless networks measured in dBm (decibel milliwatts). This decibel value will be
-%the value of the edge between one AP to another. With a graph expressing the wireless network topology, the problem
-%of optimally distributing channels between APs boils down to a graph coloring problem. The number of colors in the color problem,
-   %represents the number of non-overlapping channels in 802.11. Exactly how an algorithm can be designed to optimally distribute channels within the
-   %interfering topology is out of the scope of this thesis. However we can define some invariants that has to be true
-   %for such an algorithm to work:
-   %\begin{enumerate} 
-   %\item All APs has to run the same algorithm
-   %\item All APs must run the algorithm on the same connected group
-   %\item Because of the complexity of the problem the algorthm must solve, the number of APs in the connected group can not be too big
-   %\end{enumerate}
-%
-   %Point 1 is trivial to solve or mitigate, as only APs running the algorithm will actively participate in the channel selection. A simple way to make sure that the
-   %same algorithm is used, is by having a software version that is consistently checked with the other APs in the connected group.
-%
-   %Point 2 and point 3 is will be the main focus of the rest of the master thesis, as these are not so easily solved.
-%
-   %We can define a wireless topology graph as a set of wireless APs that are grouped together and share information about their neighbours and interference levels.
-   %This set is what will now on be referred to as a \textit{connected group.} All members of the connected group will be considered when running the channel assignment algorithm.
-   %For the connected group to have an actual impact on the quality of a network connection, it has to consist of nodes that normally disturbs each other substantially.
-%
-   %An ideal example of a connected group is an apartment builiding. The channel allocation protocol lets APs share information about who-disturbs-who the most in the building.
-   %Then each AP can run the channel allocation algorithm. Because they run it on the same graph, every AP will find the same optimal channel distribution throughout the building,
-   %and then switch to the correct channel. 
-%
-   %Even though an apartment building is most likely an optimal delimination of a connected group, in reality creating such a group is a bigger challenge. As the whole channel allocation
-   %protocol is based on decentralized peer-to-peer technology, and no centralized server with access to demographical and geographical divisions exists, the protocol will
-   %have to discover suitable connected groups on its own. Moreover, when the group is created the protocol will have to replicate data so that
-   %all participants of the group has all the data required to perform channel allocation. It will also need a way to make sure that the image of the current group
-   %is consistent within all APs in the connected group. 
-
+To develop and test methods to form groups in a way that creates groups of high-impact nodes, we need to get some data to perform
+group creation simulation on. We will both create synthetic data and use real world location data of access points to be able to evaluate the performance of the group creations. 
+Then we will take a look at possible solutions to let access points group together without any manual bootstrapping of group, using only some sort
+of distributed clustering algorithm.
 

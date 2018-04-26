@@ -1,14 +1,14 @@
-\chapter{Communication protocol, state synchronization and future work}
+\chapter{Node communication and group state synchronization}
 \label{chap:proto}
-This chapter is dedicated to the looking at some requirements and a possible architecture for a protocol designed to facilitate group creation using the
+In this chapter we will be looking at some requirements and a suggested architecture for a protocol designed to facilitate group creation using the
 distributed clustering algorithms discussed in the previous chapters. This protocol will be referred to as the Distributed Group Creation Protocol (DGCP).
-While in the previous chapters it has been suggested an algorithm for how groups can be formed, in this chapter the focus shall be on the technology and protocols required
+While in the previous chapters the focus have been the algorithm for how groups can be formed and constrained, in this chapter the focus is on the technology and protocols required
 to enable communication between access points and ultimately groups. There has already been done some work on the subject of access point communication over IP,
 and previous work in the field of distributed consensus can be used to ensure synchronized group states. In this chapter these technologies will be covered and considered,
 and finally a protocol sketch that stitches all required components together will be suggested. 
 
 
-\section{Problem Architecture}
+\section{Architecture}
 In chapter \ref{chap:clustering} we looked at an algorithm that enables cluster formation in a distributed environment where no node knows the complete layout of the surrounding networks.
 A number of assumptions were made before we suggested an algorithm. Two of the assumptions encapsulated the three following problems:
 \begin{itemize}
@@ -19,48 +19,40 @@ A number of assumptions were made before we suggested an algorithm. Two of the a
 In this chapter we look at technologies that can handle these issues to suggest an abstract architecture for a protocol that enables group creation in a distributed environment.
 
 \section{Enabling technologies}
-When designing a protocol that enables group communication, there is need for some some already well-researched theory and technology as a foundation. There are already enough
-considerations to take when designing an architecture like this, and there is no need to reinvent the wheel where there is already done a good amount of research. 
-Raft will be used for state synchronization. Raft is a distributed consensus protocol and provides the equivalent degree of fault-tolerance as the Paxos \cite{lamport2001paxos} protocol family.
-ResFi is a protocol used to enable communication over IP between adjacent access points. This section is dedicated to briefly introduce these protocols. 
+When designing a protocol that enables group communication, it is good to have some already well-researched theory and technology as a foundation. There are enough
+considerations to take when designing a new protocol architecture, and there is no need to reinvent the wheel in areas where there has been done a good amount of research. 
+This section covers two technologies: Raft and ResFi. Raft will be used for state synchronization via log replication. It is a distributed consensus protocol and provides the equivalent degree of fault-tolerance as the Paxos \cite{lamport2001paxos} protocol family. ResFi is a protocol used to enable communication over IP between adjacent access points. 
 
 \subsection{Distributed consensus with Raft}
 Raft \cite{raftio} is a distributed consensus protocol designed with simplicity in mind. The creators of Raft designed it to be used for educational purposes. Traditionally, Paxos has been used to explain distributed consensus, but Paxos has a complex design with extremely many different variations. Raft is now taught in courses all over the U.S, and their GitHub page includes to links
 of implementations in a large amount of languages. As Raft has such a wide range of implementations and is an easy protocol to understand relative to its quite complicated relative, Paxos, 
 we will suggest that Raft will be used to handle distributed consensus. 
 
-\subsection{Why distributed consensus?}
-Distributed consensus is required for the distributed group creation protocol for a couple of reasons, the most important two being:
-\begin{itemize}
-	\item Leader election for decision making
-	\item	Synchronous data replication (makes sure all nodes have a consistent picture of the group, in-case leader goes down)
-\end{itemize}
+\subsubsection{Why distributed consensus?}
+Distributed consensus is required for the distributed group creation protocol to provide data replication.
+This makes sure all nodes have a consistent picture of the group, and in-case leader goes down any node is equally qualified to take on the role as leader.
+The need for log replication is derived from the simple fact that there is no centralized controller to take decisions, so equally replicated data across all members node is required for all access
+points to reach the same decisions about which neighbouring group to merge with, and also to compute channel distribution.  
 
-These reason are derived from the simple fact that there is no centralized controller to take decisions, so equally replicated data across all members node is required for all access
-points to reach the same decisions about group membership. 
-
-\subsection{What Raft can not help with}
+\subsubsection{What Raft can not help with}
 Raft is not originally intended to run in a flexible environment where the amount of servers changes rapidly. Thus, Raft is not able to handle the group membership changes
-after two groups merge, within the same Raft session. This is because there can be no consensus on past logs between nodes from different groups, as all groups will have different logs from before the merge. There is also no native Raft method to invoke native leader handover, so in the event of merge there would be two leaders. 
+after two groups merge within the same Raft session. This is because there can be no consensus on past logs between nodes from different groups, as all groups will have different logs from before the merge. There is also no native Raft method to invoke native leader handover, so in the event of merge there would be two leaders. 
 
 Another aspect that would be different from a traditional distributed consensus scenario, is the assumption that there are two main actors with different roles: servers and clients.
 In distributed consensus, each server is supposed to have their own data, identical via data replication across across all the servers in the Raft session. The clients are the actor that requests 
 changes on the data.
 
-A traditional scenario is the banking example: a client could be a mini-bank issuing a withdrawal from a bank account. The servers would be all the banking servers making sure the new,
+A traditional scenario is a banking example: a client could be a mini-bank issuing a withdrawal from a bank account. The servers would be all the banking servers making sure the new,
 updated account balance is consistent no matter where money is withdrawn from. 
 
-In the distributed group creation protocol all nodes running Raft are both servers and clients. They have to report new changes in the form of neighbours and signal strength values,
+In a distributed group creation protocol all nodes running Raft are both servers and clients. They have to report new changes in the form of neighbours and signal strength values,
 while also keeping a local, replicated copy of the state of the group.
 
 \subsection{Access point communication with ResFi}
 This subsection is dedicated to briefly describe how ResFi operates, and to cover why and how it is a protocol that can be taken advantage of in the Distributed Group Creation Protocol. 
 
-ResFi is a protocol framework that supports creation of radio resource management in legacy residential networks. ResFi is intended to be used in  a chaotically deployed landscape of acccess points,
-which is similar to the intentions of the group creation in this thesis. It enables the creation of secure point-to-point communication channel over IP through wired backhaul network. 
-Point-to-point in this context means APs that are directly adjacent (or neighbouring APs as it has been referred to in the group creation chapter).
-It also supports secure broadcast via n-hop communication. A brief account of the sequential steps of the ResFi standard mode of operation follows,
-the more thorough explanation can be find in the ResFi paper \cite{resfi} under chapter \textit{IV. Detailed Specification}.
+As mentioned in the related work chapter at the beginning of the thesis, ResFi is a protocol framework that supports creation of radio resource management in legacy residential networks.
+ResFi is intended to be used in a chaotically deployed landscape of access points, which is similar to the intentions of the group creation in this thesis. It enables the creation of secure point-to-point communication channel over IP through wired backhaul network. Point-to-point in this context means APs that are directly adjacent and can hear each other over the physical radio. ResFi also supports secure broadcast via n-hop communication. A brief account of the sequential steps of the ResFi standard mode of operation follows below. A more thorough explanation can be find in the ResFi paper \cite{resfi} under chapter \textit{IV. Detailed Specification}.
 
 \begin{enumerate}
 	\item When an AP ($a$) is booted, a symmetric group key is created, along with an RSA key-pair. 
@@ -100,7 +92,7 @@ in the JSON-format. Table \ref{tab:resfapi} shows which functions are available 
 \end{table}
 
 
-\section{Protocol design}
+\section{Protocol}
 This section outlines the architecture of a protocol that could facilitate group creation.
 
 \subsection{Architectural overview}
@@ -127,7 +119,7 @@ to relay messages from node to node, until the message reaches its destination. 
 		the message is not relayed.
   \item Should be used for all communication between nodes, like control messages, Raft log updates, etc., except for merge messages, which would have to happen across
 		groups. 
-	\item Have a way to uniquely identify nodes
+	\item Needs a way to uniquely identify nodes to perform routing
 \end{itemize}
 
 

@@ -1,5 +1,6 @@
 \chapter{Survey of related work}
-This chapter is dedicated to give a brief account of works related to controlling and managing 802.11 wireless access points. 
+This chapter is dedicated to give a brief account of works that addresses the issue of controlling and managing 802.11 wireless access points. It is constrained
+to technologies that in some way provide channel allocation or other ways to reduce RF-interference using more information than what is available at each individual access point. 
 
 \section{Cisco RRM}
 \subsubsection{Description}
@@ -11,14 +12,14 @@ major concepts.
 
 \subsubsection{RF-Grouping}
 In CISCO RRM, the RF-grouping stage is the identification of controllers and APs that are under the administrative control of the same RRM. 
-To identify the RF-group an RF-group name is used, which is an ascii string sent to the APs from their preconfigured WLC. 
+To identify the RF-group an RF-group name is used. The name itself is an ascii string, and the APs obtain it from the WLC they are connected to. The WLCs have to be preconfigured with this group name.
+
 All APs broadcasts their RF-group name along with the IP-address of their controller.
-Any other AP sharing the same RF-group name reports the incoming broadcast message to the controller, and then rebroadcasts the packet. 
-This way the controller becomes aware of all APs that are in range of each other, similar to the flooding routing mechanism,
-and the RF-group becomes aware of all the APs that can physically hear each other.
-This is called the neighbour discovery stage, APs within physical hearing of -80dBi and above makes up what Cisco calls an RF-neighbourhood.
+Any other AP sharing the same RF-group name reports the incoming broadcast message to the controller, and then rebroadcasts the packet similar to the flooding routing mechanism.
+After all APs has done this, the RF-group can identify all APs that can physically hear each other.
+This is called the neighbour discovery stage, and APs within physical hearing of -80dBi and above makes up what Cisco calls an RF-neighbourhood.
 If applicable the RF-groups perform leader election to decide which controller becomes the RF Group leader, but a preconfigured leader can also be decided.
-The RF group leader has the responsibility of running the relevant channel allocation algorithms and ajusting the radio power level of the APs. 
+The RF group leader has the responsibility of running the relevant channel allocation algorithms and adjusting the radio power level of the APs. 
 
 \subsubsection{Dynamic Channel Assignment}
 To perform Dynamic Channel Assignment, the RF-leader has the neighbour lists for all access points in 
@@ -38,7 +39,7 @@ to see if the Cost Metric has improved for the AP, without degrading the Cost Me
 then the channels are changed, and the algorithm moves on to the next AP on the list of low Cost Metrics.  
 
 \subsubsection{Assessment}
-It is valuable for us to understand the major mechanisms of Cisco RRM, as it is among the leading technologies for administrating larger amount of wireless access points. 
+It is valuable to understand the major mechanisms of Cisco RRM, as it is among the leading technologies for administrating larger amount of wireless access points. 
 The RF-grouping stage with the neighbour discovery protocol are mechanisms that may be adaptable, or at least an inspiration for a future distributed protocol. The reason 
 the Cisco RRM would not work well as it is in a chaotic, residential deployment may be quite obvious: the need for preconfigured WLCs and proprietary hardware does not fit well with the nomadic 
 routers today, where house and apartment owners bring their own routers and access points. 
@@ -88,32 +89,26 @@ in the network are called HiveAPs, and they offer services such as
 		is because the first one(s) are the most critical. The other static cost factor is what power level can be transmitted at the given channel, as this may differ on some 5GHz non-overlapping channels. The dynamic measurements are CRC-error rate, channel utilization,
 	and the utilization of overlapping APs. All of these dynamic factors can penalize a channel with 0 to 3.5%. 
 
-\subsubsection{Assessment}
+%\subsubsection{Assessment}
 \end{itemize}
 
 \section{ResFi}
+\subsection{Description}
 ResFi \cite{resfi} is the only significant related work that directly aims to enable self-organized management in residential deployments of wireless LAN. Works such as \cite{Murty2}, \cite{ciscoRRM} and \cite{Aerohive} are all directed toward enterprise
-networks. As we also aim to mainly concern ourselves with residential networks and their infrastrucure, ResFi is especially interesting to look at. ResFi assumes that all access points have two interfaces, one connected to a wired backone (e.g Internet), and another
-802.11 compatible wireless interface. The figures of ResFi includes a Radio Resource Management Unit (RRMU). This is simply the device that interfaces with the antenna, and in most residential homes it will be a router that controls the channel and the power levels of the antenna. In short ResFi enables communication between access points under different basic service sets without imposing a central controller on the access points or being a part of an extended service set. More importantly, ResFi enables all of this without doing any modifications to hardware and drivers (like modifying standards or requiring propriatary equipment). 
-
-\subsection{Operation}
-This section contains a short introduction of the way ResFi is initiated and operates.
-\begin{enumerate}
-	\item An AP that has just booted up beacons a frame on all available channels. This frame contains: a globally routable IP-address, port, and two cryptographic keys. One transient key for group communication, and the public key for the RRMU. 
-	\item All APs that can hear the beacon responds with a probe response containing the same information as in 1.
-	\item When the scan is complete, the new AP can establish secure point-to-point communicate with all other APs using the wired backbone, the globally routable IP-address and the cryptographic keys
-\end{enumerate}
+networks. As we also aim to mainly concern ourselves with residential networks and their infrastructure, ResFi is especially interesting to look at. ResFi assumes that all access points have two interfaces, one connected to a wired backbone (e.g Internet), and another
+802.11 compatible wireless interface. The ResFi paper often refers to the Radio Resource Management Unit (RRMU). This is simply the device that interfaces with the antenna, and in most residential homes it will be a router that controls the channel and the power levels of the antenna. In short ResFi enables communication between access points under different basic service sets without imposing a central controller on the access points or being a part of an extended service set. More importantly, ResFi enables all of this without doing any modifications to hardware and drivers (like modifying standards or requiring proprietary equipment). 
 
 \subsection{Implementation}
-This section is dedicated to a brief overview of how ResFi can be implemented and deployed.
-
 Originally ResFi was implemented on Ubuntu 14.04. It adds vendor specific information elements to the MAC-header with the IP, port, and cryptographic data. This can be done Linux user space by using their modified version of hostapd \cite{resfigit}.
-As it runs on python, it could in practice be implemented on any Linux system. It uses a south-bound API to communicate with the RRMU, and a north-bound API to enable applications to use ResFi. ResFi itself provides no specific channel allocation mechanism nor a group-creation/AP-clustering algorithm, but the north-bound API could fascilitate applications that provides services like these.
+As it runs on python, it could in practice be implemented on any Linux system. It uses a south-bound API to communicate with the RRMU, and a north-bound API to enable applications to use ResFi. ResFi itself provides no specific channel allocation mechanism nor a group-creation/AP-clustering algorithm, but the north-bound API could facilitate applications that provides services like these.
 
-%\section{Distributed Clusteering}
-%DCA and DMAC
+\subsection{Assessment}
+The services provided by ResFi, namely 1-hop unicast communication and n-hop broadcast messaging between access points, can be valuable for a group creation stage where access points
+may need to perform message passing between each other to coordinate. Because ResFi uses HostApd, a user space application, any protocols that uses ResFi can run on top of it, preventing the need
+for kernel modules or drivers. This is unquestionably a huge benefit for development and deployment, eliminating the need for routers with a specific firmware to be compatible. 
 
-\section{Channel allocation using DSATUR and SCIFI} 
+
+\section{Channel allocation using DSATUR} 
 This section is dedicated to previous work done using the DSATUR heuristic. A little note to this section: it would also fit well in the background section. It accounts for the fundamentally important priniciple that
 channel allocation can be treated as a graph coloring problem once a network graph is constructed. As we wont be dealing with channel selection itself, the decision was made to place it in the related work section.  
 
@@ -124,10 +119,10 @@ Channel allocation schemes relying on the DSATUR algorithm has been proposed bef
 This list would be broadcast to all the neighbours. For multi-hop support, all receiving nodes will rebroadcast the list in a fashion equal to the flooding routing mechanism. This enables routers to create a graph of access points, and the DSATUR algorithm can then be used to compute the channel distribution. A group like this is more or less exactly what we would like to achieve in this thesis, 
 an we hope to begin resolving some of the problems this algorithm does not account for. In 2004, flooding the network to build a network graph to solve a NP-hard problem for, might have worked. Today this is not the case, as the size of the graph would be immense. 
 
-\subsection{SCIFI}
-SCIFI \cite{SCIFI} is a centralized channel allocation protocol for infrastructure Wireless LANs that improves the traditional graph-coloring algorithm DSATUR. 
-While the paper shows that their central coordinator in fact improves the throughput compared to Wireless LANs that are not configured by SCIFI, the it is an algorithm for setting a channel in a preconfigured administrative domain. So, why is still mention here? Well, even though it does not deal with how the administrative domains
-or AP clusters are defined, if the method of creating clusters of collaborating routers proposed in this thesis has merit,
-SCIFI could plausibly be a supporting technology to compute channel distribution. Meaning one of our groups would act as the administrative domain required by SCIFI. 
+%\subsection{SCIFI}
+%SCIFI \cite{SCIFI} is a centralized channel allocation protocol for infrastructure Wireless LANs that improves the traditional graph-coloring algorithm DSATUR. 
+%While the paper shows that their central coordinator in fact improves the throughput compared to Wireless LANs that are not configured by SCIFI, the it is an algorithm for setting a channel in a preconfigured administrative domain. So, why is still mention here? Well, even though it does not deal with how the administrative domains
+%or AP clusters are defined, if the method of creating clusters of collaborating routers proposed in this thesis has merit,
+%SCIFI could plausibly be a supporting technology to compute channel distribution. Meaning one of our groups would act as the administrative domain required by SCIFI. 
 
 

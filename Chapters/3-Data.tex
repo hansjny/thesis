@@ -10,24 +10,24 @@ preferably installed in residential apartment buildings. Not only would the crea
 some unsolved logical challenges as well. Like the communication protocol between routers, and maybe distributed consensus or some way to perform synchronization to communicate group memberships.
 These problems are addressed in chapter \ref{chap:proto}.
 
-Even if such challenges could be overcome, going directly from a concept idea to a large testbed in a master thesis  - without having any empirical indication of which approaches have merit, may not be a good use of time. Hence, the data is gathered with the motivation of being able to perform realistic calculations and do algorithm developement on a money-, and time budget. Lastly, the motivation behind mining real data, instead of generating everything, is to enhance the quality and believeability of the results produced. 
+Even if such challenges could be overcome, going directly from a concept idea to a large testbed in a master thesis  - without having any empirical indication of which approaches have merit, may not be a good use of time. Hence, the data is gathered with the motivation of being able to perform realistic calculations and do algorithm development on a money-, and time budget. Lastly, the motivation behind mining real data, instead of generating everything, is to enhance the quality and believability of the results produced. 
 
 \section{Requirements and assumptions}
 This section will cover the requirements and assumptions for a data generation-, and visualization program. 
 
 \subsubsection{Background}
 As presented in the background chapter: SSID, channel frequency, radio power, physical data rate and supported 802.11 standards are just a few of the properties
-that makes up a wireless access point. Before deciding how to represent an access point in a network topology dataset, it is useful to
+of wireless access points. Before deciding how to represent an access point in a network topology dataset, it is useful to
 consider the state an access point would be in when group creation is performed.  
 
 An access point is not in the transmission (CSMA/CA) state when performing channel allocation. This is simply due to the toughness of performing channel sensing without
-having a channel to sense. So, which sate is it in then? Well, it is hard to say without having a bird's eye view of the protocol and algorithm architecture. A fully developed protocol
-for distributed group-creation in residential deployed Wi-Fi is at the time of writing (and to the author's knowledge) non-existient.  Nor will a full-fledged architecture be presented in
+having a channel to sense. So, which state is it in then? Well, it is hard to say without having a bird's eye view of a protocol and algorithm architecture. A fully developed protocol
+for distributed group-creation in residential deployed Wi-Fi is at the time of writing (and to the author's knowledge) non-existent. Nor will a full-fledged architecture be presented in
 this thesis (even though suggestions will be made at the end), so a couple of assumptions has to be made. 
 
 \subsubsection{Assumptions}
 The access points are in a state we can call the \textit{group discovery state}, where the goal is to find or create a group to be a part of.
-The major motivation for doing group creation in the first place is to be able to cleverly and collaboratively allocate channels within the group, so this state would
+The major motivation for doing group creation in the first place is to be able to collaboratively allocate channels within the group, hence this state would
 have to occur before channel allocation is performed. 
 
 Hence, to simulate group creation and discovery, many of the access point properties does not have to be considered. Actually it is only necessary to store two things:
@@ -42,8 +42,7 @@ part of this model.
 In all succeeding simulations it is assumed that all nodes are transmitting with equal strength, and that the environment is flat and obstacle free. 
 
 \subsubsection{Requirements}
-Unfortunately there is at the time of writing no publicly available data source that contains radio scans of a large amount of access points located in the same area.
-This subsection describes the requirements for the simulation program that will both generate and represent Wi-Fi network topologies. Having a clear specificiation of program requirements
+This subsection describes the requirements for a program that will both generate and represent Wi-Fi network topologies. Having a clear specification of the program requirements
 simplifies the programming stage and reduces the risk of feature creep. 
 
 As a basis for the simulation, access points, hereupon also referred to as nodes, should be placed on a two-dimensional grid. Each dataset has to contain a set of nodes which has two coordinates $x$ and $y$, giving them a position on the grid. When all desired nodes are placed on a grid, the grid represents a network topology. It will then be possible to compute an
@@ -62,7 +61,7 @@ Additionally the following parameters should be variable in the topology generat
 
 	\section{Program design}\label{prog_design}
 	\subsection{Primary functionality}
-	The resulting program consists of two main functionalitites.
+	The resulting program consists of two main functionalities.
 
 	The first functionality is creating a topology and generate nodes which are uniformly
 	and randomly positioned on the network topology. The topology size, node count and minimum distance
@@ -75,28 +74,28 @@ Additionally the following parameters should be variable in the topology generat
 		\begin{python}
 			#In topology class
 			def measureInterference(self):
-			for nodeSubject in self._nodes:  
-			for nodeObject in self._nodes:
-			nodeSubject.calculateInterferenceTo(nodeObject) 
+				for nodeSubject in self._nodes:  
+					for nodeObject in self._nodes:
+						nodeSubject.calculateInterferenceTo(nodeObject) 
 
 			#In node class
 			def calculateInterferenceTo(self, nodeObject):
-			if self == nodeObject:
-			return
-			dist = round(self.distanceTo(nodeObject))
+				if self == nodeObject:
+					return
+				dist = round(self.distanceTo(nodeObject))
 
 			#If  nodes have same coordinate, set high interference. 
-			if (dist == 0):
-			dBi = -40
-			else:
-			dBi  = self.measureDbi(dist) * -1
+				if (dist == 0):
+					dBi = -40
+				else:
+					dBi  = self.measureDbi(dist) * -1
 
 			def measureDbi(self, dist):
-			return (20 * math.log(self._frequency, 10)) + 
-			(20 * math.log(dist, 10)) - 27.55
+				return (20 * math.log(self._frequency, 10)) + 
+				(20 * math.log(dist, 10)) - 27.55
 
 		\end{python}
-		\caption{Computing the interference between nodes}
+		\caption{Pseudocode for computing the signal strength between nodes}
 		\label{fig:dbiCreation}
 	\end{figure}
 
@@ -187,11 +186,11 @@ to using an open data source called WiGLE to create the network topology, while 
 
 \subsection{Introduction to WiGLE}
 The Wireless Geographical Logging Engine (WiGLE) \cite{wigle} is a project started in 2001 which purpose is to gather information about wireless networks.
-All information collected by WiGLE is user submitted. Anyone can download an Android app developed and published by WiGLE, and use the app for wardriving\footnote{Wardriving is the act of tracking wireless networks using a laptop or a phone, and then store the network meta data.},
+All information collected by WiGLE is user submitted. Anyone can download an Android app developed and published by WiGLE, and use the app for wardriving\footnote{Wardriving is the act of tracking wireless networks using a laptop or a phone, and then store the networks' meta data.},
 then submit the data to WiGLE's centralized database. The APs discovered can be viewed on an interactive map provided on WiGLE's website as seen in figure \ref{fig:wigfig}.
 All the data can also be accessed through a public API. Using their service is entirely free, but the amount of data that can be requested is throttled on a day-to-day basis.
-In the FAQ section on the website its written that the project openly supports research projects, so after contacting them they upgraded the account which will be used to gather data
-for this thesis to a higher daily data limit. 
+In the FAQ section on the website its written that WiGLE openly supports research projects. This is good news for us, and after contacting them they upgraded the account which will be used
+for data gathering to a higher daily data limit. 
 
 \begin{figure}[h]
 	\center
@@ -207,7 +206,7 @@ if the measurements of an access point signal strength is done in multiple place
 the access point location becomes very precise. On the other hand, if the measurements are taken on only one side of the access point,
 the measurements are heavily shifted towards that side. This tendency can be observed
 when zooming in on many Norwegian towns where most access points seem to be positioned on the road. This is obviously not right, but as most observations
-are most likely are done from the road when wardriving, this happens frequently. Figure \ref{fig:wiglediff} illustrates the big difference multiple observation points can make.
+are done from the road when wardriving, this phenomenon happens frequently. Figure \ref{fig:wiglediff} illustrates the big difference multiple observation points can make.
 
 Even though the data is not perfect, it is safe to say it is better suited to impersonate the layout of real-life network topologies than the generated data.
 
@@ -277,7 +276,7 @@ Even though the data is not perfect, it is safe to say it is better suited to im
 \label{fig:wigle}
 \end{figure}
 
-The JSON-object in the response contains quite a lot of information about all of the APs retrieved. Most of this data is redundant information, but it is worth noting that some of it could be used to perfect the search. For instance the "last updated"-parameter could be a way to refine the access points retrieval so access points which have been long gone is not fetched. The most valueable properties are $trilong$ and $trilat$. As the names suggest these contain the estimated coordinates of the access points. 
+The JSON-object in the response contains quite a lot of information about all of the APs retrieved. Most of this data is redundant information, but it is worth noting that some of it could be used to perfect the search. For instance the "last updated"-parameter could be a way to refine the access points retrieval so access points which have been long gone is not fetched. The most valuable properties are $trilong$ and $trilat$. As the names suggest these contain the estimated coordinates of each access point.
 
 \subsubsection{The Haversine Formula}
 As seen in the previous section, WiGLE provides data about the location of access points and a way to retrieve this data in a usable format. 
@@ -333,7 +332,7 @@ WiGLE, the specified coordinate range is used to compute the size of the cartesi
 	\item Compute the distance between the first latitude $\varphi_{start}$ and the second latitude $\varphi_{stop}$ and returns the size of the x-axis in meters.
 	\item The opposite has to be done to get the size of the y-axis, using the distance between $\lambda_{start}$ and $\lambda_{stop}$. 
 	\item The same approach is used to place each node on the coordinate system, where the first set of the coordinates is
-$\varphi_{start}$ and $\lambda_{start}$, and the second set is the coordinates of the AP.
+$\varphi_{start}$ and $\lambda_{start}$ as the origin of the coordinate system, and the second set is the coordinates of the AP.  
 
 \end{itemize}
 \subsection{Data output}

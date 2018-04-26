@@ -3,14 +3,14 @@ In this chapter the relevant aspects of wireless technology and a selection of i
 concepts from the 802.11 standard will be introduced.
 
 \section{Basic radio challenges}
-There are some challenges with wireless technologies that are harder to overcome than in wired transmission technologies like Ethernet.
+There are some challenges with wireless technologies that are harder to overcome when comparing to wired transmission technologies like Ethernet.
 
-The first step to achieve a succesful transmission is making sure the receiving radio is within transmit range of the transmitter. The
-transmit range is decided by the power which the signal is transmitted at, the antenna gain, and the surrounding 
-environment. If there are a lot of solid obstacles, like walls and ceilings, the signal is likely to have a very compromised range.
+The first step to achieve a successful transmission is making sure the receiving radio is within transmit range of the transmitter. The
+transmit range is decided by the power of which a signal is transmitted at, the antenna gain, and the surrounding 
+environment. If there are a lot of solid obstacles, like walls and ceilings, the signal is likely to have a more compromised range.
 
 Even if the surrounding environment is mostly open space, the wireless signal becomes subject of attenuation,
-     which is a physical property of electromagnic waves that weakens the signal the longer it has travelled through a
+     which is a physical property of electromagnetic waves that weakens the signal the longer it has travelled through a
      medium. When this medium is only air, the phenomenon is referred to as free space path loss. Attentuation limits
      the transmit range of a radio, and to transmit further it has to increase its transmission power.
 
@@ -39,9 +39,9 @@ Even if the surrounding environment is mostly open space, the wireless signal be
 
 
 \section{Network infrastructure}
-		In this section there will be a brief introduction to network infrastructures, to get an understanding of the differences between the mainly two types of infrastructures used today. 
+		This section provides a brief introduction to network infrastructures, to get an understanding of the differences between the mainly two types of infrastructures used today. 
 		\subsection{Basic Service Set}
-		A basic service set (BSS) in infrastruture mode consists of a single AP connected by wire to a distribution system (in residential deployment the distribution system is typically the ISP).
+		A basic service set (BSS) in infrastruture mode consists of a single access point (AP) connected by wire to a distribution system (in residential deployment the distribution system is typically the ISP).
 		Stations within the basic service area, which is the area physically serveable by the AP, can connect to the BSS using dynamic access point association, described
 		in \cite{std80211}. A minimalist BSS infrastructure is illustrated in \ref{fig:basicserviceset}. It also worth mentioning that a BSS can also be configured to operate as an independent
 		basic service set, where there is no infrastructure in place (no APs), and communication is direct between stations. This is more commonly known as ad-hoc mode.
@@ -59,7 +59,7 @@ Even if the surrounding environment is mostly open space, the wireless signal be
 
 		\subsection{Extended Service Set}
 		An extended service set (ESS) can consist of multiple basic service sets, and thereby APs. The extended service set is a logical entity which can extend station
-		authentication and association to all APs under the same extended service set. In an ESS the SSID of all APs are also identical. This means an STA can be in the basic service area of
+		authentication and association to all APs under the same extended service set. In an ESS the SSID of all APs are also identical. This means a station (STA) can be in the basic service area of
 		multiple APs at the same time, and is given the opportunity to select which AP to be serviced by. APs in an ESS can operate on different channels, and the medium access control
 		mechanisms are performed as usual. Figure \ref{fig:extendedserviceset} illustrates the infrastructure of an extended service set.  
 
@@ -76,7 +76,7 @@ Even if the surrounding environment is mostly open space, the wireless signal be
      The 802.11 MAC layer implements the Carrier Sense Multiple Access / Collision Avoidance (CSMA/CA) protocol to control access to the medium.
      The CSMA/CA protocol is designed to operate in an entirely distributed fashion, where all stations connected to the same basic service set operates on
      the same frequency without coordinated timeslots. As suggested by the name of the protocol, there are two basic operations in the CSMA/CA protocol:
-     \textbf{Carrier Sensing (CS)} and \textbf{Collision Avoidance (CA)}, both of which will be briefly covered.  
+     \textbf{Carrier Sensing (CS)} and \textbf{Collision Avoidance (CA)}, both of which will be briefly described here.
 
      \subsection{Carrier Sense}
      In 802.11, carrier sensing (CS) is done in two ways
@@ -90,7 +90,7 @@ Even if the surrounding environment is mostly open space, the wireless signal be
 
 
      \subsection{Collision Avoidance}
-CSMA/CA attempts to avoid collisions and is helpful in a network layout that includes hidden terminals. \textbf{Request To Send/Clear To Send} (RTS/CTS)
+CSMA/CA attempts to avoid collisions and is helpful in a network layout that includes hidden terminals. Request To Send/Clear To Send (RTS/CTS)
 	is the function that allows CSMA/CA to some degree avoid the hidden terminal problem. By letting a node first ask the receiver if it is
 	available for transmission (RTS), it prevents the node from sending the payload frame unless it receives Clear To Send (CTS) frame from the receiver first.
 	The other mechanisms for collision avoidance are: 
@@ -100,7 +100,7 @@ CSMA/CA attempts to avoid collisions and is helpful in a network layout that inc
 	prefixed with the letter of the frame type. Organized by relative interval length, the differents IFS are:
 	\begin{itemize} 
 	\item Short IFS (SIFS), before ACK, RTS, CTS.  
-\item DCF Mode IFS (PIFS), before RTS frames (or DCF data frames if RTS/CTS is disabled)
+	\item DCF Mode IFS (DIFS), before RTS frames (or DCF data frames if RTS/CTS is disabled)
 
 	\end{itemize}
 	\item \textbf{Exponential backoff} is what prevents two competing nodes from sending at the same time. When the channel is clear
@@ -114,14 +114,14 @@ CSMA/CA attempts to avoid collisions and is helpful in a network layout that inc
 	The distributed coordination function is the main mode of operation in the 802.11 MAC layer, and is supposed to provide fair and reliable 
 	transmission for all nodes on the same network. Figure \ref{fig:dcfmode} shows the 
 	frame exchange that happens. Following the figure, the transmitter has to wait DIFS time, before drawing 
-	a number from the contenion window and backing off that amount.
+	a number from the contention window and backing off that amount.
 	As no other transmissions has begun during this time, and the channel is
 	still clear, the transmitter sends out an RTS frame. When received by the receiver
 	it waits SIFS time before transmitting a CTS frame. The transmitter then sends his
-	data frame, and waits for the ACK that indicates a succesful transmission. The 
-	RTS/CTS mechanisms introduces extra overhead, and is sometimes turned off. The
+	data frame, and waits for the ACK that indicates a successful transmission. The 
+	RTS/CTS mechanisms introduces extra overhead and is sometimes turned off. The
 	size of the payload and the number of stations on the network decides
-	whether it is beneficial to have on or not \cite{DCFanalysis}.
+	whether it is beneficial to have it on or off \cite{DCFanalysis}.
 
 
 
@@ -135,13 +135,13 @@ CSMA/CA attempts to avoid collisions and is helpful in a network layout that inc
 
 
 	\section{PHY Layer}
-	The physical layer in 802.11 is also divided in two sublayers. The upper sublayer is the Physical Layer Convergence Procedure (PLCP), responsible for clear channel assessment and acting
-	as a common interface for MAC layer drivers. The lower sublayer is the Physical Medium Dependent (PMD) which is responsible for modulation and directly interfaces with
+	The physical layer in 802.11 is also divided in two sub-layers. The upper sub-layer is the Physical Layer Convergence Procedure (PLCP), responsible for clear channel assessment and acting
+	as a common interface for MAC layer drivers. The lower sub-layer is the Physical Medium Dependent (PMD) which is responsible for modulation and directly interfaces with
 	the radio. It is responsible for transmitting the complete frames, as well as receiving and decoding incoming frames. 
 
 	\subsection{PLCP Protocol Data Unit}
 	The physical layer convergence procedure creates PLCP Protocol Data Units (PPDUs), 
-	that consists of 3 parts. The preamble, the header and the frame from the mac layer
+	that consists of 3 parts. The preamble, the header and the frame from the MAC layer
 	called MAC Service Data Unit (MSDU), see figure \ref{fig:PPDU}. The frame structure
 	has a long and short format, and changes a little bit for High Rate DSSS (HR-DSSS),
 	but contains mostly the same fields.
@@ -167,12 +167,12 @@ CSMA/CA attempts to avoid collisions and is helpful in a network layout that inc
 	\end{itemize}
 
 	\subsection{Clear channel assessment}
-	The PLCP layer also provides clear channel assessment.
+	The PLCP layer provides clear channel assessment.
 	The purpose of clear channel assessment is to give information to the MAC
-	layer if the carrier is available for transmission. There
+	layer if the medium is available for transmission. There
 	are primarily two ways the physical layer does CCA.
 	\begin{itemize}
-	\item CCA-ED (CCA-Energy Detect) detects signals that can not be decoded as a 802.11 frame, but is nontheless a disturbing signal on the channel. If the CCA-ED value
+	\item CCA-ED (CCA-Energy Detect) detects signals that can not be decoded as a 802.11 frame, but is nonetheless a disturbing signal on the channel. If the CCA-ED value
 	exceeds a threshold, for instance 20 dB, then the CCA shall be indicated as
 	busy by issuing a \verb|PHY-CCA.indication(BUSY)| to the MAC layer.  
 	\item CCA-CS (CCA Carrier/Sense) detects a valid 802.11 frame and can
@@ -184,7 +184,7 @@ CSMA/CA attempts to avoid collisions and is helpful in a network layout that inc
 
 	\section{Radio Frequency Interference}
 	Radio Frequency Interference (RF-interference) is the result
-	of two or more signals being transmitted on the same frquency at the same time.
+	of two or more signals being transmitted on the same frequency at the same time.
 	A receiver will have problems deciding which parts of the signals 
 	belongs to which transmitter, and the signal may altered to the extent
 	that bits are changed or misrepresented. As the 2.4 GHz band that 802.11
@@ -198,12 +198,13 @@ CSMA/CA attempts to avoid collisions and is helpful in a network layout that inc
 	to the MAC layer. According to CSMA/CA the station then has to
 	wait EIFS (Extended Interframe Spacing) time before
 	it can transmit a new frame. EIFS is defined as
-	\verb|ACK transmission time + SIFS + DIFS.| This is because the station that received the corrupt frame have no idea if any neighbouring station,
-	received it correctly, and is about to transmit an ACK-frame. Additionally
+	\verb|ACK transmission time + SIFS + DIFS.| This is because the station that received the corrupt frame have no idea if any neighbouring station
+	received it correctly, and is about to transmit an ACK-frame in response. Additionally
 	to waiting the minimum EIFS time, the station also has to wait for
-	an idle channel indication from the PLCP layer again.
-	
-	Interference can thus be severly damaging for QoS on wireless networks.   % The correct formula for EIFS is $DIFS + SIFS + lowest transmission time" 
+	an idle channel indication from the PLCP layer again. 
+
+	This is just the added delay if a collision happens. Of course, the more co-channel interference, the more transmitters are waiting for medium access, meaning
+	the contention window will increase, and the frequency of which a transmitter is granted access to the medium will be reduced. Thus, interference is severely damaging for QoS on wireless networks.   % The correct formula for EIFS is $DIFS + SIFS + lowest transmission time" 
 
 	\subsection{Countermeasures}
 	Several countermeasures to limit the impact of RF-interference has been suggested.
@@ -214,7 +215,7 @@ CSMA/CA attempts to avoid collisions and is helpful in a network layout that inc
 	an increased amount of data is lost.
 	Therefore it can be beneficial to aggregate a frame with individual headers.
 	Even though this gives a slightly increased processing and transmission overhead
-	compared to regular aggreagation where there is no individual headers, 
+	compared to regular aggregation where there is no individual headers, 
 	each frame can be selectively acknowledged.
 	This means that only a few frames has to be retransmitted in case of corruption,
 	and not the entire aggregation. 
