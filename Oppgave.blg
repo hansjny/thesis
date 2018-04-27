@@ -1,25 +1,25 @@
 [0] Config.pm:343> INFO - This is Biber 2.5
 [0] Config.pm:346> INFO - Logfile is 'Oppgave.blg'
-[52] biber-darwin:290> INFO - === Thu Apr 26, 2018, 09:24:05
-[82] Biber.pm:351> INFO - Reading 'Oppgave.bcf'
-[176] Biber.pm:776> INFO - Found 33 citekeys in bib section 0
-[189] Biber.pm:3493> INFO - Processing section 0
-[209] Biber.pm:3657> INFO - Looking for bibtex format file 'references.bib' for section 0
-[213] bibtex.pm:1187> INFO - Decoding LaTeX character macros into UTF-8
-[216] bibtex.pm:1048> INFO - Found BibTeX data source 'references.bib'
-[254] Utils.pm:149> WARN - ISBN '111-999-5555-22-1' in entry 'Murty2' is invalid - run biber with '--validate_datamodel' for details.
-[277] Utils.pm:149> WARN - BibTeX subsystem: /var/folders/3l/jbf7f24x3v11vd_hg4zq7cp00000gn/T/05fiPrAorM/references.bib_43655.utf8, line 23, warning: 152 characters of junk seen at toplevel
-[277] Utils.pm:149> WARN - BibTeX subsystem: /var/folders/3l/jbf7f24x3v11vd_hg4zq7cp00000gn/T/05fiPrAorM/references.bib_43655.utf8, line 92, warning: 1 characters of junk seen at toplevel
-[279] Utils.pm:149> WARN - The field 'author' in entry '5ghz' cannot be null, deleting it
-[279] Utils.pm:149> WARN - The field 'issn' in entry '5ghz' cannot be null, deleting it
-[279] Utils.pm:149> WARN - The field 'keywords' in entry '5ghz' cannot be null, deleting it
-[279] Utils.pm:149> WARN - The field 'month' in entry '5ghz' cannot be null, deleting it
-[279] Utils.pm:149> WARN - The field 'number' in entry '5ghz' cannot be null, deleting it
-[279] Utils.pm:149> WARN - The field 'volume' in entry '5ghz' cannot be null, deleting it
-[316] UCollate.pm:66> INFO - Overriding locale 'en-UK' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[317] UCollate.pm:66> INFO - Overriding locale 'en-UK' defaults 'variable = shifted' with 'variable = non-ignorable'
-[317] Biber.pm:3306> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'en-UK'
-[317] Biber.pm:3310> INFO - No sort tailoring available for locale 'en-UK'
-[356] bbl.pm:526> INFO - Writing 'Oppgave.bbl' with encoding 'UTF-8'
-[360] bbl.pm:619> INFO - Output to Oppgave.bbl
-[360] Biber.pm:108> INFO - WARNINGS: 9
+[47] biber-darwin:290> INFO - === Fri Apr 27, 2018, 14:46:58
+[68] Biber.pm:351> INFO - Reading 'Oppgave.bcf'
+[165] Biber.pm:776> INFO - Found 32 citekeys in bib section 0
+[177] Biber.pm:3493> INFO - Processing section 0
+[193] Biber.pm:3657> INFO - Looking for bibtex format file 'references.bib' for section 0
+[200] bibtex.pm:1187> INFO - Decoding LaTeX character macros into UTF-8
+[205] bibtex.pm:1048> INFO - Found BibTeX data source 'references.bib'
+[242] Utils.pm:149> WARN - ISBN '111-999-5555-22-1' in entry 'Murty2' is invalid - run biber with '--validate_datamodel' for details.
+[262] Utils.pm:149> WARN - BibTeX subsystem: /var/folders/3l/jbf7f24x3v11vd_hg4zq7cp00000gn/T/nJBnOve7mv/references.bib_57443.utf8, line 23, warning: 152 characters of junk seen at toplevel
+[262] Utils.pm:149> WARN - BibTeX subsystem: /var/folders/3l/jbf7f24x3v11vd_hg4zq7cp00000gn/T/nJBnOve7mv/references.bib_57443.utf8, line 92, warning: 1 characters of junk seen at toplevel
+[265] Utils.pm:149> WARN - The field 'author' in entry '5ghz' cannot be null, deleting it
+[265] Utils.pm:149> WARN - The field 'issn' in entry '5ghz' cannot be null, deleting it
+[265] Utils.pm:149> WARN - The field 'keywords' in entry '5ghz' cannot be null, deleting it
+[265] Utils.pm:149> WARN - The field 'month' in entry '5ghz' cannot be null, deleting it
+[266] Utils.pm:149> WARN - The field 'number' in entry '5ghz' cannot be null, deleting it
+[266] Utils.pm:149> WARN - The field 'volume' in entry '5ghz' cannot be null, deleting it
+[306] UCollate.pm:66> INFO - Overriding locale 'en-UK' defaults 'variable = shifted' with 'variable = non-ignorable'
+[306] UCollate.pm:66> INFO - Overriding locale 'en-UK' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[307] Biber.pm:3306> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'en-UK'
+[307] Biber.pm:3310> INFO - No sort tailoring available for locale 'en-UK'
+[344] bbl.pm:526> INFO - Writing 'Oppgave.bbl' with encoding 'UTF-8'
+[350] bbl.pm:619> INFO - Output to Oppgave.bbl
+[351] Biber.pm:108> INFO - WARNINGS: 9

@@ -244,6 +244,74 @@
       \field{title}{Wireless LAN Medium Access Control (MAC) and Physical Layer (PHY) Specifications (IEEE Std 802.11-2007)}
       \field{year}{2007}
     \endentry
+    \entry{Denning}{article}{}
+      \name{author}{6}{}{%
+        {{hash=a2ed3712478cd7808e63cd7894bbbd91}{%
+           family={Comer},
+           family_i={C\bibinitperiod},
+           given={D.\bibnamedelimi E.},
+           given_i={D\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=f6d4e66e2a3561f18cf14c8a82d09da3}{%
+           family={Gries},
+           family_i={G\bibinitperiod},
+           given={David},
+           given_i={D\bibinitperiod}}}%
+        {{hash=4c50410f84aa04255c01a425612f2927}{%
+           family={Mulder},
+           family_i={M\bibinitperiod},
+           given={Michael\bibnamedelima C.},
+           given_i={M\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=7dc77e7329460be277ca09850bc6a015}{%
+           family={Tucker},
+           family_i={T\bibinitperiod},
+           given={Allen},
+           given_i={A\bibinitperiod}}}%
+        {{hash=531c725521f800badae2e6fa360a7ff0}{%
+           family={Turner},
+           family_i={T\bibinitperiod},
+           given={A.\bibnamedelimi Joe},
+           given_i={A\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=33a7945ba63541b23f92c318de196d48}{%
+           family={Young},
+           family_i={Y\bibinitperiod},
+           given={Paul\bibnamedelima R.},
+           given_i={P\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=7cde28e3183431c85585b2874e52d875}{%
+           family={Denning},
+           family_i={D\bibinitperiod},
+           given={Peter\bibnamedelima J.},
+           given_i={P\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{4140009892379414be55e48293e17cef}
+      \strng{fullhash}{aa9bd63c373d513babdb15592e7c0099}
+      \field{sortinit}{C}
+      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0001-0782}
+      \field{journaltitle}{Commun. ACM}
+      \field{month}{01}
+      \field{number}{1}
+      \field{title}{Computing As a Discipline}
+      \field{volume}{32}
+      \field{year}{1989}
+      \field{pages}{9\bibrangedash 23}
+      \range{pages}{15}
+      \verb{doi}
+      \verb 10.1145/63238.63239
+      \endverb
+      \verb{url}
+      \verb http://doi.acm.org/10.1145/63238.63239
+      \endverb
+    \endentry
     \entry{Edmonds}{article}{}
       \name{author}{2}{}{%
         {{hash=4512d981a2fac684e867257fcb2c5419}{%
@@ -625,51 +693,6 @@
       \verb http://dl.acm.org/citation.cfm?id=1387589.1387595
       \endverb
     \endentry
-    \entry{Murty}{inproceedings}{}
-      \name{author}{4}{}{%
-        {{hash=73ea88dc43731dfa0b7c9385c083156e}{%
-           family={Murty},
-           family_i={M\bibinitperiod},
-           given={Rohan},
-           given_i={R\bibinitperiod}}}%
-        {{hash=ff5f2ad1629acf52018ec470b61bf2c9}{%
-           family={Padhye},
-           family_i={P\bibinitperiod},
-           given={Jitendra},
-           given_i={J\bibinitperiod}}}%
-        {{hash=4b0db7d899a2a4c837e56231942c4cb1}{%
-           family={Wolman},
-           family_i={W\bibinitperiod},
-           given={Alec},
-           given_i={A\bibinitperiod}}}%
-        {{hash=076cf707817a3f8501c3ecc48b1b2268}{%
-           family={Welsh},
-           family_i={W\bibinitperiod},
-           given={Matt},
-           given_i={M\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Boston, MA}%
-      }
-      \list{publisher}{1}{%
-        {USENIX Association}%
-      }
-      \strng{namehash}{ba8d9109f63270494a17eeea6a13ac7e}
-      \strng{fullhash}{3609280f800c821108fffc5f9bee6c68}
-      \field{sortinit}{M}
-      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Proceedings of the 2010 USENIX Conference on USENIX Annual Technical Conference}
-      \field{series}{USENIXATC'10}
-      \field{title}{Dyson: An Architecture for Extensible Wireless LANs}
-      \field{year}{2010}
-      \field{pages}{15\bibrangedash 15}
-      \range{pages}{1}
-      \verb{url}
-      \verb http://dl.acm.org/citation.cfm?id=1855840.1855855
-      \endverb
-    \endentry
     \entry{Aerohive}{article}{}
       \name{author}{1}{}{%
         {{hash=6d85f503393dd92dd92ced3e68746809}{%
@@ -784,61 +807,6 @@
       \field{pages}{158}
       \range{pages}{1}
       \keyw{diss imported-verified inthesis phtotowalking}
-    \endentry
-    \entry{Suresh}{inproceedings}{}
-      \name{author}{5}{}{%
-        {{hash=2a7e02b9b0aaeb02a7d2dd0f80ff5116}{%
-           family={Suresh},
-           family_i={S\bibinitperiod},
-           given={Lalith},
-           given_i={L\bibinitperiod}}}%
-        {{hash=cc18fa33e586dc6bf44bd7f0c82a4873}{%
-           family={Schulz-Zander},
-           family_i={S\bibinithyphendelim Z\bibinitperiod},
-           given={Julius},
-           given_i={J\bibinitperiod}}}%
-        {{hash=fd164a296339123ced07fb4ec0e1e5fa}{%
-           family={Merz},
-           family_i={M\bibinitperiod},
-           given={Ruben},
-           given_i={R\bibinitperiod}}}%
-        {{hash=a2f03739ecbec5fd41971c58f390f197}{%
-           family={Feldmann},
-           family_i={F\bibinitperiod},
-           given={Anja},
-           given_i={A\bibinitperiod}}}%
-        {{hash=cbb4d04a90491c7e8fa43e139129d300}{%
-           family={Vazao},
-           family_i={V\bibinitperiod},
-           given={Teresa},
-           given_i={T\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Helsinki, Finland}%
-      }
-      \list{publisher}{1}{%
-        {ACM}%
-      }
-      \strng{namehash}{7632c303d30b4ce4e0b47a632c62f44e}
-      \strng{fullhash}{134c97e273ca5bb7fe17ad59042c1450}
-      \field{sortinit}{S}
-      \field{sortinithash}{fd1e7c5ab79596b13dbbb67f8d70fb5a}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Proceedings of the First Workshop on Hot Topics in Software Defined Networks}
-      \field{isbn}{978-1-4503-1477-0}
-      \field{series}{HotSDN '12}
-      \field{title}{Towards Programmable Enterprise WLANS with Odin}
-      \field{year}{2012}
-      \field{pages}{115\bibrangedash 120}
-      \range{pages}{6}
-      \verb{doi}
-      \verb 10.1145/2342441.2342465
-      \endverb
-      \verb{url}
-      \verb http://doi.acm.org/10.1145/2342441.2342465
-      \endverb
-      \keyw{enterprise wlans,odin,openflow,sdn,virtualization}
     \endentry
     \entry{resfigit}{misc}{}
       \name{author}{1}{}{%
