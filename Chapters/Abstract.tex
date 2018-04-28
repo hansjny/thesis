@@ -1,13 +1,14 @@
 \chapter*{Preface}
 
 \chapter*{Abstract}
-Co-channel interference is the most significant degrader of quality of service in 802.11 Wi-Fi in dense residential aras.
-The amount of observed neighbouring networks can grow as large as 20-30 networks in a modern apartment building. When
-the interference from neighbouring networks degrades the perceived quality of service to the point where private, consumer networks no longer can provide
-anywhere near the throughput guaranteed by the ISPs' service level agreements, this poses a problem that needs attention. 
-In this thesis we argue that the problem would be a lot easier to solve if access points in residential areas had the opportunity to cooperate and coordinate
-the distribution of channels within an enclosed group of high-impact neighbours. We proceed by gathering data of network topologies that can be used to facilitate simulations of such group creation, using different methods.
-The groups has to contain access points that impacts each other highly to be of any value, so we treat the problem of identifying these groups as a distributed clustering problem,
-where each node can only know about its immediate neighbours. A method of defining these clusters is suggested, simulated using network topologies, evaluated and modified.
-Issues like changing network topologies are also addressed, through the concept of group splitting. Lastly, we suggest how an abstract protocol architecture that can faciliate group creation
-in the real world might look, and what other research it could rely upon. 
+Co-channel interference is the most significant degrader of quality of service in 802.11 Wi-Fi in dense residential areas.
+The amount of observed neighbouring networks can grow as large as 20-30 networks in a modern apartment building. This makes
+interference from neighbouring networks a big issue. It can degrade the perceived quality of service to the point where private, consumer networks no longer can provide
+anywhere near the throughput guaranteed by the ISPs' service level agreements. This problem would be a easier to solve if access points in residential areas had the
+opportunity to cooperate and coordinate the distribution of channels in a way similar to what some centralized solutions for enterprise networks offers today.
+This thesis is focused on developing a clustering algorithm that can define clusters of access points in a distributed and chaotic network topology. These clusters could 
+provide a future framework for communication and coordination between access points.
+We specify a set of requirements for the  distributed clustering algorithm to work in the way that we envision. Then we go through the development stages of the algorithm,
+beginning with a minimal working algorithm and iteratively progress until a satisfactory solution is found that satisfies all requirements.
+Lastly, we suggest technologies that could facilitate the deployment of this clustering algorithm in a real world implementation on access points, and consider
+how these technologies could interface with each other to provide the required services.

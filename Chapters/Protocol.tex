@@ -92,6 +92,9 @@ in the JSON-format. Table \ref{tab:resfapi} shows which functions are available 
 \end{table}
 
 
+\subsubsection{Implementation}
+Originally ResFi was implemented on Ubuntu 14.04. It adds vendor specific information elements to the MAC-header with the IP, port, and cryptographic data. This can be done Linux user space by using their modified version of hostapd \cite{resfigit}. As it runs on python, it could in practice be implemented on any Linux system. It uses a south-bound API to communicate with the router, and a north-bound API to enable applications to use ResFi. 
+
 \section{Protocol}
 This section outlines the architecture of a protocol that could facilitate group creation.
 

@@ -63,9 +63,10 @@ To prevent co-channel interference on the wireless spectrum, some sort of coordi
 smaller clusters of access points that will exchange information between each other. A central controller could possibly do this, but the deployment of Wi-Fi in residential areas is inherently chaotic. Centralized controllers can be hard to scale, are single points of failures, and would be difficult to realize when customers are largely subscribed to different Internet service providers
 and use their own router brands.
 
-Hence a distributed clustering algorithm could provide a better solution. Such a clustering algorithm would need to identify groups of access points
-that would benefit the most of being grouped together, without exceeding a feasible maximum size of each cluster. If such clusters were efficiently identified,
-it could enable distributed control over the wireless spectrum, and information about channel interference and QoS could freely flow within the group. 
+Hence a distributed clustering algorithm could provide a better solution. Such a clustering algorithm would need to identify collaborative groups of access points.
+These groups should contain the access points that would benefit the most of being grouped together, hence minimizing the interference between the groups 
+without exceeding a feasible maximum amount of nodes inside each group. When such groups have been identified, information about channel interference and QoS could freely flow within the group
+to enable better channel allocation. 
 
 
 %a distributed clustering algorithmis needed to identify the access points that impacts each other most severely and group them together to enable further cooperation. 
@@ -93,16 +94,16 @@ cooperation and coordination between access points. In this thesis we will addre
 %In this thesis will mine data to create artificial network topologies that can be used in a simulated environment to d
 \begin{enumerate}
 	\item	\textit{Defining requirements for distributed clustering}\newline
-		As access points have limited knowledge of the surrounding environment, we will discuss the requirements
-		for this type of distributed clustering algorithm.
+		As access points has limited knowledge of the surrounding environment, hence some requirements 
+		for this type of distributed clustering algorithm must be defined.  
 
 	\item \textit{Design and code a clustering algorithm that meets the requirements}\newline
-		By using artificial data and mined data, we will use the requirements from the previous section to simulate real world network topologies. These network
-		topologies will let us iteratively build, evaluate and adapt a clustering algorithm.
+		After each algorithm iteration, simulations of the algorithm should be done, to evaluate and adapt a clustering algorithm.
+		Data about network topologies has to be made to enable such simulations
 		
 	\item \textit{Suggest the technology stack needed to enable this algorithm to run in a real world implementation }\newline
-		When the clustering algorithm has been developed and evaluated, we will consider what technology and protocols needs to be in place to enable
-		an implementation of the algorithm to run on access points. 
+		When the clustering algorithm has been developed and evaluated, some considerations for what technology and protocols needs to be in place to enable
+		an implementation of the algorithm to run on real-world access points. 
 \end{enumerate}
 
 %There are 3 non-overlapping channels on the 2.4GHz spectrum utilized by 802.11 Wi-Fi. Today, one of the more common ways of selecting a channel
@@ -133,8 +134,7 @@ cooperation and coordination between access points. In this thesis we will addre
 
 \section{Method}
 To develop and test algorithms to form clusters in a way that creates groups of nodes that fulfill the requirements, we need to perform data gathering to have simulation
-data. The report "Computing as a discipline" by the ACM Task Force \cite{Denning} introduces 3 paradigms for the computing discipline. In this thesis will follow the design paradigm from the report
-to build the programs required throughout the thesis.
+data. The report "Computing as a discipline" by the ACM Task Force \cite{Denning} introduces 3 paradigms for the computing discipline. Throughout this thesis we will follow the design paradigm from the report to build the programs required to address the problems presented in this thesis.
 
 \section{Outline}
 The structure of the thesis is as follows:

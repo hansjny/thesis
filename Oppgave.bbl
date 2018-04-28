@@ -63,6 +63,31 @@
       \verb https://www.wi-fi.org/news-events/newsroom/wi-fi-device-shipments-to-surpass-15-billion-by-end-of-2016
       \endverb
     \endentry
+    \entry{Basagni}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=c53b2948644b7e6222251e80309c1162}{%
+           family={Basagni},
+           family_i={B\bibinitperiod},
+           given={S.},
+           given_i={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{c53b2948644b7e6222251e80309c1162}
+      \strng{fullhash}{c53b2948644b7e6222251e80309c1162}
+      \field{sortinit}{B}
+      \field{sortinithash}{4ecbea03efd0532989d3836d1a048c32}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Parallel Architectures, Algorithms, and Networks, 1999. (I-SPAN '99) Proceedings. Fourth InternationalSymposium on}
+      \field{issn}{1087-4089}
+      \field{title}{Distributed clustering for ad hoc networks}
+      \field{year}{1999}
+      \field{pages}{310\bibrangedash 315}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1109/ISPAN.1999.778957
+      \endverb
+      \keyw{computational complexity;parallel algorithms;ad hoc networks;distributed clustering;fully mobile network;hierarchical organization;mobile environment;network parameter;time complexity;Ad hoc networks;Clustering algorithms;Computer science;Electronic mail;Mobile computing;Network topology;Partitioning algorithms;Routing;Telecommunication network topology;Wireless networks}
+    \endentry
     \entry{DCFanalysis}{article}{}
       \name{author}{1}{}{%
         {{hash=dbb7b43c9a2fbadc84d00f92761e2676}{%
@@ -451,6 +476,48 @@
       \verb{url}
       \verb http://http://www.gartner.com/newsroom/id/3598917
       \endverb
+    \endentry
+    \entry{Mamalis}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=9783fe6c6c66b4327f89d0fe71512182}{%
+           family={Gavalas},
+           family_i={G\bibinitperiod},
+           given={D.},
+           given_i={D\bibinitperiod}}}%
+        {{hash=2b9de226f1a297fbfea92e79871fc27f}{%
+           family={Pantziou},
+           family_i={P\bibinitperiod},
+           given={G.},
+           given_i={G\bibinitperiod}}}%
+        {{hash=6f3b1c1effad0f0562cd8339443571b4}{%
+           family={Konstantopoulos},
+           family_i={K\bibinitperiod},
+           given={C.},
+           given_i={C\bibinitperiod}}}%
+        {{hash=af23d380c378f6a43d122a1a59d3c751}{%
+           family={Mamalis},
+           family_i={M\bibinitperiod},
+           given={B.},
+           given_i={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{f4c3813a4be5c6b505c4073f6edcaa71}
+      \strng{fullhash}{88841f6a74548c6ea5b5915fc2101cc6}
+      \field{sortinit}{G}
+      \field{sortinithash}{1c854ef9177a91bf894e66485bdbd3ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2006 IEEE International Conference on Communications}
+      \field{issn}{1550-3607}
+      \field{month}{06}
+      \field{title}{Clustering of Mobile Ad Hoc Networks: An Adaptive Broadcast Period Approach}
+      \field{volume}{9}
+      \field{year}{2006}
+      \field{pages}{4034\bibrangedash 4039}
+      \range{pages}{6}
+      \verb{doi}
+      \verb 10.1109/ICC.2006.255712
+      \endverb
+      \keyw{Adaptive systems;Broadcasting;Clustering algorithms;Clustering methods;Energy efficiency;Energy management;Mobile ad hoc networks;Routing;Scalability;Stability}
     \endentry
     \entry{impactRF}{article}{}
       \name{author}{4}{}{%
