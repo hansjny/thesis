@@ -1,0 +1,257 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\select@language {UKenglish}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {1}Introduction}{1}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.1}Motivation}{3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.2}Problem statement}{3}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.3}Method}{4}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {1.4}Outline}{4}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {2}Background}{6}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.1}Basic radio challenges}{6}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.1.1}Collisions in wireless technology}{6}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{The hidden terminal problem}{7}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.2}Network infrastructure}{7}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.2.1}Basic Service Set}{8}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.2.2}Extended Service Set}{8}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.3}MAC Layer}{9}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3.1}Carrier Sense}{9}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3.2}Collision Avoidance}{10}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3.3}Distributed Coordination Function}{10}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.4}PHY Layer}{11}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.4.1}PLCP Protocol Data Unit}{11}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.4.2}Clear channel assessment}{12}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.5}Radio Frequency Interference}{12}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.5.1}Impact in 802.11}{13}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.5.2}Countermeasures}{13}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.6}Channels}{14}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {3}Related work}{15}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.1}Centralized Solutions}{15}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1.1}Cisco RRM}{15}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{RF-Grouping}{15}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Dynamic Channel Assignment}{16}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1.2}DenseAP}{16}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1.3}HiveOS}{17}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {3.1.4}Comparison and assessment}{18}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.2}ResFi}{18}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Description}{18}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.3}Channel allocation using DSATUR}{19}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.4}Distributed clustering in ad-hoc networks}{20}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {4}Data acquisition and data structure}{22}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.1}Requirements and assumptions}{22}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Background}{22}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Assumptions}{23}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Requirements}{23}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.2}Program design}{24}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2.1}Primary functionality}{24}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Signal strength calculation}{24}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Program result}{25}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2.2}Data output and visual representation}{26}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.3}WiGLE as a data source}{27}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.3.1}Introduction to WiGLE}{27}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.3.2}Data quality}{28}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.3.3}REST API}{29}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Overview}{29}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Data gathering}{29}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{The Haversine Formula}{30}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.3.4}Data output}{32}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {5}Access point clustering}{33}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.1}Introduction}{33}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.2}Problem overview}{34}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.2.1}Centralized model}{34}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.2.2}Distributed model}{35}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Challenges}{35}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.3}Computation assumptions and requirements}{36}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.3.1}Requirements}{36}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.3.2}Assumptions}{37}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.4}Program design}{37}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.4.1}Design choices}{37}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.4.2}Group framework}{38}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.4.3}Output file structure}{38}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.5}Creating groups with clustering}{39}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.5.1}Agglomerative Clustering}{40}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Description}{40}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Distance metric}{40}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Assessment}{41}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.5.2}K-Closest Neighbour Clustering}{41}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Description}{41}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.5.3}Simulations}{42}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.5.4}Observations}{42}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.6}K-means splitting}{45}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.6.1}Group splitting hypothesis}{45}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.6.2}Introduction to K-means}{45}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.6.3}K-means splitting}{46}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.6.4}Simulations}{47}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.6.5}Observations}{47}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.7}Minimum Cut Splitting}{49}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.7.1}Minimum cut}{49}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.7.2}Using minimum cut for group splitting}{50}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.7.3}Simulation}{54}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Observations}{54}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Minimum cut version 2}{55}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Simulations after re-evaluation}{56}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.7.4}Observations}{56}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.8}Evaluation}{57}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.8.1}Result analysis}{57}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Davies-Bouldin Index}{57}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Assessment}{57}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.8.2}Knowledge acquired from simulations}{58}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.8.3}Simulation weaknesses and data bias}{59}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Volatility}{59}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Signal strength reporting bias}{60}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Dimensionality and node location reporting bias}{60}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {6}Node communication and group state synchronization}{61}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.1}Introduction}{61}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.2}Enabling technologies}{62}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.2.1}Distributed consensus with Raft}{62}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Why distributed consensus?}{62}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{What Raft can not help with}{62}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.2.2}Access point communication with ResFi}{63}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Implementation}{64}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.3}Architectural overview}{64}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.3.1}ResFi Overlay Network Application}{64}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.3.2}Component Overview }{65}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Deciding which nodes to merge with}{66}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Negotiating merges via message passing}{66}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Internal group messages}{67}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.4}Assessment}{67}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {7}Conclusion}{68}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.1}Summary}{68}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.2}Discussion and contribution}{69}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.3}Future work}{70}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Protocol development}{70}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Security assessment}{70}
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{Clustering assessment}{70}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.4}Final remarks}{71}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Appendices}{76}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {A}Simulated Group Topologies}{77}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A.1}K-Nearest Neighbour Clustering}{77}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A.2}K-means Split}{79}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A.3}Original Minimum Cut Split}{81}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A.4}Re-evaluated Minimum Cut Split}{83}

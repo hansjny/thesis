@@ -39,14 +39,6 @@ That process is repeated, computing several channel plans, and at last, all the 
 to see if the Cost Metric has improved for the AP, without degrading the Cost Metric for neighbouring nodes. If an improvement is seen
 then the channels are changed, and the algorithm moves on to the next AP on the list of low Cost Metrics.  
 
-\subsubsection{Assessment}
-It is valuable to understand the major mechanisms of Cisco RRM, as it is among the leading technologies for administrating larger amount of wireless access points. 
-The RF-grouping stage with the neighbour discovery protocol are mechanisms that may be adaptable, or at least an inspiration for a future distributed protocol. The reason 
-the Cisco RRM would not work well as it is in a chaotic, residential deployment may be quite obvious: the need for preconfigured WLCs and proprietary hardware does not fit well with the nomadic 
-routers today, where house and apartment owners bring their own routers and access points. 
-
-
-
 \subsection{DenseAP}
 DenseAP described in \cite{Murty2} aims to restructure the infrastructure of enterprise networks.  The two fundamental
 changes they suggest is to deploy APs a lot denser (hence the name), and moving the task of associating clients
@@ -61,31 +53,42 @@ reports to the DC, which contains information as RSSI (Received Signal Strength 
 information the DC decides which DAP each client should associate with, and also which channel each DAP should transmit
 on. 
 
-\subsubsection{Assessment}
-If we are to compare this solution with the Cisco RRM, the only thing in common is that this technology is also designed for enterprise networks to increase QoS over Wi-Fi. There
-are very few other similarities, and while Cisco strives to optimize the channel plan and control of the transmission power of the antennas, DenseAP suggests having more APs, and control client association. This technology focuses less on optimizing the channel plan, and more on providing many different channels in the same area.  
-
-
 \subsection{HiveOS}
 HiveOs \cite{Aerohive}, developed by Aerohive Networks offers distributed protocols and mechanisms to improve Wireless LANs in enterprise networks. The APs 
 in the network are called HiveAPs, and they offer services such as
 \begin{itemize}
-	\item Band steering: if an device can operate on the 5Ghz band, it will be forced to connect to the 5Ghz network to optimize the utilization of the radio spectrum. 
+	\item Band steering: if a device can operate on the 5Ghz band, it will be forced to connect to the 5Ghz network to optimize the utilization of the radio spectrum. 
 	\item Load balancing: all HiveAPs have real-time information about how clients performs. If a client tries to associate with a new HiveAP, it will only be accepted
 				if the new HiveAP has a low enough load to handle more clients. It would also know if other neighbouring APs are better suited to handle the load of the new client.
 				This is achieved by withholding probe responses.
 
-	\item Channel allocation: by using the Aerohive Channel Selection Protocol, HiveAPs tries to select the channel with the lowest co-channel interference. Their channel selection protocol uses 5 measurements, two static and 3 dynamic.
-	The first static measurements is the number of nearby APs who are operating on the same channel. The more APs there are the higher the penalty. The penalty per AP diminishes as the number of APs increases, this
-		is because the first one(s) are the most critical. The other static cost factor is what power level can be transmitted at the given channel, as this may differ on some 5GHz non-overlapping channels. The dynamic measurements are CRC-error rate, channel utilization,
-	and the utilization of overlapping APs. All of these dynamic factors can penalize a channel with 0 to 3.5%. 
+	\item Channel allocation: by using the Aerohive Channel Selection Protocol, HiveAPs tries to select the channel with the lowest co-channel interference. Their channel selection protocol uses 5 measurements, two static and 3 dynamic to determine which channel has the lowest amount of interference:
+	The first static measurements is the number of nearby APs who are operating on the same channel. The more APs there are the higher the penalty.
+		The other static cost factor is what power level can be transmitted at the given channel, as this may differ on some 5GHz non-overlapping channels.
+		The dynamic measurements are CRC-error rate, channel utilization, and the utilization of overlapping APs. 
+		Based on all these metrics, each channel gets a channel cost, and the HiveAP picks the channel with the lowest cost. 
 
-\subsection{}
+
 \end{itemize}
+\subsection{Comparison and assessment}
+		An important difference between HiveOS and the other two solutions is that HiveOS connects to Aerohive's cloud service to performs tasks as association and load balancing.
+		This eliminates the need for a central controller, and largely removes the risk of being single points of failures, albeit they still rely on the Aerohive service. 
+		HiveAP's channel allocation scheme uses mostly local observations to control select channel, but if there are other HiveAPs nearby, the channel selection is negotiated between the HiveAPs
+		based on the amount of neighbours each AP has. This is different from the Cisco system, which optimizes channel allocation by adjusting the channel of 1-hop neighbours as well. This
+		assumes that nearby APs are under the same RF-group as each other.
+
+		While both HiveOS and Cisco strives to optimize the channel plan and control of the transmission power of the antennas, DenseAP suggests having more APs and control client association. This technology focuses less on optimizing the channel plan, and more on providing many different channels in the same area.  
+
+		What is common for all solutions is the need for proprietary hardware for it to work. It does not fit well with the nomadic routers today, where
+		house and apartment owners bring their own routers and access points when they move.
+		HiveOS has arguably the model that would works best in residential areas, as the introduction of more HiveAPs would only increase the benefit of their channel allocation scheme. 
+
+		The use of RF-neighbourhoods in Cisco RRM is a testament to the importance of being able to define collaborative access points that in some way enables reevaluation of
+		the channel distribution throughout the entire neighbourhood. Such RF-neighbourhoods are what we seek to define with a distributed clustering algorithm.
 
 \section{ResFi}
 \subsubsection{Description}
-ResFi \cite{resfi} is an protocol that aims to enable self-organized management in residential deployments of wireless LAN through communication between access points. Works such as DenseAP \cite{Murty2}, Cisco RRM\cite{ciscoRRM} and Aerohive \cite{Aerohive} are all directed toward enterprise networks.
+ResFi \cite{resfi} is an protocol that aims to enable self-organized management in residential deployments of wireless LAN through communication between access points.
 
 ResFi assumes that all access points have two interfaces, one connected to a wired backhaul (like the Internet), and another
 802.11 compatible wireless interface. ResFi communicates with the device that interfaces with the antenna, which in most residential homes will be a router. This control the operating channel and the transmission power levels of the antenna. In short ResFi enables communication between access points under different basic service sets, without imposing a central controller on the access points or

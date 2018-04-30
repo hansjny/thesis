@@ -1,16 +1,10 @@
 \chapter{Data acquisition and data structure}\label{dataacc}
 This chapter is dedicated to the creation of a program that generates and visualizes the layout of Wi-Fi network topologies based on generated data and mined data.
-The data will be used in chapter \ref{chap:clustering} where there will be demand for data to feed clustering algorithms. Storing the data,
+The data will be used in chapter \ref{chap:clustering} where there will be demand for data to simulate the distributed clustering algorithm. Storing the data,
 the data structure type, and finally how it can be visualized in a web application are also matters which will be addressed here. 
 
-\section{Motivation}
-There is an undoubtful need for data when developing a distributed clustering algorithm to facilitate group creation.
-Surely a testbed would also be beneficial for development, but it would require a large amount of routers. Maybe 100-200 for a low scale test, in a small geographical area,
-preferably installed in residential apartment buildings. Not only would the creation of such a testbed require a vast amount of equipment, but there are 
-some unsolved logical challenges as well. Like the communication protocol between routers, and maybe distributed consensus or some way to perform synchronization to communicate group memberships.
-These problems are addressed in chapter \ref{chap:proto}.
-
-Even if such challenges could be overcome, going directly from a concept idea to a large testbed in a master thesis  - without having any empirical indication of which approaches have merit, may not be a good use of time. Hence, the data is gathered with the motivation of being able to perform realistic calculations and do algorithm development on a money-, and time budget. Lastly, the motivation behind mining real data, instead of generating everything, is to enhance the quality and believability of the results produced. 
+A testbed would also be beneficial for development, but it would require a large amount of routers and is impractial.
+Hence, the data is gathered with the motivation of being able to perform realistic calculations and do algorithm development on a money-, and time budget.
 
 \section{Requirements and assumptions}
 This section will cover the requirements and assumptions for a data generation-, and visualization program. 
@@ -26,8 +20,8 @@ for distributed group-creation in residential deployed Wi-Fi is at the time of w
 this thesis (even though suggestions will be made at the end), so a couple of assumptions has to be made. 
 
 \subsubsection{Assumptions}
-The access points are in a state we can call the \textit{group discovery state}, where the goal is to find or create a group to be a part of.
-The major motivation for doing group creation in the first place is to be able to collaboratively allocate channels within the group, hence this state would
+The access points are in a state we can call the group discovery state, where the goal is to find or create a group to be a part of.
+One of the major reasons for performing group creation in the first place is to be able to collaboratively allocate channels within the group, hence this state would
 have to occur before channel allocation is performed. 
 
 Hence, to simulate group creation and discovery, many of the access point properties does not have to be considered. Actually it is only necessary to store two things:
@@ -46,7 +40,7 @@ This subsection describes the requirements for a program that will both generate
 simplifies the programming stage and reduces the risk of feature creep. 
 
 As a basis for the simulation, access points, hereupon also referred to as nodes, should be placed on a two-dimensional grid. Each dataset has to contain a set of nodes which has two coordinates $x$ and $y$, giving them a position on the grid. When all desired nodes are placed on a grid, the grid represents a network topology. It will then be possible to compute an
-estimation of which nodes can hear each other over the Wi-Fi radio. In other words, a virtual network interface scan. All observed \textit{neighbour nodes} will be added to each node's
+estimation of which nodes can hear each other over the Wi-Fi radio. In other words, a virtual network interface scan. All computed neighbour nodes will be added to each node's
 neighbour list. This neighbour list contains the names of all the nodes it can hear, and the signal strength levels measured in $-dBi$.
 
 Additionally the following parameters should be variable in the topology generation program, depending on each test scenario:
@@ -100,7 +94,7 @@ Additionally the following parameters should be variable in the topology generat
 	\end{figure}
 
 	All neighbouring nodes observed by a node is added to its list of neighbours. The neighbour list contains the signal strength in $-dBi$ and the SSID of each neighbour.
-	The interference levels between access points are calculated by iterating through every access point. For each node $N$ its x and y position is recorded,
+	The signal stength levels between access points are calculated by iterating through every access point. For each node $N$ its x and y position is recorded,
 	and then a second iteration through the nodes is initiated, resulting in a complexity of $O(N^2)$. For each node $n$ in the second iteration the distance $d$ in
 	meters between $N$ and $n$ using Euclidean distance is calculated.
 	
@@ -114,7 +108,7 @@ Additionally the following parameters should be variable in the topology generat
 \[
 	FSPL(dB) = 20\log_{10}\left( f \right)  + 20\log_{10} \left(d\right) - 27.55
 \]	
-	Pseudocode for the interference calculation can be seen in figure \ref{fig:dbiCreation}. 
+	Pseudocode for the signal strength calculation can be seen in figure \ref{fig:dbiCreation}. 
 
 	\subsubsection{Program result}
 	The resulting program, written in Python 3 \cite{Python3}, contains an importable \textit{topology class}. This way, for further testing different data
@@ -125,8 +119,7 @@ The program can be run in the following way
 Which instructs the program to create a topology with 500 nodes. The topology should be 100 by 100 meters large, and there should be at least 10 meters
 between each node. The $dbi$ parameter makes sure that only nodes which can be heard with a $-dBi$-value of $-80$ or larger should appear in the neighbour list. 
 
-The entire program can be viewed on GitHub: \newline
-{\small \url{https://github.com/hansjny/GroupSimulations/blob/master/GenerateTopology.py}}
+The entire program can be viewed on GitHub\footnote{\url{https://github.com/hansjny/GroupSimulations/blob/master/GenerateTopology.py}}.
 
 
 \subsection{Data output and visual representation} \label{simulationrep}
@@ -181,6 +174,7 @@ The result after creating a topology and visualizing in the web application can 
 \end{figure}
 
 \section{WiGLE as a data source}
+\label{chap:wigle}
 In the previous section we looked at the data generation, representation and visualization of nodes in a network topology with uniform distribution. This section is dedicated
 to using an open data source called WiGLE to create the network topology, while reusing the code and data structure for representation and visualization. 
 

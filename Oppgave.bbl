@@ -337,6 +337,48 @@
       \verb http://doi.acm.org/10.1145/63238.63239
       \endverb
     \endentry
+    \entry{Bouldin}{article}{}
+      \name{author}{2}{}{%
+        {{hash=f4432b7833b1b121522e63442ce5ddb2}{%
+           family={Davies},
+           family_i={D\bibinitperiod},
+           given={David\bibnamedelima L.},
+           given_i={D\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=68d65706974935ad0c38aa86bab4b082}{%
+           family={Bouldin},
+           family_i={B\bibinitperiod},
+           given={Donald\bibnamedelima W.},
+           given_i={D\bibinitperiod\bibinitdelim W\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Washington, DC, USA}%
+      }
+      \list{publisher}{1}{%
+        {IEEE Computer Society}%
+      }
+      \strng{namehash}{5849fdd60b0a59bc8c11b9b6fbf2da98}
+      \strng{fullhash}{5849fdd60b0a59bc8c11b9b6fbf2da98}
+      \field{sortinit}{D}
+      \field{sortinithash}{78f7c4753a2004675f316a80bdb31742}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0162-8828}
+      \field{journaltitle}{IEEE Trans. Pattern Anal. Mach. Intell.}
+      \field{month}{02}
+      \field{number}{2}
+      \field{title}{A Cluster Separation Measure}
+      \field{volume}{1}
+      \field{year}{1979}
+      \field{pages}{224\bibrangedash 227}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1109/TPAMI.1979.4766909
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1109/TPAMI.1979.4766909
+      \endverb
+      \keyw{Cluster,data partitions,multidimensional data analysis,parametric clustering,partitions,similarity measure}
+    \endentry
     \entry{Edmonds}{article}{}
       \name{author}{2}{}{%
         {{hash=4512d981a2fac684e867257fcb2c5419}{%
@@ -602,30 +644,6 @@
       \endverb
       \keyw{ecma,json}
     \endentry
-    \entry{lamport2001paxos}{article}{}
-      \true{moreauthor}
-      \true{morelabelname}
-      \name{author}{1}{}{%
-        {{hash=5d77435450d10a850a5b58577b9a456b}{%
-           family={Lamport},
-           family_i={L\bibinitperiod},
-           given={Leslie},
-           given_i={L\bibinitperiod}}}%
-      }
-      \strng{namehash}{0703c25783b9b45b0fdc5cf5765a34af}
-      \strng{fullhash}{0703c25783b9b45b0fdc5cf5765a34af}
-      \field{sortinit}{L}
-      \field{sortinithash}{872351f18d0f736066eda0bf18bfa4f7}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{ACM Sigact News}
-      \field{number}{4}
-      \field{title}{Paxos made simple}
-      \field{volume}{32}
-      \field{year}{2001}
-      \field{pages}{18\bibrangedash 25}
-      \range{pages}{8}
-    \endentry
     \entry{mackaymeans}{book}{}
       \name{author}{1}{}{%
         {{hash=b6c8b97d961afd655f954101e50afebf}{%
@@ -778,7 +796,7 @@
       \field{title}{Radio Resource Management in HiveOS}
       \field{year}{2011}
       \verb{url}
-      \verb http://docs.aerohive.com/pdfs/Aerohive-Solution_Brief-RadioResource_Management_in_HiveOS.pdf
+      \verb https://media.aerohive.com/documents/1753540826_Aerohive-Solution_Brief-Radio_Resource_Management_in_HiveOS.pdf
       \endverb
     \endentry
     \entry{raftio}{inproceedings}{}
@@ -816,6 +834,53 @@
       \verb{url}
       \verb http://dl.acm.org/citation.cfm?id=2643634.2643666
       \endverb
+    \endentry
+    \entry{fitzner}{article}{}
+      \name{author}{3}{}{%
+        {{hash=0186c37386f1f95e07fa51020a1da170}{%
+           family={Pfitzner},
+           family_i={P\bibinitperiod},
+           given={Darius},
+           given_i={D\bibinitperiod}}}%
+        {{hash=258b3888876073d86c2ea45f4a9d8e51}{%
+           family={Leibbrandt},
+           family_i={L\bibinitperiod},
+           given={Richard},
+           given_i={R\bibinitperiod}}}%
+        {{hash=27280dca01c9d89673cce4cc2e9e6233}{%
+           family={Powers},
+           family_i={P\bibinitperiod},
+           given={David},
+           given_i={D\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag New York, Inc.}%
+      }
+      \strng{namehash}{4dcef13e6c59d897dcab15d37563cedd}
+      \strng{fullhash}{4dcef13e6c59d897dcab15d37563cedd}
+      \field{sortinit}{P}
+      \field{sortinithash}{c0a4896d0e424f9ca4d7f14f2b3428e7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0219-1377}
+      \field{journaltitle}{Knowl. Inf. Syst.}
+      \field{month}{05}
+      \field{number}{3}
+      \field{title}{Characterization and Evaluation of Similarity Measures for Pairs of Clusterings}
+      \field{volume}{19}
+      \field{year}{2009}
+      \field{pages}{361\bibrangedash 394}
+      \range{pages}{34}
+      \verb{doi}
+      \verb 10.1007/s10115-008-0150-6
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1007/s10115-008-0150-6
+      \endverb
+      \keyw{Cluster comparison,Clustering,Evaluation,Review,Similarity measures}
     \endentry
     \entry{Sharma}{inproceedings}{}
       \name{author}{1}{}{%
