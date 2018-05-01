@@ -15,6 +15,7 @@
 \usepackage{fancyhdr}
 \usepackage{makecell}
 \usepackage{geometry}
+\usepackage{emptypage}
 \usepackage[toc,page]{appendix}
 \usepackage[backend=biber,
 	    style=numeric,
@@ -131,19 +132,22 @@ keywordstyle=\scriptsize\ttfamily\color{deepblue},
       {]}{{{\color{delim}{]}}}}{1},
 }
 
-\title{Developing a distributed clustering algorithm to enable cooperation between 802.11 access points }
+\title{Developing a distributed clustering algorithm to enable self-managing groups for 802.11 access points }
 %\subtitle{Identifying connected groups of access points}
 \author{Hans Jørgen Furre Nygårdshaug}
 
 \begin{document}
+\thispagestyle{empty}
+\setlength{\oddsidemargin}{0.5cm}
 \ififorside
-\thispagestyle{plain}
+\thispagestyle{empty}
 \maketitle{}
+\thispagestyle{empty}
 \frontmatter
-\thispagestyle{plain}
+\thispagestyle{empty}
 
 \include{Chapters/Abstract}
-\thispagestyle{plain}
+\thispagestyle{empty}
 \clearpage
 %\section*{List of acronyms}
 %\begin{tabular}{ c c }
@@ -156,9 +160,13 @@ keywordstyle=\scriptsize\ttfamily\color{deepblue},
 	%\textbf{PLCP} & Physical Layer Convergence Procedure\\
 	%\textbf{PPDU} & PLCP Protocol Data Unit\\
 %\end{tabular}
+\pagestyle{empty}
 \tableofcontents
-\listoffigures
 
+\thispagestyle{empty}
+\listoffigures
+\thispagestyle{empty}
+\pagestyle{fancy}
 \mainmatter
 \include{Chapters/1-Introduction}
 \include{Chapters/2-Background}
