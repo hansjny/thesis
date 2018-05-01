@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.25)  30 APR 2018 15:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.1.25)  1 MAY 2018 14:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -989,7 +989,11 @@ File: english.lbx 2016/05/14 v3.4 biblatex localization (PK/JW/AB)
 )))
 (./Oppgave.aux (./Chapters/Abstract.aux) (./Chapters/1-Introduction.aux)
 (./Chapters/2-Background.aux) (./Chapters/3-Related.aux) (./Chapters/3-Data.aux
-) (./Chapters/4-Connected.aux) (./Chapters/Protocol.aux) (./Appendix.aux))
+) (./Chapters/4-Connected.aux
+
+LaTeX Warning: Label `fig:mincutresults' multiply defined.
+
+) (./Chapters/Protocol.aux) (./Appendix.aux))
 \openout1 = `Oppgave.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 138.
@@ -1193,7 +1197,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 
 [3]
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 143.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 144.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1306,7 +1310,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[13])
+[13]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1314,29 +1318,77 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [14 <./Images/Channels80211.png>]
+<Images/agglomerative.png, id=147, 562.1pt x 381.425pt>
+File: Images/agglomerative.png Graphic file (type png)
+
+<use Images/agglomerative.png>
+Package pdftex.def Info: Images/agglomerative.png used on input line 275.
+(pdftex.def)             Requested size: 184.9429pt x 125.49232pt.
+
+<Images/dendrogram.png, id=148, 582.175pt x 260.975pt>
+File: Images/dendrogram.png Graphic file (type png)
+
+<use Images/dendrogram.png>
+Package pdftex.def Info: Images/dendrogram.png used on input line 278.
+(pdftex.def)             Requested size: 184.9429pt x 82.90443pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[15 <./Images/agglomerative.png> <./Images/dendrogram.png>]
+<Images/kmeans0.png, id=154, 667.49374pt x 421.575pt>
+File: Images/kmeans0.png Graphic file (type png)
+ <use Images/kmeans0.png>
+Package pdftex.def Info: Images/kmeans0.png used on input line 311.
+(pdftex.def)             Requested size: 128.0374pt x 80.86557pt.
+
+<Images/kmeans1.png, id=155, 727.71875pt x 461.725pt>
+File: Images/kmeans1.png Graphic file (type png)
+ <use Images/kmeans1.png>
+Package pdftex.def Info: Images/kmeans1.png used on input line 314.
+(pdftex.def)             Requested size: 128.0374pt x 81.23285pt.
+
+Underfull \hbox (badness 7379) in paragraph at lines 314--314
+\T1/cmr/m/n/10 cluster mem-ber-ships cal-cu-
+ []
+
+<Images/kmeans2.png, id=156, 667.49374pt x 421.575pt>
+File: Images/kmeans2.png Graphic file (type png)
+ <use Images/kmeans2.png>
+Package pdftex.def Info: Images/kmeans2.png used on input line 317.
+(pdftex.def)             Requested size: 128.0374pt x 80.86557pt.
+
+<Images/kmeans3.png, id=157, 667.49374pt x 421.575pt>
+File: Images/kmeans3.png Graphic file (type png)
+ <use Images/kmeans3.png>
+Package pdftex.def Info: Images/kmeans3.png used on input line 320.
+(pdftex.def)             Requested size: 128.0374pt x 80.86557pt.
+
+Underfull \hbox (badness 1688) in paragraph at lines 320--320
+[]\T1/cmr/m/n/10 (d) |The clusters have con-
+ []
+
+)
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[16 <./Images/kmeans0.png> <./Images/kmeans1.png> <./Images/kmeans2.png> <./Ima
+ges/kmeans3.png>]
 \openout2 = `Chapters/3-Related.aux'.
 
  (./Chapters/3-Related.tex
 Chapter 3.
-[15
+[17
 
 
 
 ]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[16]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[17]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1357,7 +1409,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[20])
+[20]
+
+LaTeX Warning: Reference `chap:dsatur' on page 21 undefined on input line 111.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1365,11 +1420,25 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [21]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[22])
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[23]
 \openout2 = `Chapters/3-Data.aux'.
 
  (./Chapters/3-Data.tex
 Chapter 4.
-[22
+[24
 
 
 
@@ -1380,29 +1449,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[23] (/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
+[25] (/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[24]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[25] <Images/interface.png, id=186, 1075.01625pt x 801.99625pt>
-File: Images/interface.png Graphic file (type png)
-
-<use Images/interface.png>
-Package pdftex.def Info: Images/interface.png used on input line 171.
-(pdftex.def)             Requested size: 322.50737pt x 240.60072pt.
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1416,58 +1465,71 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[27 <./Images/interface.png>]
-<Images/wigle.png, id=195, 1065.9825pt x 545.03625pt>
+[27] <Images/interface.png, id=205, 1075.01625pt x 801.99625pt>
+File: Images/interface.png Graphic file (type png)
+
+<use Images/interface.png>
+Package pdftex.def Info: Images/interface.png used on input line 170.
+(pdftex.def)             Requested size: 322.50737pt x 240.60072pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[28] <Images/wigle.png, id=209, 1065.9825pt x 545.03625pt>
 File: Images/wigle.png Graphic file (type png)
- <use Images/wigle.png>
-Package pdftex.def Info: Images/wigle.png used on input line 191.
+
+<use Images/wigle.png>
+Package pdftex.def Info: Images/wigle.png used on input line 190.
 (pdftex.def)             Requested size: 373.09947pt x 190.76555pt.
 
-<Images/wigleSki.png, id=196, 582.175pt x 466.74374pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[29 <./Images/interface.png>]
+<Images/wigleSki.png, id=214, 582.175pt x 466.74374pt>
 File: Images/wigleSki.png Graphic file (type png)
 
 <use Images/wigleSki.png>
-Package pdftex.def Info: Images/wigleSki.png used on input line 209.
+Package pdftex.def Info: Images/wigleSki.png used on input line 208.
 (pdftex.def)             Requested size: 170.71652pt x 136.86206pt.
 
-<Images/wigleNy.png, id=197, 633.36626pt x 514.92375pt>
+<Images/wigleNy.png, id=215, 633.36626pt x 514.92375pt>
 File: Images/wigleNy.png Graphic file (type png)
 
 <use Images/wigleNy.png>
-Package pdftex.def Info: Images/wigleNy.png used on input line 211.
+Package pdftex.def Info: Images/wigleNy.png used on input line 210.
 (pdftex.def)             Requested size: 170.71652pt x 138.78769pt.
 
-Underfull \vbox (badness 5832) has occurred while \output is active []
-
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[28 <./Images/wigle.png>]
+[30 <./Images/wigle.png>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[29 <./Images/wigleSki.png> <./Images/wigleNy.png>]
+[31 <./Images/wigleSki.png> <./Images/wigleNy.png>]
+Underfull \vbox (badness 3291) has occurred while \output is active []
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
 
-[30]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[31])
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1475,15 +1537,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [32]
-\openout2 = `Chapters/4-Connected.aux'.
 
- (./Chapters/4-Connected.tex
-Chapter 5.
-[33
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
 
-
-
-]
+[33])
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1491,13 +1551,21 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [34]
+\openout2 = `Chapters/4-Connected.aux'.
 
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
+ (./Chapters/4-Connected.tex
+Chapter 5.
 
-[35]
+LaTeX Warning: Reference `chap:dsatur' on page 35 undefined on input line 22.
+
+[35
+
+
+
+]
+Underfull \vbox (badness 2150) has occurred while \output is active []
+
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1525,7 +1593,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[39]
+[39] <Images/gridlock.png, id=253, 445.665pt x 401.5pt>
+File: Images/gridlock.png Graphic file (type png)
+
+<use Images/gridlock.png>
+Package pdftex.def Info: Images/gridlock.png used on input line 203.
+(pdftex.def)             Requested size: 241.84842pt x 217.88501pt.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1540,36 +1614,8 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [41]
-<Images/computations/BASIC500x500_1000n.jpg, id=248, 761.84625pt x 761.84625pt>
-File: Images/computations/BASIC500x500_1000n.jpg Graphic file (type jpg)
-<use Images/computations/BASIC500x500_1000n.jpg>
-Package pdftex.def Info: Images/computations/BASIC500x500_1000n.jpg used on inp
-ut line 316.
-(pdftex.def)             Requested size: 128.0374pt x 128.0358pt.
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-<Images/computations/BASICForks.jpg, id=249, 758.835pt x 759.83875pt>
-File: Images/computations/BASICForks.jpg Graphic file (type jpg)
-
-<use Images/computations/BASICForks.jpg>
-Package pdftex.def Info: Images/computations/BASICForks.jpg used on input line 
-319.
-(pdftex.def)             Requested size: 128.0374pt x 128.19696pt.
-
-<Images/computations/BASICLillehammer.jpg, id=250, 759.83875pt x 757.83125pt>
-File: Images/computations/BASICLillehammer.jpg Graphic file (type jpg)
-
-<use Images/computations/BASICLillehammer.jpg>
-Package pdftex.def Info: Images/computations/BASICLillehammer.jpg used on input
- line 321.
-(pdftex.def)             Requested size: 128.0374pt x 127.69638pt.
-
-<Images/computations/BASICTynset.jpg, id=251, 760.8425pt x 760.8425pt>
-File: Images/computations/BASICTynset.jpg Graphic file (type jpg)
-
-<use Images/computations/BASICTynset.jpg>
-Package pdftex.def Info: Images/computations/BASICTynset.jpg used on input line
- 324.
-(pdftex.def)             Requested size: 128.0374pt x 128.02963pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1577,7 +1623,38 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[42]
+[42 <./Images/gridlock.png>]
+<Images/computations/BASIC500x500_1000n.jpg, id=265, 761.84625pt x 761.84625pt>
+File: Images/computations/BASIC500x500_1000n.jpg Graphic file (type jpg)
+<use Images/computations/BASIC500x500_1000n.jpg>
+Package pdftex.def Info: Images/computations/BASIC500x500_1000n.jpg used on inp
+ut line 284.
+(pdftex.def)             Requested size: 128.0374pt x 128.0358pt.
+
+<Images/computations/BASICForks.jpg, id=266, 758.835pt x 759.83875pt>
+File: Images/computations/BASICForks.jpg Graphic file (type jpg)
+
+<use Images/computations/BASICForks.jpg>
+Package pdftex.def Info: Images/computations/BASICForks.jpg used on input line 
+287.
+(pdftex.def)             Requested size: 128.0374pt x 128.19696pt.
+
+<Images/computations/BASICLillehammer.jpg, id=267, 759.83875pt x 757.83125pt>
+File: Images/computations/BASICLillehammer.jpg Graphic file (type jpg)
+
+<use Images/computations/BASICLillehammer.jpg>
+Package pdftex.def Info: Images/computations/BASICLillehammer.jpg used on input
+ line 289.
+(pdftex.def)             Requested size: 128.0374pt x 127.69638pt.
+
+<Images/computations/BASICTynset.jpg, id=268, 760.8425pt x 760.8425pt>
+File: Images/computations/BASICTynset.jpg Graphic file (type jpg)
+
+<use Images/computations/BASICTynset.jpg>
+Package pdftex.def Info: Images/computations/BASICTynset.jpg used on input line
+ 292.
+(pdftex.def)             Requested size: 128.0374pt x 128.02963pt.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1591,34 +1668,41 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[44 <./Images/computations/BASIC500x500_1000n.jpg> <./Images/computations/BASIC
+[44]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[45 <./Images/computations/BASIC500x500_1000n.jpg> <./Images/computations/BASIC
 Forks.jpg> <./Images/computations/BASICLillehammer.jpg> <./Images/computations/
-BASICTynset.jpg>] <Images/mergestep1.png, id=262, 243.91125pt x 153.57375pt>
+BASICTynset.jpg>] <Images/mergestep1.png, id=279, 243.91125pt x 153.57375pt>
 File: Images/mergestep1.png Graphic file (type png)
 
 <use Images/mergestep1.png>
-Package pdftex.def Info: Images/mergestep1.png used on input line 358.
+Package pdftex.def Info: Images/mergestep1.png used on input line 325.
 (pdftex.def)             Requested size: 142.26378pt x 89.5743pt.
 
-<Images/mergestep2.png, id=263, 243.91125pt x 153.57375pt>
+<Images/mergestep2.png, id=280, 243.91125pt x 153.57375pt>
 File: Images/mergestep2.png Graphic file (type png)
 
 <use Images/mergestep2.png>
-Package pdftex.def Info: Images/mergestep2.png used on input line 361.
+Package pdftex.def Info: Images/mergestep2.png used on input line 328.
 (pdftex.def)             Requested size: 142.26378pt x 89.5743pt.
 
-<Images/mergestep3.png, id=264, 243.91125pt x 153.57375pt>
+<Images/mergestep3.png, id=281, 243.91125pt x 153.57375pt>
 File: Images/mergestep3.png Graphic file (type png)
 
 <use Images/mergestep3.png>
-Package pdftex.def Info: Images/mergestep3.png used on input line 363.
+Package pdftex.def Info: Images/mergestep3.png used on input line 330.
 (pdftex.def)             Requested size: 142.26378pt x 89.5743pt.
 
-<Images/mergestep4.png, id=265, 243.91125pt x 153.57375pt>
+<Images/mergestep4.png, id=282, 243.91125pt x 153.57375pt>
 File: Images/mergestep4.png Graphic file (type png)
 
 <use Images/mergestep4.png>
-Package pdftex.def Info: Images/mergestep4.png used on input line 366.
+Package pdftex.def Info: Images/mergestep4.png used on input line 333.
 (pdftex.def)             Requested size: 142.26378pt x 89.5743pt.
 
 
@@ -1627,101 +1711,84 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[45]
+[46]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[46 <./Images/mergestep1.png> <./Images/mergestep2.png> <./Images/mergestep3.pn
+[47 <./Images/mergestep1.png> <./Images/mergestep2.png> <./Images/mergestep3.pn
 g> <./Images/mergestep4.png>]
-<Images/computations/KMEANS500x500_1000n.jpg, id=276, 761.84625pt x 761.84625pt
+<Images/computations/KMEANS500x500_1000n.jpg, id=293, 761.84625pt x 761.84625pt
 >
 File: Images/computations/KMEANS500x500_1000n.jpg Graphic file (type jpg)
  <use Images/computations/KMEANS500x500_1000n.jpg>
 Package pdftex.def Info: Images/computations/KMEANS500x500_1000n.jpg used on in
-put line 412.
+put line 364.
 (pdftex.def)             Requested size: 142.26378pt x 142.25294pt.
 
-<Images/computations/KMEANSForks.jpg, id=277, 761.84625pt x 761.84625pt>
+<Images/computations/KMEANSForks.jpg, id=294, 761.84625pt x 761.84625pt>
 File: Images/computations/KMEANSForks.jpg Graphic file (type jpg)
 
 <use Images/computations/KMEANSForks.jpg>
 Package pdftex.def Info: Images/computations/KMEANSForks.jpg used on input line
- 415.
+ 367.
 (pdftex.def)             Requested size: 142.26378pt x 142.25294pt.
 
-<Images/computations/KMEANSLillehammer.jpg, id=278, 761.84625pt x 761.84625pt>
+<Images/computations/KMEANSLillehammer.jpg, id=295, 761.84625pt x 761.84625pt>
 File: Images/computations/KMEANSLillehammer.jpg Graphic file (type jpg)
 
 <use Images/computations/KMEANSLillehammer.jpg>
 Package pdftex.def Info: Images/computations/KMEANSLillehammer.jpg used on inpu
-t line 417.
+t line 369.
 (pdftex.def)             Requested size: 142.26378pt x 142.25294pt.
 
-<Images/computations/KMEANSTynset.jpg, id=279, 761.84625pt x 761.84625pt>
+<Images/computations/KMEANSTynset.jpg, id=296, 761.84625pt x 761.84625pt>
 File: Images/computations/KMEANSTynset.jpg Graphic file (type jpg)
 
 <use Images/computations/KMEANSTynset.jpg>
 Package pdftex.def Info: Images/computations/KMEANSTynset.jpg used on input lin
-e 420.
+e 372.
 (pdftex.def)             Requested size: 142.26378pt x 142.25294pt.
 
-<Images/computations/TynsetNear.jpg, id=280, 169.13188pt x 361.35pt>
+<Images/computations/TynsetNear.jpg, id=297, 169.13188pt x 361.35pt>
 File: Images/computations/TynsetNear.jpg Graphic file (type jpg)
 
 <use Images/computations/TynsetNear.jpg>
 Package pdftex.def Info: Images/computations/TynsetNear.jpg used on input line 
-427.
+379.
 (pdftex.def)             Requested size: 71.13188pt x 151.97548pt.
 
-Underfull \hbox (badness 1168) in paragraph at lines 427--427
+Underfull \hbox (badness 1168) in paragraph at lines 379--379
 []\T1/cmr/m/n/10 (a) |Without K-
  []
 
-<Images/computations/TynsetNearKmeans.jpg, id=281, 169.13188pt x 361.35pt>
+<Images/computations/TynsetNearKmeans.jpg, id=298, 169.13188pt x 361.35pt>
 File: Images/computations/TynsetNearKmeans.jpg Graphic file (type jpg)
 
 <use Images/computations/TynsetNearKmeans.jpg>
 Package pdftex.def Info: Images/computations/TynsetNearKmeans.jpg used on input
- line 429.
+ line 381.
 (pdftex.def)             Requested size: 71.13188pt x 151.97548pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 429--429
+Underfull \hbox (badness 10000) in paragraph at lines 381--381
 []\T1/cmr/m/n/10 (b) |With K-
  []
 
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[47]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[48 <./Images/computations/KMEANS500x500_1000n.jpg> <./Images/computations/KMEA
-NSForks.jpg> <./Images/computations/KMEANSLillehammer.jpg> <./Images/computatio
-ns/KMEANSTynset.jpg> <./Images/computations/TynsetNear.jpg> <./Images/computati
-ons/TynsetNearKmeans.jpg>]
-<Images/computations/500x5000Near.jpg, id=288, 270.51062pt x 321.70187pt>
+<Images/computations/500x5000Near.jpg, id=299, 270.51062pt x 321.70187pt>
 File: Images/computations/500x5000Near.jpg Graphic file (type jpg)
 
 <use Images/computations/500x5000Near.jpg>
 Package pdftex.def Info: Images/computations/500x5000Near.jpg used on input lin
-e 448.
+e 400.
 (pdftex.def)             Requested size: 113.81102pt x 135.34947pt.
 
-<Images/computations/500x5000NearKmeans.jpg, id=289, 270.51062pt x 321.70187pt>
+<Images/computations/500x5000NearKmeans.jpg, id=300, 270.51062pt x 321.70187pt>
 File: Images/computations/500x5000NearKmeans.jpg Graphic file (type jpg)
 <use Images/computations/500x5000NearKmeans.jpg>
 Package pdftex.def Info: Images/computations/500x5000NearKmeans.jpg used on inp
-ut line 450.
+ut line 402.
 (pdftex.def)             Requested size: 113.81102pt x 135.34947pt.
 
 
@@ -1730,12 +1797,32 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[49 <./Images/computations/500x5000Near.jpg> <./Images/computations/500x5000Nea
-rKmeans.jpg>] <Images/mincutflow2.png, id=294, 742.775pt x 708.6475pt>
+[48]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[49 <./Images/computations/KMEANS500x500_1000n.jpg> <./Images/computations/KMEA
+NSForks.jpg> <./Images/computations/KMEANSLillehammer.jpg> <./Images/computatio
+ns/KMEANSTynset.jpg> <./Images/computations/TynsetNear.jpg> <./Images/computati
+ons/TynsetNearKmeans.jpg>]
+Underfull \vbox (badness 2735) has occurred while \output is active []
+
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[50 <./Images/computations/500x5000Near.jpg> <./Images/computations/500x5000Nea
+rKmeans.jpg>] <Images/mincutflow2.png, id=311, 742.775pt x 708.6475pt>
 File: Images/mincutflow2.png Graphic file (type png)
 
 <use Images/mincutflow2.png>
-Package pdftex.def Info: Images/mincutflow2.png used on input line 477.
+Package pdftex.def Info: Images/mincutflow2.png used on input line 429.
 (pdftex.def)             Requested size: 433.62pt x 413.7083pt.
 
 
@@ -1744,72 +1831,72 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[50]
+[51]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[51 <./Images/mincutflow2.png>]
-<Images/mincutstep1.png, id=302, 562.1pt x 481.8pt>
+[52 <./Images/mincutflow2.png>]
+<Images/mincutstep1.png, id=319, 562.1pt x 481.8pt>
 File: Images/mincutstep1.png Graphic file (type png)
 
 <use Images/mincutstep1.png>
-Package pdftex.def Info: Images/mincutstep1.png used on input line 537.
+Package pdftex.def Info: Images/mincutstep1.png used on input line 489.
 (pdftex.def)             Requested size: 199.16928pt x 170.71304pt.
 
-<Images/mincutstep2.png, id=303, 562.1pt x 481.8pt>
+<Images/mincutstep2.png, id=320, 562.1pt x 481.8pt>
 File: Images/mincutstep2.png Graphic file (type png)
 
 <use Images/mincutstep2.png>
-Package pdftex.def Info: Images/mincutstep2.png used on input line 539.
+Package pdftex.def Info: Images/mincutstep2.png used on input line 491.
 (pdftex.def)             Requested size: 199.16928pt x 170.71304pt.
 
-<Images/mincutstep3.png, id=304, 562.1pt x 481.8pt>
+<Images/mincutstep3.png, id=321, 562.1pt x 481.8pt>
 File: Images/mincutstep3.png Graphic file (type png)
 
 <use Images/mincutstep3.png>
-Package pdftex.def Info: Images/mincutstep3.png used on input line 541.
+Package pdftex.def Info: Images/mincutstep3.png used on input line 493.
 (pdftex.def)             Requested size: 199.16928pt x 170.71304pt.
 
-<Images/mincutstep4.png, id=305, 562.1pt x 481.8pt>
+<Images/mincutstep4.png, id=322, 562.1pt x 481.8pt>
 File: Images/mincutstep4.png Graphic file (type png)
 
 <use Images/mincutstep4.png>
-Package pdftex.def Info: Images/mincutstep4.png used on input line 543.
+Package pdftex.def Info: Images/mincutstep4.png used on input line 495.
 (pdftex.def)             Requested size: 199.16928pt x 170.71304pt.
 
-<Images/computations/MINCUT500_500.png, id=306, 762.85pt x 764.8575pt>
+<Images/computations/MINCUT500_500.png, id=323, 762.85pt x 764.8575pt>
 File: Images/computations/MINCUT500_500.png Graphic file (type png)
 
 <use Images/computations/MINCUT500_500.png>
 Package pdftex.def Info: Images/computations/MINCUT500_500.png used on input li
-ne 551.
+ne 503.
 (pdftex.def)             Requested size: 128.0374pt x 128.36679pt.
 
-<Images/computations/MINCUT_FORKS.png, id=307, 762.85pt x 761.84625pt>
+<Images/computations/MINCUT_FORKS.png, id=324, 762.85pt x 761.84625pt>
 File: Images/computations/MINCUT_FORKS.png Graphic file (type png)
 
 <use Images/computations/MINCUT_FORKS.png>
 Package pdftex.def Info: Images/computations/MINCUT_FORKS.png used on input lin
-e 554.
+e 506.
 (pdftex.def)             Requested size: 128.0374pt x 127.86142pt.
 
-<Images/computations/MINCUT_LILLEHAMMER.png, id=308, 762.85pt x 764.8575pt>
+<Images/computations/MINCUT_LILLEHAMMER.png, id=325, 762.85pt x 764.8575pt>
 File: Images/computations/MINCUT_LILLEHAMMER.png Graphic file (type png)
 
 <use Images/computations/MINCUT_LILLEHAMMER.png>
 Package pdftex.def Info: Images/computations/MINCUT_LILLEHAMMER.png used on inp
-ut line 556.
+ut line 508.
 (pdftex.def)             Requested size: 128.0374pt x 128.36679pt.
 
-<Images/computations/MINCUT_TYNSET.png, id=309, 762.85pt x 761.84625pt>
+<Images/computations/MINCUT_TYNSET.png, id=326, 762.85pt x 761.84625pt>
 File: Images/computations/MINCUT_TYNSET.png Graphic file (type png)
 
 <use Images/computations/MINCUT_TYNSET.png>
 Package pdftex.def Info: Images/computations/MINCUT_TYNSET.png used on input li
-ne 559.
+ne 511.
 (pdftex.def)             Requested size: 128.0374pt x 127.86142pt.
 
 
@@ -1818,32 +1905,32 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[52]
+[53]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[53 <./Images/mincutstep1.png> <./Images/mincutstep2.png> <./Images/mincutstep3
+[54 <./Images/mincutstep1.png> <./Images/mincutstep2.png> <./Images/mincutstep3
 .png> <./Images/mincutstep4.png>]
 File: Images/computations/TynsetNearKmeans.jpg Graphic file (type jpg)
 
 <use Images/computations/TynsetNearKmeans.jpg>
 Package pdftex.def Info: Images/computations/TynsetNearKmeans.jpg used on input
- line 580.
+ line 531.
 (pdftex.def)             Requested size: 85.35826pt x 182.37279pt.
 
-Underfull \hbox (badness 1939) in paragraph at lines 580--580
+Underfull \hbox (badness 1939) in paragraph at lines 531--531
 []\T1/cmr/m/n/10 (a) |With K-means
  []
 
-<Images/computations/TynsetNearMincut.jpg, id=320, 338.26375pt x 722.7pt>
+<Images/computations/TynsetNearMincut.jpg, id=337, 338.26375pt x 722.7pt>
 File: Images/computations/TynsetNearMincut.jpg Graphic file (type jpg)
 
 <use Images/computations/TynsetNearMincut.jpg>
 Package pdftex.def Info: Images/computations/TynsetNearMincut.jpg used on input
- line 582.
+ line 533.
 (pdftex.def)             Requested size: 85.35826pt x 182.36176pt.
 
 
@@ -1852,49 +1939,54 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[54 <./Images/computations/MINCUT500_500.png> <./Images/computations/MINCUT_FOR
+[55 <./Images/computations/MINCUT500_500.png> <./Images/computations/MINCUT_FOR
 KS.png> <./Images/computations/MINCUT_LILLEHAMMER.png> <./Images/computations/M
-INCUT_TYNSET.png>]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[55 <./Images/computations/TynsetNearMincut.jpg>]
-<Images/mincutbug1.png, id=332, 438.63875pt x 803.0pt>
+INCUT_TYNSET.png>] <Images/mincutbug1.png, id=346, 438.63875pt x 803.0pt>
 File: Images/mincutbug1.png Graphic file (type png)
 
 <use Images/mincutbug1.png>
-Package pdftex.def Info: Images/mincutbug1.png used on input line 602.
+Package pdftex.def Info: Images/mincutbug1.png used on input line 553.
 (pdftex.def)             Requested size: 113.81102pt x 208.34622pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 602--602
+Underfull \hbox (badness 10000) in paragraph at lines 553--553
 \T1/cmr/m/n/10 group seeks to merge
  []
 
-<Images/mincutbug2.png, id=333, 438.63875pt x 803.0pt>
+<Images/mincutbug2.png, id=347, 438.63875pt x 803.0pt>
 File: Images/mincutbug2.png Graphic file (type png)
 
 <use Images/mincutbug2.png>
-Package pdftex.def Info: Images/mincutbug2.png used on input line 604.
+Package pdftex.def Info: Images/mincutbug2.png used on input line 555.
 (pdftex.def)             Requested size: 113.81102pt x 208.34622pt.
 
-Underfull \hbox (badness 1418) in paragraph at lines 604--604
+Underfull \hbox (badness 1418) in paragraph at lines 555--555
 \T1/cmr/m/n/10 nodes have been thrown
  []
 
 
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[56 <./Images/mincutbug1.png> <./Images/mincutbug2.png>]
-<Images/Bouldin.png, id=339, 611.28375pt x 465.74pt>
+[56 <./Images/computations/TynsetNearMincut.jpg>]
+Underfull \vbox (badness 1490) has occurred while \output is active []
+
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[57 <./Images/mincutbug1.png> <./Images/mincutbug2.png>]
+<Images/Bouldin.png, id=356, 611.28375pt x 465.74pt>
 File: Images/Bouldin.png Graphic file (type png)
  <use Images/Bouldin.png>
-Package pdftex.def Info: Images/Bouldin.png used on input line 630.
+Package pdftex.def Info: Images/Bouldin.png used on input line 600.
 (pdftex.def)             Requested size: 398.33858pt x 303.49492pt.
 
 
@@ -1906,42 +1998,38 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[57]
+[58]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[58 <./Images/Bouldin.png>]
-Underfull \vbox (badness 4995) has occurred while \output is active []
-
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[59]
-Overfull \hbox (2.9056pt too wide) in paragraph at lines 682--687
+[59 <./Images/Bouldin.png>]
+Overfull \hbox (2.9056pt too wide) in paragraph at lines 627--632
 \T1/cmr/m/n/12 Both the data that has been ran-domly gen-er-ated, and the data 
 fetched from []\T1/cmtt/m/n/12 wigle.net
  []
 
-)
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[60]
+[60])
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[61]
 \openout2 = `Chapters/Protocol.aux'.
 
  (./Chapters/Protocol.tex
 Chapter 6.
-[61
+[62
 
 
 
@@ -1952,7 +2040,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[62]
+[63]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
@@ -1962,7 +2050,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[63] <Images/dgcpoverview.png, id=363, 1023.825pt x 584.1825pt>
+[64] <Images/dgcpoverview.png, id=380, 1023.825pt x 584.1825pt>
 File: Images/dgcpoverview.png Graphic file (type png)
 
 <use Images/dgcpoverview.png>
@@ -1975,7 +2063,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[64] <Images/dgcpnode.png, id=367, 338.76563pt x 260.172pt>
+[65] <Images/dgcpnode.png, id=384, 338.76563pt x 260.172pt>
 File: Images/dgcpnode.png Graphic file (type png)
 
 <use Images/dgcpnode.png>
@@ -1988,23 +2076,23 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[65 <./Images/dgcpoverview.png>]
+[66 <./Images/dgcpoverview.png>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 27.11469pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[66 <./Images/dgcpnode.png>]
+[67 <./Images/dgcpnode.png>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 27.11469pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[67]
+[68]
 Chapter 7.
-[68
+[69
 
 ]
 
@@ -2013,21 +2101,21 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[69]
+[70]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[70])
+[71])
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[71] [72
+[72] [73
 
 
 
@@ -2038,16 +2126,10 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[73]
+[74]
 Overfull \hbox (9.81287pt too wide) in paragraph at lines 199--199
 \T1/cmr/m/n/12 tion / Oc-to-ber 2013. ECMA, Oct. 2013. \T1/cmr/m/sc/12 url\T1/c
 mr/m/n/12 : $\T1/cmtt/m/n/12 http : / / www . ecma -[] international .
- []
-
-
-Overfull \hbox (5.01096pt too wide) in paragraph at lines 199--199
-[]\T1/cmr/m/n/12 D. Müll-ner. `  Mod-ern hier-arch-ical, ag-glom-er-at-ive clus
--ter-ing al-gorithms'. In: \T1/cmr/m/it/12 ArXiv
  []
 
 
@@ -2063,17 +2145,17 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[74]
+[75]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[75]
+[76]
 \openout2 = `Appendix.aux'.
 
- (./Appendix.tex [76
+ (./Appendix.tex [77
 
 
 
@@ -2138,7 +2220,7 @@ Package pdftex.def Info: Images/computations/BASICTynset.jpg used on input line
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [77
+ [78
 
 
 ]
@@ -2148,7 +2230,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[78]
+[79]
 File: Images/computations/KMEANS500x500_1000n.jpg Graphic file (type jpg)
  <use Images/computations/KMEANS500x500_1000n.jpg>
 Package pdftex.def Info: Images/computations/KMEANS500x500_1000n.jpg used on in
@@ -2179,14 +2261,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[79]
+[80]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[80]
+[81]
 File: Images/computations/MINCUT500_500.png Graphic file (type png)
  <use Images/computations/MINCUT500_500.png>
 Package pdftex.def Info: Images/computations/MINCUT500_500.png used on input li
@@ -2217,14 +2299,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[81]
+[82]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[82] <Images/computations/MINCUT2_UNI.png, id=429, 763.85374pt x 762.85pt>
+[83] <Images/computations/MINCUT2_UNI.png, id=446, 763.85374pt x 762.85pt>
 File: Images/computations/MINCUT2_UNI.png Graphic file (type png)
 
 <use Images/computations/MINCUT2_UNI.png>
@@ -2232,7 +2314,7 @@ Package pdftex.def Info: Images/computations/MINCUT2_UNI.png used on input line
  106.
 (pdftex.def)             Requested size: 312.9803pt x 312.561pt.
 
-<Images/computations/MINCUT2_FORKS.png, id=430, 762.85pt x 761.84625pt>
+<Images/computations/MINCUT2_FORKS.png, id=447, 762.85pt x 761.84625pt>
 File: Images/computations/MINCUT2_FORKS.png Graphic file (type png)
 
 <use Images/computations/MINCUT2_FORKS.png>
@@ -2240,7 +2322,7 @@ Package pdftex.def Info: Images/computations/MINCUT2_FORKS.png used on input li
 ne 112.
 (pdftex.def)             Requested size: 312.9803pt x 312.56822pt.
 
-<Images/computations/MINCUT2_LILLEHAMMER.png, id=431, 764.8575pt x 762.85pt>
+<Images/computations/MINCUT2_LILLEHAMMER.png, id=448, 764.8575pt x 762.85pt>
 File: Images/computations/MINCUT2_LILLEHAMMER.png Graphic file (type png)
 
 <use Images/computations/MINCUT2_LILLEHAMMER.png>
@@ -2248,7 +2330,7 @@ Package pdftex.def Info: Images/computations/MINCUT2_LILLEHAMMER.png used on in
 put line 118.
 (pdftex.def)             Requested size: 312.9803pt x 312.1536pt.
 
-<Images/computations/MINCUT2_TYNSET.png, id=432, 762.85pt x 762.85pt>
+<Images/computations/MINCUT2_TYNSET.png, id=449, 762.85pt x 762.85pt>
 File: Images/computations/MINCUT2_TYNSET.png Graphic file (type png)
 
 <use Images/computations/MINCUT2_TYNSET.png>
@@ -2262,14 +2344,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[83 <./Images/computations/MINCUT2_FORKS.png>]
+[84 <./Images/computations/MINCUT2_FORKS.png>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[84 <./Images/computations/MINCUT2_UNI.png> <./Images/computations/MINCUT2_LILL
+[85 <./Images/computations/MINCUT2_UNI.png> <./Images/computations/MINCUT2_LILL
 EHAMMER.png>])
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2277,10 +2359,16 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[85 <./Images/computations/MINCUT2_TYNSET.png>] (./Oppgave.aux
+[86 <./Images/computations/MINCUT2_TYNSET.png>] (./Oppgave.aux
 (./Chapters/Abstract.aux) (./Chapters/1-Introduction.aux)
 (./Chapters/2-Background.aux) (./Chapters/3-Related.aux) (./Chapters/3-Data.aux
 ) (./Chapters/4-Connected.aux) (./Chapters/Protocol.aux) (./Appendix.aux))
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package logreq Info: Writing requests to 'Oppgave.run.xml'.
 \openout1 = `Oppgave.run.xml'.
 
@@ -2290,10 +2378,10 @@ Package logreq Info: Writing requests to 'Oppgave.run.xml'.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 16099 strings out of 493014
- 260418 string characters out of 6133351
- 801801 words of memory out of 5000000
- 19266 multiletter control sequences out of 15000+600000
+ 16146 strings out of 493014
+ 261546 string characters out of 6133351
+ 813925 words of memory out of 5000000
+ 19306 multiletter control sequences out of 15000+600000
  32329 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  44i,16n,51p,1432b,14581s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2325,10 +2413,10 @@ ype1/public/cm-super/sftt1000.pfb></usr/local/texlive/2016/texmf-dist/fonts/typ
 e1/public/cm-super/sftt1200.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1
 /urw/helvetic/uhvb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/he
 lvetic/uhvr8a.pfb>
-Output written on Oppgave.pdf (97 pages, 11664854 bytes).
+Output written on Oppgave.pdf (98 pages, 11731971 bytes).
 PDF statistics:
- 534 PDF objects out of 1000 (max. 8388607)
- 310 compressed objects within 4 object streams
+ 551 PDF objects out of 1000 (max. 8388607)
+ 312 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
- 226 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 261 words of extra memory for PDF output out of 10000 (max. 10000000)
 

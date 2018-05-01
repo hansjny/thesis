@@ -1,6 +1,6 @@
 \chapter{Node communication and group state synchronization}
 \label{chap:proto}
-While in the previous chapters the focus have been the algorithm for how groups can be formed and constrained, in this chapter suggest some technologies
+In the previous chapters the focus has been on the algorithm for how clusters can be formed, constrained and updated. In this chapter we suggest some technologies
 that could enable communication between access points and ultimately help with cluster formation. As we saw in the related work chapter, there
 has already been done some work on the subject of access point communication over IP, and previous work in the field of distributed consensus can be used to ensure synchronized group states.
 In this chapter these technologies will be covered and considered, and finally a technology stack that stitches all required components together will be suggested. 
@@ -21,14 +21,14 @@ In this chapter we look at technologies that can handle these issues to suggest 
 %considerations to take when designing a new protocol architecture, and there is no need to reinvent the wheel in areas where there has been done a good amount of research. 
 %This section covers two technologies: Raft and ResFi. Raft will be used for state synchronization via log replication. It is a distributed consensus protocol and provides the equivalent degree of fault-tolerance as the Paxos \cite{lamport2001paxos} protocol family. ResFi is a protocol used to enable communication over IP between adjacent access points. 
 \subsection{Distributed consensus with Raft}
-Raft \cite{raftio} is a distributed consensus protocol designed with simplicity in mind. The creators of Raft designed it to be used for educational purposes. Traditionally, Paxos has been used to explain distributed consensus, but Paxos has a complex design with extremely many different variations. Raft is now taught in courses all over the U.S, and their GitHub page includes to links
-of implementations in a large amount of languages. As Raft has such a wide range of implementations and is an easy protocol to understand relative to its quite complicated relative, Paxos, 
+Raft \cite{raftio} is a distributed consensus protocol designed with simplicity in mind. The creators of Raft designed it to be used for educational purposes. Traditionally, Paxos has been used to explain distributed consensus, but Paxos has a complex design with extremely many different variations. Raft is now taught in courses all over the U.S, and their GitHub page includes links
+to implementations in a large amount of languages. As Raft has such a wide range of implementations and is an easy protocol to understand relative to its quite complicated relative, Paxos, 
 we will suggest that Raft will be used to handle distributed consensus. 
 
 \subsubsection{Why distributed consensus?}
-We suggest using distributed consensus is required for the distributed group creation protocol to provide data replication.
-This makes sure all nodes have a consistent picture of the group, and in-case leader goes down any node is equally qualified to take on the role as leader.
-The need for log replication is derived from the simple fact that there is no centralized controller to take decisions, so equally replicated data across all members node is required for all access
+We suggest using distributed consensus for the distributed group creation protocol to provide data replication.
+This makes sure all nodes have a consistent picture of the group, and in-case a group leader goes down any node is equally qualified to take on the role as leader.
+The need for log replication is derived from the simple fact that there is no centralized controller to take decisions, so equally replicated data across all member nodes is required for all access
 points to reach the same decisions about which neighbouring group to merge with, and also to compute channel distribution.  
 
 \subsubsection{What Raft can not help with}
@@ -36,7 +36,7 @@ Raft is not originally intended to run in a flexible environment where the amoun
 after two groups merge within the same Raft session. This is because there can be no consensus on past logs between nodes from different groups, as all groups will have different logs from before the merge. There is also no native Raft method to invoke native leader handover, so in the event of merge there would be two leaders. 
 
 Another aspect that would be different from a traditional distributed consensus scenario, is the assumption that there are two main actors with different roles: servers and clients.
-In distributed consensus, each server is supposed to have their own data, identical via data replication across across all the servers in the Raft session. The clients are the actor that requests 
+In distributed consensus, each server is supposed to have their own data, identical via data replication across all the servers in the Raft session. The clients are the actor that requests 
 changes on the data.
 
 A traditional scenario is a banking example: a client could be a mini-bank issuing a withdrawal from a bank account. The servers would be all the banking servers making sure the new,
@@ -49,7 +49,7 @@ while also keeping a local, replicated copy of the state of the group.
 This subsection is dedicated to briefly describe how ResFi operates, and to cover why and how it is a protocol that can be taken advantage of in the Distributed Group Creation Protocol. 
 
 As mentioned in the related work chapter at the beginning of the thesis, ResFi is a protocol framework that supports creation of radio resource management in legacy residential networks.
-ResFi is intended to be used in a chaotically deployed landscape of access points, which is similar to the intentions of the group creation in this thesis. It enables the creation of secure point-to-point communication channel over IP through wired backhaul network. Point-to-point in this context means APs that are directly adjacent and can hear each other over the physical radio. ResFi also supports secure broadcast via n-hop communication. A brief account of the sequential steps of the ResFi standard mode of operation follows below. A more thorough explanation can be find in the ResFi paper \cite{resfi} under chapter \textit{IV. Detailed Specification}.
+ResFi is intended to be used in a chaotically deployed landscape of access points, which is similar to the intentions of the group creation in this thesis. It enables the creation of secure point-to-point communication channel over IP through wired backhaul network. Point-to-point in this context means APs that are directly adjacent and can hear each other over the physical radio. ResFi also supports secure broadcast via n-hop communication. A brief account of the sequential steps of the ResFi standard mode of operation follows below. A more thorough explanation can be found in the ResFi paper \cite{resfi} chapter \textit{IV. Detailed Specification}.
 
 \begin{enumerate}
 	\item When an AP ($a$) is booted, a symmetric group key is created, along with an RSA key-pair. 
@@ -68,17 +68,17 @@ in the JSON-format. Table \ref{tab:resfapi} shows which functions are available 
 	\resizebox{\textwidth}{!}{%
 		\begin{tabular}{|l|l|}
 			\hline
-			sendToNeighbor(ap\_id, message) & \makecell[l]{Sends a message to an ap with id ap\_id. Message is in JSON format.\\The message is encrypted using the symmetric unciast session key.} \\
+			sendToNeighbor(ap\_id, message) & \makecell[l]{Sends a message to an ap with id ap\_id. Message is in JSON format.\\The message is encrypted using the symmetric uncast session key.} \\
 			\hline
 			sendToNeighbors(msg, TTL) & \makecell[l]{Sends a message to all neighbours.\\Will be flooded out to n-hop neighbours, where n = TTL.} \\
 			\hline
-			getNeighbour() & List all neighbour AP IDs \\
+			getNeighbour() & List all neighbour AP IDs. \\
 			\hline	
 			regCallbacks(newMessage, newNode, nodeDC) & \makecell[l]{Registers callback functions for the events new message,\\new neighbour node, and node disconnected. } \\
 			\hline
 			registerNewApplication(name) & \makecell[l]{Registers a new application with ResFi.\\Names are used to separate different applications.}\\
 			\hline
-			getResFiCredentials(param) & \makecell[l]{If param is 1, it return the public IP of the AP,\\ and if param is 2 it returns the public RSA key}\\
+			getResFiCredentials(param) & \makecell[l]{If param is 1, it returns the public IP of the AP,\\ and if param is 2 it returns the public RSA key.}\\
 			\hline
 			usePrivateRSAKey(data, mode) & \makecell[l]{Uses RSA key on tjhe data. If the mode is 1, it computes\\the signature of the data, if mode is 2 it assumed the\\data is encrypted and
 																									decrypts it with the key.} \\
@@ -90,12 +90,12 @@ in the JSON-format. Table \ref{tab:resfapi} shows which functions are available 
 
 
 \subsubsection{Implementation}
-Originally ResFi was implemented on Ubuntu 14.04. It adds vendor specific information elements to the MAC-header with the IP, port, and cryptographic data. This can be done Linux user space by using their modified version of hostapd \cite{resfigit}. As it runs on python, it could in practice be implemented on any Linux system. It uses a south-bound API to communicate with the router, and a north-bound API to enable applications to use ResFi. 
+Originally ResFi was implemented on Ubuntu 14.04. It adds vendor specific information elements to the MAC-header with the IP, port, and cryptographic data. This can be done in Linux user space by using their modified version of hostapd \cite{resfigit}. As it runs on python, it could in practice be implemented on any Linux system. It uses a south-bound API to communicate with the router, and a north-bound API to enable applications to use ResFi. 
 
 \section{Architectural overview}
 The protocol architecture we suggest here relies on 4 main components which can be seen in figure \ref{fig:dgcpoverview}.
 In the figure the blue boxes signifies logic that has yet to be implemented, while grey boxes signifies the components that needs to pre-exist. The arrows
-represents which of the components that has to communicate with each other. In the next few subsections we address the two blue components individually.
+represent which of the components that have to communicate with each other. In the next few subsections we address the two blue components individually.
 
 \begin{figure}
 	\includegraphics[width=\textwidth]{Images/dgcpoverview.png}
@@ -115,17 +115,17 @@ to relay messages from node to node, until the message reaches its destination. 
 		the message is not relayed.
   \item Should be used for all communication between nodes, like control messages, Raft log updates, etc., except for merge messages, which would have to happen across
 		groups. 
-	\item Needs a way to uniquely identify nodes to perform routing
+	\item Needs a way to uniquely identify nodes to perform routing.
 \end{itemize}
 
 
-\subsection{Component Overview }
-This subsection is dedication to a suggested component overview of a protocol. Just to have a way to reference it, we will call it the Distributed Group Creation Protocol (DGCP). 
+\subsection{Component overview }
+This subsection is dedicated to a suggested component overview of a protocol. In order to be able to reference it, we will call it the Distributed Group Creation Protocol (DGCP). 
 A protocol would rely on the ability to directly interface with the access point radio, to execute and parse the results of the network scan. The protocol also
-needs to be able to send message through the ResFi Overlay Network Applications to the rest of the group, as well as direct access to the ResFi north-bound API to be able to contact 1-hop
+needs to be able to send messages through the ResFi Overlay Network Applications to the rest of the group. It also requires direct access to the ResFi north-bound API to be able to contact 1-hop
 neighbours that are not in the group, to negotiate merges. 
 
-The roles of a node running the protocol is illustrated in figure \ref{fig:dgcproles}. What follows is an account on the different services and functionalities the protocol
+The roles of a node running the protocol is illustrated in figure \ref{fig:dgcproles}. What follows is an account of the different services and functionalities the protocol
 has to implement.  
 
 \begin{figure}
@@ -140,13 +140,13 @@ Since the beginning of the thesis, the idea has been to let all nodes have the e
 which neighbouring groups to merge the group with is done by checking which nodes in the group has the most impactful neighbours. As all nodes in the group should share
 the same information, all nodes will find the same result of which neighbour to merge with.
 In the event that nodes in the group observe neighbours with exact equal signal strength, there will need to be implemented a deterministic way to decide which of the nodes would be chosen.
-This could be as simple choosing the neighbours with the highest alphabetical order of the SSID. The important matter is that all nodes reach the same result of which group to merge with. 
+This could be as simple as choosing the neighbours with the highest alphabetical order of the SSID. The important matter is that all nodes reach the same result of which group to merge with. 
 
 \subsubsection{Negotiating merges via message passing}
-We established that the protocol has to make sure all nodes in a group conclude which neighbour disturbs the most on their own.
-The node that has this most significant disturber on their direct neighbour list, has to negotiate a merge for that node. 
-This thesis will not address exactly how that message passing would look, but when a merge has been negotiated, and is either accepted, declined or a split is issued,
-any changes of group membership to be reported to the Raft leader, so the updated group can be replicated to all members. 
+We established that the protocol has to make sure all nodes in a group has to individually figure out which neighbour disturbs the most.
+The node that has the most significant disturber on their direct neighbour list, has to negotiate a merge with that node. 
+We will not address exactly how that message passing would look, but when a merge has been negotiated, and is either accepted, declined or a split is issued,
+any changes of group membership shouldd be reported to the Raft leader, so the updated group can be replicated to all members. 
 
 \subsubsection{Internal group messages}
 Group communication messages should include (but may not be limited to):
@@ -161,16 +161,16 @@ This chapter has introduced two pre-existing technologies that can help the proc
 neighbouring access points, while Raft has been suggested as a way to provide distributed consensus and data replication within the group. We have looked at the architecture that
 would need to be in place to facilitate this protocol, and suggested some required functionality. 
 
-We have not directly addressed what types of messages would have to be passed in the protocol, nor the data structure of the messages. The main reason for not addressing these large aspects is 
+We have not directly addressed what types of messages would have to be passed in the protocol, nor the data structure of the messages. The main reason for not addressing these aspects is 
 that the complexity could quickly become large, and it would exceed the scope of the thesis. It would be more fitting to address these topics when there is an intention of creation
 a protocol implementation to be able to test a proposed architecture in its entirety.  
 
-Hopefully it can be helpful as a starting point for a complete protocol architecture in the future. 
+Hopefully this can be helpful as a starting point for a complete protocol architecture in the future. 
 
 \chapter{Conclusion}
 This chapter includes a summary of the work that has been done, a conclusion and a discussion about future work. 
 \section{Summary}
-In this thesis we have suggested a distributed clustering algorithm through iterative development and observation of simulation results. It is intended work on 802.11 wireless access points,
+In this thesis we have suggested a distributed clustering algorithm through iterative development and observation of simulation results. It is intended work with 802.11 wireless access points
 with the goal of enabling group creation meant for cooperation of channel allocation and possibly other resource management. 
 
 At the beginning of thesis we created the data structure to be used for storing network topologies and group simulations. Instead of only generating artificial data,
@@ -181,10 +181,10 @@ It offers a visual representation of the topology, and an interface to step thro
 We continued by setting some requirements for a distributed clustering algorithm that would need to be fulfilled for the clustering to work in current wireless network topologies.
 One of the main concerns was that all nodes can only know the signal strength to their own neighbours to begin with, meaning that clustering decisions had to be made from each nodes point of view.
 Hence the bottom-up agglomerative hierarchical clustering was assessed. Before running any simulations, we modified the agglomerative clustering algorithm to a slightly different algorithm 
-we decided to call K-Closest Neighbour Clustering. This algorithm lacked flexibility in-case of topology changes or introduction of new nodes, and did not have a way to break up existing clusters.
+we decided to call K-Closest Neighbour Clustering. This algorithm lacked flexibility in case of topology changes or introduction of new nodes, and did not have a way to break up existing clusters.
 To address these issues we proposed an additional functionality to the K-Closest Neighbour Clustering algorithm we called splitting.
 
-Two flavours of splitting was tested. One using K-means bootstrapped with the centroids from the merging groups to identify a separative line between a large transient cluster. This would result in
+Two flavours of splitting has been tested. One using K-means bootstrapped with the centroids from the merging groups to identify a separative line between a large transient cluster. This would result in
 two disjoint groups from every merge that exceeded the maximum group size. The other using minimum cut theorem from graph-theory to identify partitions of the groups that would be less beneficial to keep than the proposed merge, which could result in several partitions being severed from the group. 
 
 Based on the evaluation results, and the nature of the algorithm, we concluded that the K-Closest Neighbour Clustering algorithm with minimum-cut provided the most desirable results, while
@@ -193,7 +193,7 @@ also being the easiest to implement in real-life.
 Finally, we presented some relevant technologies that could facilitate a distributed group creation protocol, and presented an abstracted architecture of the components required for such a protocol.
 
 \section{Discussion and contribution}
-In the related works chapter at the beginning of this we discussed some centralized solutions that are meant 
+In the related works chapter we discussed some centralized solutions that are meant 
 to optimize the performance of 802.11 Wi-Fi networks. But centralized solutions are single points of failures, and certainly very hard to deploy in residential networks where there
 is little homogeneity with regards to router brands or service providers. 
 
@@ -201,7 +201,7 @@ The fundamental issue in residential networks remains largely unsolved: regainin
 we formulated three problems in the problem statement. First we wanted to define requirements for a distributed clustering algorithm that could run in residential and chaotic networks.
 This was done in \ref{chap:requirements}.
 
-The next problem two was about developing the clustering algorithm itself. By iterative development we have suggested a relative simple way to create clusters of access points: using the suggested K-Closest Neighbour Clustering algorithm described in \ref{chap:kcn}, and respond to changes in the network topology by group splitting using minimum cut described in \ref{chap:mincut}. By simulating using the real-world data we gathered in \ref{chap:wigle}, and abiding by the requirements for the algorithm we specified, this method should not only work in a simulated environment, but also in a real-world implementation (provided that there exist a protocol to address assumption 2 and 3 from \ref{chap:assumptions}). This leads us to the third problem, which was about identifying
+The next problem was about developing the clustering algorithm itself. By iterative development we have suggested a relatively simple way to create clusters of access points: using the suggested K-Closest Neighbour Clustering algorithm described in \ref{chap:kcn}, and respond to changes in the network topology by group splitting using minimum cut described in \ref{chap:mincut}. By simulating using the real-world data we gathered in \ref{chap:wigle}, and abiding by the requirements for the algorithm we specified, this method should not only work in a simulated environment, but also in a real-world implementation (provided that there exist a protocol to address assumption 2 and 3 from \ref{chap:assumptions}). This leads us to the third problem, which was about identifying
 technologies that could lead to a real-world implementation of a protocol that implements clustering method. This aspect was covered in chapter \ref{chap:proto}.
 
 When there are self managing, distributed clusters of access points, algorithms that uses NP-hard heuristics to compute channel distribution can once again be viable to use. This could
@@ -212,7 +212,7 @@ There is a long road ahead to be able to perform the group creation in a real-li
 that could further the vision of a decentralized, self-managing wireless AP topology. 
 
 \subsubsection{Protocol development}
-We briefly introduced an abstract protocol architecture with relevant supporting technologies and data flow in \ref{chap:proto}. Further development on this area would include a full protocol design, with
+We briefly introduced an abstract protocol architecture with relevant supporting technologies and data flow in chapter \ref{chap:proto}. Further development in this area would include a full protocol design, with
 specified message types and data structures to be involved. A few of the questions that needs to be addressed are: 
 \begin{itemize}
 	\item How are merges communicated with the rest of the group?
@@ -223,12 +223,12 @@ specified message types and data structures to be involved. A few of the questio
 An implementation of the protocol would be a natural next step, ideally with a testbed to confirm results. 
 
 \subsubsection{Security assessment}
-Is the ideas presented here possible to unify in a secure manner? This is a question untouched by this thesis, and could provide another topic for future work. This should arguably 
+Are the ideas presented here possible to unify in a secure manner? This is a question untouched by this thesis, and could provide another topic for future work. This should arguably 
 be done before or together with the protocol development. 
 
 \subsubsection{Clustering assessment}
 The clustering algorithms we developed and tried in this thesis may not be the ultimate answer. We have provided a proof-of-concept for how distributed clustering can be performed using
-an algorithm that satisfies all the requirements we provided. We have not done a comparative study between other possible methods, and no detailed evaluation of the quality of the clusters has been performed. There might different approaches to the distributed clustering problem posed in this thesis. A detailed assessment of the ones suggested here and other alternatives might be the basis for another thesis or further research.
+an algorithm that satisfies all the requirements we provided. We have not done a comparative study between other possible methods, and no detailed evaluation of the quality of the clusters has been performed. There might be different approaches to the distributed clustering problem posed in this thesis. A detailed assessment of the ones suggested here and other alternatives might be the basis for another thesis or further research.
 
 \section{Final remarks}
 When I started working with the thesis, I thought there would be time to both create a protocol and possibly begin a large scale network simulation of the protocol.

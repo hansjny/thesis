@@ -4,7 +4,7 @@ estimates that there will be about 27 billion devices connected to the Internet 
 connected devices in 2017 was close to 8.4 billion \cite{Gartner}. In 2020 households alone will be responsible for over 10 billion devices
 able to wirelessly connect to the home router \cite{wifialliance}, and wireless traffic will account for 63 percent of all Internet traffic in the world \cite{CiscoVNI2017}. 
 Traditional devices connected to the Internet like computers, phones, watches, smart TVs, audio systems, and lately also private network storage systems is responsible
-for much of the traffic. However, as the era of Internet of Things (IoT) has rapidly descended upon us, increasingly also less obvious utilities are connected to the Internet.
+for much of the traffic. However, as the era of Internet of Things (IoT) has rapidly descended upon us less obvious utilities are also being connected to the Internet.
 These devices may span everything from lights and air condition systems to coffee machines, fridges and even toasters.
 
 It is not only the numbers of devices that has changed, but the consumers' expectations and demands are also being altered over time. 
@@ -33,7 +33,7 @@ algorithms and heuristics that based on information acquired from all access poi
 
 This is not the case for the chaotic deployment of access points in residential areas. If for instance an optimal channel distribution in e.g. an apartment building could be computed,
 the experienced QoS would undoubtedly increase. As of today this can not be done automatically: all decisions 
-has to be made relying only on the local observations at each access point, as no access point knows the condition of other access points in its surrounding area. A suggested channel allocation algorithm from 2004 \cite{mahonen} introduced the idea of using a flooding mechanism to build a graph of all surrounding access points at each access point,
+have to be made relying only on the local observations at each access point, as no access point knows the condition of other access points in its surrounding area. A suggested channel allocation algorithm from 2004 \cite{mahonen} introduced the idea of using a flooding mechanism to build a graph of all surrounding access points at each access point,
 and use this list compute an optimal channel distribution. The idea is promising, and might have worked with the limited deployment of Wi-Fi in 2004.
 Today this mechanism could result in tens, if not hundreds of thousand access points in the list. Not only could the flooding mechanism cause network congestion, but it would be computationally infeasible to attempt to let all access points in e.g. an entire city cooperate on channel allocation. 
 
@@ -63,7 +63,7 @@ To prevent co-channel interference on the wireless spectrum, some sort of coordi
 smaller clusters of access points that will exchange information between each other. A central controller could possibly do this, but the deployment of Wi-Fi in residential areas is inherently chaotic. Centralized controllers can be hard to scale, are single points of failures, and would be difficult to realize when customers are largely subscribed to different Internet service providers
 and use their own router brands.
 
-Hence a distributed clustering algorithm could provide a better solution. Such a clustering algorithm would need to identify collaborative groups of access points.
+A distributed and decentralized method could provide a better solution. For this a distributed clustering algorithm is needed to identify collaborative groups of access points.
 These groups should contain the access points that would benefit the most of being grouped together, hence minimizing the interference between the groups 
 without exceeding a feasible maximum amount of nodes inside each group. When such groups have been identified, information about channel interference and QoS could freely flow within the group
 to enable better channel allocation. 
@@ -94,12 +94,13 @@ cooperation and coordination between access points. In this thesis we will addre
 %In this thesis will mine data to create artificial network topologies that can be used in a simulated environment to d
 \begin{enumerate}
 	\item	\textit{Defining requirements for distributed clustering}\newline
-		As access points has limited knowledge of the surrounding environment, hence some requirements 
-		for this type of distributed clustering algorithm must be defined.  
+		This type of clustering problem will be different from traditional clustering. Access points have
+		limited knowledge of the surrounding environment, and other restrictive properties may apply. Hence
+		we should define what requirements applies to the distributed clustering algorithms.
 
 	\item \textit{Design and code a clustering algorithm that meets the requirements}\newline
-		After each algorithm iteration, simulations of the algorithm should be done, to evaluate and adapt the clustering algorithm.
-		Data about network topologies has to be made to enable such simulations
+		After each algorithm iteration, simulations of the algorithm should be done. Then we can observe results and adapt the clustering algorithm.
+		Data about network topologies has to be made to enable such simulations.
 		
 	\item \textit{Suggest the technology stack needed to enable this algorithm to run in a real world implementation }\newline
 		When the clustering algorithm has been developed and evaluated, some considerations for what technology and protocols needs to be in place to enable
@@ -141,8 +142,8 @@ The structure of the thesis is as follows:
 
 \begin{itemize}
 	\item \textbf{Chapter 2: Background} \newline
-	In the background chapter we look at the mechanisms of wireless technologies and the 802.11 standard. We look at why interference impacts 
-		Wi-Fi so hard, and what countermeasures exists.
+	In the background chapter we introduce the mechanisms of wireless technologies and the 802.11 standard. We look at why interference impacts 
+		Wi-Fi so hard, and what countermeasures exists. Finally we introduce two clustering algorithms that will be used in this thesis. 
 
 	\item \textbf{Chapter 3: Related Work} \newline
 		Here we consider the work that has been done to minimize the impact of co-channel interference in different centralized solutions.

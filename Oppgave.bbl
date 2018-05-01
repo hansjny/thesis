@@ -241,6 +241,62 @@
       \verb https://www.cisco.com/c/en/us/solutions/collateral/service-provider/visual-networking-index-vni/complete-white-paper-c11-481360.html
       \endverb
     \endentry
+    \entry{Coates2012}{inbook}{}
+      \name{author}{2}{}{%
+        {{hash=2a6ca55dc46029c413e9054d19502b28}{%
+           family={Coates},
+           family_i={C\bibinitperiod},
+           given={Adam},
+           given_i={A\bibinitperiod}}}%
+        {{hash=66b1ab24d7f42d468388f6200a7b5967}{%
+           family={Ng},
+           family_i={N\bibinitperiod},
+           given={Andrew\bibnamedelima Y.},
+           given_i={A\bibinitperiod\bibinitdelim Y\bibinitperiod}}}%
+      }
+      \name{editor}{3}{}{%
+        {{hash=e0889b25b37f68a2d73747dc5dfcb8a0}{%
+           family={Montavon},
+           family_i={M\bibinitperiod},
+           given={Grégoire},
+           given_i={G\bibinitperiod}}}%
+        {{hash=736e303522c63c771170e8069b11c809}{%
+           family={Orr},
+           family_i={O\bibinitperiod},
+           given={Geneviève\bibnamedelima B.},
+           given_i={G\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+        {{hash=9f1b6144a45b1967e989e74552e37ada}{%
+           family={Müller},
+           family_i={M\bibinitperiod},
+           given={Klaus-Robert},
+           given_i={K\bibinithyphendelim R\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Berlin, Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer Berlin Heidelberg}%
+      }
+      \strng{namehash}{4fedd749d420c310249a5117d68bba80}
+      \strng{fullhash}{4fedd749d420c310249a5117d68bba80}
+      \field{sortinit}{C}
+      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Many algorithms are available to learn deep hierarchies of features from unlabeled data, especially images. In many cases, these algorithms involve multi-layered networks of features (e.g., neural networks) that are sometimes tricky to train and tune and are difficult to scale up to many machines effectively. Recently, it has been found that K-means clustering can be used as a fast alternative training method. The main advantage of this approach is that it is very fast and easily implemented at large scale. On the other hand, employing this method in practice is not completely trivial: K-means has several limitations, and care must be taken to combine the right ingredients to get the system to work well. This chapter will summarize recent results and technical tricks that are needed to make effective use of K-means clustering for learning large-scale representations of images. We will also connect these results to other well-known algorithms to make clear when K-means can be most useful and convey intuitions about its behavior that are useful for debugging and engineering new systems.}
+      \field{booktitle}{Neural Networks: Tricks of the Trade: Second Edition}
+      \field{isbn}{978-3-642-35289-8}
+      \field{title}{Learning Feature Representations with K-Means}
+      \field{year}{2012}
+      \field{pages}{561\bibrangedash 580}
+      \range{pages}{20}
+      \verb{doi}
+      \verb 10.1007/978-3-642-35289-8_30
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-3-642-35289-8_30
+      \endverb
+    \endentry
     \entry{std80211}{article}{}
       \name{author}{2}{}{%
         {{hash=c4a5d942ab74a6e72c31f3bd81c193f2}{%
@@ -626,6 +682,53 @@
       \verb 10.1109/IEEESTD.2004.95388
       \endverb
     \endentry
+    \entry{murtycluster}{article}{}
+      \name{author}{3}{}{%
+        {{hash=9ee29fa046999b31c2634e59233a0eca}{%
+           family={Jain},
+           family_i={J\bibinitperiod},
+           given={A.\bibnamedelimi K.},
+           given_i={A\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+        {{hash=0a21adf7530130449a7363413eafb78a}{%
+           family={Murty},
+           family_i={M\bibinitperiod},
+           given={M.\bibnamedelimi N.},
+           given_i={M\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=0347e5c142bbc9697b72454f45e78308}{%
+           family={Flynn},
+           family_i={F\bibinitperiod},
+           given={P.\bibnamedelimi J.},
+           given_i={P\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{6540ae071d237080e5fa003b79b57624}
+      \strng{fullhash}{6540ae071d237080e5fa003b79b57624}
+      \field{sortinit}{J}
+      \field{sortinithash}{ec3950a647c092421b9fcca6d819504a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0360-0300}
+      \field{journaltitle}{ACM Comput. Surv.}
+      \field{month}{09}
+      \field{number}{3}
+      \field{title}{Data Clustering: A Review}
+      \field{volume}{31}
+      \field{year}{1999}
+      \field{pages}{264\bibrangedash 323}
+      \range{pages}{60}
+      \verb{doi}
+      \verb 10.1145/331499.331504
+      \endverb
+      \verb{url}
+      \verb http://doi.acm.org/10.1145/331499.331504
+      \endverb
+      \keyw{cluster analysis,clustering applications,exploratory data analysis,incremental clustering,similarity indices,unsupervised learning}
+    \endentry
     \entry{JSON}{report}{}
       \list{institution}{1}{%
         {ECMA}%
@@ -643,6 +746,34 @@
       \verb http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf
       \endverb
       \keyw{ecma,json}
+    \endentry
+    \entry{sloyd}{article}{}
+      \name{author}{1}{}{%
+        {{hash=8ebf199f60191f22565bfd96113285ea}{%
+           family={Lloyd},
+           family_i={L\bibinitperiod},
+           given={S.},
+           given_i={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{8ebf199f60191f22565bfd96113285ea}
+      \strng{fullhash}{8ebf199f60191f22565bfd96113285ea}
+      \field{sortinit}{L}
+      \field{sortinithash}{872351f18d0f736066eda0bf18bfa4f7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issn}{0018-9448}
+      \field{journaltitle}{IEEE Transactions on Information Theory}
+      \field{month}{03}
+      \field{number}{2}
+      \field{title}{Least squares quantization in PCM}
+      \field{volume}{28}
+      \field{year}{1982}
+      \field{pages}{129\bibrangedash 137}
+      \range{pages}{9}
+      \verb{doi}
+      \verb 10.1109/TIT.1982.1056489
+      \endverb
+      \keyw{Least-squares approximation;PCM communication;Quantization (signal);Signal quantization}
     \endentry
     \entry{mackaymeans}{book}{}
       \name{author}{1}{}{%
@@ -701,31 +832,6 @@
       \field{year}{2004}
       \field{pages}{536\bibrangedash 539}
       \range{pages}{4}
-    \endentry
-    \entry{agglomerative}{article}{}
-      \name{author}{1}{}{%
-        {{hash=b8fd52be7f29a6e6bcdf585c6ffdb06b}{%
-           family={{Müllner}},
-           family_i={M\bibinitperiod},
-           given={D.},
-           given_i={D\bibinitperiod}}}%
-      }
-      \strng{namehash}{b8fd52be7f29a6e6bcdf585c6ffdb06b}
-      \strng{fullhash}{b8fd52be7f29a6e6bcdf585c6ffdb06b}
-      \field{sortinit}{M}
-      \field{sortinithash}{2684bec41e9697b92699b46491061da2}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{eprintclass}{stat.ML}
-      \field{eprinttype}{arXiv}
-      \field{journaltitle}{ArXiv e-prints}
-      \field{month}{09}
-      \field{title}{{Modern hierarchical, agglomerative clustering algorithms}}
-      \field{year}{2011}
-      \verb{eprint}
-      \verb 1109.2378
-      \endverb
-      \keyw{Statistics - Machine Learning,Computer Science - Data Structures and Algorithms,62H30,I.5.3}
     \endentry
     \entry{Murty2}{inproceedings}{}
       \name{author}{5}{}{%

@@ -14,112 +14,103 @@
 
 \section{Introduction}
 While it at first sounds incredibly desirable to let the entire population of for instance New York's access points organize themselves in an optimal channel-plan,
-at second thought the idea may prove to be a little ambitious. If an optimal channel distribution was to be computed within the group using e.g. DSATUR \cite{Brelaz} which
+at second thought the idea may prove to be a little ambitious. If an optimal channel distribution is to be computed within the group using e.g. DSATUR \cite{Brelaz} which
 is an NP-hard problem, we have to set some reasonable constraints on the size of the collaborating group. The amount of nodes that will collaborate on the problem of finding an optimal channel distribution plan may not need to be very high.
 
 Let us for a moment look at an ideal example: a city that only consists of small apartment buildings that are entirely isolated from signals from other adjacent apartment buildings.
 How could we build a group in such a case? Turns out it is not that hard. Each access point would be able to collaborate with every other observable access point. A simple flooding mechanism
-as suggested in \cite{mahonen} and descibed in the related work section, could allow routers to discover each other. When computing channel distribution there would be no risk of surpassing the viable amount of nodes to compute the distribution for, as the groups would naturally be limited to the apartment building.
+as suggested by a paper from 2004\cite{mahonen} and described in section \ref{chap:dsatur}, could allow routers to discover each other. When computing channel distribution there would be no risk of surpassing the viable amount of nodes to compute the distribution for, as the groups would naturally be limited to the apartment building.
 
-Sadly for us the world is not ideal, and it is not impossible that every access point in e.g. New York can observe each other through a transitive relation. This means the size of
-the collaborating group would be vast and hard to manage. 
+Alas, in the real world this would not be not be possible. The density of Wi-Fi deployment today is too high, and it is not impossible that every access point in e.g. Manhattan can observe each other through a transitive relation. This means that if a method that simply floods the network to create a collaborative groups was to be used, the amount of nodes in the group could end up being millions.
+Flooding mechanisms would saturate the network with update mechanisms, local list describing which other nodes was in the group would be too large. Coordination between millions of peers
+is not only infeasible, but also redundant. There is no need for a node on the north side of Manhattan to cooperate with one located in the south. 
 
 This does not mean that creating reasonably sized groups of access points is impossible, but it poses a more difficult challenge. 
 We need to filter out less impactful nodes to create an approximated version of the ideal example.
 
-Having a picture of the typical cityscape in mind, we know that buildings are naturally separated by streets, bridges, parks, and so on. Rural areas are similar, but networks are spaced more unevenly and usually only affecting each other in one plane.
+Having a picture of a typical cityscape in mind, we know that buildings are naturally separated by streets, bridges, parks, and so on. Rural areas are similar, but networks are spaced more unevenly and usually only affecting each other in one plane. Hence, the geographic distribution of access points is far from uniform. The problem addressed in this chapter is finding a method for access points deployed in a chaotic and unplanned landscape to group together in clusters of access points. This can either be solved with a centralized coordinator or with a peer-to-peer distributed protocol with a distributed clustering algorithm. In this thesis we will be focusing on the distributed clustering algorithm. 
 
-We know that RF-interference is also a property of distance because of attenuation.  These pieces of information tells us that signal strength measured
-between access points in two separated buildings should be lower than readings between access points in adjacent apartments. In the following chapter we will consider how we can utilize the signal strength measured between access points to build a distributed clustering algorithm that divides network topologies into groups of access points with a maximum size. 
+%\subsection{Centralized model}
+%%Just like a distributed version, a centralized controller is also restricted by the NP-hard nature of all graph colouring algorithms if that is to be used to select channels. 
+%To be able to compute a channel plan using heuristics, it also has to identify groups of nodes that impacts each other severely. 
+%
+%The advantage of the centralized model is the ability to have the full picture of access points readily available. Let us assume the controller is placed at an ISP, which might be plausible 
+%for residential deployment.
+%The controller could potentially know exactly where in the world the access points are placed, by either location reporting or as a part of the information required
+%to set up a subscription. Creating groups could potentially be done by dividing access points into groups defined by sections of a map, 
+%where the sections are found by observing naturally separative geographical barriers like roads, streets and buildings. This would be like predefining RF-neighbourhoods, 
+%if we are to use Cisco's terminology from \cite{ciscoRRM}. 
+%
+%For a central controller to be able to identify APs that are near each other and compute the optimal channel distribution, APs need to report their radio readings to the controller. 
+%The controller then needs to identify which of all the observed APs it can control, and which is not controllable and has to be treated as noise. There would be no requirement for
+%communication in between nodes, which reduces complexity a lot.  
+%
+%A major drawback of the centralized approach is that nodes that are near each other have to be under the same controller. If there are too many nodes around
+%that can not be controlled by the controller, all nearby access points would be treated as noise and regular channel allocation schemes would have to be applied.
+%Even though in there is a tendency for apartments in the same building to have the same Internet Service Provider in Norway, there is no guarantee for that to always be the case.  
+%%Also such controllers does not scale very well and they are single points of failures. 
 
-%The should consist of APs that interfere with each other when their channels are overlapping, so that overlap can be avoided with a channel allocation algorithm run within the group. Not all APs in
-%the connected group will necessarily be able to hear each other on the radio directly, but all nodes
-%should be able to hear each other through a transitive relation (neighbour of a neighbour, etc.).
-
-\section{Problem overview}
-The problem addressed in this chapter is finding a method for access points deployed in a chaotic an unplanned landscape to group together in clusters that are geographically close to each other.
-This can either be solved with a centralized coordinator or with a peer-to-peer distributed protocol. In this thesis we will be focusing on the distributed approach, but first we will take a look at the pros and cons of each approach.
-
-\subsection{Centralized model}
+\section{Distributed group creation}
 In the related work section, we presented a couple of centralized solutions. As we want to propose a solution that works across private consumer networks as well as larger corporate networks,
-we can not assume that all networks are under the same administrative domain. This is where the centralized approach is limited, and why most solutions presented in the related work section is usually only deployed under the same extended service set (ESS), or at least confined to the boundaries of an enterprise. 
+we can not assume that all networks are under the same administrative domain. This is where the centralized approach is limited, and why most solutions presented in the related work section is usually only deployed under the same extended service set, or at least confined to the boundaries of an enterprise. Here we will discuss the benefits and challenges of a distributed model  
 
-Just like a distributed version, a centralized controller is also restricted by the NP-hard nature of all graph colouring algorithms if that is to be used to select channels. 
-To be able to compute a channel plan using heuristics, it also has to identify groups of nodes that impacts each other severely. 
-
-The advantage of the centralized model is the ability to have the full picture of access points readily available. Let us assume the controller is placed at an ISP, which might be plausible 
-for residential deployment.
-The controller could potentially know exactly where in the world the access points are placed, by either location reporting or as a part of the information required
-to set up a subscription. Creating groups could potentially be done by dividing access points into groups defined by sections of a map, 
-where the sections are found by observing naturally separative geographical barriers like roads, streets and buildings. This would be like predefining RF-neighbourhoods, 
-if we are to use Cisco's terminology from \cite{ciscoRRM}. 
-
-For a central controller to be able to identify APs that are near each other and compute the optimal channel distribution, APs need to report their radio readings to the controller. 
-The controller then needs to identify which of all the observed APs it can control, and which is not controllable and has to be treated as noise. There would be no requirement for
-communication in between nodes, which reduces complexity a lot.  
-
-A major drawback of the centralized approach is that nodes that are near each other have to be under the same controller. If there are too many nodes around
-that can not be controlled by the controller, all nearby access points would be treated as noise and regular channel allocation schemes would have to be applied.
-Even though in there is a tendency for apartments in the same building to have the same Internet Service Provider in Norway, there is no guarantee for that to always be the case.  
-Also such controllers does not scale very well and they are single points of failures. 
-
-\subsection{Distributed model}
-The distributed approach has the advantage of being scalable and require less administration and maintenance like central controllers would. 
+\subsection{Benefits}
+A distributed approach has the advantage of being scalable and requires less administration and maintenance like central controllers would. 
 While the distributed approach also requires other nodes in the network to run the same technology stack to be useful, this could potentially be easier to achieve.
 If the technology does not require proprietary software and hardware and is open source, it would be easier for vendors or ISPs to include the technology in their products.
 It would benefit all customers, without imposing any significant scalability or administration costs for the providers. Another option for a distributed solution is going through
-802.11 standardization. This would make sure all 802.11 compliant  would be a part of the clusters. 
+802.11 standardization. This would make sure all 802.11 compliant access points would be a part of the clusters. 
 
-\subsubsection{Challenges}
-We will continue considering a distributed approach as the main topic of the thesis. In reality this idea has some major challenges that we have to overcome. Here are the most prominent ones: 
+\subsection{Challenges}
+Of course the distributed approach has some major challenges that has to overcome. Here are the most prominent ones: 
 \begin{enumerate}
-	\item The group creation algorithm. Based on the signal strength and the communication channel, nodes have to be able to organize themselves in a tight cluster of nodes that
-		includes all nodes that impacts each other most severely. This problem essentially boils down to a distributed clustering problem. This point will be addressed in the rest of this chapter.
-	\item The communication channel. In a finished implementation of the group creation algorithm from step 1, access point would need to be able to communicate with each other.
+	\item \textbf{The group creation algorithm.} Based on the signal strength and the communication channel, nodes have to be able to organize themselves in a tight cluster of nodes that
+		includes all nodes that impacts each other most severely. This problem is the distributed clustering problem that will be addressed in the rest of this chapter.
+	\item \textbf{The communication channel}. In a finished implementation of the group creation algorithm from step 1, access points would need to be able to communicate with each other.
 		The 802.11 standard does not specify any protocol for communication between access points that are not on the same extended service set.
-		This communication would have to happen on the network layer, preferably over TCP for reliable delivery of protocol message, and the communication channel would have to convey a messages that enables group creation, most likely a custom application layer protocol. 
-	\item State synchronization. As all nodes have to compute a channel plan for the group, and they all need to have synchronized information about the members of the groups
-		and also every other node's signal strength measurements. Else the results of the channel distribution would be different, and provide little real world value. 
-	\item Channel distribution calculation. Even though the centralized approach would have a similar problem, it will be more difficult to solve in a distributed fashion as 
+		This communication would have to happen on the network layer, preferably over TCP for reliable delivery of protocol message, and the communication channel would have to convey messages that enables group creation, most likely a custom application layer protocol. 
+	\item \textbf{State synchronization}. As all nodes should be able to compute a channel plan for the group they need to have synchronized information about the members of the groups
+		and every members' signal strength measurements. Else the results of the channel distribution would be different for different nodes, and provide little real world value. 
+	\item \textbf{Channel distribution calculation}. Even though the centralized approach would have a similar problem, it will be more difficult to solve in a distributed fashion as 
 		it is reasonable to assume that an access point has less computational power than a centralized controller.
 \end{enumerate}
 
 
-\section{Computation assumptions and requirements}
+\section{Clustering assumptions and requirements}
 We will be using the data created in chapter \ref{dataacc} to simulate group creation in network topologies. The data provides a topology of nodes where all nodes have a list of neighbouring nodes.
 Just as real life access points can scan for neighbouring networks, this neighbour list contains the appropriate computed signal strength measurements for each node.
 
-\subsection{Requirements}\label{chap:requirements}
+\subsection{Clustering requirements}\label{chap:requirements}
 \begin{enumerate}
-	\item Clusters must be formed based only the locally available information at each node. This means that nodes have no concept of their position, 
+	\item Clusters must be formed based only on the locally available information at each node. This means that nodes have no concept of their position, 
 		nor their relative position to their neighbours. All information available to each node is the SSIDs of its neighbours as well as the signal strength of these neighbours. 
 	\item The clustering algorithm has to be dynamic. Meaning that when nodes appear or disappear it can adjust for the changes in the network topology.
 	\item The clustering algorithm needs to be able to adjust its size to a given maximum size. We do not make any suggestions for what this maximum size should be, but
-		have used 128 as the maximum size for the rest of the thesis. 
-		\item When clusters are being formed, the border between two different groups should be placed in such a way the signal strength between the two access points that disturbs each other the most, is as minimal as possible. This is to ensure that the access points that would interfere the most heavily with each other ends up in the same group.
+		we have used 128 as the maximum size for the rest of the thesis. 
+		\item When clusters are being formed, the border between two different groups should be placed in such a way that the signal strength between the two access points that disturbs each other the most, is as minimal as possible. This is to ensure that the access points that would interfere the most heavily with each other ends up in the same group.
 		\item Has to work without a proper bi-directional signal strength between nodes. Meaning that a node can observe another node stronger or weaker than the strength itself is observed at. 
 \end{enumerate}
 
 \subsection{Assumptions}\label{chap:assumptions}	
-		To simplify the computation procedure and to reduce the workload for building the simulation program we are going to do a number of assumptions:
+		To simplify the computation procedure and to reduce the workload for building the simulation program we are going to make a number of assumptions:
     \begin{enumerate}
     \item Assumption 1: All nodes involved in the simulation also run the group creation algorithm. There exists no "rogue"-nodes.  
 		\item Assumption 2: When a node is observed over radio, it is also known how to directly contact the node (e.g. via TCP). This assumption implies that there exists a protocol that lets nodes communicate and exchange information about their signal strength measurements and group membership. For now we will assume this is true, but in chapter \ref{chap:proto} this issue will be discussed. 
-		\item Assumption 3: All the nodes in a group are completely synchronous, and always have an equal image of the state of the group at a given time. This means that through the communication protocol, all nodes in a group is aware of all members' neighbours and their respective signal strengths. Sharing of this information with the group is instant. This is also an issue that will be addressed in chapter \ref{chap:proto}. 
+		\item Assumption 3: All the nodes in a group are completely synchronous, and always have an equal image of the state of the group at a given time. This means that through the communication protocol, all nodes in a group are aware of all members' neighbours and their respective signal strengths. Sharing of this information with the group is instant. This is also an issue that will be addressed in chapter \ref{chap:proto}. 
     \end{enumerate}
 \section{Program design}
 \subsection{Design choices}
 The simulation program is designed to be modified so it can accommodate different algorithm variations without changing the fundamental framework.
 Everything regarding group computation is implemented in Python 3 \cite{Python3}, and is designed to parse the output from the data generation program from chapter 4, and use it directly.
 The data generation (or fetching) is a slow process and should only be done once every time a new data set is required.
-The decision was made to not parallelize the program to keep results consistent and to easier debug and locate program and algorithm implementation mistakes. 
+The decision was made to not parallelize the program to keep results consistent and to more easily debug and locate program and algorithm implementation mistakes. 
 
 \subsection{Group framework}
 The group framework consists of 3 classes with different responsibilities:
 \begin{itemize}
 	\item \textbf{Group}. An object of this class is an abstraction of all the nodes that belong to the same group. Because we assumed that all nodes have equal
 	information about group membership and signal strength measurements, we can store all the members of each group in a list and let the group object act as a unified entity on
-	behalf of the entire group. All the interfaces and logic for forming groups is placed within this class. A method named \verb|iteration|
+	behalf of the entire group. All the interfaces and logic for forming groups are placed within this class. A method named \verb|iteration|
 	has the responsibility of triggering the appropriate action based on the state of the group. For instance adding nodes, removing nodes or merging the group
 	with another. This is the part of the code that has to be changed when implementing and changing algorithms. If an action was performed the method returns 1, else it returns 0. 
 
@@ -135,14 +126,14 @@ The group framework consists of 3 classes with different responsibilities:
 \end{itemize}
 
 \subsection{Output file structure}
-The results of the group computations are writen to file. The results does not only contain the resulting division of groups, but to be able to recreate the simulation
-visually, the results contains the topology of all nodes and their group membership for each iteration in the simulation process. This means that we can step-by-step
-recreate the simulation. The data is stored as JSON, and the structure can been seen in figure \ref{fig:jsongroup}.
-Having the data stored as JSON means that the data is to a large degree language independent.
+The results of the group computations are written to file. The results do not only contain the resulting division of groups, but to be able to recreate the simulation
+visually, the results contains the topology of all nodes and their group membership for each iteration in the simulation process. 
+The data is stored as JSON, and the structure can been seen in figure \ref{fig:jsongroup}.
+Having the data stored as JSON means that the data is to a large extent language independent.
 This allows us to either implement a parser in python for the data and use \verb|matplotlib| to visualize it,
 or we can use another application to visualize the data. Since we already have the topology visualizer
 written in HTML and JavaScript from chapter \ref{dataacc}, we can extend this program to let us upload a group creation output file. 
-		\begin{figure}[t!]
+		\begin{figure}
 
 \begin{minipage}{\linewidth}
 \begin{lstlisting}[language=json]
@@ -193,56 +184,33 @@ containing both nodes.
 %All approaches will be tested with the same topologies: one uniformly distributed, one used for evaluating traditional clustering algorithms, and two topologies 
 %of towns fetched from Wigle. Henceforth we will for the sake of simplicity be referring to APs that are running the group algorithm as \textit{nodes}.
 
-\section{Creating groups with clustering}
-In this section we will iteratively develop a distributed clustering algorithm by first assessing an existing clustering algorithm, then making modifications to 
+\section{Cluster algorithm development}
+In this section we will iteratively develop a distributed clustering algorithm by first assessing agglomerative clustering, then make modifications to 
 gradually fulfill all requirements specified in chapter \ref{chap:requirements}. All of the code written in this chapter can be found on GitHub \footnote{https://github.com/hansjny/GroupSimulations/blob/master/GroupCreation.py}.
 
-\subsection {Agglomerative Clustering}
-There are a couple of reasons for choosing hierarchical agglomerative clustering as a starting point. First of all it does not need a pre-specified amount of clusters to be able to run,
-like for instance partitioning clustering needs: it would be impossible to specify an amount of clusters to create in a network topology, especially when there is no entity that
-knows the entire network topology. The second reason is that agglomerative clustering has a bottom-up, greedy approach. This means that the algorithm
-begins at the bottom "node"-level, instead of considering the entire topology. Intuitively seems to fit well with the first requirement: all nodes need know only of themselves and their neighbours,
-and has to make a decision based only on this knowledge. 
+\subsection{Agglomerative clustering as a starting point}
+Agglomerative clustering seems like a natural starting point. It does not need a pre-specified amount of clusters to be able to run,
+like for instance partitioning clustering needs. It has a bottom up approach, which means it works well for a distributed clustering scenario which also has to begin
+at node level. 
 
-\subsubsection{Description}
-Agglomerative clustering  \cite{agglomerative} is a variant of hierarchical clustering where clusters are pairwise greedily merged. The starting number of clusters is the same as the number of
-points in the data set. Based on a specified \textit{distance metric} the two clusters that are closest to one another is merged into combined cluster. The clustering is complete
-when there is only one cluster left. It falls under hierarchical clustering category, because the cluster subsets are iteratively being built for each merge. 
+In our test data simulations all pairs of neighbouring nodes observes each other with equal signal strength. That is because we have used the free space path loss formula to derive
+the signal strength in dBi. The major reason we wont use an unmodified hierarchical agglomerative clustering method,  is because in a real-life distributed network topology two nodes might not observe
+each other with equal signal strength. If that is the case, this could lead to a gridlock situation with agglomerative clustering: all nodes are waiting to merge, but nobody can because no pair 
+of nodes observes each other as mutually close. This is illustrated in figure \ref{fig:gridlock}. 
 
-\subsubsection{Distance metric}
-The distance metric lets us specify exactly what the distance between two clusters signifies. As each cluster usually consists of several nodes, there are multiple
-options for what the distance between two clusters could be defined as. The distance metrics used in hierarchical clustering are typically either:
+\begin{figure}
+	\centering
+		\subfloat[A wants to merge with B, B with C, C with D and D with A.]{{\includegraphics[width=8.5cm]{Images/gridlock.png} }}%
+	\caption{Gridlock situation with agglomerative clustering}
+	\label{fig:gridlock}
+\end{figure}
 
-\begin{itemize}
-	\itemsep0em 
-	\item The average distance between the nodes of each cluster
-	\item The minimum distance between the nodes of each cluster
-	\item The maximum distance between the nodes of each cluster
-\end{itemize}
-
-We will use is the signal strength value of neighbouring nodes in -dBi as the distance metric.
-Every node in a cluster tracks the observed -dBi value of all other nodes that are not a member of the cluster.
-Ideally we the clusters containing the nodes with the highest -dBi value toward each other to be be merged together. This is similar to the minimum distance metric. 
-
-\subsubsection{Assessment}
-Agglomerative clustering provides us with the basic framework for an algorithm we can use to create access point groups. It begins by considering the nodes which
-observe each other as the closest nodes. However, there are two points where agglomerative clustering fails to meet our requirements: 
-
-\begin{itemize}
-	\item There is no upper limit to the amount of nodes in each cluster.
-	\item As the clustering algorithm will be running distributed, a decision has to be made with only the local distance observations at hand.
-		Assuming that there exists two groups that finds each other the closest (most disturbing), might prove a fallacy. Signal strengths are observed locally, and while one node observes another with a given signal strength, the mutual observation might be a different one. A situation like this could create a deadlock where there exists no combination of group pairs where both observes the other
-		as the closest group. 
-\end{itemize}
-
-The first point has the trivial solution of checking the number of nodes before accepting a merge,  and would only be a slight implementation change of agglomerative clustering. 
-The second point forces us to change the paradigm of always finding two mutually closest groups. 
-
+Vanilla agglomerative clustering also does not facilitate an upper cluster size bound, albeit this would be a trivial modification to do. 
 \subsection{K-Closest Neighbour Clustering}
 \label{chap:kcn}
-To resolve the problems discussed in the previous section, we will create a slightly different algorithm and call to it as K-Closest Neighbour Clustering (KCNC). 
-In this method, similar to agglomerative clustering, in the beginning there are equally many clusters as there are nodes. The difference will be instead of looking for pairs that are mutually close,
-each cluster will attempt to merge with the cluster that it itself observes as closest. The distance is defined by the same distance metric. The merge will always happen as long as the resulting cluster does not contain a higher node count than K.
+To resolve the problem discussed in the previous section, we will perform a little modification to agglomerative clustering. 
+To separate it from agglomerative clustering, we will call it K-Closest Neighbour Clustering (KCNC). In this method, similar to agglomerative clustering, in the beginning there are an equal amount of  clusters as there are nodes. 
+The difference is that instead of looking for pairs that are mutually close, each cluster will attempt to merge with the cluster that it itself observes as closest. The distance is defined by the same distance metric, observed signal strength. In short: the merge will always happen as long as the resulting cluster does not contain a higher node count than K.
 
 \subsubsection{Description}
 Each node begins by identifying itself as a member of a group that only contains itself. Let us call this group $a$.
@@ -305,7 +273,7 @@ while True: //Run as long as there are changes
 
 
 Merges can not always be accepted, else the group would eventually contain all nodes in the entire topology. That is why we define a maximum threshold for the amount of members a group can have, 
-referred to as K. If the sum of members in two groups that wants to merge exceeds K, the merge is aborted and no changes is reported to have happened for either group. 
+referred to as K. If the sum of members in two groups that wants to merge exceeds K, the merge is aborted and no changes are reported to have happened for either group. 
 This means that the simulation algorithm converges when no groups remain that are small enough to merge with another.
  
 \subsection{Simulations}
@@ -328,18 +296,17 @@ the large scale images of each topology can be seen in appendix \ref{appendix:kn
 
 \subsection{Observations}
 By looking at the results of the simulations of the K-Closest Neighbour Clustering it is obvious that clusters are created that contains the nearest nodes.
-Even in the more chaotic topologies as Lillehammer,there are distinct clusters that encompasses the most impactful nodes. However, there are two obvious problems with this algorithm
+Even in the more chaotic topologies as Lillehammer there are distinct clusters that encompasses the most impactful nodes. However, there are two obvious problems with this algorithm
 which makes it unsuitable:
 
 \begin{itemize}
 	\item In contrast to agglomerative clustering, our K-Closest Neighbour Clustering algorithm does not care if the closest distance between the groups is pairwise mutual. This
 		might lead to one group $a$ merging into another group $b$, even while $b$ has another neighbouring group $c$ that lies closer. If the maximum size K is reached during the merge of
-		$a$ and $b$,  the resulting group will never be able to merge with $c$ even though that would have given a better cluster. This violates requirement 4.
+		$a$ and $b$,  the resulting group will never be able to merge with $c$ even though that would have given a better cluster. This violates requirement 4 from \ref{chap:requirements}. 
 	\item Once a cluster reaches the maximum size K, there is no possibility for any other nodes to join the cluster.
 		In the simulation of static topologies that might work, but in a real world scenario access points may turn on randomly and be located in the middle of an already existing cluster.
-		With this algorithm alone there is no way to handle this event, and the new node could not become a member of the cluster that surrounds it. This violates requirement  2.
+		With this algorithm alone there is no way to handle this event, and the new node could not become a member of the cluster that surrounds it. This violates requirement 2 from \ref{chap:requirements}.
 \end{itemize}
-
 In the next section we will look at how we can use group splitting to offer a solution for these problems.
 
 \section{K-means splitting}
@@ -367,21 +334,6 @@ before the least disturbing node is kicked out to get the group size back to K.
 		\caption{Simplified illustration of the idea behind splitting. K = 2}%
 		\label{fig:splitting}%
 \end{figure}
-
-
-
-\subsection{Introduction to K-means}
-K-means is a clustering algorithm commonly used for classification purposes in machine learning, usually in the context of unsupervised learning. K-means
-is an iterative algorithm designed to find a predefined amount of clusters in a data-set with unclassified data points. The amount of clusters to find is denoted by
-K (hence K-means). 
-
-K centroids are randomly placed somewhere in the data set, then the distance between each data point and each centroid is computed. All data points
-closest to the same centroid becomes part of the same cluster set. When all data points are associated with a cluster, each cluster computes the mean position of all its data points.
-The value of the mean position becomes the location of the new centroids. When all the new centroids are computed, one iteration is over. The algorithm continues until the position 
-of all centroids remains unchanged after an iteration. When the position of the centroids are the same two iterations in a row, it means that the solution has converged and all K-clusters has been identified \cite{mackaymeans}.
-
-A well known problem with K-means is that the result strongly depends on how the algorithm is initiated. This problem can be reduced by running K-means several times
-and choosing the best result of all the runs. 
 
 \subsection{K-means splitting}
 K-means clustering is not directly applicable to solve the clustering challenge in this thesis. The simple reason being the distributed nature of
@@ -432,9 +384,9 @@ comparison of a section of the uniform distribution can be seen in figure \ref{f
 \end{figure}
 
 \subsection{Observations}
-There is little doubt that K-means splitting improves upon the original algorithm, especially when splits only are accepted when the maximum interference of a group is reduced after the split.
+There is little doubt that K-means splitting improves upon the original algorithm, especially when splits are only accepted when the maximum interference between groups is reduced after the split.
 Even though the clusters in a static environment is slightly improved, the most important use-case for K-means splitting is under the introduction of new nodes to an environment
-where all groups have converged. Where in the unmodified K-Closest Neighbour Clustering algorithm there was no specific way to handle a new node in an environment of saturated groups
+where all groups have converged. Where in the unmodified K-Closest Neighbour Clustering algorithm there was no specific way to handle a new node in an environment of saturated groups,
 with K-means splitting eventually new groups will be formed on the basis of the updated topology. The weakness of this approach is how ill suited it is to run in a distributed environment.
 It is trivial to simulate splits using K-means, as during a simulation the absolute coordinates of the nodes in the group are accessible. This is information unavailable for nodes under
 real circumstances - the only available information is the approximate point-to-point distance inferred from the signal strength scans.
@@ -509,10 +461,10 @@ through one or more links which are weaker than the strongest link to a neighbou
 	\end{figure}
 
 
-To utilize minimum cut as a mechanism for splitting, the groups has to be treated as directed graphs. While the data structure of the networks in the implementation is not
+To utilize minimum cut as a mechanism for splitting, the groups have to be treated as directed graphs. While the data structure of the networks in the implementation is not
 originally designed for graph operations, the nature of the nodes with its neighbour lists and signal strength metrics certainly can be treated as a graph. Meaning that each node's neighbour list contains
 its outgoing edges, while the belonging signal strength value is the weight of the edge. In contrast to the K-means splitting implementation, the minimum cut implementation does not require
-a larger transient group. Instead the groups have to negotiate to know when a split can be confirmed. A flowchart illustration an abstract flow of the simulation implementation can be seen in figure \ref{fig:mincutflow}, showing the steps which are more closely described below. 
+a larger transient group. Instead the groups have to negotiate to know when a split can be confirmed. A flowchart illustration of the simulation implementation can be seen in figure \ref{fig:mincutflow}, showing the steps which are more closely described below. 
 
 \begin{enumerate}
 	\item Two groups $A$ and $B$ wants to merge, their combined size is larger than the specified group $maxSize$. The measured maximum value of signal strength between nodes in the two different
@@ -570,7 +522,6 @@ In the result section of K-means splitting there was a close up examination and 
 In figure \ref{fig:mincutcomparison} a close up of the same area has been made between K-means splitting and minimum cut splitting. The group division seems to 
 be very similar, except for a major difference in a cluster on the top left area of the topology (pink color on \ref{fig:mincutcomparison}a).
 While the K-means splitting algorithm identifies a neatly separated cluster, the same cluster in the minimum cut method does not include three nodes at the bottom right edge of the cluster.
-This is unwanted behaviour. 
 
 By looking at the minimum cut, figure \ref{fig:mincutcomparison}b, one can tell that the distance from the three pink nodes to the pink cluster is large.
 Actually, it is larger than the distance to the green cluster. The green cluster is far from being the maximum size of 128, so upon a merge it would be reasonable to believe
@@ -591,7 +542,7 @@ These are illustrated in figure \ref{fig:mincutbug}. In \ref{fig:mincutbug}a, th
 During the split several nodes are kicked out, which can be seen in \ref{fig:mincutbug}b. As expected, the three nodes in question have not been kicked out. By watching the figure it is easier to understand why.
 These 3 nodes are obviously less tighter connected than -45dbi, which would the threshold for minimum cuts over this graph, but they are not kicked out because sometime during the split the size of the group becomes lower than the max size of $128$ - before they have the chance to be thrown out. The merge is then immediately accepted. 
 
-An improvement to the algorithm could be to change step 6, so that the minimum cut partitioning would run until no more nodes could be kicked out. Even if the group size reached a tolerable size before that. This change would prevent nodes from being left in a group when their closest neighbours have been kicked out, and they would be better off in another group.
+An improvement to the algorithm could be to change step 6, so that the minimum cut partitioning would run until no more nodes could be kicked out, even if the group size reached a tolerable size before that. This change would prevent nodes from being left in a group when their closest neighbours have been kicked out, and they would be better off in another group.
 
 \subsubsection{Simulations after re-evaluation}
 The final comparison between K-means and the new minimum cut can be seen in figure \ref{fig:mincutbug}. For the full size version of
@@ -613,17 +564,36 @@ on initial group selection. In a real-world implementation scenario, minimum cut
 Thus while K-means would be hard to realize, the minimum cut method should in theory be little different from simulation to real world implementation, which can be considered
 a major benefit. 
 
-\section{Evaluation}
-In this chapter four methods of clustering has been considered: regular agglomerative clustering, K-Closest Neighbour Clustering (KCN), KCN Clustering with K-means splitting
-and KCN Clustering with minimum cut splitting. The first is a well known clustering algorithm part of the hierarchical clustering family and has not been simulated. The
-last three has been proposed in this thesis. This section is dedicated to the evaluation of the work done throughout this chapter, with regards to cluster quality and simulation weaknesses.
+\section{Assessment}
+In this chapter three clustering methods has been simulated: K-Closest Neighbour Clustering (KCN), KCN Clustering with K-means splitting
+and KCN Clustering with minimum cut splitting. This section is dedicated to the evaluation of the results done throughout this chapter, with regards to cluster quality and simulation weaknesses.
 
 \subsection{Result analysis}
 
 \subsubsection{Davies-Bouldin Index}
-The Davies-Bouldin Index \cite{Bouldin} is an internal cluster analysis method. It uses the distance between the data points to the cluster centroid, and divides
-it by the distance between the centroids of each cluster. The less scattered a cluster is the lower value is produces, hence a lower Davies-Bouldin Index is desirable.
-To analyse the clusters, we can implement the Davies-Bouldin index. The code for it can be found on GitHub \footnote{\url{https://github.com/hansjny/GroupSimulations/blob/master/Analysis.py}}.
+\label{chap:bouldin}
+
+The Davies-Bouldin Index \cite{Bouldin} is an internal cluster analysis formula. The less scattered a cluster is the lower value is produces, hence a lower Davies-Bouldin Index is desirable.
+
+The formula for the topology wide cluster similarity is as follows:
+\[
+	DB_\text{topo} = \frac{1}{N}\sum_{i=1}^{N} R_i
+\]	
+where N = the number of clusters, and $R_i$ is defined as: 
+
+\[
+	R_i= \max R_\text{ij} 
+\]	
+
+where $i \neq j$ and $R_\text{ij}$ is defined as: 
+
+\[
+	R_\text{ij}= \frac{S_i + S_j}{M_\text{ij}} 
+\]	
+
+$S$ is the average distance between all points in the cluster, and M is the distance between the centroids of the two clusters $i$ and $j$.
+
+To analyse the clusters we implemented the Davies-Bouldin index. The code for it can be found on GitHub \footnote{\url{https://github.com/hansjny/GroupSimulations/blob/master/Analysis.py}}.
 The result of the Bouldin-Index analysis can be seen in figure \ref{fig:bouldin}.
 \begin{figure}[h]
 	\centering
@@ -632,46 +602,21 @@ The result of the Bouldin-Index analysis can be seen in figure \ref{fig:bouldin}
 		\label{fig:bouldin}%
 \end{figure}
 
-\subsubsection{Assessment}
-The interesting results from the Davies-Bouldin analysis is that it shows that the modified version of the minimum cut algorithm performs less good than the original one.  
-But as we saw earlier, the original version of the minimum cut algorithm produces results that are undesireable. Most likely, this means that the results
-of the modified version of minimum cut produces clusters that are more scattered. So maybe the modification to it was unnecessary. Even so, this
-confirms that the evaluation of clusters can be just as hard as the clustering task itself as indicated by Darius Pfitzner et al. in \cite{fitzner}.
-
-
-\subsection{Knowledge acquired from simulations}
-Before beginning the work on the thesis it was hard to envision how groups could be formed in a distributed manner, without any central controller having a top down view of
-the landscape of wireless access points. While many questions still remain, some has also been answered. The main issue
-has been forming groups and considering how they can be continuously be updated to keep up with changes in the surrounding network.  
-
-Unsurprisingly, the small modification to the agglomerative clustering algorithm, which made KCN Clustering, yielded promising results already.
-This algorithm could provide a natural starting point for a real-world implementation in a static network topology.
-However, this algorithm alone does not handle changes in the network environment very well, as once a group's maximum size is reached, it can not be modified. 
-Still it could possibly provide useful for testing scenarios, maybe in an early implementation when a distributed channel allocation algorithm is to be tested across the group, without
-wanting changes to happen. By considering ways to improve this algorithm, the notion of splitting was introduced, and tested through the methods of K-means and minimum cut.
-
-K-means was an interesting clustering algorithm to work with. The promising splitting results observed on the simulation topologies was especially fun to see, as
-the K-means method was adapted to fit the clustering purpose, and not implemented as a textbook K-means clustering.
-However, when comparing the K-means and the minimum cut algorithm to decide which one is the best bet for a real-world implementation of a splitting algorithm,
-the minimum cut algorithm comes off as the easiest to implement given the limited knowledge of the surrounding nodes each access point has access to.
-Most importantly, the minimum cut implementation coforms to all requirements postulated in \ref{chap:requirements}.
-
 \subsection{Simulation weaknesses and data bias}
-As seen the simulations have taught us about what kind of clustering could work under the assumptions made early in the thesis. The obtained results are also 
-a product of the data that was gathered, and the simulation program which was made. This subsection will consider all the different aspects that has not been considered
+This subsection will consider all the different aspects that has not been considered
 when producing the simulated results, but might have an impact in a real life implementation. 
 
 \subsubsection{Volatility} 
-All the simulations takes a static network topology as an input. The static topology is an image of a network topology in a given state, and is not representative
+All the simulations take a static network topology as an input. The static topology is an image of a network topology in a given state, and is not representative
 of the volatile nature of modern networks. Actually, it is more like a computation than a simulation in its rightful meaning.
 While it is true that most access points are relatively stationary and constant, it is increasingly popular to create ad-hoc on-demand Wi-Fi
-networks using cell phones or a computers as access points. Additionally resetting of routers, power outages, etc. means that access points come and go. 
+networks using cell phones or using computers as access points. Additionally resetting of routers, power outages, etc. means that access points come and go. 
 Hence it is indisputable that network topologies are volatile, and the group clustering algorithm should, when final, run as a continuous operation. 
 Any reader of this thesis will know that ways the algorithm can handle volatility has been considered, enabled by group splitting,
 but the simulation framework does not support inserting or removing nodes during the computation, hence only static environments that quickly converges have been tested. 
 
 \subsubsection{Signal strength reporting bias}
-The group computations has been based on the signal strength of all nearby access points, and the $dBi$ values that denotes all signal strengths has been calculated using the
+The group computations have been based on the signal strength of all nearby access points, and the $dBi$ values that denotes all signal strengths have been calculated using the
 free space path loss formula. As distance is the only variable that affects the result of the signal strength calculation,
 it means that the signal strength levels becomes a symmetric binary relation between nodes. In the real world this is not the case, and also the reason agglomerative clustering was deemed
 less ideal. Access points may interfere with each other differently, and the signal strength values may change when there are variations in the environment. This is the reasons deadlocks could
@@ -680,10 +625,39 @@ could work well with agglomerative clustering. We have no simulations of how gro
 
 \subsubsection{Dimensionality and node location reporting bias} 
 Both the data that has been randomly generated, and the data fetched from \verb|wigle.net| takes the $x$ and $y$ axes in account. Obtaining data in three dimensions is harder.
-WiGLE places the access points using longitude and latitude as all their data is acquired using ground-level triangulation
+WiGLE places the access points using longitude and latitude as all their data is acquired using ground-level trilateration. 
 By creating clusters based on information in two dimensions there is no way to know how the algorithm behaves in a 3-dimensional world. Of course, it is reasonable to think that an algorithm
-which is based on distance two dimensions should also work well in three dimensions, but there has been done no simulations in three dimensions. As mentioned in the data-mining chapter, WiGLE has a 
-tendency to place nodes closer to roads, which means that the positioning of nodes may not be strictly accurate in two dimensions either.  
+which is based on distance in two dimensions should also work well in three dimensions, but there have been done no simulations in three dimensions.
+As mentioned in the data-mining chapter, WiGLE has a tendency to place nodes closer to roads, which means that the positioning of nodes may not be strictly accurate in two dimensions either.  
+
+
+\subsection{Summary and discussion}
+Before beginning the work on this chapter it was hard to envision how groups could be formed in a distributed manner, without any central controller having a top down view of
+the landscape of wireless access points. While many questions still remain, some have also been answered. 
+
+The small modification to the agglomerative clustering algorithm which we called KCN Clustering yielded promising cluster topologies already.
+This algorithm could provide a natural starting point for a real-world implementation in a static network topology.
+However, this algorithm alone does not handle changes in the network environment very well, as once a group's maximum size is reached, it can not be modified. 
+Hence, we not recommend this to be used for any final implementations, but still it could possibly provide useful for testing scenarios, possibly in an early
+implementation when a distributed channel allocation algorithm is to be tested across the group.
+
+It deserves mentioning that agglomerative clustering could have been used with the assumption that all signal strength observations was a symmetric relation.
+This was not done to reduce the amount of assumptions. Not making the assumption does arguably represents a more realistic scenario. 
+
+To extend this type of clustering to work in a dynamic environment, the notion of splitting was introduced, and tested through the methods of K-means and minimum cut.
+
+K-means was an interesting clustering algorithm to work with. The promising splitting results observed on the simulation topologies was especially fun to see, as
+the K-means method was adapted to fit the clustering purpose, and not implemented as a textbook K-means clustering.
+i
+However, when comparing the K-means and the minimum cut algorithm to decide which one is the best bet for a real-world implementation of a splitting algorithm,
+the minimum cut algorithm comes off as the easiest to implement given the limited knowledge of the surrounding nodes each access point has access to.
+Most importantly, the minimum cut implementation conforms to all requirements postulated in \ref{chap:requirements}, except requirement 4. By studying the
+final topologies it is clear that there is still room for further optimization.
+
+The interesting results from the Davies-Bouldin from \ref{chap:bouldin} analysis is that it shows that the modified version of the minimum cut algorithm performs less well than the original one.  
+But as we saw earlier, the original version of the minimum cut algorithm produces results that are undesirable. Most likely, this means that the results
+of the modified version of minimum cut produces clusters that are more scattered. So maybe the modification to it was unnecessary, it all depends on how one wants
+to define the quality of a cluster. Even so, this confirms that the evaluation of clusters can be just as hard as the clustering task itself as indicated by Darius Pfitzner et al. in \cite{fitzner}.
 
 
 

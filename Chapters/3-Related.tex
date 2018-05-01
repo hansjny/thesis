@@ -5,10 +5,10 @@ to technologies that in some way provide channel allocation or other ways to red
 \section{Centralized Solutions}
 
 \subsection{Cisco RRM}
-CISCO offers a RRM (Radio Resource Management) solution directed at enterprise networks \cite{ciscoRRM}.
+CISCO offers an RRM (Radio Resource Management) solution directed at enterprise networks \cite{ciscoRRM}.
 Their architecture consists of one or more Wireless Lan Controllers (WLCs), which performs the responsibilities of regular APs, 
 but also performs RRM, through grouping, leader election, dynamic channel assignment and transmit power control. Regular APs that 
-are not WLCs, tunnel all their packets through the WLC unit they are registered with \cite{cisco_2009}. There are many finesses and details to the Cisco RRM, here we will only present the
+are not WLCs, tunnel all their packets through their associated WLC unit \cite{cisco_2009}. There are many finesses and details to the Cisco RRM, here we will only present the
 major concepts.
 
 \subsubsection{RF-Grouping}
@@ -35,7 +35,7 @@ its RF-group. All APs track a set of metrics which tells something about its tra
 These metrics together end up in a unified metric called the Cost Metric, and the Cost Metric is then reported to the RF-leader. 
 The DCA algorithm looks at the AP with the lowest cost metric first, meaning the AP with the worst QoS. The transmission channel can be changed for
 this AP, and all 1-hop neighbours of this AP, but no AP further away than 1-hop. This is to prevent impacting APs throughout the RF-group.
-That process is repeated, computing several channel plans, and at last, all the channel plans are evaluated through a cost function
+That process is repeated, computing several channel plans, and at last all the channel plans are evaluated through a cost function
 to see if the Cost Metric has improved for the AP, without degrading the Cost Metric for neighbouring nodes. If an improvement is seen
 then the channels are changed, and the algorithm moves on to the next AP on the list of low Cost Metrics.  
 
@@ -62,18 +62,19 @@ in the network are called HiveAPs, and they offer services such as
 				if the new HiveAP has a low enough load to handle more clients. It would also know if other neighbouring APs are better suited to handle the load of the new client.
 				This is achieved by withholding probe responses.
 
-	\item Channel allocation: by using the Aerohive Channel Selection Protocol, HiveAPs tries to select the channel with the lowest co-channel interference. Their channel selection protocol uses 5 measurements, two static and 3 dynamic to determine which channel has the lowest amount of interference:
+	\item Channel allocation: by using the Aerohive Channel Selection Protocol, HiveAPs tries to select the channel with the lowest co-channel interference. Their channel selection protocol uses 5 measurements, two static and 3 dynamic to determine which channel has the lowest amount of interference.
 	The first static measurements is the number of nearby APs who are operating on the same channel. The more APs there are the higher the penalty.
 		The other static cost factor is what power level can be transmitted at the given channel, as this may differ on some 5GHz non-overlapping channels.
-		The dynamic measurements are CRC-error rate, channel utilization, and the utilization of overlapping APs. 
+		The dynamic measurements are CRC-error rate from the PPDU header, channel utilization, and the utilization of overlapping APs. 
 		Based on all these metrics, each channel gets a channel cost, and the HiveAP picks the channel with the lowest cost. 
 
 
 \end{itemize}
 \subsection{Comparison and assessment}
-		An important difference between HiveOS and the other two solutions is that HiveOS connects to Aerohive's cloud service to performs tasks as association and load balancing.
-		This eliminates the need for a central controller, and largely removes the risk of being single points of failures, albeit they still rely on the Aerohive service. 
-		HiveAP's channel allocation scheme uses mostly local observations to control select channel, but if there are other HiveAPs nearby, the channel selection is negotiated between the HiveAPs
+		An important difference between HiveOS and the other two solutions is that HiveOS connects to Aerohive's cloud service to perform tasks as association and load balancing.
+		This eliminates the need for a central controller, and largely removes the risk of being physical single points of failures, albeit they still rely on the Aerohive service
+		which still is a single point of failure. 
+		HiveAP's channel allocation scheme uses mostly local observations to control the selected channel, but if there are other HiveAPs nearby, the channel selection is negotiated between the HiveAPs
 		based on the amount of neighbours each AP has. This is different from the Cisco system, which optimizes channel allocation by adjusting the channel of 1-hop neighbours as well. This
 		assumes that nearby APs are under the same RF-group as each other.
 
@@ -81,17 +82,17 @@ in the network are called HiveAPs, and they offer services such as
 
 		What is common for all solutions is the need for proprietary hardware for it to work. It does not fit well with the nomadic routers today, where
 		house and apartment owners bring their own routers and access points when they move.
-		HiveOS has arguably the model that would works best in residential areas, as the introduction of more HiveAPs would only increase the benefit of their channel allocation scheme. 
+		HiveOS has arguably the model that would work best in residential areas, as the introduction of more HiveAPs would only increase the benefit of their channel allocation scheme. 
 
 		The use of RF-neighbourhoods in Cisco RRM is a testament to the importance of being able to define collaborative access points that in some way enables reevaluation of
 		the channel distribution throughout the entire neighbourhood. Such RF-neighbourhoods are what we seek to define with a distributed clustering algorithm.
 
 \section{ResFi}
 \subsubsection{Description}
-ResFi \cite{resfi} is an protocol that aims to enable self-organized management in residential deployments of wireless LAN through communication between access points.
+ResFi \cite{resfi} is a protocol that aims to enable self-organized management in residential deployments of wireless LAN through communication between access points.
 
 ResFi assumes that all access points have two interfaces, one connected to a wired backhaul (like the Internet), and another
-802.11 compatible wireless interface. ResFi communicates with the device that interfaces with the antenna, which in most residential homes will be a router. This control the operating channel and the transmission power levels of the antenna. In short ResFi enables communication between access points under different basic service sets, without imposing a central controller on the access points or
+802.11 compatible wireless interface. ResFi communicates with the device that interfaces with the antenna, which in most residential homes will be a router. This controls the operating channel and the transmission power levels of the antenna. In short ResFi enables communication between access points under different basic service sets, without imposing a central controller on the access points or
 requiring them to be a part of an extended service set. If two access points are running ResFi and are within physical hearing range of each other, then ResFi 
 establishes a secure communication channel between these APs over the wired backhaul. ResFi enables all of this without doing any modifications to hardware and drivers (like modifying standards or requiring proprietary equipment). 
 
@@ -107,12 +108,13 @@ communication channel between access points to run a distributed clustering algo
 
 
 \section{Channel allocation using DSATUR} 
+\ref{chap:dsatur}:
 This section is dedicated to previous work done using the DSATUR heuristic.
 
 DSATUR (from degree of saturation) is a heuristic created by Daniel Brélaz \cite{Brelaz} to find solutions to the NP-hard problem of coloring the vertices of a graph so that no adjacent vertices share the same color.  With a network topology mapped out, this heuristic can be used to optimize the distribution of channels. This is done by treating access points as vertices in a graph, and different channels as colors. Vertices connected by an edge indicates that the two access points can physically hear each other, weight of the edge being the strength of which they can observe each other.  An
 important property of DSATUR its deterministic nature. Meaning that if different access points have an equal graph, then all access points will compute the same channel distribution.
 
-Channel allocation schemes relying on the DSATUR algorithm has been proposed before. In 2004 a paper was published, called
+Channel allocation schemes relying on the DSATUR algorithm have been proposed before. In 2004 a paper was published, called
 "Automatic channel allocation for small wireless local area networks using graph colouring algorithm approach" \cite{mahonen}.
 
 The paper suggest building the graph by using flooding, and its done in the following way:
@@ -129,19 +131,19 @@ This protocol does in fact identify a cluster of access points. However, the flo
 would most likely not work well today. In 2004 the low density of access points meant that the protocol would converge quickly, but in some areas today it might never converge because
 of the vast amount of access points. If it did converge, the amount of nodes in the graph could potentially be way beyond what is plausible to solve when the problem is NP-hard and with the computational power of an access point. 
 
-What it lacks is a way to constrain the size of the graph, and a method to distinguish more disturbing nodes from nodes that causes little interference.
+What it lacks is a way to constrain the size of the graph, and a method to distinguish more disturbing nodes from nodes that cause little interference.
 
 %
 \section{Distributed clustering in ad-hoc networks}
 This section is dedicated to briefly address distributed clustering algorithms used in ad-hoc networks.
 
-In ad-hoc networks all access points in the network has to implement a routing mechanism with the goal of establishing end-to-end communication 
-between APs without a wired backhaul network. As all APs has to act as routers, they have the roles of sending routing messages, as well as relaying data messages
-going to and from neighbouring nodes. If the ad-hoc network structure is flat, routing does not scale well. Thus, just as the Internet, ad-hoc networks benefits
-from creating a hierarchical topology. Algorithms such as DCA, DMAC  and GDMAC \cite{Basagni} seeks to partition network topologies into clusters to form a hierarchical network structure.
+In ad-hoc networks all access points in the network have to implement a routing mechanism with the goal of establishing end-to-end communication 
+between APs without a wired backhaul network. As all APs have to act as routers, they have the roles of sending routing messages, as well as relaying data messages
+going to and from neighbouring nodes. If the ad-hoc network structure is flat, routing does not scale well. Thus, just as the Internet, ad-hoc networks benefit
+from creating a hierarchical topology. Algorithms such as DCA, DMAC  and GDMAC \cite{Basagni} seek to partition network topologies into clusters to form a hierarchical network structure.
 Common for these algorithms is that information flow between clusters go through so called Cluster Heads (CH). These clustering algorithms focuses on finding CHs that will hold routing information and topology information. The purpose is that every neighbouring node can route their inter-cluster traffic through the CH node, to simplify addressing and reduce routing traffic \cite{Mamalis}.
 
-According to \cite{Basagni} , the following properties has to be satisfied for any ad-hoc clustering algorithm:
+According to the paper which describes the previously mentioned algorithms \cite{Basagni}, the following properties have to be satisfied for any ad-hoc clustering algorithm:
 \begin{enumerate}
 	\item Every node in the topology that is not a CH, has a CH as a neighbour.
 	\item All nodes select the neighbouring CH which has the highest weight
@@ -149,7 +151,7 @@ According to \cite{Basagni} , the following properties has to be satisfied for a
 \end{enumerate}
 
 These clustering algorithms are mainly concerned with identifying 1-hop cluster heads. Hence, even though the naming is similar, the goal of these clustering algorithms is
-different from the purposes of the distributed clustering algorithm we develop in this thesis.
+different from the purposes of the distributed clustering algorithm we develop in this thesis.  
 %They seek to in some way minimize traffic, power, 
 %In our clusters should focus on minimizing the interference between clusters, as well as constraining the cluster size.  
 

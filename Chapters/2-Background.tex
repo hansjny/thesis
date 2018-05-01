@@ -24,7 +24,7 @@ Even if the surrounding environment is mostly open space, the wireless signal be
      \subsubsection{The hidden terminal problem}
      The hidden terminal problem is one of the major challenges for wireless technologies, and a brief explanation of the problem will be offered here.
 		 When node A transmits a message to node B, it may not be able to sense what is going on
-     on the opposite side of node B. If a node C transmits at the same time, this signal may not enter node A's sensing range, and
+     at the opposite side of node B. If a node C transmits at the same time, this signal may not enter node A's sensing range, and
      hence go undetected by, even though a collision has happened near node B. This is illustrated in figure \ref{fig:hiddenterminal} where
      both A and C has unknowingly sent messages at the same time, and B has not been able to decode either of the two, as they have been corrupted during
 		 transmisison due to the collision. 
@@ -43,11 +43,11 @@ Even if the surrounding environment is mostly open space, the wireless signal be
 		\subsection{Basic Service Set}
 		A basic service set (BSS) in infrastruture mode consists of a single access point (AP) connected by wire to a distribution system (in residential deployment the distribution system is typically the ISP).
 		Stations within the basic service area, which is the area physically serveable by the AP, can connect to the BSS using dynamic access point association, described
-		in \cite{std80211}. A minimalist BSS infrastructure is illustrated in \ref{fig:basicserviceset}. It also worth mentioning that a BSS can also be configured to operate as an independent
+		in \cite{std80211}. A minimalist BSS infrastructure is illustrated in \ref{fig:basicserviceset}. It is also worth mentioning that a BSS can also be configured to operate as an independent
 		basic service set, where there is no infrastructure in place (no APs), and communication is direct between stations. This is more commonly known as ad-hoc mode.
 		
 		One basic service set per household is the typical infrastructure in residential networks, but it is not uncommon to have multiple basic service sets in larger homes,
-		where APs are placed on different floors to have a better signal strength. Usually these APs have different service set identifiers (SSIDs), and each requires its own authentication.
+		where APs are placed on different floors to achieve better signal strength. Usually these APs have different service set identifiers (SSIDs), and each requires its own authentication.
 		This is because the APs are not under the same extended service set. 
 
 		 \begin{figure}
@@ -60,7 +60,7 @@ Even if the surrounding environment is mostly open space, the wireless signal be
 		\subsection{Extended Service Set}
 		An extended service set (ESS) can consist of multiple basic service sets, and thereby APs. The extended service set is a logical entity which can extend station
 		authentication and association to all APs under the same extended service set. In an ESS the SSID of all APs are also identical. This means a station (STA) can be in the basic service area of
-		multiple APs at the same time, and is given the opportunity to select which AP to be serviced by. APs in an ESS can operate on different channels, and the medium access control
+		multiple APs at the same time and is given the opportunity to select which AP to be serviced by. APs in an ESS can operate on different channels, and the medium access control
 		mechanisms are performed as usual. Figure \ref{fig:extendedserviceset} illustrates the infrastructure of an extended service set.  
 
 		 \begin{figure}
@@ -84,7 +84,7 @@ Even if the surrounding environment is mostly open space, the wireless signal be
      \item \textbf{Physical carrier sensing} handled by the physical layer (PHY) as Clear Channel Assessment (CCA), which we will talk about in the PHY subsection.
      \item \textbf{Virtual carrier sensing} is a MAC layer mechanism in place to limit the number of times
      a node has to request CCA from the physical layer. When a valid 802.11 frame is decoded on a listening wireless network interface, it can read the duration of
-     the transmission from the MAC header. The frame with a duration is called a Network Allocation Vector (NAV). When a NAV is received 
+     the transmission from the MAC header. The frame containing a duration is called a Network Allocation Vector (NAV). When a NAV is received 
      the channel is marked as busy and the node will refrain from transmitting and also refrain from rechecking the channel for the duration of the NAV. 
      \end{itemize} 
 
@@ -107,7 +107,7 @@ CSMA/CA attempts to avoid collisions and is helpful in a network layout that inc
 	for DIFS time, a node has to wait another  random number of milliseconds before transmitting. This is called backoff.
 	The amount of backoff is randomly chosen from a contention window (CW). The contention window has a low start size,
 	called $CW_{\text{min}}$. A node draws a backoff time in the range $(0, 2^n*CW_{\text{min}})$, where $n$ is the number 
-	of times the transmission has failed, beginning at $n=0$, and $CW_{\text{min}}<CW_{\text{max}}$.
+	of times the transmission have failed, beginning at $n=0$, and $CW_{\text{min}}<CW_{\text{max}}$.
 	\end{itemize}
 
 	\subsection{Distributed Coordination Function}
@@ -144,7 +144,7 @@ CSMA/CA attempts to avoid collisions and is helpful in a network layout that inc
 	that consists of 3 parts. The preamble, the header and the frame from the MAC layer
 	called MAC Service Data Unit (MSDU). The frame structure
 	has a long and short format, and changes a little bit for High Rate DSSS (HR-DSSS),
-	but contains mostly the same fields.
+	but contains mostly the same fields. This is the structure of a PPDU header:
 
 	%\begin{figure}
 	%\center
@@ -178,7 +178,7 @@ CSMA/CA attempts to avoid collisions and is helpful in a network layout that inc
 	\item CCA-CS (CCA Carrier/Sense) detects a valid 802.11 frame and can
 	properly decode the header fields of a valid PPDU frame.
 	The channel gets marked as busy for as long as the length
-	field in the PPDU header specifies, even if the obvserved
+	field in the PPDU header specifies, even if the observed
 	signal is weaker than the ED threshold. 
 	\end{itemize}
 
@@ -186,7 +186,7 @@ CSMA/CA attempts to avoid collisions and is helpful in a network layout that inc
 	Radio Frequency Interference (RF-interference) is the result
 	of two or more signals being transmitted on the same frequency at the same time.
 	A receiver will have problems deciding which parts of the signals 
-	belongs to which transmitter, and the signal may altered to the extent
+	belongs to which transmitter, and the signal may be altered to the extent
 	that bits are changed or misrepresented. As the 2.4 GHz band that 802.11
 	utilizes is a part of the Industrial, Scientific and Medical (ISM) band, channel noise or interference
 	can come from sources such as microwaves, bluetooth devices and radio controllers, in addition to other Wi-Fi devices. 
@@ -207,10 +207,10 @@ CSMA/CA attempts to avoid collisions and is helpful in a network layout that inc
 	the contention window will increase, and the frequency of which a transmitter is granted access to the medium will be reduced. Thus, interference is severely damaging for QoS on wireless networks.   % The correct formula for EIFS is $DIFS + SIFS + lowest transmission time" 
 
 	\subsection{Countermeasures}
-	Several countermeasures to limit the impact of RF-interference has been suggested.
+	Several countermeasures to limit the impact of RF-interference have been suggested.
 	On the MAC layer there is frame aggregation with individual headers.
 	Frame aggregation in 802.11n is a technique that wraps several payloads under the same
-	header and send them together at the same time, once channel access is granted. This can improve the throughput
+	header and sends them together at the same time, once channel access is granted. This can improve the throughput
 	if the channel is clear, but if the frame gets corrupted during transmission
 	an increased amount of data is lost.
 	Therefore it can be beneficial to aggregate a frame with individual headers.
@@ -245,5 +245,85 @@ CSMA/CA attempts to avoid collisions and is helpful in a network layout that inc
 	National Information Infrastructure (UNII) band, which offers more frequencies \cite{5ghz}.
 	Other than that the properties and challenges for the different bands are ultimately the same.
 	The distribution of the frequencies on the 2.4 GHz band to the different channels is illustrated by figure \ref{fig:channels}. The frequencies listed are the center frequencies of each channel. In practice this means that an AP that transmits on one channel will interfere with close channels in both directions. Two channels are entirely non-interfering if they send on two frequencies  $f_{1}$ and $f_{2}$ so that $|f_{1} - f_{2}| > 0.025$. This means that there are in total three completely non-overlapping channels, 1, 6 and 11. The process of deciding which channel to transmit on is called channel allocation. 
+
+
+\section{Relevant clustering methods}
+This section introduces some of the clustering methods that will be used in this thesis.
+
+\subsection {Hierarchical Agglomerative Clustering}
+Hierarchical agglomerative clustering works in a bottom-up, greedy approach. This means that the algorithm
+begins at the bottom node level, instead of considering the entire topology at once.
+The starting number of clusters is the same as the number of points in the data set. Based on a specified \textit{distance metric} the two clusters that are closest to one another is merged into combined cluster. The clustering is complete
+when there is only one cluster left \cite{murtycluster}. It falls under hierarchical clustering category, because the cluster subsets are iteratively being built for each merge and a dendrogram
+that encompasses all sub-clusters can iteratively be constructed. An example of agglomerative clustering used on two dimensional data points can be seen in figure \ref{fig:agglomerative}
+with its respective dendrogram. 
+
+\subsubsection{Distance metric}
+The distance metric lets us specify exactly what the distance between two clusters signifies. As each cluster usually consists of several nodes, there are multiple
+options for what the distance between two clusters could be defined as. The distance metrics used in hierarchical clustering are typically either:
+
+\begin{itemize}
+	\itemsep0em 
+	\item The average distance between the nodes of each cluster
+	\item The minimum distance between the nodes of each cluster
+	\item The maximum distance between the nodes of each cluster
+\end{itemize}
+
+
+\begin{figure}
+		\centering
+		\subfloat[Cluster formation]{{\includegraphics[width=6.5cm]{Images/agglomerative.png} }}%
+		%\qquad
+		%\qquad
+		\subfloat[Dendrogram representation]{{\includegraphics[width=6.5cm]{Images/dendrogram.png} }}%
+	\caption{Agglomerative clustering}
+	\label{fig:agglomerative}
+\end{figure}
+
+
+%\subsubsection{Assessment}
+%Agglomerative clustering provides us with the basic framework for an algorithm we can use to create access point groups. It begins by considering the nodes which
+%observe each other as the closest nodes. However, there are two points where agglomerative clustering fails to meet our requirements: 
+
+%\begin{itemize}
+	%\item There is no upper limit to the amount of nodes in each cluster.
+	%\item As the clustering algorithm will be running distributed, a decision has to be made with only the local distance observations at hand.
+		%Assuming that there exists two groups that finds each other the closest (most disturbing), might prove a fallacy. Signal strengths are observed locally, and while one node observes another with a given signal strength, the mutual observation might be a different one. A situation like this could create a deadlock where there exists no combination of group pairs where both observes the other
+		%as the closest group. 
+%\end{itemize}
+
+%The first point has the trivial solution of checking the number of nodes before accepting a merge,  and would only be a slight implementation change of agglomerative clustering. 
+%The second point forces us to change the paradigm of always finding two mutually closest groups. 
+
+
+
+\subsection{K-means}
+The standard K-means algorithm, also called Lloyd's algorithm as it was first suggested by Seth Lloyd in \cite{sloyd}, is a clustering algorithm often used for cluster analysis, but also classification purposes in machine learning and unsupervised learning \cite{Coates2012}. K-means is an iterative algorithm designed to find a predefined amount of clusters in a data-set with unclassified data points. The amount of clusters to find is denoted by
+K (hence K-means). 
+
+In the default version of Lloyd's algorithm K centroids are randomly placed somewhere in the data set, then the distance between each data point and each centroid is computed. All data points
+closest to the same centroid becomes part of the same cluster set. When all data points are associated with a cluster, each cluster computes the mean position of all its data points.
+The value of the mean position becomes the location of the new centroids. When all the new centroids are computed, one iteration is over. The algorithm continues until the position 
+of all centroids remains unchanged after an iteration. When the position of the centroids are the same two iterations in a row, it means that the solution has converged and all K-clusters has been identified \cite{mackaymeans}.
+
+\begin{figure}[t!]
+	\centering
+		\subfloat[Original dataset]{{\includegraphics[width=4.5cm]{Images/kmeans0.png} }}%
+		\qquad
+		\qquad
+		\subfloat[Two centroids (diamond shapes) randomly placed and cluster memberships calculated]{{\includegraphics[width=4.5cm]{Images/kmeans1.png} }}%
+
+
+		\subfloat[The positions of centroids and the cluster memberships are updated]{{\includegraphics[width=4.5cm]{Images/kmeans2.png} }}%
+		\qquad
+		\qquad	
+		\subfloat[The clusters have converged]{{\includegraphics[width=4.5cm]{Images/kmeans3.png} }}%
+		\caption{Illustration of the K-means clustering algorithm}%
+		\label{fig:mincutresults}%
+\end{figure}
+
+
+A well known problem with K-means is that the result strongly depends on how the algorithm is initiated. It always converges to the local minimum, and has no way of transcending this local minimum
+This problem can be reduced by running K-means several times and choosing the best result of all the runs. 
 
 

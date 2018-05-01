@@ -3,8 +3,7 @@ This chapter is dedicated to the creation of a program that generates and visual
 The data will be used in chapter \ref{chap:clustering} where there will be demand for data to simulate the distributed clustering algorithm. Storing the data,
 the data structure type, and finally how it can be visualized in a web application are also matters which will be addressed here. 
 
-A testbed would also be beneficial for development, but it would require a large amount of routers and is impractial.
-Hence, the data is gathered with the motivation of being able to perform realistic calculations and do algorithm development on a money-, and time budget.
+A testbed would also be beneficial for development, but it would require a large amount of routers and is not within the scope of the thesis. 
 
 \section{Requirements and assumptions}
 This section will cover the requirements and assumptions for a data generation-, and visualization program. 
@@ -17,7 +16,7 @@ consider the state an access point would be in when group creation is performed.
 An access point is not in the transmission (CSMA/CA) state when performing channel allocation. This is simply due to the toughness of performing channel sensing without
 having a channel to sense. So, which state is it in then? Well, it is hard to say without having a bird's eye view of a protocol and algorithm architecture. A fully developed protocol
 for distributed group-creation in residential deployed Wi-Fi is at the time of writing (and to the author's knowledge) non-existent. Nor will a full-fledged architecture be presented in
-this thesis (even though suggestions will be made at the end), so a couple of assumptions has to be made. 
+this thesis (even though suggestions will be made in chap \ref{chap:proto}), so a couple of assumptions has to be made. 
 
 \subsubsection{Assumptions}
 The access points are in a state we can call the group discovery state, where the goal is to find or create a group to be a part of.
@@ -27,13 +26,13 @@ have to occur before channel allocation is performed.
 Hence, to simulate group creation and discovery, many of the access point properties does not have to be considered. Actually it is only necessary to store two things:
 \begin{itemize}
 	\item Each access point's SSID, as a convenient way to provide a unique identification handle \footnote{In the real world this is of course not the case,
-but we will enforce it in the computations. Actually it could just as well be called an unique id.}
-	\item The list of neighboring access points that can be seen through a Wi-Fi interface scan on each access point, along with the observed signal strength of these APs.
+but we will enforce it in the computations. Actually it could just as well be called a unique id.}
+	\item The list of neighbouring access points that can be seen through a Wi-Fi interface scan on each access point, along with the observed signal strength of these APs.
 \end{itemize}
-Channel frequency, radio power and data rate are properties that impacts data transmission between clients and access points, and does not need to a 
+Channel frequency, radio power and data rate are properties that impacts data transmission between clients and access points, and does not need to be a 
 part of this model. 
+In all succeeding simulations nodes are transmitting with equal strength, and the environment is flat and obstacle free. 
 
-In all succeeding simulations it is assumed that all nodes are transmitting with equal strength, and that the environment is flat and obstacle free. 
 
 \subsubsection{Requirements}
 This subsection describes the requirements for a program that will both generate and represent Wi-Fi network topologies. Having a clear specification of the program requirements
@@ -41,15 +40,15 @@ simplifies the programming stage and reduces the risk of feature creep.
 
 As a basis for the simulation, access points, hereupon also referred to as nodes, should be placed on a two-dimensional grid. Each dataset has to contain a set of nodes which has two coordinates $x$ and $y$, giving them a position on the grid. When all desired nodes are placed on a grid, the grid represents a network topology. It will then be possible to compute an
 estimation of which nodes can hear each other over the Wi-Fi radio. In other words, a virtual network interface scan. All computed neighbour nodes will be added to each node's
-neighbour list. This neighbour list contains the names of all the nodes it can hear, and the signal strength levels measured in $-dBi$.
+neighbour list. This neighbour list contains the names of all the nodes it can hear, and the signal strength levels measured in decibels relative to isotropic ($dBi$).
 
 Additionally the following parameters should be variable in the topology generation program, depending on each test scenario:
 
 \begin{itemize}
-	\item Topology size with the possibility to give variable width of x- and y-axis as input arguments. These unit of the axes is meters. 
+	\item Topology size with the possibility to give variable width of x- and y-axis as input arguments. The unit of the axes is meters. 
 	\item Number of nodes to place on the topology
 	\item Minimum distance between nodes (in meters). This is only to avoid unlikely placement and extreme interference of nodes that are placed on top of each other. 
-	\item Minimum loudness measured in $-dBi$ for a node to account another node as a neighbour (e.g -100 is too low for anyone to hear).
+	\item Minimum loudness measured in $dBi$ for a node to account another node as a neighbour (e.g -100 is too low for anyone to hear).
 \end{itemize}
 
 
@@ -93,7 +92,7 @@ Additionally the following parameters should be variable in the topology generat
 		\label{fig:dbiCreation}
 	\end{figure}
 
-	All neighbouring nodes observed by a node is added to its list of neighbours. The neighbour list contains the signal strength in $-dBi$ and the SSID of each neighbour.
+	All neighbouring nodes observed by a node is added to its list of neighbours. The neighbour list contains the signal strength in $dBi$ and the SSID of each neighbour.
 	The signal stength levels between access points are calculated by iterating through every access point. For each node $N$ its x and y position is recorded,
 	and then a second iteration through the nodes is initiated, resulting in a complexity of $O(N^2)$. For each node $n$ in the second iteration the distance $d$ in
 	meters between $N$ and $n$ using Euclidean distance is calculated.
@@ -112,12 +111,12 @@ Additionally the following parameters should be variable in the topology generat
 
 	\subsubsection{Program result}
 	The resulting program, written in Python 3 \cite{Python3}, contains an importable \textit{topology class}. This way, for further testing different data
-	sources can be used to get the positions of nodes, and only let the topology class compute the list of neighbours and standarize the data structure of a topology.
+	sources can be used to get the positions of nodes, and only let the topology class compute the list of neighbours and standardize the data structure of a topology.
 
 The program can be run in the following way
 \begin{verbatim}./GenerateTopology.py -n 500 -w 100 -h 100 --space 10 --dbi 80 \end{verbatim}
 Which instructs the program to create a topology with 500 nodes. The topology should be 100 by 100 meters large, and there should be at least 10 meters
-between each node. The $dbi$ parameter makes sure that only nodes which can be heard with a $-dBi$-value of $-80$ or larger should appear in the neighbour list. 
+between each node. The $dbi$ parameter makes sure that only nodes which can be heard with a $dBi$-value of $-80$ or larger should appear in the neighbour list. 
 
 The entire program can be viewed on GitHub\footnote{\url{https://github.com/hansjny/GroupSimulations/blob/master/GenerateTopology.py}}.
 
@@ -196,7 +195,7 @@ for data gathering to a higher daily data limit.
 \subsection{Data quality}
 WiGLE determines the geographical coordinates of the position of each access point using weighted-centroid trilateration \cite{Sharma}. 
 This means the AP location is not necessarily accurate:
-if the measurements of an access point signal strength is done in multiple places (in a way that a line between the measurement locations surrounds the access point),
+if the measurements of an access point's signal strength is done in multiple places around the access point location
 the access point location becomes very precise. On the other hand, if the measurements are taken on only one side of the access point,
 the measurements are heavily shifted towards that side. This tendency can be observed
 when zooming in on many Norwegian towns where most access points seem to be positioned on the road. This is obviously not right, but as most observations
@@ -217,7 +216,7 @@ Even though the data is not perfect, it is safe to say it is better suited to im
 	\subsubsection{Overview}
 	WiGLE has a REST API that can be used to retrieve information from their database. The API responds to requests with JSON data. It gives access to a
 	number of services such as user profile management, large-scale statistical information about the collected data
-	and more specific network searches. An interactive guide to the public API is available at \cite{WigleAPI}. 
+	and more specific network searches. An interactive guide to the public API is available at Wigle's API reference \cite{WigleAPI}. 
 
 \begin{figure}
 	\scriptsize
@@ -236,7 +235,7 @@ Even though the data is not perfect, it is safe to say it is better suited to im
 	By issuing an API request for nodes between two latitudes and two longitudes, the response is an array with AP objects within that area.  
 	An API request will look something like what can be seen in figure \ref{fig:wigReq}. 
 	The parameters $latrange1$ and $longrange1$ are the coordinates that marks the beginning of the area of interest, while $latrange2$ and $longrange2$ marks the end. 
-	To be meaningfully create a network topology based on the API request, information about \textit{all} access points within the specified range is desired. Alas, as it happens
+	To create a network topology based on the API request, information about \textit{all} access points within the specified range is desired. Alas, as it happens
 	WiGLE returns at most 100 results per query. This means if there are more than 100 access points, the $start$
 	parameter has to be changed. This parameter tells WiGLE at which offset to begin fetching data from. For instance a start value of $0$ instructs it to fetch the first 100 access points, with indexes 0-99. A value of $100$ means that the next 100 APs in the range $100-199$ is fetched, and so on. The JSON response for a succesful request for one AP can be seen in figure \ref{fig:wigle}. 
 
@@ -270,12 +269,12 @@ Even though the data is not perfect, it is safe to say it is better suited to im
 \label{fig:wigle}
 \end{figure}
 
-The JSON-object in the response contains quite a lot of information about all of the APs retrieved. Most of this data is redundant information, but it is worth noting that some of it could be used to perfect the search. For instance the "last updated"-parameter could be a way to refine the access points retrieval so access points which have been long gone is not fetched. The most valuable properties are $trilong$ and $trilat$. As the names suggest these contain the estimated coordinates of each access point.
+The JSON-object in the response contains quite a lot of information about all of the APs retrieved. Most of this data is redundant information, but it is worth noting that some of it could be used to perfect the search. For instance the "last updated"-parameter could be a way to refine the access points retrieval so access points which have been long gone are not fetched. The most valuable properties are $trilong$ and $trilat$. As the names suggest these contain the estimated coordinates of each access point.
 
 \subsubsection{The Haversine Formula}
 As seen in the previous section, WiGLE provides data about the location of access points and a way to retrieve this data in a usable format. 
 At this point a program that operates directly on the retrieved longitudes and latitudes could be made, but the problem is that the previous work relies on a two
-dimensional Cartesian coordinate system. To be able to reuse what we have have already built, the global coordinates has to be translated into distances.
+dimensional Cartesian coordinate system. To be able to reuse what we have have already built, the global coordinates must be translated into relative distances.
 
 The haversine formula \cite{virtues} can be used to accurately compute the great-circle distance between two global coordinates.
 
