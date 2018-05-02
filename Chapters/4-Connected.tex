@@ -19,7 +19,7 @@ is an NP-hard problem, we have to set some reasonable constraints on the size of
 
 Let us for a moment look at an ideal example: a city that only consists of small apartment buildings that are entirely isolated from signals from other adjacent apartment buildings.
 How could we build a group in such a case? Turns out it is not that hard. Each access point would be able to collaborate with every other observable access point. A simple flooding mechanism
-as suggested by a paper from 2004\cite{mahonen} and described in section \ref{chap:dsatur}, could allow routers to discover each other. When computing channel distribution there would be no risk of surpassing the viable amount of nodes to compute the distribution for, as the groups would naturally be limited to the apartment building.
+as suggested by a paper from 2004 \cite{mahonen} and described in section \ref{chap:dsatur}, could allow routers to discover each other. When computing channel distribution there would be no risk of surpassing the viable amount of nodes to compute the distribution for, as the groups would naturally be limited to the apartment building.
 
 Alas, in the real world this would not be not be possible. The density of Wi-Fi deployment today is too high, and it is not impossible that every access point in e.g. Manhattan can observe each other through a transitive relation. This means that if a method that simply floods the network to create a collaborative groups was to be used, the amount of nodes in the group could end up being millions.
 Flooding mechanisms would saturate the network with update mechanisms, local list describing which other nodes was in the group would be too large. Coordination between millions of peers
@@ -125,6 +125,8 @@ The group framework consists of 3 classes with different responsibilities:
 	once the amount of changes returned by the GroupCollection's \verb|iterate| method is equal to zero. The results are written to file.
 \end{itemize}
 
+All of the code written in this chapter can be found on GitHub \footnote{https://github.com/hansjny/GroupSimulations/blob/master/GroupCreation.py}
+
 \subsection{Output file structure}
 The results of the group computations are written to file. The results do not only contain the resulting division of groups, but to be able to recreate the simulation
 visually, the results contains the topology of all nodes and their group membership for each iteration in the simulation process. 
@@ -186,15 +188,14 @@ containing both nodes.
 
 \section{Cluster algorithm development}
 In this section we will iteratively develop a distributed clustering algorithm by first assessing agglomerative clustering, then make modifications to 
-gradually fulfill all requirements specified in chapter \ref{chap:requirements}. All of the code written in this chapter can be found on GitHub \footnote{https://github.com/hansjny/GroupSimulations/blob/master/GroupCreation.py}.
+gradually fulfill all requirements specified in chapter \ref{chap:requirements}.
 
 \subsection{Agglomerative clustering as a starting point}
 Agglomerative clustering seems like a natural starting point. It does not need a pre-specified amount of clusters to be able to run,
 like for instance partitioning clustering needs. It has a bottom up approach, which means it works well for a distributed clustering scenario which also has to begin
 at node level. 
 
-In our test data simulations all pairs of neighbouring nodes observes each other with equal signal strength. That is because we have used the free space path loss formula to derive
-the signal strength in dBi. The major reason we wont use an unmodified hierarchical agglomerative clustering method,  is because in a real-life distributed network topology two nodes might not observe
+In our test data all pairs of neighbouring nodes observes each other with equal signal strength. The major reason we wont use an unmodified hierarchical agglomerative clustering method is because in a real-life distributed network topology two nodes might not observe
 each other with equal signal strength. If that is the case, this could lead to a gridlock situation with agglomerative clustering: all nodes are waiting to merge, but nobody can because no pair 
 of nodes observes each other as mutually close. This is illustrated in figure \ref{fig:gridlock}. 
 
@@ -295,8 +296,8 @@ the large scale images of each topology can be seen in appendix \ref{appendix:kn
 \end{figure}
 
 \subsection{Observations}
-By looking at the results of the simulations of the K-Closest Neighbour Clustering it is obvious that clusters are created that contains the nearest nodes.
-Even in the more chaotic topologies as Lillehammer there are distinct clusters that encompasses the most impactful nodes. However, there are two obvious problems with this algorithm
+By looking at the results of the simulations of the K-Closest Neighbour Clustering we can clearly see that cluster formations are created.
+Even in the more chaotic topologies as Lillehammer there are distinct clusters that seems to encompass most impactful nodes. However, there are two obvious problems with this algorithm
 which makes it unsuitable:
 
 \begin{itemize}
@@ -312,7 +313,7 @@ In the next section we will look at how we can use group splitting to offer a so
 \section{K-means splitting}
 In this section the concept of group splitting will be introduced. Group splitting might improve the K-Closest Neighbour Clustering algorithm suggested in the previous section.
 
-\subsection{Group splitting hypothesis}
+\subsection{Group splitting introduction}
 An implication created by letting one cluster merge with another without knowing if the merge is mutually beneficial, is that not all merges will be optimal.
 A way to increase the likelihood of a group ending up with the neighbouring nodes that impacts each other severely would be to accept merges that result in groups larger than K, the maximum size. 
 The group would be too large, but more likely to have the opportunity to merge with the nodes of highest impact. To reduce the group size back to K,
@@ -464,7 +465,7 @@ through one or more links which are weaker than the strongest link to a neighbou
 To utilize minimum cut as a mechanism for splitting, the groups have to be treated as directed graphs. While the data structure of the networks in the implementation is not
 originally designed for graph operations, the nature of the nodes with its neighbour lists and signal strength metrics certainly can be treated as a graph. Meaning that each node's neighbour list contains
 its outgoing edges, while the belonging signal strength value is the weight of the edge. In contrast to the K-means splitting implementation, the minimum cut implementation does not require
-a larger transient group. Instead the groups have to negotiate to know when a split can be confirmed. A flowchart illustration of the simulation implementation can be seen in figure \ref{fig:mincutflow}, showing the steps which are more closely described below. 
+a larger transient group. Instead the groups have to negotiate to know when a split can be confirmed. A flowchart illustration of the simulation implementation of the algorithm can be seen in figure \ref{fig:mincutflow}, showing the steps which are more closely described below. 
 
 \begin{enumerate}
 	\item Two groups $A$ and $B$ wants to merge, their combined size is larger than the specified group $maxSize$. The measured maximum value of signal strength between nodes in the two different
@@ -545,8 +546,7 @@ These 3 nodes are obviously less tighter connected than -45dbi, which would the 
 An improvement to the algorithm could be to change step 6, so that the minimum cut partitioning would run until no more nodes could be kicked out, even if the group size reached a tolerable size before that. This change would prevent nodes from being left in a group when their closest neighbours have been kicked out, and they would be better off in another group.
 
 \subsubsection{Simulations after re-evaluation}
-The final comparison between K-means and the new minimum cut can be seen in figure \ref{fig:mincutbug}. For the full size version of
-all four topologies on this simulation as well, see appendix \ref{appendix:mincutsplittwo}. 
+For the full size version of all four topologies on this simulation as well, see appendix \ref{appendix:mincutsplittwo}. 
 
 \begin{figure}[h]
 	\centering
@@ -619,7 +619,7 @@ but the simulation framework does not support inserting or removing nodes during
 The group computations have been based on the signal strength of all nearby access points, and the $dBi$ values that denotes all signal strengths have been calculated using the
 free space path loss formula. As distance is the only variable that affects the result of the signal strength calculation,
 it means that the signal strength levels becomes a symmetric binary relation between nodes. In the real world this is not the case, and also the reason agglomerative clustering was deemed
-less ideal. Access points may interfere with each other differently, and the signal strength values may change when there are variations in the environment. This is the reasons deadlocks could
+less ideal. Access points may interfere with each other differently, and the signal strength values may change when there are variations in the environment. These are the reasons gridlocks could
 occur if implementing regular agglomerative hierarchical clustering and the motivation behind creating K-Closest Neighbour Clustering, even though the topologies used in this thesis actually
 could work well with agglomerative clustering. We have no simulations of how groups would look if the perceived signal strength between two nodes were not mutual.
 
@@ -651,8 +651,8 @@ the K-means method was adapted to fit the clustering purpose, and not implemente
 i
 However, when comparing the K-means and the minimum cut algorithm to decide which one is the best bet for a real-world implementation of a splitting algorithm,
 the minimum cut algorithm comes off as the easiest to implement given the limited knowledge of the surrounding nodes each access point has access to.
-Most importantly, the minimum cut implementation conforms to all requirements postulated in \ref{chap:requirements}, except requirement 4. By studying the
-final topologies it is clear that there is still room for further optimization.
+Most importantly, the minimum cut implementation conforms to all requirements postulated in \ref{chap:requirements}, although by studying the
+final topologies it is clear that there is still room for further optimization and improvement on requirement 4. 
 
 The interesting results from the Davies-Bouldin from \ref{chap:bouldin} analysis is that it shows that the modified version of the minimum cut algorithm performs less well than the original one.  
 But as we saw earlier, the original version of the minimum cut algorithm produces results that are undesirable. Most likely, this means that the results

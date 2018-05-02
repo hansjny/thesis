@@ -3,7 +3,6 @@ This chapter is dedicated to the creation of a program that generates and visual
 The data will be used in chapter \ref{chap:clustering} where there will be demand for data to simulate the distributed clustering algorithm. Storing the data,
 the data structure type, and finally how it can be visualized in a web application are also matters which will be addressed here. 
 
-A testbed would also be beneficial for development, but it would require a large amount of routers and is not within the scope of the thesis. 
 
 \section{Requirements and assumptions}
 This section will cover the requirements and assumptions for a data generation-, and visualization program. 
@@ -25,8 +24,8 @@ have to occur before channel allocation is performed.
 
 Hence, to simulate group creation and discovery, many of the access point properties does not have to be considered. Actually it is only necessary to store two things:
 \begin{itemize}
-	\item Each access point's SSID, as a convenient way to provide a unique identification handle \footnote{In the real world this is of course not the case,
-but we will enforce it in the computations. Actually it could just as well be called a unique id.}
+	\item Each access point's SSID, as a convenient way to provide a unique identification handle \footnote{In the real world SSID might not be the best unique identifier,
+but we will enforce unique SSIDs in in the computations. Actually it could just as well be called a unique id.}
 	\item The list of neighbouring access points that can be seen through a Wi-Fi interface scan on each access point, along with the observed signal strength of these APs.
 \end{itemize}
 Channel frequency, radio power and data rate are properties that impacts data transmission between clients and access points, and does not need to be a 
@@ -46,9 +45,9 @@ Additionally the following parameters should be variable in the topology generat
 
 \begin{itemize}
 	\item Topology size with the possibility to give variable width of x- and y-axis as input arguments. The unit of the axes is meters. 
-	\item Number of nodes to place on the topology
+	\item Number of nodes to place on the topology.
 	\item Minimum distance between nodes (in meters). This is only to avoid unlikely placement and extreme interference of nodes that are placed on top of each other. 
-	\item Minimum loudness measured in $dBi$ for a node to account another node as a neighbour (e.g -100 is too low for anyone to hear).
+	\item Minimum loudness measured in $dBi$ for a node to account another node as a neighbour.
 \end{itemize}
 
 
@@ -333,5 +332,14 @@ The resulting python program\footnote{GitHub URL: https://github.com/hansjny/Gro
 It queries WiGLE's API for all the APs between these coordinates. As long as the number of APs in the coordinate range does not exceed the daily data limit, all the data will be stored in a topology datastructure imported 
 from the topology generation program in section \ref{prog_design}. The APs will be placed correctly relative to each other, with real world distance between them,
 based on the coordinates of each AP. 
+
+Figure \ref{fig:tynset_topo} shows the topology that is created when fetching AP information in a coordinate range corresponding to the center of the municipality Tynset in Norway. 
+
+\begin{figure}
+	\centering
+		\includegraphics[width=10cm]{Images/tynset_topo.png}
+		\caption{The Wi-Fi network topology of Tynset, Norway}%
+		\label{fig:tynset_topo}%
+\end{figure}
 
 

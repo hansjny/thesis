@@ -92,14 +92,14 @@ in the JSON-format. Table \ref{tab:resfapi} shows which functions are available 
 \subsubsection{Implementation}
 Originally ResFi was implemented on Ubuntu 14.04. It adds vendor specific information elements to the MAC-header with the IP, port, and cryptographic data. This can be done in Linux user space by using their modified version of hostapd \cite{resfigit}. As it runs on python, it could in practice be implemented on any Linux system. It uses a south-bound API to communicate with the router, and a north-bound API to enable applications to use ResFi. 
 
-\section{Architectural overview}
+\section{Component overview}
 The protocol architecture we suggest here relies on 4 main components which can be seen in figure \ref{fig:dgcpoverview}.
 In the figure the blue boxes signifies logic that has yet to be implemented, while grey boxes signifies the components that needs to pre-exist. The arrows
 represent which of the components that have to communicate with each other. In the next few subsections we address the two blue components individually.
 
 \begin{figure}
 	\includegraphics[width=\textwidth]{Images/dgcpoverview.png}
-		\caption{Architectural overview of protocol components }%
+		\caption{Overview of a protocol components }%
 		\label{fig:dgcpoverview}%
 \end{figure}
 
@@ -119,7 +119,7 @@ to relay messages from node to node, until the message reaches its destination. 
 \end{itemize}
 
 
-\subsection{Component overview }
+\subsection{Protocol responsibilities}
 This subsection is dedicated to a suggested component overview of a protocol. In order to be able to reference it, we will call it the Distributed Group Creation Protocol (DGCP). 
 A protocol would rely on the ability to directly interface with the access point radio, to execute and parse the results of the network scan. The protocol also
 needs to be able to send messages through the ResFi Overlay Network Applications to the rest of the group. It also requires direct access to the ResFi north-bound API to be able to contact 1-hop
@@ -146,7 +146,7 @@ This could be as simple as choosing the neighbours with the highest alphabetical
 We established that the protocol has to make sure all nodes in a group has to individually figure out which neighbour disturbs the most.
 The node that has the most significant disturber on their direct neighbour list, has to negotiate a merge with that node. 
 We will not address exactly how that message passing would look, but when a merge has been negotiated, and is either accepted, declined or a split is issued,
-any changes of group membership shouldd be reported to the Raft leader, so the updated group can be replicated to all members. 
+any changes of group membership should be reported to the Raft leader, so the updated group can be replicated to all members. 
 
 \subsubsection{Internal group messages}
 Group communication messages should include (but may not be limited to):
@@ -165,7 +165,7 @@ We have not directly addressed what types of messages would have to be passed in
 that the complexity could quickly become large, and it would exceed the scope of the thesis. It would be more fitting to address these topics when there is an intention of creation
 a protocol implementation to be able to test a proposed architecture in its entirety.  
 
-Hopefully this can be helpful as a starting point for a complete protocol architecture in the future. 
+Hopefully this chapter can be helpful as a starting point for a complete protocol architecture in the future. 
 
 \chapter{Conclusion}
 This chapter includes a summary of the work that has been done, a conclusion and a discussion about future work. 
@@ -192,7 +192,7 @@ also being the easiest to implement in real-life.
 
 Finally, we presented some relevant technologies that could facilitate a distributed group creation protocol, and presented an abstracted architecture of the components required for such a protocol.
 
-\section{Discussion and contribution}
+\section{Conclusion}
 In the related works chapter we discussed some centralized solutions that are meant 
 to optimize the performance of 802.11 Wi-Fi networks. But centralized solutions are single points of failures, and certainly very hard to deploy in residential networks where there
 is little homogeneity with regards to router brands or service providers. 
@@ -205,10 +205,10 @@ The next problem was about developing the clustering algorithm itself. By iterat
 technologies that could lead to a real-world implementation of a protocol that implements clustering method. This aspect was covered in chapter \ref{chap:proto}.
 
 When there are self managing, distributed clusters of access points, algorithms that uses NP-hard heuristics to compute channel distribution can once again be viable to use. This could
-potentially help resolving many of the congestion problems related to co-channel interference in 802.11.
+potentially help resolving many of the congestion problems related to co-channel interference in 802.11 that we experience today.
 
 \section{Future work}
-There is a long road ahead to be able to perform the group creation in a real-life wireless topology. This section is dedicated to presenting some possible topics of research
+There is still some way to go to be able to perform the group creation in a real-life wireless topology. This section is dedicated to presenting some possible topics of research
 that could further the vision of a decentralized, self-managing wireless AP topology. 
 
 \subsubsection{Protocol development}
@@ -230,9 +230,4 @@ be done before or together with the protocol development.
 The clustering algorithms we developed and tried in this thesis may not be the ultimate answer. We have provided a proof-of-concept for how distributed clustering can be performed using
 an algorithm that satisfies all the requirements we provided. We have not done a comparative study between other possible methods, and no detailed evaluation of the quality of the clusters has been performed. There might be different approaches to the distributed clustering problem posed in this thesis. A detailed assessment of the ones suggested here and other alternatives might be the basis for another thesis or further research.
 
-\section{Final remarks}
-When I started working with the thesis, I thought there would be time to both create a protocol and possibly begin a large scale network simulation of the protocol.
-Hence the data structure used for the clustering simulations has been a bit overcomplicated, and in retrospect I could have gotten more done if my simulation framework was simpler. 
-A lot of time has been spent on discovering and resolving bugs in the simulation software, and also verifying that the algorithms have been implemented according to specification. 
-Due to some "off-by-one"-errors a lot of time was spent getting minimum cut splitting to converge. 
 

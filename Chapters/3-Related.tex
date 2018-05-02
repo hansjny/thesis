@@ -73,7 +73,7 @@ in the network are called HiveAPs, and they offer services such as
 \subsection{Comparison and assessment}
 		An important difference between HiveOS and the other two solutions is that HiveOS connects to Aerohive's cloud service to perform tasks as association and load balancing.
 		This eliminates the need for a central controller, and largely removes the risk of being physical single points of failures, albeit they still rely on the Aerohive service
-		which still is a single point of failure. 
+		(which arguably is still is a single point of failure). 
 		HiveAP's channel allocation scheme uses mostly local observations to control the selected channel, but if there are other HiveAPs nearby, the channel selection is negotiated between the HiveAPs
 		based on the amount of neighbours each AP has. This is different from the Cisco system, which optimizes channel allocation by adjusting the channel of 1-hop neighbours as well. This
 		assumes that nearby APs are under the same RF-group as each other.
@@ -98,7 +98,7 @@ establishes a secure communication channel between these APs over the wired back
 
 The services provided by ResFi are 1-hop unicast communication and n-hop broadcast messaging between access points. These services can be valuable for an
 implementation of a distributed clustering algorithm, where access points
-may need to perform message passing between each other to coordinate and form groups. 
+may need to perform message passing between each other to coordinate and form groups. More on this in chapter \ref{chap:proto}.
 
 ResFi uses a modified version of hostapd (host access point daemon), a user space application, which means any
 protocols that runs on top of ResFi does not require modification to kernel modules or drivers. This is unquestionably a huge benefit for the development and deployment of
@@ -107,8 +107,7 @@ We will take a closer look at this technology in chapter \ref{chap:proto}, where
 communication channel between access points to run a distributed clustering algorithm. 
 
 
-\section{Channel allocation using DSATUR} 
-\ref{chap:dsatur}:
+\section{Channel allocation using DSATUR} \label{chap:dsatur}
 This section is dedicated to previous work done using the DSATUR heuristic.
 
 DSATUR (from degree of saturation) is a heuristic created by Daniel Brélaz \cite{Brelaz} to find solutions to the NP-hard problem of coloring the vertices of a graph so that no adjacent vertices share the same color.  With a network topology mapped out, this heuristic can be used to optimize the distribution of channels. This is done by treating access points as vertices in a graph, and different channels as colors. Vertices connected by an edge indicates that the two access points can physically hear each other, weight of the edge being the strength of which they can observe each other.  An
@@ -129,7 +128,7 @@ lists periodically. When the protocol converges, all access points in the area s
 
 This protocol does in fact identify a cluster of access points. However, the flooding mechanism used to identify clusters
 would most likely not work well today. In 2004 the low density of access points meant that the protocol would converge quickly, but in some areas today it might never converge because
-of the vast amount of access points. If it did converge, the amount of nodes in the graph could potentially be way beyond what is plausible to solve when the problem is NP-hard and with the computational power of an access point. 
+of the vast amount of access points, somewhere in the scale of tens or hundreds of thousands. If it did converge, the amount of nodes in the graph would most times be way beyond what is plausible to solve when the problem is NP-hard and with the computational power of an access point. 
 
 What it lacks is a way to constrain the size of the graph, and a method to distinguish more disturbing nodes from nodes that cause little interference.
 

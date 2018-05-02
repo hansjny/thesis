@@ -1,6 +1,6 @@
 \chapter{Background}
 In this chapter the relevant aspects of wireless technology and a selection of important
-concepts from the 802.11 standard will be introduced.
+concepts from the 802.11 standard will be introduced, as well as some fundamental clustering techniques that will be used later. 
 
 \section{Basic radio challenges}
 There are some challenges with wireless technologies that are harder to overcome when comparing to wired transmission technologies like Ethernet.
@@ -15,7 +15,7 @@ Even if the surrounding environment is mostly open space, the wireless signal be
      the transmit range of a radio, and to transmit further it has to increase its transmission power.
 
      \subsection{Collisions in wireless technology}
-     Given two radio devices A and B, if there are any other nodes nearby that are within radio B's sensing range that sends at the same time as A, 
+     Given two radio devices A and B, if there are any other nodes nearby that are within radio B's sensing range that transmits at the same time as A, 
      radio B experiences radio frequency interference, and thus may not be able to correctly decode the signal of A. In 802.3 Ethernet this
      is graciously handled by collision detection in the CSMA/CD protocol. As each node can hear all other nodes on a wired medium,
      and listening while transmitting is generally not a problem, a node can retransmit if a collision is detected. In wireless techhnologies
@@ -99,7 +99,7 @@ CSMA/CA attempts to avoid collisions and is helpful in a network layout that inc
 	To give priority to certain frame types, different types of frames can have different types of interframe spacing. The type of IFS is usually 
 	prefixed with the letter of the frame type. Organized by relative interval length, the differents IFS are:
 	\begin{itemize} 
-	\item Short IFS (SIFS), before ACK, RTS, CTS.  
+	\item Short IFS (SIFS), before ACK,  CTS and data frames
 	\item DCF Mode IFS (DIFS), before RTS frames (or DCF data frames if RTS/CTS is disabled)
 
 	\end{itemize}
@@ -190,6 +190,8 @@ CSMA/CA attempts to avoid collisions and is helpful in a network layout that inc
 	that bits are changed or misrepresented. As the 2.4 GHz band that 802.11
 	utilizes is a part of the Industrial, Scientific and Medical (ISM) band, channel noise or interference
 	can come from sources such as microwaves, bluetooth devices and radio controllers, in addition to other Wi-Fi devices. 
+	Because of the CMSA/CA protocol the channel can largely not be used when RF-interference is occuring, because the
+	channel is indicated as busy. 
 
 	\subsection{Impact in 802.11}
 	If the PPDU header
@@ -304,7 +306,7 @@ K (hence K-means).
 In the default version of Lloyd's algorithm K centroids are randomly placed somewhere in the data set, then the distance between each data point and each centroid is computed. All data points
 closest to the same centroid becomes part of the same cluster set. When all data points are associated with a cluster, each cluster computes the mean position of all its data points.
 The value of the mean position becomes the location of the new centroids. When all the new centroids are computed, one iteration is over. The algorithm continues until the position 
-of all centroids remains unchanged after an iteration. When the position of the centroids are the same two iterations in a row, it means that the solution has converged and all K-clusters has been identified \cite{mackaymeans}.
+of all centroids remains unchanged after an iteration. When the position of the centroids are the same two iterations in a row, it means that the solution has converged and all K-clusters has been identified \cite{mackaymeans}. An illustration of K-means can be seen in figure \ref{fig:kmeans}. 
 
 \begin{figure}[t!]
 	\centering
@@ -319,7 +321,7 @@ of all centroids remains unchanged after an iteration. When the position of the 
 		\qquad	
 		\subfloat[The clusters have converged]{{\includegraphics[width=4.5cm]{Images/kmeans3.png} }}%
 		\caption{Illustration of the K-means clustering algorithm}%
-		\label{fig:mincutresults}%
+		\label{fig:kmeans}%
 \end{figure}
 
 
