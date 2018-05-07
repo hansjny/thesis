@@ -1,29 +1,29 @@
 [0] Config.pm:343> INFO - This is Biber 2.5
 [0] Config.pm:346> INFO - Logfile is 'Oppgave.blg'
-[44] biber-darwin:290> INFO - === Wed May  2, 2018, 12:43:24
-[62] Biber.pm:351> INFO - Reading 'Oppgave.bcf'
-[161] Biber.pm:776> INFO - Found 37 citekeys in bib section 0
-[172] Biber.pm:3493> INFO - Processing section 0
-[186] Biber.pm:3657> INFO - Looking for bibtex format file 'references.bib' for section 0
-[195] bibtex.pm:1187> INFO - Decoding LaTeX character macros into UTF-8
-[202] bibtex.pm:1048> INFO - Found BibTeX data source 'references.bib'
-[250] Utils.pm:149> WARN - ISBN '111-999-5555-22-1' in entry 'Murty2' is invalid - run biber with '--validate_datamodel' for details.
-[264] Utils.pm:149> WARN - BibTeX subsystem: /var/folders/3l/jbf7f24x3v11vd_hg4zq7cp00000gn/T/QDG8tljP0u/references.bib_21224.utf8, line 23, warning: 152 characters of junk seen at toplevel
-[264] Utils.pm:149> WARN - BibTeX subsystem: /var/folders/3l/jbf7f24x3v11vd_hg4zq7cp00000gn/T/QDG8tljP0u/references.bib_21224.utf8, line 92, warning: 1 characters of junk seen at toplevel
-[268] Utils.pm:149> WARN - The field 'author' in entry '5ghz' cannot be null, deleting it
-[268] Utils.pm:149> WARN - The field 'issn' in entry '5ghz' cannot be null, deleting it
-[268] Utils.pm:149> WARN - The field 'keywords' in entry '5ghz' cannot be null, deleting it
-[268] Utils.pm:149> WARN - The field 'month' in entry '5ghz' cannot be null, deleting it
-[268] Utils.pm:149> WARN - The field 'number' in entry '5ghz' cannot be null, deleting it
-[268] Utils.pm:149> WARN - The field 'volume' in entry '5ghz' cannot be null, deleting it
-[269] Utils.pm:149> WARN - The field 'month' in entry 'Basagni' cannot be null, deleting it
-[269] Utils.pm:149> WARN - The field 'number' in entry 'Basagni' cannot be null, deleting it
-[269] Utils.pm:149> WARN - The field 'volume' in entry 'Basagni' cannot be null, deleting it
-[269] Utils.pm:149> WARN - The field 'number' in entry 'Mamalis' cannot be null, deleting it
-[315] UCollate.pm:66> INFO - Overriding locale 'en-UK' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[315] UCollate.pm:66> INFO - Overriding locale 'en-UK' defaults 'variable = shifted' with 'variable = non-ignorable'
-[315] Biber.pm:3306> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'en-UK'
-[315] Biber.pm:3310> INFO - No sort tailoring available for locale 'en-UK'
+[44] biber-darwin:290> INFO - === Wed May  2, 2018, 12:43:40
+[63] Biber.pm:351> INFO - Reading 'Oppgave.bcf'
+[159] Biber.pm:776> INFO - Found 37 citekeys in bib section 0
+[171] Biber.pm:3493> INFO - Processing section 0
+[184] Biber.pm:3657> INFO - Looking for bibtex format file 'references.bib' for section 0
+[190] bibtex.pm:1187> INFO - Decoding LaTeX character macros into UTF-8
+[195] bibtex.pm:1048> INFO - Found BibTeX data source 'references.bib'
+[241] Utils.pm:149> WARN - ISBN '111-999-5555-22-1' in entry 'Murty2' is invalid - run biber with '--validate_datamodel' for details.
+[255] Utils.pm:149> WARN - BibTeX subsystem: /var/folders/3l/jbf7f24x3v11vd_hg4zq7cp00000gn/T/yrQrJH2_X7/references.bib_21284.utf8, line 23, warning: 152 characters of junk seen at toplevel
+[255] Utils.pm:149> WARN - BibTeX subsystem: /var/folders/3l/jbf7f24x3v11vd_hg4zq7cp00000gn/T/yrQrJH2_X7/references.bib_21284.utf8, line 92, warning: 1 characters of junk seen at toplevel
+[260] Utils.pm:149> WARN - The field 'author' in entry '5ghz' cannot be null, deleting it
+[261] Utils.pm:149> WARN - The field 'issn' in entry '5ghz' cannot be null, deleting it
+[261] Utils.pm:149> WARN - The field 'keywords' in entry '5ghz' cannot be null, deleting it
+[261] Utils.pm:149> WARN - The field 'month' in entry '5ghz' cannot be null, deleting it
+[261] Utils.pm:149> WARN - The field 'number' in entry '5ghz' cannot be null, deleting it
+[261] Utils.pm:149> WARN - The field 'volume' in entry '5ghz' cannot be null, deleting it
+[262] Utils.pm:149> WARN - The field 'month' in entry 'Basagni' cannot be null, deleting it
+[262] Utils.pm:149> WARN - The field 'number' in entry 'Basagni' cannot be null, deleting it
+[262] Utils.pm:149> WARN - The field 'volume' in entry 'Basagni' cannot be null, deleting it
+[262] Utils.pm:149> WARN - The field 'number' in entry 'Mamalis' cannot be null, deleting it
+[312] UCollate.pm:66> INFO - Overriding locale 'en-UK' defaults 'variable = shifted' with 'variable = non-ignorable'
+[313] UCollate.pm:66> INFO - Overriding locale 'en-UK' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[313] Biber.pm:3306> INFO - Sorting list 'nty/global/' of type 'entry' with scheme 'nty' and locale 'en-UK'
+[313] Biber.pm:3310> INFO - No sort tailoring available for locale 'en-UK'
 [361] bbl.pm:526> INFO - Writing 'Oppgave.bbl' with encoding 'UTF-8'
-[367] bbl.pm:619> INFO - Output to Oppgave.bbl
-[368] Biber.pm:108> INFO - WARNINGS: 13
+[368] bbl.pm:619> INFO - Output to Oppgave.bbl
+[369] Biber.pm:108> INFO - WARNINGS: 13
